@@ -17,6 +17,13 @@ npm-debug.log*
 venv/
 .env/
 
+# Large media / source videos
+*.mkv
+*.mp4
+*.mov
+*.avi
+public/assets/scenes/source-videos/
+
 # Misc
 *.log
 Thumbs.db
