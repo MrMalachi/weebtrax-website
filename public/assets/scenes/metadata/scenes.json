@@ -1,0 +1,13 @@
+{
+  "id": "lain-ep01-power-lines-001",
+  "name": "Power Lines 001",
+  "episode": "lain-ep01",
+  "sourceStart": "00:03:14",
+  "sourceEnd": "00:03:22",
+  "duration": 8,
+  "moodGroup": "Power Lines / Suburban Static",
+  "matchedMixes": ["mix-047"],
+  "tags": ["power-lines", "static", "suburban", "analog"],
+  "videoPath": "/assets/scenes/clips/lain-ep01-power-lines-001.mp4",
+  "thumbnailPath": "/assets/scenes/thumbnails/lain-ep01-power-lines-001.jpg"
+}
