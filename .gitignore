@@ -24,9 +24,6 @@ venv/
 *.avi
 public/assets/scenes/source-videos/
 
-# Claude Code
-CLAUDE.md
-
 # Misc
 *.log
 Thumbs.db
