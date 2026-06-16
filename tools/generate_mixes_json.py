@@ -387,7 +387,6 @@ for i, (yt_id, yt_title, duration) in enumerate(YT_sorted, 1):
         "mood": mood,
         "views": VIEWS.get(yt_id),
         "audioPath": f"public/assets/mixes/audio/{slug}.mp3",
-        "thumbnailPath": None,
         "youtubeUrl": f"https://www.youtube.com/watch?v={yt_id}",
         "soundcloudUrl": sc_url,
     })
