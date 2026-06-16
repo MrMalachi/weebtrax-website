@@ -902,21 +902,18 @@ function SceneCard({
     }
   })), /*#__PURE__*/React.createElement("div", {
     style: {
-      display: 'flex',
-      justifyContent: 'space-between',
-      alignItems: 'flex-start',
-      gap: 8,
-      marginBottom: 8,
-      flexWrap: 'wrap'
+      marginBottom: 8
     }
   }, /*#__PURE__*/React.createElement("span", {
     style: {
+      display: 'block',
       fontFamily: WT2.display,
       fontSize: 17,
       fontWeight: 700,
       color: active ? WT2.ink : WT2.body,
       transition: 'color .2s',
-      lineHeight: 1.2
+      lineHeight: 1.2,
+      marginBottom: 6
     }
   }, name), /*#__PURE__*/React.createElement(Tag, {
     color: active ? 'var(--wt-accent)' : WT2.faint
@@ -932,9 +929,9 @@ function SceneCard({
   }, desc));
 }
 function SceneGrid() {
+  const SCENES_PER_PAGE = 9;
   const [selected, setSelected] = React.useState(null);
-  const [showAll, setShowAll] = React.useState(false);
-  const [hovBtn, setHovBtn] = React.useState(false);
+  const [page, setPage] = React.useState(0);
   const winW = useWinW();
   const cols = winW >= 1000 ? 3 : winW >= 700 ? 2 : 1;
   const SCENES = (window.__WT_SCENES || []).map(function(s) {
@@ -946,9 +943,13 @@ function SceneGrid() {
       img: '/' + s.thumbnailPath,
     };
   });
-  const DEFAULT_VISIBLE = 6;
-  const visible = showAll ? SCENES : SCENES.slice(0, DEFAULT_VISIBLE);
+  const totalPages = Math.max(1, Math.ceil(SCENES.length / SCENES_PER_PAGE));
+  const visible = SCENES.slice(page * SCENES_PER_PAGE, (page + 1) * SCENES_PER_PAGE);
   const sel = SCENES.find(s => s.id === selected);
+  function goPage(next) {
+    setPage(next);
+    setSelected(null);
+  }
   return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'flex',
@@ -965,10 +966,10 @@ function SceneGrid() {
       whiteSpace: 'nowrap',
       textShadow: sel ? '0 0 8px var(--wt-accent)' : 'none'
     }
-  }, sel ? `SELECTED SIGNAL: ${sel.name.toUpperCase()}` : 'SELECT A SIGNAL ↓')), /*#__PURE__*/React.createElement("div", {
+  }, sel ? 'SELECTED SIGNAL: ' + sel.name.toUpperCase() : 'SELECT A SIGNAL ↓')), /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'grid',
-      gridTemplateColumns: `repeat(${cols}, 1fr)`,
+      gridTemplateColumns: 'repeat(' + cols + ', 1fr)',
       gap: 16
     }
   }, visible.map(s => /*#__PURE__*/React.createElement(SceneCard, {
@@ -979,36 +980,12 @@ function SceneGrid() {
     img: s.img,
     selected: selected === s.id,
     onSelect: () => setSelected(selected === s.id ? null : s.id)
-  }))), /*#__PURE__*/React.createElement("div", {
-    style: {
-      display: 'flex',
-      justifyContent: 'center',
-      marginTop: 36
-    }
-  }, /*#__PURE__*/React.createElement("button", {
-    onMouseEnter: () => setHovBtn(true),
-    onMouseLeave: () => setHovBtn(false),
-    onClick: () => setShowAll(v => !v),
-    style: {
-      display: 'inline-flex',
-      alignItems: 'center',
-      gap: 9,
-      fontFamily: WT2.mono,
-      fontSize: 12.5,
-      fontWeight: 500,
-      letterSpacing: 1.5,
-      textTransform: 'uppercase',
-      padding: '13px 20px',
-      whiteSpace: 'nowrap',
-      cursor: 'pointer',
-      borderRadius: 0,
-      color: hovBtn ? WT2.void : 'var(--wt-accent)',
-      background: hovBtn ? 'var(--wt-accent)' : 'transparent',
-      border: '1px solid var(--wt-accent)',
-      boxShadow: hovBtn ? '0 0 18px rgba(143,191,159,0.25)' : 'none',
-      transition: 'all .18s ease'
-    }
-  }, showAll ? '↑ COLLAPSE SCENES' : '⊞ BROWSE MORE SCENES')));
+  }))), /*#__PURE__*/React.createElement(TermPageBar, {
+    page: page,
+    total: totalPages,
+    onPrev: () => goPage(page - 1),
+    onNext: () => goPage(page + 1)
+  }));
 }
 function Features() {
   const winW = useWinW();

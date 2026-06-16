@@ -63,6 +63,69 @@ function useReplayOnHidden() {
   return [ref, seen];
 }
 const MOOD_TONE = { chill: WT2.blue, nostalgic: WT2.purple, dirty: WT2.red, deep: WT2.green };
+// Shared terminal-style pagination bar used by Archive and Scenes sections.
+// TODO: Replace with server-side cursor pagination once PostgreSQL + FastAPI are connected (Phase 4/5).
+function TermPageBar({ page, total, onPrev, onNext }) {
+  const isFirst = page === 0;
+  const isLast = page >= total - 1;
+  const [hovPrev, setHovPrev] = React.useState(false);
+  const [hovNext, setHovNext] = React.useState(false);
+  const btnBase = {
+    background: 'none',
+    fontFamily: WT2.mono,
+    fontSize: 10.5,
+    letterSpacing: 1.5,
+    padding: '7px 16px',
+    cursor: 'pointer',
+    textTransform: 'uppercase',
+    transition: 'all .15s',
+    borderRadius: 0
+  };
+  return /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      gap: 20,
+      marginTop: 28,
+      flexWrap: 'wrap'
+    }
+  }, /*#__PURE__*/React.createElement("button", {
+    onClick: isFirst ? undefined : onPrev,
+    onMouseEnter: () => setHovPrev(true),
+    onMouseLeave: () => setHovPrev(false),
+    style: {
+      ...btnBase,
+      border: '1px solid ' + (isFirst ? WT2.line : 'var(--wt-accent)'),
+      color: isFirst ? WT2.faint : hovPrev ? WT2.void : 'var(--wt-accent)',
+      background: !isFirst && hovPrev ? 'var(--wt-accent)' : 'none',
+      textShadow: !isFirst && !hovPrev ? '0 0 8px var(--wt-accent)' : 'none',
+      opacity: isFirst ? 0.32 : 1,
+      cursor: isFirst ? 'default' : 'pointer'
+    }
+  }, "← PREV SIGNAL"), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontFamily: WT2.mono,
+      fontSize: 10,
+      letterSpacing: 2.5,
+      color: WT2.dim,
+      userSelect: 'none'
+    }
+  }, "PAGE " + String(page + 1).padStart(2, '0') + " / " + String(total).padStart(2, '0')), /*#__PURE__*/React.createElement("button", {
+    onClick: isLast ? undefined : onNext,
+    onMouseEnter: () => setHovNext(true),
+    onMouseLeave: () => setHovNext(false),
+    style: {
+      ...btnBase,
+      border: '1px solid ' + (isLast ? WT2.line : 'var(--wt-accent)'),
+      color: isLast ? WT2.faint : hovNext ? WT2.void : 'var(--wt-accent)',
+      background: !isLast && hovNext ? 'var(--wt-accent)' : 'none',
+      textShadow: !isLast && !hovNext ? '0 0 8px var(--wt-accent)' : 'none',
+      opacity: isLast ? 0.32 : 1,
+      cursor: isLast ? 'default' : 'pointer'
+    }
+  }, "NEXT SIGNAL →"));
+}
 function getMixes() {
   return (window.__WT_MIXES || []).map(function(m) {
     return {
@@ -376,10 +439,12 @@ function Transmissions({
   vol,
   onVolChange
 }) {
+  const ARCHIVE_PER_PAGE = 8;
   const winW = useWinW();
   const narrow = winW < 900;
   const [hover, setHover] = React.useState(-1);
   const [sortIdx, setSortIdx] = React.useState(0);
+  const [page, setPage] = React.useState(0);
   const [hovLink, setHovLink] = React.useState(null);
   const TX = getMixes();
   const activeTx = TX.find(t => t.id === activeTxId) || TX[0];
@@ -389,8 +454,11 @@ function Transmissions({
     if (mode === 'OLDEST') arr.sort((a, b) => a.date.localeCompare(b.date));else if (mode === 'A-Z') arr.sort((a, b) => a.title.localeCompare(b.title));else if (mode === 'POPULAR') arr.sort((a, b) => b.popularity - a.popularity);else arr.sort((a, b) => b.date.localeCompare(a.date));
     return arr;
   }, [sortIdx]);
+  const totalPages = Math.max(1, Math.ceil(sorted.length / ARCHIVE_PER_PAGE));
+  const pageItems = sorted.slice(page * ARCHIVE_PER_PAGE, (page + 1) * ARCHIVE_PER_PAGE);
   function cycleSort() {
     setSortIdx(i => (i + 1) % SORT_MODES.length);
+    setPage(0);
     setHover(-1);
     onReset();
   }
@@ -542,7 +610,7 @@ function Transmissions({
     style: {
       textAlign: 'center'
     }
-  }, "ACTION")), sorted.map((t, i) => {
+  }, "ACTION")), pageItems.map((t, i) => {
     const isActive = t.id === activeTxId;
     const isHov = hover === i;
     const rowBg = isActive ? 'rgba(143,191,159,0.055)' : isHov ? WT2.fill : 'transparent';
@@ -783,13 +851,12 @@ function Transmissions({
       onMouseLeave: () => setHovLink(null),
       style: hovLink === `${t.id}-sc` ? extLinkHov : extLink
     }, "SC \u2197"))));
-  })), /*#__PURE__*/React.createElement("div", {
-    style: {
-      display: 'flex',
-      justifyContent: 'center',
-      marginTop: 44
-    }
-  }, /*#__PURE__*/React.createElement(Btn, null, "Browse Full Archive \u2192"))));
+  })), /*#__PURE__*/React.createElement(TermPageBar, {
+    page: page,
+    total: totalPages,
+    onPrev: function() { setPage(function(p) { return p - 1; }); setHover(-1); },
+    onNext: function() { setPage(function(p) { return p + 1; }); setHover(-1); }
+  })));
 }
 function UplinkMeter() {
   const [ref, seen] = [React.useRef(null), true];
