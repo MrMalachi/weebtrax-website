@@ -8,8 +8,8 @@
     "episodeNumber": 1,
     "startTime": "00:00:10",
     "mood": "deep",
-    "videoPath": "public/assets/scenes/videos/episode-01_clip_t0010s.mp4",
-    "thumbnailPath": "public/assets/scenes/thumbnails/episode-01_clip_t0010s.jpg"
+    "videoPath": "public/assets/scenes/videos/episode-01_clip-01.mp4",
+    "thumbnailPath": "public/assets/scenes/thumbnails/episode-01_clip-01.jpg"
   },
   {
     "id": "scene-002",
@@ -20,8 +20,8 @@
     "episodeNumber": 1,
     "startTime": "00:00:50",
     "mood": "deep",
-    "videoPath": "public/assets/scenes/videos/episode-01_clip_t0050s.mp4",
-    "thumbnailPath": "public/assets/scenes/thumbnails/episode-01_clip_t0050s.jpg"
+    "videoPath": "public/assets/scenes/videos/episode-01_clip-02.mp4",
+    "thumbnailPath": "public/assets/scenes/thumbnails/episode-01_clip-02.jpg"
   },
   {
     "id": "scene-003",
@@ -32,8 +32,8 @@
     "episodeNumber": 1,
     "startTime": "00:01:00",
     "mood": "chill",
-    "videoPath": "public/assets/scenes/videos/episode-01_clip_t0060s.mp4",
-    "thumbnailPath": "public/assets/scenes/thumbnails/episode-01_clip_t0060s.jpg"
+    "videoPath": "public/assets/scenes/videos/episode-01_clip-03.mp4",
+    "thumbnailPath": "public/assets/scenes/thumbnails/episode-01_clip-03.jpg"
   },
   {
     "id": "scene-004",
@@ -44,8 +44,8 @@
     "episodeNumber": 1,
     "startTime": "00:02:10",
     "mood": "chill",
-    "videoPath": "public/assets/scenes/videos/episode-01_clip_t0130s.mp4",
-    "thumbnailPath": "public/assets/scenes/thumbnails/episode-01_clip_t0130s.jpg"
+    "videoPath": "public/assets/scenes/videos/episode-01_clip-04.mp4",
+    "thumbnailPath": "public/assets/scenes/thumbnails/episode-01_clip-04.jpg"
   },
   {
     "id": "scene-005",
@@ -56,8 +56,8 @@
     "episodeNumber": 1,
     "startTime": "00:02:30",
     "mood": "deep",
-    "videoPath": "public/assets/scenes/videos/episode-01_clip_t0150s.mp4",
-    "thumbnailPath": "public/assets/scenes/thumbnails/episode-01_clip_t0150s.jpg"
+    "videoPath": "public/assets/scenes/videos/episode-01_clip-05.mp4",
+    "thumbnailPath": "public/assets/scenes/thumbnails/episode-01_clip-05.jpg"
   },
   {
     "id": "scene-006",
@@ -68,8 +68,8 @@
     "episodeNumber": 1,
     "startTime": "00:03:00",
     "mood": "chill",
-    "videoPath": "public/assets/scenes/videos/episode-01_clip_t0180s.mp4",
-    "thumbnailPath": "public/assets/scenes/thumbnails/episode-01_clip_t0180s.jpg"
+    "videoPath": "public/assets/scenes/videos/episode-01_clip-06.mp4",
+    "thumbnailPath": "public/assets/scenes/thumbnails/episode-01_clip-06.jpg"
   },
   {
     "id": "scene-007",
@@ -80,8 +80,8 @@
     "episodeNumber": 1,
     "startTime": "00:03:20",
     "mood": "deep",
-    "videoPath": "public/assets/scenes/videos/episode-01_clip_t0200s.mp4",
-    "thumbnailPath": "public/assets/scenes/thumbnails/episode-01_clip_t0200s.jpg"
+    "videoPath": "public/assets/scenes/videos/episode-01_clip-07.mp4",
+    "thumbnailPath": "public/assets/scenes/thumbnails/episode-01_clip-07.jpg"
   },
   {
     "id": "scene-008",
@@ -92,8 +92,8 @@
     "episodeNumber": 1,
     "startTime": "00:08:50",
     "mood": "nostalgic",
-    "videoPath": "public/assets/scenes/videos/episode-01_clip_t0530s.mp4",
-    "thumbnailPath": "public/assets/scenes/thumbnails/episode-01_clip_t0530s.jpg"
+    "videoPath": "public/assets/scenes/videos/episode-01_clip-08.mp4",
+    "thumbnailPath": "public/assets/scenes/thumbnails/episode-01_clip-08.jpg"
   },
   {
     "id": "scene-009",
@@ -104,8 +104,8 @@
     "episodeNumber": 1,
     "startTime": "00:09:00",
     "mood": "dirty",
-    "videoPath": "public/assets/scenes/videos/episode-01_clip_t0540s.mp4",
-    "thumbnailPath": "public/assets/scenes/thumbnails/episode-01_clip_t0540s.jpg"
+    "videoPath": "public/assets/scenes/videos/episode-01_clip-09.mp4",
+    "thumbnailPath": "public/assets/scenes/thumbnails/episode-01_clip-09.jpg"
   },
   {
     "id": "scene-010",
@@ -116,8 +116,8 @@
     "episodeNumber": 1,
     "startTime": "00:11:20",
     "mood": "deep",
-    "videoPath": "public/assets/scenes/videos/episode-01_clip_t0680s.mp4",
-    "thumbnailPath": "public/assets/scenes/thumbnails/episode-01_clip_t0680s.jpg"
+    "videoPath": "public/assets/scenes/videos/episode-01_clip-10.mp4",
+    "thumbnailPath": "public/assets/scenes/thumbnails/episode-01_clip-10.jpg"
   },
   {
     "id": "scene-011",
@@ -128,8 +128,8 @@
     "episodeNumber": 1,
     "startTime": "00:12:00",
     "mood": "deep",
-    "videoPath": "public/assets/scenes/videos/episode-01_clip_t0720s.mp4",
-    "thumbnailPath": "public/assets/scenes/thumbnails/episode-01_clip_t0720s.jpg"
+    "videoPath": "public/assets/scenes/videos/episode-01_clip-11.mp4",
+    "thumbnailPath": "public/assets/scenes/thumbnails/episode-01_clip-11.jpg"
   },
   {
     "id": "scene-012",
@@ -140,8 +140,8 @@
     "episodeNumber": 1,
     "startTime": "00:12:40",
     "mood": "deep",
-    "videoPath": "public/assets/scenes/videos/episode-01_clip_t0760s.mp4",
-    "thumbnailPath": "public/assets/scenes/thumbnails/episode-01_clip_t0760s.jpg"
+    "videoPath": "public/assets/scenes/videos/episode-01_clip-12.mp4",
+    "thumbnailPath": "public/assets/scenes/thumbnails/episode-01_clip-12.jpg"
   },
   {
     "id": "scene-013",
@@ -152,8 +152,8 @@
     "episodeNumber": 1,
     "startTime": "00:12:40",
     "mood": "chill",
-    "videoPath": "public/assets/scenes/videos/episode-01_clip_t0760sseg2.mp4",
-    "thumbnailPath": "public/assets/scenes/thumbnails/episode-01_clip_t0760sseg2.jpg"
+    "videoPath": "public/assets/scenes/videos/episode-01_clip-13.mp4",
+    "thumbnailPath": "public/assets/scenes/thumbnails/episode-01_clip-13.jpg"
   },
   {
     "id": "scene-014",
@@ -164,8 +164,8 @@
     "episodeNumber": 1,
     "startTime": "00:13:10",
     "mood": "dirty",
-    "videoPath": "public/assets/scenes/videos/episode-01_clip_t0790s.mp4",
-    "thumbnailPath": "public/assets/scenes/thumbnails/episode-01_clip_t0790s.jpg"
+    "videoPath": "public/assets/scenes/videos/episode-01_clip-14.mp4",
+    "thumbnailPath": "public/assets/scenes/thumbnails/episode-01_clip-14.jpg"
   },
   {
     "id": "scene-015",
@@ -176,8 +176,8 @@
     "episodeNumber": 1,
     "startTime": "00:14:20",
     "mood": "deep",
-    "videoPath": "public/assets/scenes/videos/episode-01_clip_t0860s.mp4",
-    "thumbnailPath": "public/assets/scenes/thumbnails/episode-01_clip_t0860s.jpg"
+    "videoPath": "public/assets/scenes/videos/episode-01_clip-15.mp4",
+    "thumbnailPath": "public/assets/scenes/thumbnails/episode-01_clip-15.jpg"
   },
   {
     "id": "scene-016",
@@ -188,8 +188,8 @@
     "episodeNumber": 1,
     "startTime": "00:14:20",
     "mood": "deep",
-    "videoPath": "public/assets/scenes/videos/episode-01_clip_t0860sseg2.mp4",
-    "thumbnailPath": "public/assets/scenes/thumbnails/episode-01_clip_t0860sseg2.jpg"
+    "videoPath": "public/assets/scenes/videos/episode-01_clip-16.mp4",
+    "thumbnailPath": "public/assets/scenes/thumbnails/episode-01_clip-16.jpg"
   },
   {
     "id": "scene-017",
@@ -200,8 +200,8 @@
     "episodeNumber": 1,
     "startTime": "00:14:40",
     "mood": "nostalgic",
-    "videoPath": "public/assets/scenes/videos/episode-01_clip_t0880s.mp4",
-    "thumbnailPath": "public/assets/scenes/thumbnails/episode-01_clip_t0880s.jpg"
+    "videoPath": "public/assets/scenes/videos/episode-01_clip-17.mp4",
+    "thumbnailPath": "public/assets/scenes/thumbnails/episode-01_clip-17.jpg"
   },
   {
     "id": "scene-018",
@@ -212,8 +212,8 @@
     "episodeNumber": 1,
     "startTime": "00:19:10",
     "mood": "deep",
-    "videoPath": "public/assets/scenes/videos/episode-01_clip_t1150s.mp4",
-    "thumbnailPath": "public/assets/scenes/thumbnails/episode-01_clip_t1150s.jpg"
+    "videoPath": "public/assets/scenes/videos/episode-01_clip-18.mp4",
+    "thumbnailPath": "public/assets/scenes/thumbnails/episode-01_clip-18.jpg"
   },
   {
     "id": "scene-019",
@@ -224,8 +224,8 @@
     "episodeNumber": 2,
     "startTime": "00:16:50",
     "mood": "deep",
-    "videoPath": "public/assets/scenes/videos/episode-02_clip_t1010s.mp4",
-    "thumbnailPath": "public/assets/scenes/thumbnails/episode-02_clip_t1010s.jpg"
+    "videoPath": "public/assets/scenes/videos/episode-02_clip-01.mp4",
+    "thumbnailPath": "public/assets/scenes/thumbnails/episode-02_clip-01.jpg"
   },
   {
     "id": "scene-020",
@@ -236,8 +236,8 @@
     "episodeNumber": 2,
     "startTime": "00:17:30",
     "mood": "chill",
-    "videoPath": "public/assets/scenes/videos/episode-02_clip_t1050s.mp4",
-    "thumbnailPath": "public/assets/scenes/thumbnails/episode-02_clip_t1050s.jpg"
+    "videoPath": "public/assets/scenes/videos/episode-02_clip-02.mp4",
+    "thumbnailPath": "public/assets/scenes/thumbnails/episode-02_clip-02.jpg"
   },
   {
     "id": "scene-021",
@@ -248,8 +248,8 @@
     "episodeNumber": 2,
     "startTime": "00:17:30",
     "mood": "chill",
-    "videoPath": "public/assets/scenes/videos/episode-02_clip_t1050sseg2.mp4",
-    "thumbnailPath": "public/assets/scenes/thumbnails/episode-02_clip_t1050sseg2.jpg"
+    "videoPath": "public/assets/scenes/videos/episode-02_clip-03.mp4",
+    "thumbnailPath": "public/assets/scenes/thumbnails/episode-02_clip-03.jpg"
   },
   {
     "id": "scene-022",
@@ -260,8 +260,8 @@
     "episodeNumber": 2,
     "startTime": "00:17:30",
     "mood": "nostalgic",
-    "videoPath": "public/assets/scenes/videos/episode-02_clip_t1050sseg3.mp4",
-    "thumbnailPath": "public/assets/scenes/thumbnails/episode-02_clip_t1050sseg3.jpg"
+    "videoPath": "public/assets/scenes/videos/episode-02_clip-04.mp4",
+    "thumbnailPath": "public/assets/scenes/thumbnails/episode-02_clip-04.jpg"
   },
   {
     "id": "scene-023",
@@ -272,8 +272,8 @@
     "episodeNumber": 2,
     "startTime": "00:17:40",
     "mood": "dirty",
-    "videoPath": "public/assets/scenes/videos/episode-02_clip_t1060s.mp4",
-    "thumbnailPath": "public/assets/scenes/thumbnails/episode-02_clip_t1060s.jpg"
+    "videoPath": "public/assets/scenes/videos/episode-02_clip-05.mp4",
+    "thumbnailPath": "public/assets/scenes/thumbnails/episode-02_clip-05.jpg"
   },
   {
     "id": "scene-024",
@@ -284,8 +284,8 @@
     "episodeNumber": 2,
     "startTime": "00:17:40",
     "mood": "chill",
-    "videoPath": "public/assets/scenes/videos/episode-02_clip_t1060sseg2.mp4",
-    "thumbnailPath": "public/assets/scenes/thumbnails/episode-02_clip_t1060sseg2.jpg"
+    "videoPath": "public/assets/scenes/videos/episode-02_clip-06.mp4",
+    "thumbnailPath": "public/assets/scenes/thumbnails/episode-02_clip-06.jpg"
   },
   {
     "id": "scene-025",
@@ -296,8 +296,8 @@
     "episodeNumber": 2,
     "startTime": "00:17:40",
     "mood": "deep",
-    "videoPath": "public/assets/scenes/videos/episode-02_clip_t1060sseg3.mp4",
-    "thumbnailPath": "public/assets/scenes/thumbnails/episode-02_clip_t1060sseg3.jpg"
+    "videoPath": "public/assets/scenes/videos/episode-02_clip-07.mp4",
+    "thumbnailPath": "public/assets/scenes/thumbnails/episode-02_clip-07.jpg"
   },
   {
     "id": "scene-026",
@@ -308,8 +308,8 @@
     "episodeNumber": 3,
     "startTime": "00:13:30",
     "mood": "dirty",
-    "videoPath": "public/assets/scenes/videos/episode-03_clip_t0810s.mp4",
-    "thumbnailPath": "public/assets/scenes/thumbnails/episode-03_clip_t0810s.jpg"
+    "videoPath": "public/assets/scenes/videos/episode-03_clip-01.mp4",
+    "thumbnailPath": "public/assets/scenes/thumbnails/episode-03_clip-01.jpg"
   },
   {
     "id": "scene-027",
@@ -320,8 +320,8 @@
     "episodeNumber": 3,
     "startTime": "00:13:30",
     "mood": "chill",
-    "videoPath": "public/assets/scenes/videos/episode-03_clip_t0810sseg2.mp4",
-    "thumbnailPath": "public/assets/scenes/thumbnails/episode-03_clip_t0810sseg2.jpg"
+    "videoPath": "public/assets/scenes/videos/episode-03_clip-02.mp4",
+    "thumbnailPath": "public/assets/scenes/thumbnails/episode-03_clip-02.jpg"
   },
   {
     "id": "scene-028",
@@ -332,8 +332,8 @@
     "episodeNumber": 3,
     "startTime": "00:14:20",
     "mood": "dirty",
-    "videoPath": "public/assets/scenes/videos/episode-03_clip_t0860s.mp4",
-    "thumbnailPath": "public/assets/scenes/thumbnails/episode-03_clip_t0860s.jpg"
+    "videoPath": "public/assets/scenes/videos/episode-03_clip-03.mp4",
+    "thumbnailPath": "public/assets/scenes/thumbnails/episode-03_clip-03.jpg"
   },
   {
     "id": "scene-029",
@@ -344,8 +344,8 @@
     "episodeNumber": 3,
     "startTime": "00:14:20",
     "mood": "deep",
-    "videoPath": "public/assets/scenes/videos/episode-03_clip_t0860sseg2.mp4",
-    "thumbnailPath": "public/assets/scenes/thumbnails/episode-03_clip_t0860sseg2.jpg"
+    "videoPath": "public/assets/scenes/videos/episode-03_clip-04.mp4",
+    "thumbnailPath": "public/assets/scenes/thumbnails/episode-03_clip-04.jpg"
   },
   {
     "id": "scene-030",
@@ -356,8 +356,8 @@
     "episodeNumber": 3,
     "startTime": "00:14:20",
     "mood": "deep",
-    "videoPath": "public/assets/scenes/videos/episode-03_clip_t0860sseg3.mp4",
-    "thumbnailPath": "public/assets/scenes/thumbnails/episode-03_clip_t0860sseg3.jpg"
+    "videoPath": "public/assets/scenes/videos/episode-03_clip-05.mp4",
+    "thumbnailPath": "public/assets/scenes/thumbnails/episode-03_clip-05.jpg"
   },
   {
     "id": "scene-031",
@@ -368,8 +368,8 @@
     "episodeNumber": 4,
     "startTime": "00:10:00",
     "mood": "deep",
-    "videoPath": "public/assets/scenes/videos/episode-04_clip_t0600s.mp4",
-    "thumbnailPath": "public/assets/scenes/thumbnails/episode-04_clip_t0600s.jpg"
+    "videoPath": "public/assets/scenes/videos/episode-04_clip-01.mp4",
+    "thumbnailPath": "public/assets/scenes/thumbnails/episode-04_clip-01.jpg"
   },
   {
     "id": "scene-032",
@@ -380,8 +380,8 @@
     "episodeNumber": 4,
     "startTime": "00:10:10",
     "mood": "nostalgic",
-    "videoPath": "public/assets/scenes/videos/episode-04_clip_t0610s.mp4",
-    "thumbnailPath": "public/assets/scenes/thumbnails/episode-04_clip_t0610s.jpg"
+    "videoPath": "public/assets/scenes/videos/episode-04_clip-02.mp4",
+    "thumbnailPath": "public/assets/scenes/thumbnails/episode-04_clip-02.jpg"
   },
   {
     "id": "scene-033",
@@ -392,8 +392,8 @@
     "episodeNumber": 4,
     "startTime": "00:11:20",
     "mood": "deep",
-    "videoPath": "public/assets/scenes/videos/episode-04_clip_t0680s.mp4",
-    "thumbnailPath": "public/assets/scenes/thumbnails/episode-04_clip_t0680s.jpg"
+    "videoPath": "public/assets/scenes/videos/episode-04_clip-03.mp4",
+    "thumbnailPath": "public/assets/scenes/thumbnails/episode-04_clip-03.jpg"
   },
   {
     "id": "scene-034",
@@ -404,8 +404,8 @@
     "episodeNumber": 4,
     "startTime": "00:12:10",
     "mood": "nostalgic",
-    "videoPath": "public/assets/scenes/videos/episode-04_clip_t0730s.mp4",
-    "thumbnailPath": "public/assets/scenes/thumbnails/episode-04_clip_t0730s.jpg"
+    "videoPath": "public/assets/scenes/videos/episode-04_clip-04.mp4",
+    "thumbnailPath": "public/assets/scenes/thumbnails/episode-04_clip-04.jpg"
   },
   {
     "id": "scene-035",
@@ -416,8 +416,8 @@
     "episodeNumber": 5,
     "startTime": "00:03:20",
     "mood": "chill",
-    "videoPath": "public/assets/scenes/videos/episode-05_clip_t0200s.mp4",
-    "thumbnailPath": "public/assets/scenes/thumbnails/episode-05_clip_t0200s.jpg"
+    "videoPath": "public/assets/scenes/videos/episode-05_clip-01.mp4",
+    "thumbnailPath": "public/assets/scenes/thumbnails/episode-05_clip-01.jpg"
   },
   {
     "id": "scene-036",
@@ -428,8 +428,8 @@
     "episodeNumber": 5,
     "startTime": "00:11:00",
     "mood": "deep",
-    "videoPath": "public/assets/scenes/videos/episode-05_clip_t0660s.mp4",
-    "thumbnailPath": "public/assets/scenes/thumbnails/episode-05_clip_t0660s.jpg"
+    "videoPath": "public/assets/scenes/videos/episode-05_clip-02.mp4",
+    "thumbnailPath": "public/assets/scenes/thumbnails/episode-05_clip-02.jpg"
   },
   {
     "id": "scene-037",
@@ -440,8 +440,8 @@
     "episodeNumber": 5,
     "startTime": "00:11:10",
     "mood": "dirty",
-    "videoPath": "public/assets/scenes/videos/episode-05_clip_t0670s.mp4",
-    "thumbnailPath": "public/assets/scenes/thumbnails/episode-05_clip_t0670s.jpg"
+    "videoPath": "public/assets/scenes/videos/episode-05_clip-03.mp4",
+    "thumbnailPath": "public/assets/scenes/thumbnails/episode-05_clip-03.jpg"
   },
   {
     "id": "scene-038",
@@ -452,8 +452,8 @@
     "episodeNumber": 6,
     "startTime": "00:10:10",
     "mood": "deep",
-    "videoPath": "public/assets/scenes/videos/episode-06_clip_t0610s.mp4",
-    "thumbnailPath": "public/assets/scenes/thumbnails/episode-06_clip_t0610s.jpg"
+    "videoPath": "public/assets/scenes/videos/episode-06_clip-01.mp4",
+    "thumbnailPath": "public/assets/scenes/thumbnails/episode-06_clip-01.jpg"
   },
   {
     "id": "scene-039",
@@ -464,8 +464,8 @@
     "episodeNumber": 6,
     "startTime": "00:13:20",
     "mood": "nostalgic",
-    "videoPath": "public/assets/scenes/videos/episode-06_clip_t0800s.mp4",
-    "thumbnailPath": "public/assets/scenes/thumbnails/episode-06_clip_t0800s.jpg"
+    "videoPath": "public/assets/scenes/videos/episode-06_clip-02.mp4",
+    "thumbnailPath": "public/assets/scenes/thumbnails/episode-06_clip-02.jpg"
   },
   {
     "id": "scene-040",
@@ -476,8 +476,8 @@
     "episodeNumber": 6,
     "startTime": "00:13:40",
     "mood": "deep",
-    "videoPath": "public/assets/scenes/videos/episode-06_clip_t0820s.mp4",
-    "thumbnailPath": "public/assets/scenes/thumbnails/episode-06_clip_t0820s.jpg"
+    "videoPath": "public/assets/scenes/videos/episode-06_clip-03.mp4",
+    "thumbnailPath": "public/assets/scenes/thumbnails/episode-06_clip-03.jpg"
   },
   {
     "id": "scene-041",
@@ -488,8 +488,8 @@
     "episodeNumber": 7,
     "startTime": "00:06:50",
     "mood": "chill",
-    "videoPath": "public/assets/scenes/videos/episode-07_clip_t0410s.mp4",
-    "thumbnailPath": "public/assets/scenes/thumbnails/episode-07_clip_t0410s.jpg"
+    "videoPath": "public/assets/scenes/videos/episode-07_clip-01.mp4",
+    "thumbnailPath": "public/assets/scenes/thumbnails/episode-07_clip-01.jpg"
   },
   {
     "id": "scene-042",
@@ -500,8 +500,8 @@
     "episodeNumber": 8,
     "startTime": "00:02:30",
     "mood": "deep",
-    "videoPath": "public/assets/scenes/videos/episode-08_clip_t0150s.mp4",
-    "thumbnailPath": "public/assets/scenes/thumbnails/episode-08_clip_t0150s.jpg"
+    "videoPath": "public/assets/scenes/videos/episode-08_clip-01.mp4",
+    "thumbnailPath": "public/assets/scenes/thumbnails/episode-08_clip-01.jpg"
   },
   {
     "id": "scene-043",
@@ -512,8 +512,8 @@
     "episodeNumber": 10,
     "startTime": "00:13:40",
     "mood": "dirty",
-    "videoPath": "public/assets/scenes/videos/episode-10_clip_t0820s.mp4",
-    "thumbnailPath": "public/assets/scenes/thumbnails/episode-10_clip_t0820s.jpg"
+    "videoPath": "public/assets/scenes/videos/episode-10_clip-01.mp4",
+    "thumbnailPath": "public/assets/scenes/thumbnails/episode-10_clip-01.jpg"
   },
   {
     "id": "scene-044",
@@ -524,8 +524,8 @@
     "episodeNumber": 11,
     "startTime": "00:17:30",
     "mood": "nostalgic",
-    "videoPath": "public/assets/scenes/videos/episode-11_clip_t1050s.mp4",
-    "thumbnailPath": "public/assets/scenes/thumbnails/episode-11_clip_t1050s.jpg"
+    "videoPath": "public/assets/scenes/videos/episode-11_clip-01.mp4",
+    "thumbnailPath": "public/assets/scenes/thumbnails/episode-11_clip-01.jpg"
   },
   {
     "id": "scene-045",
@@ -536,8 +536,8 @@
     "episodeNumber": 11,
     "startTime": "00:19:20",
     "mood": "deep",
-    "videoPath": "public/assets/scenes/videos/episode-11_clip_t1160s.mp4",
-    "thumbnailPath": "public/assets/scenes/thumbnails/episode-11_clip_t1160s.jpg"
+    "videoPath": "public/assets/scenes/videos/episode-11_clip-02.mp4",
+    "thumbnailPath": "public/assets/scenes/thumbnails/episode-11_clip-02.jpg"
   },
   {
     "id": "scene-046",
@@ -548,8 +548,8 @@
     "episodeNumber": 12,
     "startTime": "00:11:10",
     "mood": "deep",
-    "videoPath": "public/assets/scenes/videos/episode-12_clip_t0670s.mp4",
-    "thumbnailPath": "public/assets/scenes/thumbnails/episode-12_clip_t0670s.jpg"
+    "videoPath": "public/assets/scenes/videos/episode-12_clip-01.mp4",
+    "thumbnailPath": "public/assets/scenes/thumbnails/episode-12_clip-01.jpg"
   },
   {
     "id": "scene-047",
@@ -560,8 +560,8 @@
     "episodeNumber": 13,
     "startTime": "00:11:00",
     "mood": "deep",
-    "videoPath": "public/assets/scenes/videos/episode-13_clip_t0660s.mp4",
-    "thumbnailPath": "public/assets/scenes/thumbnails/episode-13_clip_t0660s.jpg"
+    "videoPath": "public/assets/scenes/videos/episode-13_clip-01.mp4",
+    "thumbnailPath": "public/assets/scenes/thumbnails/episode-13_clip-01.jpg"
   },
   {
     "id": "scene-048",
@@ -572,7 +572,7 @@
     "episodeNumber": 13,
     "startTime": "00:12:00",
     "mood": "dirty",
-    "videoPath": "public/assets/scenes/videos/episode-13_clip_t0720s.mp4",
-    "thumbnailPath": "public/assets/scenes/thumbnails/episode-13_clip_t0720s.jpg"
+    "videoPath": "public/assets/scenes/videos/episode-13_clip-02.mp4",
+    "thumbnailPath": "public/assets/scenes/thumbnails/episode-13_clip-02.jpg"
   }
 ]

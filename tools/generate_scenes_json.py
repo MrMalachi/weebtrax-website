@@ -6,8 +6,8 @@ def slugify(s):
     s = re.sub(r'\s+', '-', s.strip())
     return re.sub(r'-+', '-', s).strip('-')
 
-def start_time_from_slug(slug):
-    m = re.search(r't(\d+)s', slug)
+def start_time_from_old_slug(old_slug):
+    m = re.search(r't(\d+)s', old_slug)
     if not m:
         return None
     secs = int(m.group(1))
@@ -18,6 +18,58 @@ def start_time_from_slug(slug):
 def ep_num(slug):
     m = re.match(r'episode-(\d+)', slug)
     return int(m.group(1)) if m else None
+
+# Mapping from old timestamp-based slug to new sequential slug
+RENAME_MAP = {
+    "episode-01_clip_t0010s": "episode-01_clip-01",
+    "episode-01_clip_t0050s": "episode-01_clip-02",
+    "episode-01_clip_t0060s": "episode-01_clip-03",
+    "episode-01_clip_t0130s": "episode-01_clip-04",
+    "episode-01_clip_t0150s": "episode-01_clip-05",
+    "episode-01_clip_t0180s": "episode-01_clip-06",
+    "episode-01_clip_t0200s": "episode-01_clip-07",
+    "episode-01_clip_t0530s": "episode-01_clip-08",
+    "episode-01_clip_t0540s": "episode-01_clip-09",
+    "episode-01_clip_t0680s": "episode-01_clip-10",
+    "episode-01_clip_t0720s": "episode-01_clip-11",
+    "episode-01_clip_t0760s": "episode-01_clip-12",
+    "episode-01_clip_t0760sseg2": "episode-01_clip-13",
+    "episode-01_clip_t0790s": "episode-01_clip-14",
+    "episode-01_clip_t0860s": "episode-01_clip-15",
+    "episode-01_clip_t0860sseg2": "episode-01_clip-16",
+    "episode-01_clip_t0880s": "episode-01_clip-17",
+    "episode-01_clip_t1150s": "episode-01_clip-18",
+    "episode-02_clip_t1010s": "episode-02_clip-01",
+    "episode-02_clip_t1050s": "episode-02_clip-02",
+    "episode-02_clip_t1050sseg2": "episode-02_clip-03",
+    "episode-02_clip_t1050sseg3": "episode-02_clip-04",
+    "episode-02_clip_t1060s": "episode-02_clip-05",
+    "episode-02_clip_t1060sseg2": "episode-02_clip-06",
+    "episode-02_clip_t1060sseg3": "episode-02_clip-07",
+    "episode-03_clip_t0810s": "episode-03_clip-01",
+    "episode-03_clip_t0810sseg2": "episode-03_clip-02",
+    "episode-03_clip_t0860s": "episode-03_clip-03",
+    "episode-03_clip_t0860sseg2": "episode-03_clip-04",
+    "episode-03_clip_t0860sseg3": "episode-03_clip-05",
+    "episode-04_clip_t0600s": "episode-04_clip-01",
+    "episode-04_clip_t0610s": "episode-04_clip-02",
+    "episode-04_clip_t0680s": "episode-04_clip-03",
+    "episode-04_clip_t0730s": "episode-04_clip-04",
+    "episode-05_clip_t0200s": "episode-05_clip-01",
+    "episode-05_clip_t0660s": "episode-05_clip-02",
+    "episode-05_clip_t0670s": "episode-05_clip-03",
+    "episode-06_clip_t0610s": "episode-06_clip-01",
+    "episode-06_clip_t0800s": "episode-06_clip-02",
+    "episode-06_clip_t0820s": "episode-06_clip-03",
+    "episode-07_clip_t0410s": "episode-07_clip-01",
+    "episode-08_clip_t0150s": "episode-08_clip-01",
+    "episode-10_clip_t0820s": "episode-10_clip-01",
+    "episode-11_clip_t1050s": "episode-11_clip-01",
+    "episode-11_clip_t1160s": "episode-11_clip-02",
+    "episode-12_clip_t0670s": "episode-12_clip-01",
+    "episode-13_clip_t0660s": "episode-13_clip-01",
+    "episode-13_clip_t0720s": "episode-13_clip-02",
+}
 
 # Each scene: (slug, name, type, description, mood)
 SCENES = [
@@ -323,18 +375,19 @@ SCENES = [
 ]
 
 scenes = []
-for i, (slug, name, scene_type, description, mood) in enumerate(SCENES, 1):
+for i, (old_slug, name, scene_type, description, mood) in enumerate(SCENES, 1):
+    new_slug = RENAME_MAP[old_slug]
     scenes.append({
         "id": f"scene-{i:03d}",
         "name": name,
         "slug": slugify(name),
         "type": scene_type,
         "description": description,
-        "episodeNumber": ep_num(slug),
-        "startTime": start_time_from_slug(slug),
+        "episodeNumber": ep_num(old_slug),
+        "startTime": start_time_from_old_slug(old_slug),
         "mood": mood,
-        "videoPath": f"public/assets/scenes/videos/{slug}.mp4",
-        "thumbnailPath": f"public/assets/scenes/thumbnails/{slug}.jpg",
+        "videoPath": f"public/assets/scenes/videos/{new_slug}.mp4",
+        "thumbnailPath": f"public/assets/scenes/thumbnails/{new_slug}.jpg",
     })
 
 out = "public/assets/metadata/scenes.json"
