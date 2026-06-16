@@ -70,6 +70,71 @@ function pingLabel(ms) {
   const bars = ms < 30 ? '▌▌▌▌▌' : ms < 80 ? '▌▌▌▌░' : ms < 150 ? '▌▌▌░░' : ms < 300 ? '▌▌░░░' : '▌░░░░';
   return 'WIRED ACTIVITY · ' + ms + 'ms ' + bars;
 }
+function NowPlaying({ playing, title, elapsed, progress, railW }) {
+  // Inject marquee keyframes once
+  React.useEffect(function() {
+    if (document.getElementById('wt-np-kf')) return;
+    var s = document.createElement('style');
+    s.id = 'wt-np-kf';
+    // Seamless loop: text is doubled, scroll 50% = one full copy
+    s.textContent = '@keyframes wt-np-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}';
+    document.head.appendChild(s);
+  }, []);
+
+  function fmtT(s) {
+    var h = Math.floor(s / 3600), m = Math.floor((s % 3600) / 60), sec = s % 60;
+    return [h, m, sec].map(function(n) { return String(n).padStart(2, '0'); }).join(':');
+  }
+
+  // Double title for seamless scroll loop
+  var loop = title + '   ·   ' + title + '   ·   ';
+
+  return /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: 'fixed', bottom: 0, left: railW, right: 0, zIndex: 150,
+      opacity: playing ? 1 : 0,
+      transform: playing ? 'translateY(0)' : 'translateY(100%)',
+      transition: 'opacity .5s ease, transform .5s ease',
+      pointerEvents: playing ? 'auto' : 'none',
+      background: 'rgba(7,8,9,0.95)',
+      borderTop: '1px solid rgba(143,191,159,0.18)',
+      backdropFilter: 'blur(10px)'
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: { display: 'flex', alignItems: 'center', gap: 14, padding: '0 20px', height: 40 }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: { display: 'flex', alignItems: 'center', gap: 7, flexShrink: 0 }
+  }, /*#__PURE__*/React.createElement("span", {
+    className: 'wt-pulse',
+    style: { width: 6, height: 6, borderRadius: 3, background: 'var(--wt-accent)', boxShadow: '0 0 8px var(--wt-accent)', display: 'inline-block', flexShrink: 0 }
+  }), /*#__PURE__*/React.createElement("span", {
+    style: { fontFamily: WT2.mono, fontSize: 9, letterSpacing: 2, color: 'var(--wt-accent)', textShadow: '0 0 6px var(--wt-accent)', whiteSpace: 'nowrap' }
+  }, 'ON AIR')), /*#__PURE__*/React.createElement("span", {
+    style: { width: 1, height: 16, background: 'rgba(214,209,198,0.14)', flexShrink: 0 }
+  }), /*#__PURE__*/React.createElement("div", {
+    style: { flex: 1, overflow: 'hidden', minWidth: 0 }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      display: 'inline-block', whiteSpace: 'nowrap',
+      fontFamily: WT2.display, fontSize: 13, color: WT2.ink,
+      animation: 'wt-np-scroll 22s linear infinite'
+    }
+  }, loop)), /*#__PURE__*/React.createElement("span", {
+    style: { width: 1, height: 16, background: 'rgba(214,209,198,0.14)', flexShrink: 0 }
+  }), /*#__PURE__*/React.createElement("span", {
+    style: { fontFamily: WT2.mono, fontSize: 10.5, color: WT2.dim, flexShrink: 0, letterSpacing: 0.5, whiteSpace: 'nowrap' }
+  }, fmtT(elapsed))), /*#__PURE__*/React.createElement("div", {
+    style: { position: 'relative', height: 2, background: 'rgba(214,209,198,0.06)' }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: 'absolute', left: 0, top: 0, bottom: 0,
+      width: (progress * 100) + '%',
+      background: 'var(--wt-accent)',
+      boxShadow: '0 0 8px var(--wt-accent)',
+      transition: 'width 0.1s linear'
+    }
+  })));
+}
 function App() {
   const TX = getMixes();
   const _session = loadSession();
@@ -254,9 +319,16 @@ function App() {
     style: {
       display: 'none'
     }
-  }), /*#__PURE__*/React.createElement(Overlays, null), /*#__PURE__*/React.createElement(Rail, null), /*#__PURE__*/React.createElement("main", {
+  }), /*#__PURE__*/React.createElement(Overlays, null), /*#__PURE__*/React.createElement(Rail, null), /*#__PURE__*/React.createElement(NowPlaying, {
+    playing: playing,
+    title: activeTx.title,
+    elapsed: elapsed,
+    progress: displayProgress,
+    railW: railW
+  }), /*#__PURE__*/React.createElement("main", {
     style: {
-      marginLeft: railW
+      marginLeft: railW,
+      paddingBottom: 48
     }
   }, /*#__PURE__*/React.createElement(Hero, {
     playing: playing,
