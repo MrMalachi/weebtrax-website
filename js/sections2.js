@@ -179,6 +179,7 @@ function getMixes() {
       plat: m.soundcloudUrl ? 'SOUNDCLOUD' : 'YOUTUBE',
       tone: MOOD_TONE[m.mood] || WT2.amber,
       popularity: m.views,
+      tracklist: m.tracklist || [],
     };
   });
 }
