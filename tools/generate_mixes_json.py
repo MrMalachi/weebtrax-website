@@ -1,4 +1,4 @@
-import json, re
+import json, re, os
 
 def slugify(title):
     s = title.lower()
@@ -11,6 +11,60 @@ def normalize(title):
     if '|' in title:
         title = title.split('|', 1)[1]
     return re.sub(r'\s+', ' ', title.strip().lower())
+
+SKIP_TAGS = {
+    'lofi','house','music','anime','weeb','weeaboo','trax','tracks',
+    'cartoon','animation','japan','japanese','mix','essentials','dj',
+    'lo-fi','trending','viral','fyp','trend'
+}
+
+def clean_tags(raw_tags):
+    seen, out = set(), []
+    for t in raw_tags:
+        t = t.strip().lower()
+        if t and t not in SKIP_TAGS and t not in seen:
+            seen.add(t)
+            out.append(t)
+    return out
+
+def infer_mood(title, tags):
+    title_l = title.lower()
+    tags_s = set(tags)
+    all_w = tags_s | set(title_l.split())
+    if any(w in all_w for w in ['jungle','dnb','breakbeat']) or 'drum n bass' in title_l or 'drum and bass' in title_l:
+        return 'jungle-dnb'
+    if any(w in all_w for w in ['ambient','atmospheric','interstellar']) or 'out of body' in title_l or 'outer space' in title_l:
+        return 'ambient'
+    if any(w in all_w for w in ['clubbing','withdrawal']) or 'club' in title_l:
+        return 'clubby'
+    if any(w in all_w for w in ['cyberpunk','dystopian','virtual','ghostintheshell']) or 'ghost in the shell' in title_l or 'cyber city' in title_l:
+        return 'cyberpunk'
+    if any(w in all_w for w in ['ethereal','mesmerizing','stargazing','vibey','soundscapes']):
+        return 'dreamy'
+    if any(w in all_w for w in ['transcendent','floating','euphoric']) and 'summer' not in title_l:
+        return 'euphoric'
+    if any(w in all_w for w in ['reminiscing','nostalgic','tears','breakups','heartbreak']):
+        return 'melancholic'
+    if any(w in all_w for w in ['love','falling','romance','romantic']):
+        return 'romantic'
+    if any(w in all_w for w in ['dream','trip','out of body']):
+        return 'dreamy'
+    if any(w in title_l for w in ['summer','sunset','warm','sunny']):
+        return 'summery'
+    if any(w in title_l for w in ['night','midnight','after hours','nocturnal']):
+        return 'nocturnal'
+    if any(w in all_w for w in ['funky','funk']):
+        return 'vibey'
+    if 'summer' in title_l:
+        return 'summery'
+    if 'night' in title_l:
+        return 'nocturnal'
+    return 'lofi-house'
+
+# Load YouTube tags (tools/yt_tags.json, built from yt-dlp output)
+_tags_file = os.path.join(os.path.dirname(__file__), 'yt_tags.json')
+with open(_tags_file) as f:
+    YT_TAGS_RAW = json.load(f)
 
 def fmt_duration(seconds):
     h = seconds // 3600
@@ -56,8 +110,8 @@ DATES = {
     "cAiXN3eLvK0": "20240831", "UgCTBRPnPZY": "20241221", "kQyCZASKCc0": "20250329",
     "QeORW0r_7jg": "20250218", "zaMpe_r965E": "20251108", "zi5SaXnu7qU": "20241123",
     "gk2V4Iwi02U": "20240622", "2JYacVX8XNQ": "20250121", "1lAmvchYbDk": "20241207",
-    "b4emPgjo7lo": None,  # blocked on copyright — date unavailable
-    "Oo4d67fRz_Q": None,  # blocked on copyright — date unavailable
+    "b4emPgjo7lo": "20221128",  # from SoundCloud (YouTube blocked on copyright)
+    "Oo4d67fRz_Q": "20241028",  # from SoundCloud (YouTube blocked on copyright)
 }
 
 # YouTube data: (yt_id, title, duration_seconds)
@@ -261,15 +315,19 @@ for i, (yt_id, yt_title, duration) in enumerate(YT_sorted, 1):
 
     slug = slugify(yt_title)
 
+    raw_entry = YT_TAGS_RAW.get(yt_id, {})
+    raw_tags = raw_entry.get('_raw', [])
+    tags = clean_tags(raw_tags)
+    mood = infer_mood(yt_title, tags)
+
     mixes.append({
         "id": f"mix-{i:03d}",
         "title": yt_title,
         "slug": slug,
-        "artist": "WeebTrax",
         "duration": fmt_duration(duration),
         "releaseDate": fmt_date(DATES.get(yt_id)),
-        "mood": None,
-        "tags": [],
+        "mood": mood,
+        "tags": tags,
         "audioPath": f"public/assets/mixes/audio/{slug}.mp3",
         "thumbnailPath": None,
         "youtubeUrl": f"https://www.youtube.com/watch?v={yt_id}",
