@@ -6,7 +6,7 @@
 |---|-------|--------|
 | 1 | Local media organization | ✅ Complete |
 | 2 | JSON metadata | ✅ Complete |
-| 3 | Website reads JSON | ⬜ Not started |
+| 3 | Website reads JSON | ✅ Complete |
 | 4 | Create backend / API (FastAPI) | ⬜ Not started |
 | 5 | Move JSON metadata into PostgreSQL | ⬜ Not started |
 | 6 | Deploy with Railway | ⬜ Not started |
@@ -75,6 +75,23 @@ Create:
 
 Frontend dynamically loads `mixes.json` and `scenes.json` instead of hardcoded HTML.
 Generates: archive rows, scene cards, thumbnails, play buttons, YT/SC links, mood tags.
+
+### What was done
+- Unbundled the Claude Artifact `index.html` into separate files: `js/react.js`, `js/react-dom.js`, `js/images.js`, `js/tweaks-panel.js`, `js/core.js`, `js/sections1.js`, `js/sections2.js`, `js/app.js`, `css/styles.css`
+- `app.js` pre-fetches both JSONs via `Promise.all([fetch(...), fetch(...)])` before mounting React, storing results in `window.__WT_MIXES` and `window.__WT_SCENES`
+- `sections2.js` — `getMixes()` transforms `window.__WT_MIXES` entries into the shape the Archive components expect; replaces the old hardcoded 5-item `TX` array. All 94 mixes now render.
+- `sections1.js` — `SceneGrid` reads `window.__WT_SCENES` and maps `type→tag`, `description→desc`, `thumbnailPath→img`. All 48 scenes now render with real thumbnails.
+- Mood→accent color mapping: `chill→blue`, `nostalgic→purple`, `dirty→red`, `deep→green`
+- Serve with: `python3 -m http.server 3000` from the project root
+
+### Checklist
+- [x] Unbundle app into plain separate JS/CSS files
+- [x] Fetch and parse mixes.json at page load
+- [x] Fetch and parse scenes.json at page load
+- [x] Archive section renders all 94 mixes from JSON
+- [x] Scenes section renders all 48 scenes from JSON with real thumbnails
+- [x] Mood tags drive accent color per archive row
+- [x] Null soundcloudUrl handled gracefully (shows YOUTUBE platform badge)
 
 ---
 
