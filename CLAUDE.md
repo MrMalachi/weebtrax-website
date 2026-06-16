@@ -59,8 +59,13 @@ Create:
 - `views` = YouTube view count snapshot (static; refresh periodically)
 - No `artist`, `tags`, or `thumbnailPath` — not needed for the site
 
-### scenes.json fields (to define)
-`id`, `name`, `slug`, `episodeNumber`, `startTime`, `endTime`, `duration`, `mood`, `tags`, `videoPath`, `thumbnailPath`
+### scenes.json fields (finalised)
+`id`, `name`, `slug`, `type`, `description`, `episodeNumber`, `startTime`, `mood`, `videoPath`, `thumbnailPath`
+
+- 48 scenes across episodes 1–13
+- `type` is the badge chip shown on the card (e.g. "CLUB TERMINAL", "BEDROOM STATIC")
+- `description` is 1–2 sentences of evocative prose per scene
+- No `endTime`, `duration`, or `tags` — not needed on the frontend
 
 ---
 
