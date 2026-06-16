@@ -5,7 +5,7 @@
     "slug": "lo-fi-house-mix-retrospect",
     "duration": "00:45:18",
     "releaseDate": "2020.05.15",
-    "mood": "lofi-house",
+    "mood": "nostalgic",
     "tags": [
       "prodigal",
       "son"
@@ -21,7 +21,7 @@
     "slug": "lo-fi-house-music-summer-sunset-mix",
     "duration": "00:46:22",
     "releaseDate": "2020.07.17",
-    "mood": "summery",
+    "mood": "chill",
     "tags": [
       "summer"
     ],
@@ -36,7 +36,7 @@
     "slug": "lo-fi-house-music-summer-nights-mix",
     "duration": "00:55:18",
     "releaseDate": "2020.07.24",
-    "mood": "summery",
+    "mood": "chill",
     "tags": [
       "summer",
       "nights"
@@ -52,7 +52,7 @@
     "slug": "lo-fi-house-music-against-the-grain-mix",
     "duration": "00:39:50",
     "releaseDate": "2020.07.31",
-    "mood": "lofi-house",
+    "mood": "chill",
     "tags": [
       "againstthegrain"
     ],
@@ -67,7 +67,7 @@
     "slug": "lo-fi-house-music-sentimental-sunsets-mix",
     "duration": "00:53:32",
     "releaseDate": "2020.08.07",
-    "mood": "summery",
+    "mood": "nostalgic",
     "tags": [
       "sentimental",
       "sunsets"
@@ -83,7 +83,7 @@
     "slug": "lo-fi-house-music-final-days-of-summer-mix",
     "duration": "00:43:00",
     "releaseDate": "2020.08.14",
-    "mood": "summery",
+    "mood": "chill",
     "tags": [
       "final",
       "days",
@@ -100,7 +100,7 @@
     "slug": "lo-fi-house-music-back2back-mix",
     "duration": "00:41:38",
     "releaseDate": "2020.08.21",
-    "mood": "lofi-house",
+    "mood": "dirty",
     "tags": [
       "back2back"
     ],
@@ -115,7 +115,7 @@
     "slug": "lo-fi-house-music-tokyo-midnight-drive-mix-wicked-city",
     "duration": "00:49:16",
     "releaseDate": "2020.08.28",
-    "mood": "nocturnal",
+    "mood": "deep",
     "tags": [
       "tokyo",
       "midnight",
@@ -132,7 +132,7 @@
     "slug": "lo-fi-house-music-clipping-mix",
     "duration": "00:42:26",
     "releaseDate": "2020.09.04",
-    "mood": "lofi-house",
+    "mood": "dirty",
     "tags": [
       "clipping"
     ],
@@ -147,7 +147,7 @@
     "slug": "lo-fi-house-music-happy-endings-mix",
     "duration": "00:43:27",
     "releaseDate": "2020.09.18",
-    "mood": "lofi-house",
+    "mood": "deep",
     "tags": [
       "happy",
       "endings"
@@ -163,7 +163,7 @@
     "slug": "lo-fi-house-music-haunting-mix",
     "duration": "00:45:26",
     "releaseDate": "2020.09.27",
-    "mood": "lofi-house",
+    "mood": "deep",
     "tags": [
       "haunt"
     ],
@@ -178,7 +178,7 @@
     "slug": "lo-fi-house-music-typhoon-taif-mix",
     "duration": "00:59:09",
     "releaseDate": "2020.11.20",
-    "mood": "lofi-house",
+    "mood": "deep",
     "tags": [
       "typhoon"
     ],
@@ -193,7 +193,7 @@
     "slug": "lo-fi-house-music-clubbing-withdrawal-symptoms-mix",
     "duration": "00:51:52",
     "releaseDate": "2020.11.27",
-    "mood": "clubby",
+    "mood": "deep",
     "tags": [
       "club",
       "withdrawal",
@@ -210,7 +210,7 @@
     "slug": "lo-fi-house-music-f-ck-an-hour-long-mix",
     "duration": "00:39:57",
     "releaseDate": "2020.12.04",
-    "mood": "lofi-house",
+    "mood": "dirty",
     "tags": [],
     "audioPath": "public/assets/mixes/audio/lo-fi-house-music-f-ck-an-hour-long-mix.mp3",
     "thumbnailPath": null,
@@ -223,7 +223,7 @@
     "slug": "lo-fi-house-music-the-80s-were-a-vibe-mix",
     "duration": "00:52:07",
     "releaseDate": "2020.12.11",
-    "mood": "lofi-house",
+    "mood": "deep",
     "tags": [
       "80's",
       "vibe"
@@ -239,7 +239,7 @@
     "slug": "lo-fi-house-music-house-is-a-feeling-mix",
     "duration": "00:55:21",
     "releaseDate": "2020.12.18",
-    "mood": "lofi-house",
+    "mood": "deep",
     "tags": [
       "feeling"
     ],
@@ -254,7 +254,7 @@
     "slug": "lo-fi-house-music-house-is-a-feeling-mix-alternative-ending",
     "duration": "00:46:12",
     "releaseDate": "2021.01.15",
-    "mood": "lofi-house",
+    "mood": "deep",
     "tags": [
       "feeling"
     ],
@@ -269,7 +269,7 @@
     "slug": "lo-fi-house-music-4-nighttime-use-only-mix",
     "duration": "00:50:54",
     "releaseDate": "2021.01.29",
-    "mood": "nocturnal",
+    "mood": "deep",
     "tags": [
       "nighttime"
     ],
@@ -284,7 +284,7 @@
     "slug": "lo-fi-house-music-sad-boy-hours-mix-ode-to-e",
     "duration": "00:44:53",
     "releaseDate": "2021.02.12",
-    "mood": "lofi-house",
+    "mood": "nostalgic",
     "tags": [],
     "audioPath": "public/assets/mixes/audio/lo-fi-house-music-sad-boy-hours-mix-ode-to-e.mp3",
     "thumbnailPath": null,
@@ -297,7 +297,7 @@
     "slug": "lo-fi-house-music-100-subscribers-mix-goku-midnight-eye",
     "duration": "00:50:48",
     "releaseDate": "2021.02.20",
-    "mood": "nocturnal",
+    "mood": "deep",
     "tags": [
       "100",
       "subscribers",
@@ -314,7 +314,7 @@
     "slug": "lo-fi-house-music-dj-different-mix-visions-album",
     "duration": "00:52:52",
     "releaseDate": "2021.02.26",
-    "mood": "lofi-house",
+    "mood": "deep",
     "tags": [
       "different",
       "visions"
@@ -330,7 +330,7 @@
     "slug": "lo-fi-house-music-heartbreaks-breakbeat-mix-batman-beyond",
     "duration": "00:37:36",
     "releaseDate": "2021.03.05",
-    "mood": "jungle-dnb",
+    "mood": "dirty",
     "tags": [
       "breakups",
       "breakbeat",
@@ -347,7 +347,7 @@
     "slug": "lo-fi-house-music-natural-high-mix",
     "duration": "00:49:23",
     "releaseDate": "2021.03.12",
-    "mood": "lofi-house",
+    "mood": "deep",
     "tags": [
       "natural",
       "high"
@@ -363,7 +363,7 @@
     "slug": "lo-fi-house-music-tears-of-nostalgic-joy-mix-cowboy-bebop",
     "duration": "00:48:17",
     "releaseDate": "2021.03.19",
-    "mood": "melancholic",
+    "mood": "nostalgic",
     "tags": [
       "tears",
       "nostalgic",
@@ -381,7 +381,7 @@
     "slug": "lo-fi-house-music-a-trip-you-wont-forget-mix",
     "duration": "00:41:54",
     "releaseDate": "2021.04.09",
-    "mood": "dreamy",
+    "mood": "deep",
     "tags": [
       "trip"
     ],
@@ -396,7 +396,7 @@
     "slug": "lo-fi-house-music-a-dream-in-the-making-mix-ninja-scroll",
     "duration": "00:42:34",
     "releaseDate": "2021.04.17",
-    "mood": "dreamy",
+    "mood": "deep",
     "tags": [
       "dream",
       "ninjascroll"
@@ -412,7 +412,7 @@
     "slug": "lo-fi-house-breakbeat-music-golden-era-of-ova-mix-angel-cop",
     "duration": "00:43:32",
     "releaseDate": "2021.05.07",
-    "mood": "jungle-dnb",
+    "mood": "dirty",
     "tags": [
       "breakbeat",
       "goldenera",
@@ -430,7 +430,7 @@
     "slug": "lo-fi-house-music-reminiscing-about-love-mix",
     "duration": "00:47:01",
     "releaseDate": "2021.05.28",
-    "mood": "melancholic",
+    "mood": "nostalgic",
     "tags": [
       "reminiscing",
       "love"
@@ -446,7 +446,7 @@
     "slug": "lo-fi-house-music-dont-speak-just-listen-mix",
     "duration": "00:51:03",
     "releaseDate": "2021.11.06",
-    "mood": "lofi-house",
+    "mood": "deep",
     "tags": [
       "don't",
       "speak",
@@ -464,7 +464,7 @@
     "slug": "lo-fi-house-music-a-dream-within-a-dream-mix-bubblegum-crisis",
     "duration": "00:31:01",
     "releaseDate": "2021.11.13",
-    "mood": "dreamy",
+    "mood": "deep",
     "tags": [
       "dream",
       "bubblegumcrisis"
@@ -480,7 +480,7 @@
     "slug": "lo-fi-house-music-stargazing-breakbeat-vibey-mix",
     "duration": "00:46:49",
     "releaseDate": "2021.12.11",
-    "mood": "jungle-dnb",
+    "mood": "deep",
     "tags": [
       "stargazing",
       "breakbeat",
@@ -497,7 +497,7 @@
     "slug": "lo-fi-house-music-stargazing-breakbeat-vibey-mix-alternative-ending",
     "duration": "00:50:17",
     "releaseDate": "2021.12.24",
-    "mood": "jungle-dnb",
+    "mood": "deep",
     "tags": [
       "stargazing",
       "breakbeat",
@@ -516,7 +516,7 @@
     "slug": "lo-fi-house-music-dystopian-future-mix-ghost-in-the-shell",
     "duration": "00:51:30",
     "releaseDate": "2022.01.30",
-    "mood": "cyberpunk",
+    "mood": "deep",
     "tags": [
       "dystopian",
       "future",
@@ -533,7 +533,7 @@
     "slug": "lo-fi-house-music-transcendent-mix-trigun",
     "duration": "00:38:01",
     "releaseDate": "2022.02.19",
-    "mood": "euphoric",
+    "mood": "deep",
     "tags": [
       "transcendent",
       "trigun"
@@ -549,7 +549,7 @@
     "slug": "lo-fi-house-music-point-of-no-return-mix-broly-the-legendary-super-saiyan",
     "duration": "00:46:15",
     "releaseDate": "2022.05.29",
-    "mood": "lofi-house",
+    "mood": "deep",
     "tags": [
       "broly",
       "legendary",
@@ -568,7 +568,7 @@
     "slug": "lo-fi-house-music-doomed-romance-mix-berserk",
     "duration": "00:46:40",
     "releaseDate": "2022.06.04",
-    "mood": "romantic",
+    "mood": "nostalgic",
     "tags": [
       "doomed",
       "romance",
@@ -588,7 +588,7 @@
     "slug": "lo-fi-house-music-zero-gravity-mix-bubblegum-crisis",
     "duration": "00:51:25",
     "releaseDate": "2022.06.10",
-    "mood": "lofi-house",
+    "mood": "deep",
     "tags": [
       "zerogravity",
       "bubblegumcrisis"
@@ -604,7 +604,7 @@
     "slug": "lo-fi-breakbeat-music-shifting-gears-mix-initial-d",
     "duration": "00:42:41",
     "releaseDate": "2022.06.17",
-    "mood": "jungle-dnb",
+    "mood": "dirty",
     "tags": [
       "breakbeat",
       "shifting",
@@ -622,7 +622,7 @@
     "slug": "lo-fi-house-music-unfinished-business-mix-mobile-suit-gundam",
     "duration": "00:36:23",
     "releaseDate": "2022.08.15",
-    "mood": "lofi-house",
+    "mood": "deep",
     "tags": [
       "unfinished",
       "business",
@@ -639,7 +639,7 @@
     "slug": "lo-fi-house-music-who-hurt-you-mix-whisper-of-the-heart",
     "duration": "00:47:47",
     "releaseDate": "2022.08.22",
-    "mood": "lofi-house",
+    "mood": "nostalgic",
     "tags": [
       "whisperoftheheart",
       "who",
@@ -657,7 +657,7 @@
     "slug": "lo-fi-house-breakbeat-music-lo-fi-laced-sounds-mix",
     "duration": "00:43:07",
     "releaseDate": "2022.08.30",
-    "mood": "jungle-dnb",
+    "mood": "dirty",
     "tags": [
       "breakbeat",
       "sounds",
@@ -675,7 +675,7 @@
     "slug": "lo-fi-house-music-faster-than-life-mix",
     "duration": "00:34:14",
     "releaseDate": "2022.09.24",
-    "mood": "lofi-house",
+    "mood": "deep",
     "tags": [
       "faster",
       "than",
@@ -694,7 +694,7 @@
     "slug": "lo-fi-house-music-fake-the-funk-mix",
     "duration": "00:43:02",
     "releaseDate": "2022.10.04",
-    "mood": "vibey",
+    "mood": "deep",
     "tags": [
       "fake",
       "funk"
@@ -710,7 +710,7 @@
     "slug": "lo-fi-house-music-happiness-is-fleeting-mix",
     "duration": "00:41:33",
     "releaseDate": "2022.10.16",
-    "mood": "lofi-house",
+    "mood": "deep",
     "tags": [
       "happiness",
       "fleeting",
@@ -727,7 +727,7 @@
     "slug": "lo-fi-house-music-cyberpunk-mix",
     "duration": "00:40:07",
     "releaseDate": "2022.10.29",
-    "mood": "cyberpunk",
+    "mood": "deep",
     "tags": [
       "cyber punk",
       "cyber city redo 808"
@@ -743,7 +743,7 @@
     "slug": "lo-fi-house-music-ghetto-symphony-mix",
     "duration": "00:47:21",
     "releaseDate": "2022.11.28",
-    "mood": "lofi-house",
+    "mood": "deep",
     "tags": [],
     "audioPath": "public/assets/mixes/audio/lo-fi-house-music-ghetto-symphony-mix.mp3",
     "thumbnailPath": null,
@@ -756,7 +756,7 @@
     "slug": "lo-fi-house-mix-love-is-contagious",
     "duration": "00:50:39",
     "releaseDate": "2022.12.10",
-    "mood": "romantic",
+    "mood": "deep",
     "tags": [
       "love",
       "is",
@@ -773,7 +773,7 @@
     "slug": "ambient-lo-fi-house-mix-mesmerizing-soundscapes",
     "duration": "00:50:15",
     "releaseDate": "2023.01.20",
-    "mood": "jungle-dnb",
+    "mood": "chill",
     "tags": [
       "ambient",
       "ambience",
@@ -794,7 +794,7 @@
     "slug": "lo-fi-house-mix-i-love-you",
     "duration": "00:47:35",
     "releaseDate": "2023.04.22",
-    "mood": "melancholic",
+    "mood": "nostalgic",
     "tags": [
       "yuyuhakusho",
       "botan",
@@ -812,7 +812,7 @@
     "slug": "lo-fi-house-mix-ottos-anticlimax-pt-1",
     "duration": "00:32:36",
     "releaseDate": "2023.05.06",
-    "mood": "lofi-house",
+    "mood": "deep",
     "tags": [
       "otto",
       "taimela",
@@ -833,7 +833,7 @@
     "slug": "lo-fi-house-mix-ottos-anticlimax-pt-2",
     "duration": "00:30:52",
     "releaseDate": "2023.05.13",
-    "mood": "lofi-house",
+    "mood": "deep",
     "tags": [
       "otto",
       "taimela",
@@ -853,7 +853,7 @@
     "slug": "lo-fi-house-mix-a-chill-summers-day",
     "duration": "00:42:29",
     "releaseDate": "2023.05.24",
-    "mood": "summery",
+    "mood": "chill",
     "tags": [
       "summer",
       "unwind",
@@ -875,7 +875,7 @@
     "slug": "lo-fi-house-mix-spacious-void",
     "duration": "00:34:09",
     "releaseDate": "2023.05.28",
-    "mood": "lofi-house",
+    "mood": "deep",
     "tags": [
       "ghost",
       "in",
@@ -894,7 +894,7 @@
     "slug": "lo-fi-house-essentials-summer-2023-trax",
     "duration": "02:19:25",
     "releaseDate": "2023.05.31",
-    "mood": "summery",
+    "mood": "chill",
     "tags": [
       "summer",
       "2023",
@@ -912,7 +912,7 @@
     "slug": "lo-fi-house-mix-short-but-funky",
     "duration": "00:30:16",
     "releaseDate": "2023.06.05",
-    "mood": "vibey",
+    "mood": "chill",
     "tags": [
       "short",
       "but",
@@ -934,7 +934,7 @@
     "slug": "lo-fi-house-mix-untitled",
     "duration": "00:49:33",
     "releaseDate": "2023.06.13",
-    "mood": "lofi-house",
+    "mood": "deep",
     "tags": [
       "serial",
       "experiments",
@@ -953,7 +953,7 @@
     "slug": "lo-fi-house-mix-cliffhanger",
     "duration": "00:38:53",
     "releaseDate": "2023.06.17",
-    "mood": "lofi-house",
+    "mood": "deep",
     "tags": [
       "dirty",
       "cliffhanger",
@@ -972,7 +972,7 @@
     "slug": "lo-fi-house-mix-summer-solstice",
     "duration": "00:39:04",
     "releaseDate": "2023.06.26",
-    "mood": "summery",
+    "mood": "chill",
     "tags": [
       "yu yu hakusho",
       "summer",
@@ -989,7 +989,7 @@
     "slug": "lo-fi-house-essentials-late-night-trax",
     "duration": "02:22:30",
     "releaseDate": "2023.07.02",
-    "mood": "nocturnal",
+    "mood": "deep",
     "tags": [
       "late",
       "night",
@@ -1007,7 +1007,7 @@
     "slug": "lo-fi-house-mix-unconventional-intermission",
     "duration": "00:46:30",
     "releaseDate": "2023.07.08",
-    "mood": "lofi-house",
+    "mood": "deep",
     "tags": [
       "unconventional",
       "intermission",
@@ -1027,7 +1027,7 @@
     "slug": "jungle-dnb-essentials-playstation-dnb-trax",
     "duration": "01:54:07",
     "releaseDate": "2023.08.08",
-    "mood": "jungle-dnb",
+    "mood": "dirty",
     "tags": [
       "jungle",
       "evocative",
@@ -1049,7 +1049,7 @@
     "slug": "lo-fi-house-essentials-when-youre-falling-in-love-trax",
     "duration": "02:20:13",
     "releaseDate": "2024.01.03",
-    "mood": "romantic",
+    "mood": "nostalgic",
     "tags": [
       "essential",
       "when",
@@ -1070,7 +1070,7 @@
     "slug": "lo-fi-ambient-mix-nintendo-sound-waves",
     "duration": "00:49:19",
     "releaseDate": "2024.01.05",
-    "mood": "ambient",
+    "mood": "chill",
     "tags": [
       "ambient",
       "nintendo",
@@ -1088,7 +1088,7 @@
     "slug": "lo-fi-house-mix-you-possess-a-false-body-and-a-fake-soul-do-you-know-why",
     "duration": "00:47:24",
     "releaseDate": "2024.03.02",
-    "mood": "lofi-house",
+    "mood": "deep",
     "tags": [
       "neon genesis evangelion",
       "false",
@@ -1107,7 +1107,7 @@
     "slug": "lo-fi-house-essentials-outer-space-trax",
     "duration": "02:05:57",
     "releaseDate": "2024.03.15",
-    "mood": "ambient",
+    "mood": "deep",
     "tags": [
       "outer",
       "space"
@@ -1123,7 +1123,7 @@
     "slug": "lo-fi-ambient-essentials-out-of-body-experience-trax",
     "duration": "02:11:38",
     "releaseDate": "2024.04.06",
-    "mood": "ambient",
+    "mood": "chill",
     "tags": [
       "ambient",
       "ambience",
@@ -1141,7 +1141,7 @@
     "slug": "lo-fi-house-mix-pull-up-to-the-club-like-skrt-skrt",
     "duration": "00:34:29",
     "releaseDate": "2024.04.30",
-    "mood": "clubby",
+    "mood": "dirty",
     "tags": [
       "pull up",
       "to the club",
@@ -1160,7 +1160,7 @@
     "slug": "lo-fi-house-essentials-clubbing-withdrawal-symptoms-trax",
     "duration": "02:00:18",
     "releaseDate": "2024.05.08",
-    "mood": "clubby",
+    "mood": "deep",
     "tags": [
       "yu yu hakusho",
       "yusuke urameshi",
@@ -1179,7 +1179,7 @@
     "slug": "lo-fi-house-mix-thinking-of-you-makes-my-heart-skip",
     "duration": "00:50:59",
     "releaseDate": "2024.05.25",
-    "mood": "lofi-house",
+    "mood": "nostalgic",
     "tags": [
       "thinking",
       "makes",
@@ -1199,7 +1199,7 @@
     "slug": "lo-fi-house-essentials-djs-only-trax",
     "duration": "01:53:17",
     "releaseDate": "2024.06.17",
-    "mood": "lofi-house",
+    "mood": "deep",
     "tags": [
       "sailormoon",
       "sailor",
@@ -1216,7 +1216,7 @@
     "slug": "house-mix-swim-10-feet-deep",
     "duration": "00:37:24",
     "releaseDate": "2024.06.22",
-    "mood": "lofi-house",
+    "mood": "chill",
     "tags": [
       "swim",
       "ten",
@@ -1235,7 +1235,7 @@
     "slug": "lo-fi-house-jungle-dnb-mix-dont-talk-about-me-like-im-a-machine-im-not-that",
     "duration": "00:40:40",
     "releaseDate": "2024.08.17",
-    "mood": "jungle-dnb",
+    "mood": "dirty",
     "tags": [
       "jungle",
       "dnb",
@@ -1255,7 +1255,7 @@
     "slug": "lo-fi-house-mix-virtual-reality",
     "duration": "00:45:30",
     "releaseDate": "2024.08.31",
-    "mood": "cyberpunk",
+    "mood": "deep",
     "tags": [
       "virtual",
       "reality"
@@ -1271,7 +1271,7 @@
     "slug": "lo-fi-house-essentials-end-of-summer-2024-trax",
     "duration": "01:56:46",
     "releaseDate": "2024.09.21",
-    "mood": "summery",
+    "mood": "chill",
     "tags": [
       "dragon ball z",
       "dbz"
@@ -1287,7 +1287,7 @@
     "slug": "lo-fi-house-mix-ghetto-symphony-pt-2",
     "duration": "00:56:45",
     "releaseDate": "2024.10.28",
-    "mood": "lofi-house",
+    "mood": "deep",
     "tags": [],
     "audioPath": "public/assets/mixes/audio/lo-fi-house-mix-ghetto-symphony-pt-2.mp3",
     "thumbnailPath": null,
@@ -1300,7 +1300,7 @@
     "slug": "jungle-dnb-essentials-video-game-simulation-trax",
     "duration": "01:38:49",
     "releaseDate": "2024.11.15",
-    "mood": "jungle-dnb",
+    "mood": "dirty",
     "tags": [
       "jungle",
       "drum n bass",
@@ -1318,7 +1318,7 @@
     "slug": "lo-fi-house-mix-to-obtain-something-of-equal-value-must-be-lost",
     "duration": "00:50:04",
     "releaseDate": "2024.11.23",
-    "mood": "lofi-house",
+    "mood": "deep",
     "tags": [
       "full metal alchemist",
       "obtain",
@@ -1339,7 +1339,7 @@
     "slug": "lo-fi-house-essentials-sounds-like-im-high-feels-like-im-floating-trax",
     "duration": "02:13:29",
     "releaseDate": "2024.12.01",
-    "mood": "euphoric",
+    "mood": "deep",
     "tags": [
       "floating",
       "high",
@@ -1357,7 +1357,7 @@
     "slug": "lo-fi-house-mix-rip-toriyama-sensei",
     "duration": "00:43:03",
     "releaseDate": "2024.12.07",
-    "mood": "lofi-house",
+    "mood": "nostalgic",
     "tags": [
       "akira toriyama",
       "goku",
@@ -1377,7 +1377,7 @@
     "slug": "lo-fi-house-mix-is-this-what-heaven-sounds-like",
     "duration": "00:42:15",
     "releaseDate": "2024.12.14",
-    "mood": "lofi-house",
+    "mood": "deep",
     "tags": [
       "sounds",
       "heaven",
@@ -1394,7 +1394,7 @@
     "slug": "lo-fi-house-mix-will-you-miss-me",
     "duration": "00:41:38",
     "releaseDate": "2024.12.21",
-    "mood": "lofi-house",
+    "mood": "nostalgic",
     "tags": [
       "will",
       "you",
@@ -1413,7 +1413,7 @@
     "slug": "lo-fi-house-essentials-warm-weather-return-to-me-trax",
     "duration": "01:48:23",
     "releaseDate": "2024.12.30",
-    "mood": "summery",
+    "mood": "chill",
     "tags": [
       "oh my goddess",
       "christmas",
@@ -1432,7 +1432,7 @@
     "slug": "lo-fi-house-mix-after-hours",
     "duration": "00:52:22",
     "releaseDate": "2025.01.11",
-    "mood": "nocturnal",
+    "mood": "deep",
     "tags": [
       "trendy",
       "after",
@@ -1449,7 +1449,7 @@
     "slug": "lo-fi-house-mix-everything-becomes-clear-if-you-listen-to-this-first",
     "duration": "00:32:01",
     "releaseDate": "2025.01.19",
-    "mood": "lofi-house",
+    "mood": "deep",
     "tags": [
       "everything",
       "clear",
@@ -1467,7 +1467,7 @@
     "slug": "lo-fi-house-mix-everything-else-becomes-clear-if-you-listen-to-this-second",
     "duration": "00:36:16",
     "releaseDate": "2025.01.21",
-    "mood": "lofi-house",
+    "mood": "deep",
     "tags": [
       "everything",
       "clear",
@@ -1486,7 +1486,7 @@
     "slug": "lo-fi-house-mix-euphoric-sounds-for-your-inner-youth",
     "duration": "00:43:49",
     "releaseDate": "2025.01.25",
-    "mood": "euphoric",
+    "mood": "deep",
     "tags": [
       "euphoric",
       "sounds",
@@ -1508,7 +1508,7 @@
     "slug": "lo-fi-house-essentials-secondhand-high-comeup-trax",
     "duration": "02:03:29",
     "releaseDate": "2025.02.01",
-    "mood": "lofi-house",
+    "mood": "deep",
     "tags": [
       "secondhand",
       "high",
@@ -1527,7 +1527,7 @@
     "slug": "lo-fi-house-mix-mans-best-friend",
     "duration": "00:43:09",
     "releaseDate": "2025.02.18",
-    "mood": "lofi-house",
+    "mood": "nostalgic",
     "tags": [
       "mans",
       "best",
@@ -1549,7 +1549,7 @@
     "slug": "lo-fi-house-mix-this-is-a-journey-into-sound",
     "duration": "01:04:23",
     "releaseDate": "2025.03.08",
-    "mood": "lofi-house",
+    "mood": "deep",
     "tags": [
       "journey",
       "sound",
@@ -1568,7 +1568,7 @@
     "slug": "lo-fi-house-essentials-interstellar-travel-trax",
     "duration": "01:54:02",
     "releaseDate": "2025.03.18",
-    "mood": "ambient",
+    "mood": "deep",
     "tags": [
       "cowboy bebop",
       "spike",
@@ -1586,7 +1586,7 @@
     "slug": "lo-fi-house-mix-break-everything-into-dnb",
     "duration": "00:47:33",
     "releaseDate": "2025.03.29",
-    "mood": "jungle-dnb",
+    "mood": "dirty",
     "tags": [
       "sailor moon",
       "break",
@@ -1607,7 +1607,7 @@
     "slug": "lo-fi-house-mix-ethereal-composition",
     "duration": "01:00:53",
     "releaseDate": "2025.08.23",
-    "mood": "dreamy",
+    "mood": "deep",
     "tags": [
       "ocean waves",
       "ethereal",
@@ -1624,7 +1624,7 @@
     "slug": "jungle-dnb-mix-music-is-meditation",
     "duration": "00:46:21",
     "releaseDate": "2025.11.08",
-    "mood": "jungle-dnb",
+    "mood": "dirty",
     "tags": [
       "sakura",
       "wars",
@@ -1644,7 +1644,7 @@
     "slug": "lo-fi-house-mix-cult-members-kenopsia",
     "duration": "00:40:59",
     "releaseDate": "2026.04.04",
-    "mood": "lofi-house",
+    "mood": "nostalgic",
     "tags": [
       "cult member",
       "kenopsia",

@@ -31,35 +31,57 @@ def infer_mood(title, tags):
     title_l = title.lower()
     tags_s = set(tags)
     all_w = tags_s | set(title_l.split())
-    if any(w in all_w for w in ['jungle','dnb','breakbeat']) or 'drum n bass' in title_l or 'drum and bass' in title_l:
-        return 'jungle-dnb'
-    if any(w in all_w for w in ['ambient','atmospheric','interstellar']) or 'out of body' in title_l or 'outer space' in title_l:
-        return 'ambient'
-    if any(w in all_w for w in ['clubbing','withdrawal']) or 'club' in title_l:
-        return 'clubby'
-    if any(w in all_w for w in ['cyberpunk','dystopian','virtual','ghostintheshell']) or 'ghost in the shell' in title_l or 'cyber city' in title_l:
-        return 'cyberpunk'
-    if any(w in all_w for w in ['ethereal','mesmerizing','stargazing','vibey','soundscapes']):
-        return 'dreamy'
-    if any(w in all_w for w in ['transcendent','floating','euphoric']) and 'summer' not in title_l:
-        return 'euphoric'
-    if any(w in all_w for w in ['reminiscing','nostalgic','tears','breakups','heartbreak']):
-        return 'melancholic'
-    if any(w in all_w for w in ['love','falling','romance','romantic']):
-        return 'romantic'
-    if any(w in all_w for w in ['dream','trip','out of body']):
-        return 'dreamy'
-    if any(w in title_l for w in ['summer','sunset','warm','sunny']):
-        return 'summery'
-    if any(w in title_l for w in ['night','midnight','after hours','nocturnal']):
-        return 'nocturnal'
-    if any(w in all_w for w in ['funky','funk']):
-        return 'vibey'
-    if 'summer' in title_l:
-        return 'summery'
-    if 'night' in title_l:
-        return 'nocturnal'
-    return 'lofi-house'
+
+    # ambient/atmospheric always wins over dirty — check first
+    if any(w in all_w for w in ['ambient', 'atmospheric', 'soundscapes', 'mesmerizing']) \
+            and 'jungle' not in all_w and 'dnb' not in all_w:
+        return 'chill'
+
+    # dirty: heavy basslines, drops, high-energy, gritty
+    if any(w in all_w for w in ['jungle', 'dnb', 'clipping']) \
+            or 'drum n bass' in title_l or 'drum and bass' in title_l \
+            or any(p in title_l for p in ['back2back', 'pull up', 'f*ck', 'shifting gears',
+                                           'break everything', 'clipping']) \
+            or ('breakbeat' in all_w and 'stargazing' not in all_w and 'vibey' not in all_w
+                and 'ambient' not in all_w and 'atmospheric' not in all_w):
+        return 'dirty'
+
+    # nostalgic: memory, loss, love, emotion
+    if any(w in all_w for w in ['reminiscing', 'nostalgic', 'tears', 'breakups',
+                                  'heartbreak', 'sentimental', 'rip']) \
+            or any(p in title_l for p in ['reminiscing', 'nostalgic', 'tears', 'who hurt you',
+                                           'sad boy', 'doomed romance', 'will you miss',
+                                           "man's best friend", 'rip toriyama', 'heartbreaks',
+                                           'retrospect', 'kenopsia', 'i love you',
+                                           'thinking of you', 'falling in love',
+                                           "you're falling in love"]):
+        return 'nostalgic'
+
+    # deep: soulful, late-night, atmospheric, layered
+    if any(p in title_l for p in ['after hours', 'late night', 'interstellar', 'out-of-body',
+                                    'outer space', 'house is a feeling', 'spacious void',
+                                    'unconventional', 'zero gravity', 'transcendent',
+                                    'dystopian', 'cyberpunk', 'virtual reality',
+                                    'a dream', 'ghost in the shell', 'stargazing',
+                                    'ethereal', 'journey into sound', 'haunting',
+                                    'everything becomes clear', 'false body',
+                                    'natural high', 'nighttime', 'dj only',
+                                    'interstellar', 'secondhand high', 'euphoric']) \
+            or any(w in all_w for w in ['atmospheric', 'transcendent', 'floating',
+                                          'ethereal', 'interstellar', 'ghostintheshell',
+                                          'dystopian', 'withdrawal']):
+        return 'deep'
+
+    # chill: relaxed, summery, laid-back, warm
+    if any(p in title_l for p in ['summer', 'sunset', 'warm weather', 'nintendo',
+                                    'mesmerizing', 'soundscapes', 'swim', 'natural',
+                                    'sentimental sunsets', 'short but funky', 'against the grain',
+                                    'final days', 'end of summer', 'good vibes']) \
+            or any(w in all_w for w in ['summer', 'warm', 'chill', 'funky', 'nintendo',
+                                          'ambient', 'soundscapes', 'mesmerizing']):
+        return 'chill'
+
+    return 'deep'
 
 # Load YouTube tags (tools/yt_tags.json, built from yt-dlp output)
 _tags_file = os.path.join(os.path.dirname(__file__), 'yt_tags.json')
