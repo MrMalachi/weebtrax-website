@@ -826,6 +826,227 @@ function FeatureModule({
     }
   }, narrow ? /*#__PURE__*/React.createElement(React.Fragment, null, txtEl, imgEl) : flip ? /*#__PURE__*/React.createElement(React.Fragment, null, imgEl, txtEl) : /*#__PURE__*/React.createElement(React.Fragment, null, txtEl, imgEl));
 }
+function SignalFeed({ scene, onClose }) {
+  const videoRef = React.useRef(null);
+  const [playing, setPlaying] = React.useState(false);
+  const [elapsed, setElapsed] = React.useState(0);
+  const [duration, setDuration] = React.useState(0);
+  const [progress, setProgress] = React.useState(0);
+  const [seeking, setSeeking] = React.useState(false);
+  const [muted, setMuted] = React.useState(true);
+  const [expanded, setExpanded] = React.useState(false);
+  const [hovPlay, setHovPlay] = React.useState(false);
+  const [hovClose, setHovClose] = React.useState(false);
+  const [hovExpand, setHovExpand] = React.useState(false);
+  const [hovMute, setHovMute] = React.useState(false);
+
+  React.useEffect(() => {
+    const v = videoRef.current;
+    if (!v) return;
+    v.load();
+    setPlaying(false);
+    setElapsed(0);
+    setProgress(0);
+    setDuration(0);
+    setExpanded(false);
+  }, [scene.id]);
+
+  React.useEffect(() => {
+    const v = videoRef.current;
+    if (!v) return;
+    function onTimeUpdate() {
+      if (v.duration && isFinite(v.duration)) {
+        setElapsed(Math.floor(v.currentTime));
+        setProgress(v.currentTime / v.duration);
+      }
+    }
+    function onLoadedMetadata() { if (isFinite(v.duration)) setDuration(Math.floor(v.duration)); }
+    function onPlay() { setPlaying(true); }
+    function onPause() { setPlaying(false); }
+    function onEnded() { setPlaying(false); setProgress(1); }
+    v.addEventListener('timeupdate', onTimeUpdate);
+    v.addEventListener('loadedmetadata', onLoadedMetadata);
+    v.addEventListener('play', onPlay);
+    v.addEventListener('pause', onPause);
+    v.addEventListener('ended', onEnded);
+    return () => {
+      v.pause();
+      v.removeEventListener('timeupdate', onTimeUpdate);
+      v.removeEventListener('loadedmetadata', onLoadedMetadata);
+      v.removeEventListener('play', onPlay);
+      v.removeEventListener('pause', onPause);
+      v.removeEventListener('ended', onEnded);
+    };
+  }, []);
+
+  function togglePlay() {
+    const v = videoRef.current;
+    if (!v) return;
+    if (playing) v.pause(); else v.play().catch(() => {});
+  }
+  function seekTo(frac) {
+    const v = videoRef.current;
+    if (v && isFinite(v.duration)) v.currentTime = frac * v.duration;
+  }
+  function fmtT(s) {
+    return String(Math.floor(s / 60)).padStart(2, '0') + ':' + String(Math.floor(s % 60)).padStart(2, '0');
+  }
+
+  const btnBase = {
+    background: 'none', fontFamily: WT2.mono, fontSize: 9.5,
+    letterSpacing: 1.5, padding: '5px 10px', cursor: 'pointer',
+    borderRadius: 0, textTransform: 'uppercase', transition: 'all .12s'
+  };
+  const maxW = expanded ? 1100 : undefined;
+  const outerStyle = expanded ? {
+    position: 'fixed', inset: 0, zIndex: 300,
+    background: 'rgba(5,6,8,0.97)',
+    display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+    padding: 24
+  } : {
+    marginTop: 24, border: '1px solid ' + WT2.line2,
+    background: WT2.panel, position: 'relative', overflow: 'hidden'
+  };
+
+  return /*#__PURE__*/React.createElement("div", { style: outerStyle },
+    /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+        padding: '9px 14px', background: WT2.sink, borderBottom: '1px solid ' + WT2.line,
+        width: '100%', maxWidth: maxW, boxSizing: 'border-box'
+      }
+    },
+      /*#__PURE__*/React.createElement("div", { style: { display: 'flex', alignItems: 'center', gap: 12 } },
+        /*#__PURE__*/React.createElement("span", {
+          style: {
+            fontFamily: WT2.mono, fontSize: 9, letterSpacing: 2,
+            color: playing ? 'var(--wt-accent)' : WT2.faint,
+            textShadow: playing ? '0 0 8px var(--wt-accent)' : 'none'
+          }
+        }, playing ? '◉ TRANSMITTING' : '◎ SIGNAL READY'),
+        /*#__PURE__*/React.createElement(Tag, { color: playing ? 'var(--wt-accent)' : WT2.faint }, scene.tag)
+      ),
+      /*#__PURE__*/React.createElement("div", { style: { display: 'flex', gap: 8 } },
+        /*#__PURE__*/React.createElement("button", {
+          onClick: () => setExpanded(function(e) { return !e; }),
+          onMouseEnter: () => setHovExpand(true),
+          onMouseLeave: () => setHovExpand(false),
+          style: {
+            ...btnBase,
+            border: '1px solid ' + (hovExpand ? 'var(--wt-accent)' : WT2.line),
+            color: hovExpand ? 'var(--wt-accent)' : WT2.dim,
+            textShadow: hovExpand ? '0 0 8px var(--wt-accent)' : 'none'
+          }
+        }, expanded ? '⊟ COLLAPSE' : '⊞ EXPAND SIGNAL'),
+        /*#__PURE__*/React.createElement("button", {
+          onClick: onClose,
+          onMouseEnter: () => setHovClose(true),
+          onMouseLeave: () => setHovClose(false),
+          style: {
+            ...btnBase,
+            border: '1px solid ' + (hovClose ? WT2.red : WT2.line),
+            color: hovClose ? WT2.red : WT2.faint
+          }
+        }, 'CLOSE SIGNAL ×')
+      )
+    ),
+    /*#__PURE__*/React.createElement("div", {
+      style: {
+        position: 'relative', width: '100%', maxWidth: maxW,
+        aspectRatio: '16/9', background: '#000', overflow: 'hidden'
+      }
+    },
+      /*#__PURE__*/React.createElement("video", {
+        ref: videoRef, src: scene.video, poster: scene.img,
+        muted: muted, playsInline: true, preload: "metadata",
+        style: { width: '100%', height: '100%', display: 'block', objectFit: 'contain', background: '#000' }
+      }),
+      /*#__PURE__*/React.createElement("div", {
+        'aria-hidden': true,
+        style: {
+          position: 'absolute', inset: 0, pointerEvents: 'none',
+          backgroundImage: 'repeating-linear-gradient(0deg, rgba(0,0,0,0.22) 0 1px, transparent 1px 3px)'
+        }
+      }),
+      /*#__PURE__*/React.createElement("div", {
+        'aria-hidden': true,
+        style: {
+          position: 'absolute', inset: 0, pointerEvents: 'none',
+          background: 'radial-gradient(100% 100% at 50% 50%, transparent 60%, rgba(0,0,0,0.5) 100%)'
+        }
+      }),
+      /*#__PURE__*/React.createElement("div", {
+        onClick: togglePlay,
+        style: {
+          position: 'absolute', inset: 0, display: 'flex',
+          alignItems: 'center', justifyContent: 'center', cursor: 'pointer',
+          opacity: playing ? 0 : 1, transition: 'opacity .2s',
+          background: playing ? 'transparent' : 'rgba(0,0,0,0.2)',
+          pointerEvents: playing ? 'none' : 'auto'
+        }
+      },
+        /*#__PURE__*/React.createElement("span", {
+          style: {
+            fontFamily: WT2.mono, fontSize: expanded ? 64 : 44,
+            color: 'var(--wt-accent)', lineHeight: 1, opacity: 0.9,
+            textShadow: '0 0 32px var(--wt-accent), 0 0 64px var(--wt-accent)'
+          }
+        }, '▸')
+      )
+    ),
+    /*#__PURE__*/React.createElement("div", {
+      style: {
+        width: '100%', maxWidth: maxW, padding: '10px 14px',
+        background: WT2.panel, boxSizing: 'border-box',
+        borderTop: '1px solid ' + WT2.line
+      }
+    },
+      /*#__PURE__*/React.createElement(SeekBar, {
+        progress: progress, onSeek: seekTo,
+        height: 3, mt: 0, onSeekStateChange: setSeeking
+      }),
+      /*#__PURE__*/React.createElement("div", {
+        style: { display: 'flex', justifyContent: 'space-between', marginTop: 3 }
+      },
+        /*#__PURE__*/React.createElement("span", { style: { fontFamily: WT2.mono, fontSize: 10, color: WT2.dim } }, fmtT(elapsed)),
+        /*#__PURE__*/React.createElement("span", { style: { fontFamily: WT2.mono, fontSize: 10, color: WT2.faint } }, fmtT(duration))
+      ),
+      /*#__PURE__*/React.createElement("div", {
+        style: { display: 'flex', alignItems: 'center', gap: 12, marginTop: 10, flexWrap: 'wrap' }
+      },
+        /*#__PURE__*/React.createElement("button", {
+          onClick: togglePlay,
+          onMouseEnter: () => setHovPlay(true),
+          onMouseLeave: () => setHovPlay(false),
+          style: {
+            ...btnBase, fontSize: 10.5, padding: '6px 14px',
+            border: '1px solid var(--wt-accent)',
+            color: hovPlay ? WT2.void : 'var(--wt-accent)',
+            background: hovPlay ? 'var(--wt-accent)' : 'none',
+            textShadow: !hovPlay ? '0 0 8px var(--wt-accent)' : 'none'
+          }
+        }, playing ? '▐▐ PAUSE' : '▸ PLAY'),
+        /*#__PURE__*/React.createElement("span", {
+          style: {
+            fontFamily: WT2.display, fontSize: 14, color: WT2.body,
+            flex: 1, minWidth: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap'
+          }
+        }, scene.name),
+        /*#__PURE__*/React.createElement("button", {
+          onClick: () => setMuted(function(m) { return !m; }),
+          onMouseEnter: () => setHovMute(true),
+          onMouseLeave: () => setHovMute(false),
+          title: muted ? 'Unmute video audio' : 'Mute video (mix audio still plays)',
+          style: {
+            ...btnBase,
+            border: '1px solid ' + (hovMute ? WT2.dim : WT2.line),
+            color: muted ? WT2.faint : WT2.dim, opacity: 0.72
+          }
+        }, muted ? '⊗ VID MUTED' : '♫ VID AUDIO')
+      )
+    )
+  );
+}
 function SceneCard({
   name,
   tag,
@@ -941,6 +1162,7 @@ function SceneGrid() {
       tag: s.type,
       desc: s.description,
       img: '/' + s.thumbnailPath,
+      video: '/' + s.videoPath,
     };
   });
   const totalPages = Math.max(1, Math.ceil(SCENES.length / SCENES_PER_PAGE));
@@ -985,7 +1207,11 @@ function SceneGrid() {
     img: s.img,
     selected: selected === s.id,
     onSelect: () => setSelected(selected === s.id ? null : s.id)
-  }))), /*#__PURE__*/React.createElement(TermPageBar, {
+  }))), sel ? /*#__PURE__*/React.createElement(SignalFeed, {
+    key: sel.id,
+    scene: sel,
+    onClose: function() { setSelected(null); }
+  }) : null, /*#__PURE__*/React.createElement(TermPageBar, {
     page: page,
     total: totalPages,
     onGoTo: goPage
