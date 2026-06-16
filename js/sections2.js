@@ -68,15 +68,17 @@ const MOOD_TONE = { chill: WT2.blue, nostalgic: WT2.purple, dirty: WT2.red, deep
 // TODO: Replace with server-side cursor pagination once PostgreSQL + FastAPI are connected (Phase 4/5).
 function TermPageBar({ page, total, onGoTo }) {
   const [hov, setHov] = React.useState(null);
+  const winW = useWinW();
   if (total <= 1) return null;
   const isFirst = page === 0;
   const isLast = page >= total - 1;
+  const wide = winW >= 900;
   const navBtn = {
     background: 'none',
     fontFamily: WT2.mono,
-    fontSize: 10,
+    fontSize: wide ? 12 : 10,
     letterSpacing: 1.5,
-    padding: '6px 12px',
+    padding: wide ? '9px 18px' : '6px 12px',
     textTransform: 'uppercase',
     transition: 'all .12s',
     borderRadius: 0,
@@ -98,8 +100,8 @@ function TermPageBar({ page, total, onGoTo }) {
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      gap: 5,
-      marginTop: 28,
+      gap: wide ? 7 : 5,
+      marginTop: wide ? 36 : 28,
       flexWrap: 'wrap'
     }
   }, /*#__PURE__*/React.createElement("button", {
@@ -114,13 +116,13 @@ function TermPageBar({ page, total, onGoTo }) {
       textShadow: !isFirst && hov !== 'prev' ? '0 0 8px var(--wt-accent)' : 'none',
       opacity: isFirst ? 0.3 : 1,
       cursor: isFirst ? 'default' : 'pointer',
-      marginRight: 6
+      marginRight: wide ? 10 : 6
     }
   }, "← PREV"), items.map(function(item) {
     if (typeof item === 'string') {
       return /*#__PURE__*/React.createElement("span", {
         key: item,
-        style: { fontFamily: WT2.mono, fontSize: 9, color: WT2.faint, padding: '0 2px', userSelect: 'none' }
+        style: { fontFamily: WT2.mono, fontSize: wide ? 10 : 9, color: WT2.faint, padding: '0 2px', userSelect: 'none' }
       }, "···");
     }
     const isCur = item === page;
@@ -134,10 +136,10 @@ function TermPageBar({ page, total, onGoTo }) {
         background: isCur ? 'var(--wt-accent)' : isH ? 'rgba(143,191,159,0.09)' : 'none',
         border: '1px solid ' + (isCur ? 'var(--wt-accent)' : isH ? 'var(--wt-accent)' : WT2.line),
         fontFamily: WT2.mono,
-        fontSize: 10,
+        fontSize: wide ? 12 : 10,
         letterSpacing: 0.5,
-        padding: '5px 8px',
-        minWidth: 30,
+        padding: wide ? '7px 11px' : '5px 8px',
+        minWidth: wide ? 38 : 30,
         textAlign: 'center',
         color: isCur ? WT2.void : isH ? 'var(--wt-accent)' : WT2.dim,
         textShadow: !isCur && isH ? '0 0 6px var(--wt-accent)' : 'none',
@@ -158,7 +160,7 @@ function TermPageBar({ page, total, onGoTo }) {
       textShadow: !isLast && hov !== 'next' ? '0 0 8px var(--wt-accent)' : 'none',
       opacity: isLast ? 0.3 : 1,
       cursor: isLast ? 'default' : 'pointer',
-      marginLeft: 6
+      marginLeft: wide ? 10 : 6
     }
   }, "NEXT →"));
 }
