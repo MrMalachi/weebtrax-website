@@ -5,7 +5,7 @@
 | # | Phase | Status |
 |---|-------|--------|
 | 1 | Local media organization | ✅ Complete |
-| 2 | JSON metadata | 🔄 In Progress |
+| 2 | JSON metadata | ✅ Complete |
 | 3 | Website reads JSON | ⬜ Not started |
 | 4 | Create backend / API (FastAPI) | ⬜ Not started |
 | 5 | Move JSON metadata into PostgreSQL | ⬜ Not started |
@@ -33,7 +33,7 @@ public/assets/
 ### Notes
 - Mix thumbnails live in `public/assets/scenes/thumbnails/` — user-selectable, not assigned per mix
 - 94 mixes converted from `.mp4` → `.mp3` and copied to `public/assets/mixes/audio/`
-- 48 scene clips across episodes 1–13, named `episode-XX_clip_tXXXXs.mp4`
+- 48 scene clips across episodes 1–13, named `episode-XX_clip-NN.mp4` (sequential per episode)
 
 ### Checklist
 - [x] Slugify MP3 filenames on flash drive (Mixes folders)
@@ -49,7 +49,7 @@ public/assets/
 
 Create:
 - `public/assets/metadata/mixes.json` ✅ Generated (94 entries)
-- `public/assets/metadata/scenes.json` 🔄 Pending
+- `public/assets/metadata/scenes.json` ✅ Generated (48 entries)
 
 ### mixes.json fields (finalised)
 `id`, `title`, `slug`, `duration`, `releaseDate`, `mood`, `views`, `audioPath`, `youtubeUrl`, `soundcloudUrl`
