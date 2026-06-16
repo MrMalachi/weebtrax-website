@@ -136,6 +136,42 @@ DATES = {
     "Oo4d67fRz_Q": "20241028",  # from SoundCloud (YouTube blocked on copyright)
 }
 
+# YouTube view counts keyed by video ID
+VIEWS = {
+    "ji9HUjdbbfs": 12777, "1ltJN5PCHsw": 5538, "kfxz4Llikic": 2335,
+    "_Isrjs4DLPE": 10053, "fWe_Pifvacg": 5753, "p8Wn-pscT_o": 3076,
+    "DTBPLvzi7p4": 3251, "LQe9JlO9zoo": 2608, "xVxLereRVBc": 1552,
+    "7rzBRInrd-g": 1049, "Kzu7OhNKmgg": 3441, "zxhd5e8QWps": 3165,
+    "wOhOVvg5r3U": 2045, "ImZkVLHa7vc": 1652,
+    "Ev5sCVzMspQ": 181953, "DT2-17RLM9A": 40701, "W96EDPbkxjI": 29679,
+    "6QEPBdVqTOg": 19681, "1G56f7ziIQw": 13676, "gZAOQC6M-Vw": 12423,
+    "eP4kSOyWEI8": 9515, "D1Czc1M_DAo": 8461, "0Ha8urdCt6c": 8125,
+    "DgGRQCoUozc": 7530, "BNQkjPU5lHI": 7099, "qVDWiSTlEg0": 6992,
+    "IKAtG6bHCMs": 6594, "hFMOEoDpoTQ": 6370, "DSxEs-Xs2H0": 6217,
+    "0TZnP-6Q-6Q": 6194, "VIDVRWQYc_k": 6107, "2e82RN9sAKs": 5787,
+    "fpyit-cgvxE": 5497, "Oor-V-eEWLU": 5404, "p-pLLBGca8A": 5029,
+    "FJT2BXuaT88": 4917, "gGbhpwAOZUk": 4675, "fTxG4KqoGm8": 4638,
+    "kV1L6XJalU8": 4224, "f-0P_A0TK0k": 4221, "NNdtYCFIL68": 4072,
+    "GqmPdYAxIm0": 3908, "_fVTpIGZIfY": 3782, "3gA8fU5Fcaw": 3593,
+    "PC0twDXW6mw": 3190, "JOHHJ5UeNNQ": 3183, "d8AqptCFXKw": 3178,
+    "D_RtPmuD5hk": 3176, "6jpyV4CqEw0": 3113, "dlA8EXV_9Qc": 2966,
+    "LLeJsPF7-hA": 2867, "5Vt6Lf-Zo5Y": 2786, "1Re1CYHR6A0": 2709,
+    "lKO8AE8Lma8": 2666, "zhFm4mc1k6Q": 2611, "HpS4py33S3c": 2557,
+    "j3bSodje_bI": 2547, "i-9NooDHQMg": 2406, "XbQgyHjEBqY": 2287,
+    "DPzahNNpLcA": 2280, "uKsgbOV9hQY": 2238, "UanA5kHIMNI": 2114,
+    "xi0Nr-plL78": 2107, "Nsq8xu1x1LQ": 2093, "5fJ_uZY0SBo": 1916,
+    "1BuuAZeLtno": 1892, "g7CcHOrSkQY": 1871, "AegqPllWwM4": 1834,
+    "z2YcXPU9bQE": 1758, "gg0D64ziBIA": 1635, "DeNplFluftk": 1644,
+    "z6Omt_0lv68": 1578, "FkmrrqCjABo": 1562, "18TFZ_VI2Us": 1530,
+    "KLwFKmDaijQ": 1481, "VitreIs46f0": 1402, "yFkJk4ytKOI": 1398,
+    "yvWPp8UrmB8": 1379, "V-w3xfq19HY": 1376, "ln_7W93hQUI": 1356,
+    "sL3cNkE5gZQ": 1293, "N6cqvnPYtcQ": 1273, "P09t3D7sdQY": 1244,
+    "cAiXN3eLvK0": 1223, "UgCTBRPnPZY": 1133, "kQyCZASKCc0": 1117,
+    "QeORW0r_7jg": 1064, "zaMpe_r965E": 1057, "zi5SaXnu7qU": 909,
+    "gk2V4Iwi02U": 903, "2JYacVX8XNQ": 711, "1lAmvchYbDk": 711,
+    "b4emPgjo7lo": None, "Oo4d67fRz_Q": None,  # blocked on YouTube
+}
+
 # YouTube data: (yt_id, title, duration_seconds)
 YT = [
     # Essentials playlist
@@ -349,7 +385,7 @@ for i, (yt_id, yt_title, duration) in enumerate(YT_sorted, 1):
         "duration": fmt_duration(duration),
         "releaseDate": fmt_date(DATES.get(yt_id)),
         "mood": mood,
-        "tags": tags,
+        "views": VIEWS.get(yt_id),
         "audioPath": f"public/assets/mixes/audio/{slug}.mp3",
         "thumbnailPath": None,
         "youtubeUrl": f"https://www.youtube.com/watch?v={yt_id}",
