@@ -1,4 +1,13 @@
 // app.jsx — assembles the WeebTrax ARCHIVE.SYS comp + Tweaks panel.
+// TODO: Cross-device / multi-account persistence requires backend + auth (Phase 4/5).
+// Currently using localStorage for single-browser session restore only.
+const WT_SESSION_KEY = 'wt_session';
+function loadSession() {
+  try { return JSON.parse(localStorage.getItem(WT_SESSION_KEY)) || {}; } catch { return {}; }
+}
+function saveSession(mixId, currentTime) {
+  try { localStorage.setItem(WT_SESSION_KEY, JSON.stringify({ mixId, currentTime })); } catch {}
+}
 
 const WT_DEFAULTS = /*EDITMODE-BEGIN*/{
   "accent": "#8fbf9f",
@@ -63,19 +72,54 @@ function pingLabel(ms) {
 }
 function App() {
   const TX = getMixes();
+  const _session = loadSession();
+  const _restoredId = _session.mixId && TX.find(t => t.id === _session.mixId) ? _session.mixId : null;
   const [t, setTweak] = useTweaks(WT_DEFAULTS);
   const ping = usePing(18000);
   const winW = useWinW();
   const railW = winW < 560 ? RAIL_W_NARROW : RAIL_W;
   const audioRef = React.useRef(null);
+  const pendingRestoreRef = React.useRef(_session.currentTime || 0);
+  const activeTxIdRef = React.useRef(_restoredId || TX[0].id);
+  const lastSaveRef = React.useRef(0);
   const [playing, setPlaying] = React.useState(false);
-  const [elapsed, setElapsed] = React.useState(0);
-  const [hasPlayed, setHasPlayed] = React.useState(false);
-  const [activeTxId, setActiveTxId] = React.useState(TX[0].id);
+  const [elapsed, setElapsed] = React.useState(Math.floor(_session.currentTime || 0));
+  const [hasPlayed, setHasPlayed] = React.useState(Boolean(_restoredId));
+  const [activeTxId, setActiveTxId] = React.useState(_restoredId || TX[0].id);
   const [audioProgress, setAudioProgress] = React.useState(0);
   const [audioDurSecs, setAudioDurSecs] = React.useState(null);
   const [seeking, setSeeking] = React.useState(false);
   const [volume, setVolume] = React.useState(0.8);
+
+  // Keep activeTxIdRef in sync for use inside event listeners
+  React.useEffect(() => { activeTxIdRef.current = activeTxId; }, [activeTxId]);
+
+  // On mount: if restoring a session, pre-load the track (no autoplay)
+  React.useEffect(() => {
+    if (pendingRestoreRef.current > 0) {
+      const tx = TX.find(t => t.id === activeTxIdRef.current);
+      const audio = audioRef.current;
+      if (audio && tx && tx.audioSrc && tx.audioSrc !== '#') {
+        audio.src = tx.audioSrc;
+        audio.load();
+        // seek happens in onLoadedMetadata below
+      }
+    }
+  }, []);
+
+  // Save session on page unload / hide
+  React.useEffect(() => {
+    function onUnload() {
+      const audio = audioRef.current;
+      saveSession(activeTxIdRef.current, audio ? Math.floor(audio.currentTime) : 0);
+    }
+    window.addEventListener('beforeunload', onUnload);
+    window.addEventListener('pagehide', onUnload);
+    return () => {
+      window.removeEventListener('beforeunload', onUnload);
+      window.removeEventListener('pagehide', onUnload);
+    };
+  }, []);
 
   // Wire real HTML audio events
   React.useEffect(() => {
@@ -85,10 +129,23 @@ function App() {
       if (audio.duration && isFinite(audio.duration)) {
         setElapsed(Math.min(Math.floor(audio.currentTime), Math.floor(audio.duration)));
         setAudioProgress(Math.min(audio.currentTime / audio.duration, 1));
+        // Save session every 5 s to capture timestamp without excessive writes
+        const now = Date.now();
+        if (now - lastSaveRef.current > 5000) {
+          lastSaveRef.current = now;
+          saveSession(activeTxIdRef.current, Math.floor(audio.currentTime));
+        }
       }
     }
     function onLoadedMetadata() {
       if (isFinite(audio.duration)) setAudioDurSecs(Math.floor(audio.duration));
+      // Restore saved timestamp on session reload (keep paused)
+      if (pendingRestoreRef.current > 0 && audio.duration > 0) {
+        audio.currentTime = Math.min(pendingRestoreRef.current, audio.duration - 1);
+        setElapsed(Math.floor(audio.currentTime));
+        setAudioProgress(Math.min(audio.currentTime / audio.duration, 1));
+        pendingRestoreRef.current = 0;
+      }
     }
     function onPlay() {
       setPlaying(true);
@@ -139,6 +196,8 @@ function App() {
     const tx = TX.find(tx => tx.id === id);
     if (!tx) return;
     setActiveTxId(id);
+    activeTxIdRef.current = id;
+    saveSession(id, 0);
     setElapsed(0);
     setAudioProgress(0);
     setAudioDurSecs(null);

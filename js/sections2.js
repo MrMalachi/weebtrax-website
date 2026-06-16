@@ -252,6 +252,65 @@ function VolBar({
     }
   }))));
 }
+// Vertical VU-style volume meter — sits beside the oscilloscope in the active player.
+function VolBarV({ vol = 0.8, onVolChange, tone, interactive, oscHeight = 110 }) {
+  const segs = 5;
+  const gap = 2;
+  const labelH = 22;
+  const segH = Math.max(6, Math.floor((oscHeight - labelH - gap * (segs - 1)) / segs));
+  const segW = 14;
+  const dragging = React.useRef(false);
+  const savedVol = React.useRef(vol > 0 ? vol : 0.8);
+  React.useEffect(() => { if (vol > 0) savedVol.current = vol; }, [vol]);
+  const muted = vol <= 0;
+  const filled = muted ? 0 : Math.max(1, Math.ceil(vol * segs));
+  function setVolFromEvent(e) {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const frac = 1 - Math.max(0, Math.min(1, (e.clientY - rect.top) / rect.height));
+    if (onVolChange) onVolChange(Math.max(0.04, frac));
+  }
+  return /*#__PURE__*/React.createElement("div", {
+    onClick: e => e.stopPropagation(),
+    style: { display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 3, flexShrink: 0, width: segW }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: { fontFamily: WT2.mono, fontSize: 7, color: WT2.faint, letterSpacing: 1, opacity: 0.6, userSelect: 'none', textAlign: 'center' }
+  }, "OUT"), /*#__PURE__*/React.createElement("div", {
+    onPointerDown: e => {
+      if (!interactive || !onVolChange) return;
+      e.stopPropagation();
+      dragging.current = true;
+      e.currentTarget.setPointerCapture(e.pointerId);
+      setVolFromEvent(e);
+    },
+    onPointerMove: e => {
+      if (!interactive || !dragging.current) return;
+      setVolFromEvent(e);
+    },
+    onPointerUp: () => { dragging.current = false; },
+    onPointerCancel: () => { dragging.current = false; },
+    style: {
+      display: 'flex', flexDirection: 'column-reverse', gap,
+      cursor: interactive ? 'ns-resize' : 'default',
+      touchAction: 'none', userSelect: 'none'
+    }
+  }, Array.from({ length: segs }).map((_, i) => /*#__PURE__*/React.createElement("div", {
+    key: i,
+    style: {
+      width: segW, height: segH,
+      background: i < filled ? tone : WT2.line2,
+      opacity: i < filled ? 0.9 : 0.18,
+      transition: 'opacity 0.06s', borderRadius: 1
+    }
+  }))), /*#__PURE__*/React.createElement("span", {
+    onClick: e => {
+      e.stopPropagation();
+      if (!onVolChange) return;
+      if (muted) onVolChange(savedVol.current); else { savedVol.current = vol; onVolChange(0); }
+    },
+    title: muted ? 'Unmute' : 'Mute',
+    style: { fontFamily: WT2.mono, fontSize: 7, color: muted ? WT2.faint : tone, opacity: 0.7, cursor: interactive ? 'pointer' : 'default', userSelect: 'none' }
+  }, muted ? '0%' : Math.round(vol * 100) + '%'));
+}
 function ActiveRow({
   t,
   playing,
@@ -305,15 +364,28 @@ function ActiveRow({
     style: {
       display: 'flex',
       flexDirection: 'column',
-      gap: 10
+      gap: 5
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      alignItems: 'stretch',
+      gap: 8
     }
   }, /*#__PURE__*/React.createElement(Oscilloscope, {
     height: narrow ? 72 : 110,
     color: "var(--wt-accent)",
     dense: 1.1,
     playing: playing,
-    seeking: seeking
-  }), /*#__PURE__*/React.createElement(SeekBar, {
+    seeking: seeking,
+    style: { flex: 1, minWidth: 0 }
+  }), /*#__PURE__*/React.createElement(VolBarV, {
+    vol: vol,
+    onVolChange: onVolChange,
+    tone: "var(--wt-accent)",
+    interactive: true,
+    oscHeight: narrow ? 72 : 110
+  })), /*#__PURE__*/React.createElement(SeekBar, {
     progress: progress,
     onSeek: onSeek,
     height: 3,
@@ -324,7 +396,7 @@ function ActiveRow({
       display: 'flex',
       justifyContent: 'space-between',
       alignItems: 'center',
-      marginTop: 2
+      marginTop: 0
     }
   }, /*#__PURE__*/React.createElement("span", {
     style: {
@@ -338,29 +410,7 @@ function ActiveRow({
       fontSize: 10,
       color: WT2.faint
     }
-  }, t.run)), /*#__PURE__*/React.createElement("div", {
-    style: {
-      display: 'flex',
-      alignItems: 'center',
-      gap: 8,
-      marginTop: 6
-    }
-  }, /*#__PURE__*/React.createElement("span", {
-    style: {
-      fontFamily: WT2.mono,
-      fontSize: 9,
-      color: WT2.faint,
-      letterSpacing: 1.5,
-      opacity: 0.55,
-      flexShrink: 0
-    }
-  }, "OUTPUT"), /*#__PURE__*/React.createElement(VolBar, {
-    vol: vol,
-    onVolChange: onVolChange,
-    tone: "var(--wt-accent)",
-    interactive: true,
-    size: "lg"
-  }))), /*#__PURE__*/React.createElement("div", {
+  }, t.run))), /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'flex',
       flexDirection: 'column',
@@ -371,7 +421,8 @@ function ActiveRow({
       display: 'flex',
       alignItems: 'center',
       gap: 10,
-      marginBottom: 10
+      marginBottom: 10,
+      flexWrap: 'wrap'
     }
   }, /*#__PURE__*/React.createElement(Tag, {
     color: "var(--wt-accent)"
@@ -381,7 +432,7 @@ function ActiveRow({
       fontSize: 11,
       color: WT2.faint
     }
-  }, "TX-", t.id, " \xB7 ", t.file)), /*#__PURE__*/React.createElement("h3", {
+  }, "TX-", t.id, " \xB7 ", t.file, " \xB7 ", t.date)), /*#__PURE__*/React.createElement("h3", {
     style: {
       margin: '0 0 8px',
       fontFamily: WT2.display,
@@ -415,15 +466,7 @@ function ActiveRow({
     onMouseEnter: () => setHovLink('sc'),
     onMouseLeave: () => setHovLink(null),
     style: hovLink === 'sc' ? extLinkHov : extLink
-  }, "SOUNDCLOUD \u2197")), /*#__PURE__*/React.createElement("span", {
-    style: {
-      display: 'block',
-      fontFamily: WT2.mono,
-      fontSize: 10,
-      color: WT2.faint,
-      marginTop: 10
-    }
-  }, t.date)));
+  }, "SOUNDCLOUD \u2197"))));
 }
 function Transmissions({
   playing,
@@ -439,7 +482,7 @@ function Transmissions({
   vol,
   onVolChange
 }) {
-  const ARCHIVE_PER_PAGE = 8;
+  const ARCHIVE_PER_PAGE = 5;
   const winW = useWinW();
   const narrow = winW < 900;
   const [hover, setHover] = React.useState(-1);
@@ -460,7 +503,7 @@ function Transmissions({
     setSortIdx(i => (i + 1) % SORT_MODES.length);
     setPage(0);
     setHover(-1);
-    onReset();
+    // Do NOT call onReset() — sorting only reorders the list, never interrupts playback
   }
   function handleRowClick(id) {
     if (id === activeTxId) {
@@ -1305,11 +1348,28 @@ function Footer() {
   return /*#__PURE__*/React.createElement("footer", {
     id: "wt-wired",
     style: {
-      padding: narrow ? '12px 24px 32px' : '12px 56px 40px',
+      borderTop: `1px solid ${WT2.line}`,
+      padding: narrow ? '12px 24px 32px' : '40px 56px 40px',
       position: 'relative',
       overflow: 'hidden'
     }
-  }, /*#__PURE__*/React.createElement("div", {
+  }, !narrow && /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      marginBottom: 32,
+      paddingBottom: 16,
+      borderBottom: `1px solid ${WT2.line}`,
+      fontFamily: WT2.mono,
+      fontSize: 10,
+      letterSpacing: 2,
+      color: WT2.faint,
+      textTransform: 'uppercase'
+    }
+  }, /*#__PURE__*/React.createElement("span", null, "ARCHIVE.SYS \xB7 NODE.227 \xB7 35.68N 139.69E"), /*#__PURE__*/React.createElement("span", {
+    style: { color: 'var(--wt-accent)', textShadow: '0 0 8px var(--wt-accent)' }
+  }, "STATUS: ONLINE")), /*#__PURE__*/React.createElement("div", {
     style: {
       position: 'relative',
       zIndex: 1

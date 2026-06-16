@@ -929,7 +929,7 @@ function SceneCard({
   }, desc));
 }
 function SceneGrid() {
-  const SCENES_PER_PAGE = 9;
+  const SCENES_PER_PAGE = 6;
   const [selected, setSelected] = React.useState(null);
   const [page, setPage] = React.useState(0);
   const winW = useWinW();
@@ -949,6 +949,9 @@ function SceneGrid() {
   function goPage(next) {
     setPage(next);
     setSelected(null);
+    // Scroll the scenes section into view so the page doesn't jump into the Submit section
+    const el = document.getElementById('wt-signal');
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
   return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
     style: {
@@ -970,7 +973,9 @@ function SceneGrid() {
     style: {
       display: 'grid',
       gridTemplateColumns: 'repeat(' + cols + ', 1fr)',
-      gap: 16
+      gap: 16,
+      minHeight: 300,
+      alignContent: 'start'
     }
   }, visible.map(s => /*#__PURE__*/React.createElement(SceneCard, {
     key: s.id,
