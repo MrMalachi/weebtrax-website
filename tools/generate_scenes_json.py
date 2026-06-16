@@ -384,7 +384,6 @@ for i, (old_slug, name, scene_type, description, mood) in enumerate(SCENES, 1):
         "type": scene_type,
         "description": description,
         "episodeNumber": ep_num(old_slug),
-        "startTime": start_time_from_old_slug(old_slug),
         "mood": mood,
         "videoPath": f"public/assets/scenes/videos/{new_slug}.mp4",
         "thumbnailPath": f"public/assets/scenes/thumbnails/{new_slug}.jpg",

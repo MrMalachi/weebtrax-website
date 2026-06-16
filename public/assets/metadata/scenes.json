@@ -6,7 +6,6 @@
     "type": "DEEP TRANSMISSION",
     "description": "A phantom shape drifts through deep blue static, the signal barely holding its form.",
     "episodeNumber": 1,
-    "startTime": "00:00:10",
     "mood": "deep",
     "videoPath": "public/assets/scenes/videos/episode-01_clip-01.mp4",
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-01_clip-01.jpg"
@@ -18,7 +17,6 @@
     "type": "CRT GHOST",
     "description": "An eye stares back from behind scan lines, the boundary between viewer and signal dissolving.",
     "episodeNumber": 1,
-    "startTime": "00:00:50",
     "mood": "deep",
     "videoPath": "public/assets/scenes/videos/episode-01_clip-02.mp4",
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-01_clip-02.jpg"
@@ -30,7 +28,6 @@
     "type": "GREY SIGNAL",
     "description": "A figure fades into white mist, the world half-rendered and retreating.",
     "episodeNumber": 1,
-    "startTime": "00:01:00",
     "mood": "chill",
     "videoPath": "public/assets/scenes/videos/episode-01_clip-03.mp4",
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-01_clip-03.jpg"
@@ -42,7 +39,6 @@
     "type": "MASS SIGNAL",
     "description": "A sea of faces lit by overhead fluorescents, the city processing its daily load.",
     "episodeNumber": 1,
-    "startTime": "00:02:10",
     "mood": "chill",
     "videoPath": "public/assets/scenes/videos/episode-01_clip-04.mp4",
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-01_clip-04.jpg"
@@ -54,7 +50,6 @@
     "type": "SYSTEM INIT",
     "description": "The series title burns through blue static, the terminal waking.",
     "episodeNumber": 1,
-    "startTime": "00:02:30",
     "mood": "deep",
     "videoPath": "public/assets/scenes/videos/episode-01_clip-05.mp4",
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-01_clip-05.jpg"
@@ -66,7 +61,6 @@
     "type": "DATA BLOOM",
     "description": "Japanese characters float through a pastel dreamfield, meaning dissolving into color.",
     "episodeNumber": 1,
-    "startTime": "00:03:00",
     "mood": "chill",
     "videoPath": "public/assets/scenes/videos/episode-01_clip-06.mp4",
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-01_clip-06.jpg"
@@ -78,7 +72,6 @@
     "type": "URBAN GRID",
     "description": "Looking up through a tangle of cables into blown-out sky, the city's nervous system exposed.",
     "episodeNumber": 1,
-    "startTime": "00:03:20",
     "mood": "deep",
     "videoPath": "public/assets/scenes/videos/episode-01_clip-07.mp4",
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-01_clip-07.jpg"
@@ -90,7 +83,6 @@
     "type": "CLOSE SIGNAL",
     "description": "Two eyes, wide and unblinking, absorbing the frame in full.",
     "episodeNumber": 1,
-    "startTime": "00:08:50",
     "mood": "nostalgic",
     "videoPath": "public/assets/scenes/videos/episode-01_clip-08.mp4",
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-01_clip-08.jpg"
@@ -102,7 +94,6 @@
     "type": "INTERRUPT",
     "description": "A hand pressed toward the lens, caught between reaching out and blocking transmission.",
     "episodeNumber": 1,
-    "startTime": "00:09:00",
     "mood": "dirty",
     "videoPath": "public/assets/scenes/videos/episode-01_clip-09.mp4",
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-01_clip-09.jpg"
@@ -114,7 +105,6 @@
     "type": "LOGIN TERMINAL",
     "description": "The NAVI awaits identification, cursor blinking in patient silence.",
     "episodeNumber": 1,
-    "startTime": "00:11:20",
     "mood": "deep",
     "videoPath": "public/assets/scenes/videos/episode-01_clip-10.mp4",
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-01_clip-10.jpg"
@@ -126,7 +116,6 @@
     "type": "NAVI GLOW",
     "description": "A handwritten name traced in blue light across the monitor surface.",
     "episodeNumber": 1,
-    "startTime": "00:12:00",
     "mood": "deep",
     "videoPath": "public/assets/scenes/videos/episode-01_clip-11.mp4",
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-01_clip-11.jpg"
@@ -138,7 +127,6 @@
     "type": "SHADOW FEED",
     "description": "Eyes half-lit in shadow, watching from somewhere just outside the frame.",
     "episodeNumber": 1,
-    "startTime": "00:12:40",
     "mood": "deep",
     "videoPath": "public/assets/scenes/videos/episode-01_clip-12.mp4",
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-01_clip-12.jpg"
@@ -150,7 +138,6 @@
     "type": "BEDROOM STATIC",
     "description": "Soft light pooling across an unmade bed, the room waiting in perfect silence.",
     "episodeNumber": 1,
-    "startTime": "00:12:40",
     "mood": "chill",
     "videoPath": "public/assets/scenes/videos/episode-01_clip-13.mp4",
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-01_clip-13.jpg"
@@ -162,7 +149,6 @@
     "type": "RED SIGNAL",
     "description": "Eyes caught in red light, pupils blown out like corrupted data.",
     "episodeNumber": 1,
-    "startTime": "00:13:10",
     "mood": "dirty",
     "videoPath": "public/assets/scenes/videos/episode-01_clip-14.mp4",
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-01_clip-14.jpg"
@@ -174,7 +160,6 @@
     "type": "HARDWARE GLOW",
     "description": "A red-cased machine pulses in the dark, the only light source in the room.",
     "episodeNumber": 1,
-    "startTime": "00:14:20",
     "mood": "deep",
     "videoPath": "public/assets/scenes/videos/episode-01_clip-15.mp4",
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-01_clip-15.jpg"
@@ -186,7 +171,6 @@
     "type": "BEDROOM TERMINAL",
     "description": "A figure hunched toward a glowing screen, the room consumed in deep blue.",
     "episodeNumber": 1,
-    "startTime": "00:14:20",
     "mood": "deep",
     "videoPath": "public/assets/scenes/videos/episode-01_clip-16.mp4",
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-01_clip-16.jpg"
@@ -198,7 +182,6 @@
     "type": "SOFT STATIC",
     "description": "Dark eyes catching a fragment of light, open and quietly absorbing everything.",
     "episodeNumber": 1,
-    "startTime": "00:14:40",
     "mood": "nostalgic",
     "videoPath": "public/assets/scenes/videos/episode-01_clip-17.mp4",
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-01_clip-17.jpg"
@@ -210,7 +193,6 @@
     "type": "SIGNAL DRIFT",
     "description": "A street lamp suspended in grey fog, the signal bleeding at the edges of the frame.",
     "episodeNumber": 1,
-    "startTime": "00:19:10",
     "mood": "deep",
     "videoPath": "public/assets/scenes/videos/episode-01_clip-18.mp4",
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-01_clip-18.jpg"
@@ -222,7 +204,6 @@
     "type": "NAVI ACCESS",
     "description": "A figure stands before a glowing console, back turned, connection pending.",
     "episodeNumber": 2,
-    "startTime": "00:16:50",
     "mood": "deep",
     "videoPath": "public/assets/scenes/videos/episode-02_clip-01.mp4",
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-02_clip-01.jpg"
@@ -234,7 +215,6 @@
     "type": "SCREENSAVER",
     "description": "A blue ring orbits endlessly on the screensaver, the machine left dreaming.",
     "episodeNumber": 2,
-    "startTime": "00:17:30",
     "mood": "chill",
     "videoPath": "public/assets/scenes/videos/episode-02_clip-02.mp4",
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-02_clip-02.jpg"
@@ -246,7 +226,6 @@
     "type": "DATA BLOOM",
     "description": "Characters dissolve into watercolor noise, language collapsing into pattern.",
     "episodeNumber": 2,
-    "startTime": "00:17:30",
     "mood": "chill",
     "videoPath": "public/assets/scenes/videos/episode-02_clip-03.mp4",
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-02_clip-03.jpg"
@@ -258,7 +237,6 @@
     "type": "CORRIDOR SIGNAL",
     "description": "Two figures in a school corridor, their conversation absorbed by ambient noise.",
     "episodeNumber": 2,
-    "startTime": "00:17:30",
     "mood": "nostalgic",
     "videoPath": "public/assets/scenes/videos/episode-02_clip-04.mp4",
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-02_clip-04.jpg"
@@ -270,7 +248,6 @@
     "type": "CITY STATIC",
     "description": "Signs bleed into each other in the rain, the city rendered as pure color and noise.",
     "episodeNumber": 2,
-    "startTime": "00:17:40",
     "mood": "dirty",
     "videoPath": "public/assets/scenes/videos/episode-02_clip-05.mp4",
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-02_clip-05.jpg"
@@ -282,7 +259,6 @@
     "type": "SOFT FRAGMENT",
     "description": "A face emerging from a field of soft blue orbs, barely resolved.",
     "episodeNumber": 2,
-    "startTime": "00:17:40",
     "mood": "chill",
     "videoPath": "public/assets/scenes/videos/episode-02_clip-06.mp4",
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-02_clip-06.jpg"
@@ -294,7 +270,6 @@
     "type": "NEON PORTAL",
     "description": "Blue neon glows against a dark wall, the club entrance flickering in silence.",
     "episodeNumber": 2,
-    "startTime": "00:17:40",
     "mood": "deep",
     "videoPath": "public/assets/scenes/videos/episode-02_clip-07.mp4",
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-02_clip-07.jpg"
@@ -306,7 +281,6 @@
     "type": "SIGNAL BURST",
     "description": "A column of white light cuts through darkness, the transmission forced through.",
     "episodeNumber": 3,
-    "startTime": "00:13:30",
     "mood": "dirty",
     "videoPath": "public/assets/scenes/videos/episode-03_clip-01.mp4",
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-03_clip-01.jpg"
@@ -318,7 +292,6 @@
     "type": "BEDROOM STATIC",
     "description": "Plush toys stare from the shelf, small sentinels of an analog childhood.",
     "episodeNumber": 3,
-    "startTime": "00:13:30",
     "mood": "chill",
     "videoPath": "public/assets/scenes/videos/episode-03_clip-02.mp4",
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-03_clip-02.jpg"
@@ -330,7 +303,6 @@
     "type": "FEED CORRUPT",
     "description": "A fractal vortex unravels in corrupted color, the feed degrading into abstraction.",
     "episodeNumber": 3,
-    "startTime": "00:14:20",
     "mood": "dirty",
     "videoPath": "public/assets/scenes/videos/episode-03_clip-03.mp4",
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-03_clip-03.jpg"
@@ -342,7 +314,6 @@
     "type": "ALIEN FEED",
     "description": "A non-human eye blinks in blue light, watching from outside the network.",
     "episodeNumber": 3,
-    "startTime": "00:14:20",
     "mood": "deep",
     "videoPath": "public/assets/scenes/videos/episode-03_clip-04.mp4",
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-03_clip-04.jpg"
@@ -354,7 +325,6 @@
     "type": "DATA RINGS",
     "description": "Blue interference rings ripple outward, a pulse broadcast into open space.",
     "episodeNumber": 3,
-    "startTime": "00:14:20",
     "mood": "deep",
     "videoPath": "public/assets/scenes/videos/episode-03_clip-05.mp4",
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-03_clip-05.jpg"
@@ -366,7 +336,6 @@
     "type": "COMMAND CENTER",
     "description": "Lain at the center of a ring of glowing screens, the room becoming the network.",
     "episodeNumber": 4,
-    "startTime": "00:10:00",
     "mood": "deep",
     "videoPath": "public/assets/scenes/videos/episode-04_clip-01.mp4",
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-04_clip-01.jpg"
@@ -378,7 +347,6 @@
     "type": "DEEP STATIC",
     "description": "A face drained of color, eyes carrying more weight than they should.",
     "episodeNumber": 4,
-    "startTime": "00:10:10",
     "mood": "nostalgic",
     "videoPath": "public/assets/scenes/videos/episode-04_clip-02.mp4",
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-04_clip-02.jpg"
@@ -390,7 +358,6 @@
     "type": "NIGHT SKY",
     "description": "A bruised sky hanging low over dark silhouettes, the city breathing slowly beneath.",
     "episodeNumber": 4,
-    "startTime": "00:11:20",
     "mood": "deep",
     "videoPath": "public/assets/scenes/videos/episode-04_clip-03.mp4",
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-04_clip-03.jpg"
@@ -402,7 +369,6 @@
     "type": "PALE SIGNAL",
     "description": "A face washed in pale light, eyes lifted toward something not yet visible.",
     "episodeNumber": 4,
-    "startTime": "00:12:10",
     "mood": "nostalgic",
     "videoPath": "public/assets/scenes/videos/episode-04_clip-04.mp4",
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-04_clip-04.jpg"
@@ -414,7 +380,6 @@
     "type": "COMMUTER GRID",
     "description": "The car pressed full of bodies, each one absorbing signal with nowhere to transmit.",
     "episodeNumber": 5,
-    "startTime": "00:03:20",
     "mood": "chill",
     "videoPath": "public/assets/scenes/videos/episode-05_clip-01.mp4",
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-05_clip-01.jpg"
@@ -426,7 +391,6 @@
     "type": "SYSTEM BOOT",
     "description": "The operating system initializes, a blue targeting reticle locking into place.",
     "episodeNumber": 5,
-    "startTime": "00:11:00",
     "mood": "deep",
     "videoPath": "public/assets/scenes/videos/episode-05_clip-02.mp4",
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-05_clip-02.jpg"
@@ -438,7 +402,6 @@
     "type": "FEED ARTIFACT",
     "description": "Eyes crossed with horizontal scan lines, the self rendered as video artifact.",
     "episodeNumber": 5,
-    "startTime": "00:11:10",
     "mood": "dirty",
     "videoPath": "public/assets/scenes/videos/episode-05_clip-03.mp4",
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-05_clip-03.jpg"
@@ -450,7 +413,6 @@
     "type": "MAINFRAME",
     "description": "A figure stands before a tower of servers, the physical backbone of the Wired exposed.",
     "episodeNumber": 6,
-    "startTime": "00:10:10",
     "mood": "deep",
     "videoPath": "public/assets/scenes/videos/episode-06_clip-01.mp4",
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-06_clip-01.jpg"
@@ -462,7 +424,6 @@
     "type": "DEAD SIGNAL",
     "description": "An orange sky burns down over a silent landscape, the world after something has ended.",
     "episodeNumber": 6,
-    "startTime": "00:13:20",
     "mood": "nostalgic",
     "videoPath": "public/assets/scenes/videos/episode-06_clip-02.mp4",
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-06_clip-02.jpg"
@@ -474,7 +435,6 @@
     "type": "IRIS SCAN",
     "description": "A single amber eye fills the frame, intricate and unreadable, the gaze turned inward.",
     "episodeNumber": 6,
-    "startTime": "00:13:40",
     "mood": "deep",
     "videoPath": "public/assets/scenes/videos/episode-06_clip-03.mp4",
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-06_clip-03.jpg"
@@ -486,7 +446,6 @@
     "type": "GRID EXTERIOR",
     "description": "A quiet residential street, the ordinary world humming beneath its surface.",
     "episodeNumber": 7,
-    "startTime": "00:06:50",
     "mood": "chill",
     "videoPath": "public/assets/scenes/videos/episode-07_clip-01.mp4",
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-07_clip-01.jpg"
@@ -498,7 +457,6 @@
     "type": "BOOT SEQUENCE",
     "description": "The series name burned into blue static, the terminal restarting from the beginning.",
     "episodeNumber": 8,
-    "startTime": "00:02:30",
     "mood": "deep",
     "videoPath": "public/assets/scenes/videos/episode-08_clip-01.mp4",
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-08_clip-01.jpg"
@@ -510,7 +468,6 @@
     "type": "VISUAL CORRUPT",
     "description": "Vision itself corrupted, the eyes no longer reporting what is actually there.",
     "episodeNumber": 10,
-    "startTime": "00:13:40",
     "mood": "dirty",
     "videoPath": "public/assets/scenes/videos/episode-10_clip-01.mp4",
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-10_clip-01.jpg"
@@ -522,7 +479,6 @@
     "type": "LIMINAL FEED",
     "description": "A figure watching from behind a half-open door, the threshold between spaces uncertain.",
     "episodeNumber": 11,
-    "startTime": "00:17:30",
     "mood": "nostalgic",
     "videoPath": "public/assets/scenes/videos/episode-11_clip-01.mp4",
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-11_clip-01.jpg"
@@ -534,7 +490,6 @@
     "type": "COLD STATIC",
     "description": "Pale eyes shot through with grey, the emotion behind them impossible to read.",
     "episodeNumber": 11,
-    "startTime": "00:19:20",
     "mood": "deep",
     "videoPath": "public/assets/scenes/videos/episode-11_clip-02.mp4",
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-11_clip-02.jpg"
@@ -546,7 +501,6 @@
     "type": "CORRIDOR",
     "description": "A dark passage lit by a line of ceiling lights, the path extending into silence.",
     "episodeNumber": 12,
-    "startTime": "00:11:10",
     "mood": "deep",
     "videoPath": "public/assets/scenes/videos/episode-12_clip-01.mp4",
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-12_clip-01.jpg"
@@ -558,7 +512,6 @@
     "type": "MACHINE FEED",
     "description": "The bones of a machine stripped against a bleached sky, function reduced to form.",
     "episodeNumber": 13,
-    "startTime": "00:11:00",
     "mood": "deep",
     "videoPath": "public/assets/scenes/videos/episode-13_clip-01.mp4",
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-13_clip-01.jpg"
@@ -570,7 +523,6 @@
     "type": "TRANSMISSION",
     "description": "A hot pink frame surrounding a field of amber light, the threshold between real and wired.",
     "episodeNumber": 13,
-    "startTime": "00:12:00",
     "mood": "dirty",
     "videoPath": "public/assets/scenes/videos/episode-13_clip-02.mp4",
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-13_clip-02.jpg"
