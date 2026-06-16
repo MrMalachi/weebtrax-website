@@ -64,67 +64,103 @@ function useReplayOnHidden() {
 }
 const MOOD_TONE = { chill: WT2.blue, nostalgic: WT2.purple, dirty: WT2.red, deep: WT2.green };
 // Shared terminal-style pagination bar used by Archive and Scenes sections.
+// Shows prev/next + a windowed list of page numbers (current ±2, always includes first/last).
 // TODO: Replace with server-side cursor pagination once PostgreSQL + FastAPI are connected (Phase 4/5).
-function TermPageBar({ page, total, onPrev, onNext }) {
+function TermPageBar({ page, total, onGoTo }) {
+  const [hov, setHov] = React.useState(null);
+  if (total <= 1) return null;
   const isFirst = page === 0;
   const isLast = page >= total - 1;
-  const [hovPrev, setHovPrev] = React.useState(false);
-  const [hovNext, setHovNext] = React.useState(false);
-  const btnBase = {
+  const navBtn = {
     background: 'none',
     fontFamily: WT2.mono,
-    fontSize: 10.5,
+    fontSize: 10,
     letterSpacing: 1.5,
-    padding: '7px 16px',
-    cursor: 'pointer',
+    padding: '6px 12px',
     textTransform: 'uppercase',
-    transition: 'all .15s',
-    borderRadius: 0
+    transition: 'all .12s',
+    borderRadius: 0,
+    whiteSpace: 'nowrap'
   };
+  // Build windowed set: always include first, last, and current ±2
+  const WIN = 2;
+  const seen = new Set([0, total - 1]);
+  for (let i = Math.max(0, page - WIN); i <= Math.min(total - 1, page + WIN); i++) seen.add(i);
+  const nums = [...seen].sort((a, b) => a - b);
+  // Insert 'gap' markers between non-consecutive pages
+  const items = [];
+  for (let k = 0; k < nums.length; k++) {
+    if (k > 0 && nums[k] - nums[k - 1] > 1) items.push('gap' + k);
+    items.push(nums[k]);
+  }
   return /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      gap: 20,
+      gap: 5,
       marginTop: 28,
       flexWrap: 'wrap'
     }
   }, /*#__PURE__*/React.createElement("button", {
-    onClick: isFirst ? undefined : onPrev,
-    onMouseEnter: () => setHovPrev(true),
-    onMouseLeave: () => setHovPrev(false),
+    onClick: isFirst ? undefined : () => onGoTo(page - 1),
+    onMouseEnter: () => setHov('prev'),
+    onMouseLeave: () => setHov(null),
     style: {
-      ...btnBase,
+      ...navBtn,
       border: '1px solid ' + (isFirst ? WT2.line : 'var(--wt-accent)'),
-      color: isFirst ? WT2.faint : hovPrev ? WT2.void : 'var(--wt-accent)',
-      background: !isFirst && hovPrev ? 'var(--wt-accent)' : 'none',
-      textShadow: !isFirst && !hovPrev ? '0 0 8px var(--wt-accent)' : 'none',
-      opacity: isFirst ? 0.32 : 1,
-      cursor: isFirst ? 'default' : 'pointer'
+      color: isFirst ? WT2.faint : hov === 'prev' ? WT2.void : 'var(--wt-accent)',
+      background: !isFirst && hov === 'prev' ? 'var(--wt-accent)' : 'none',
+      textShadow: !isFirst && hov !== 'prev' ? '0 0 8px var(--wt-accent)' : 'none',
+      opacity: isFirst ? 0.3 : 1,
+      cursor: isFirst ? 'default' : 'pointer',
+      marginRight: 6
     }
-  }, "← PREV SIGNAL"), /*#__PURE__*/React.createElement("span", {
-    style: {
-      fontFamily: WT2.mono,
-      fontSize: 10,
-      letterSpacing: 2.5,
-      color: WT2.dim,
-      userSelect: 'none'
+  }, "← PREV"), items.map(function(item) {
+    if (typeof item === 'string') {
+      return /*#__PURE__*/React.createElement("span", {
+        key: item,
+        style: { fontFamily: WT2.mono, fontSize: 9, color: WT2.faint, padding: '0 2px', userSelect: 'none' }
+      }, "···");
     }
-  }, "PAGE " + String(page + 1).padStart(2, '0') + " / " + String(total).padStart(2, '0')), /*#__PURE__*/React.createElement("button", {
-    onClick: isLast ? undefined : onNext,
-    onMouseEnter: () => setHovNext(true),
-    onMouseLeave: () => setHovNext(false),
+    const isCur = item === page;
+    const isH = hov === item;
+    return /*#__PURE__*/React.createElement("button", {
+      key: item,
+      onClick: isCur ? undefined : () => onGoTo(item),
+      onMouseEnter: () => setHov(item),
+      onMouseLeave: () => setHov(null),
+      style: {
+        background: isCur ? 'var(--wt-accent)' : isH ? 'rgba(143,191,159,0.09)' : 'none',
+        border: '1px solid ' + (isCur ? 'var(--wt-accent)' : isH ? 'var(--wt-accent)' : WT2.line),
+        fontFamily: WT2.mono,
+        fontSize: 10,
+        letterSpacing: 0.5,
+        padding: '5px 8px',
+        minWidth: 30,
+        textAlign: 'center',
+        color: isCur ? WT2.void : isH ? 'var(--wt-accent)' : WT2.dim,
+        textShadow: !isCur && isH ? '0 0 6px var(--wt-accent)' : 'none',
+        cursor: isCur ? 'default' : 'pointer',
+        transition: 'all .12s',
+        borderRadius: 0
+      }
+    }, String(item + 1).padStart(2, '0'));
+  }), /*#__PURE__*/React.createElement("button", {
+    onClick: isLast ? undefined : () => onGoTo(page + 1),
+    onMouseEnter: () => setHov('next'),
+    onMouseLeave: () => setHov(null),
     style: {
-      ...btnBase,
+      ...navBtn,
       border: '1px solid ' + (isLast ? WT2.line : 'var(--wt-accent)'),
-      color: isLast ? WT2.faint : hovNext ? WT2.void : 'var(--wt-accent)',
-      background: !isLast && hovNext ? 'var(--wt-accent)' : 'none',
-      textShadow: !isLast && !hovNext ? '0 0 8px var(--wt-accent)' : 'none',
-      opacity: isLast ? 0.32 : 1,
-      cursor: isLast ? 'default' : 'pointer'
+      color: isLast ? WT2.faint : hov === 'next' ? WT2.void : 'var(--wt-accent)',
+      background: !isLast && hov === 'next' ? 'var(--wt-accent)' : 'none',
+      textShadow: !isLast && hov !== 'next' ? '0 0 8px var(--wt-accent)' : 'none',
+      opacity: isLast ? 0.3 : 1,
+      cursor: isLast ? 'default' : 'pointer',
+      marginLeft: 6
     }
-  }, "NEXT SIGNAL →"));
+  }, "NEXT →"));
 }
 function getMixes() {
   return (window.__WT_MIXES || []).map(function(m) {
@@ -897,8 +933,7 @@ function Transmissions({
   })), /*#__PURE__*/React.createElement(TermPageBar, {
     page: page,
     total: totalPages,
-    onPrev: function() { setPage(function(p) { return p - 1; }); setHover(-1); },
-    onNext: function() { setPage(function(p) { return p + 1; }); setHover(-1); }
+    onGoTo: function(p) { setPage(p); setHover(-1); }
   })));
 }
 function UplinkMeter() {

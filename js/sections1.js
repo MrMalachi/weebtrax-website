@@ -988,8 +988,7 @@ function SceneGrid() {
   }))), /*#__PURE__*/React.createElement(TermPageBar, {
     page: page,
     total: totalPages,
-    onPrev: () => goPage(page - 1),
-    onNext: () => goPage(page + 1)
+    onGoTo: goPage
   }));
 }
 function Features() {
