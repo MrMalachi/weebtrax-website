@@ -70,7 +70,7 @@ function pingLabel(ms) {
   const bars = ms < 30 ? '▌▌▌▌▌' : ms < 80 ? '▌▌▌▌░' : ms < 150 ? '▌▌▌░░' : ms < 300 ? '▌▌░░░' : '▌░░░░';
   return 'WIRED ACTIVITY · ' + ms + 'ms ' + bars;
 }
-function NowPlaying({ playing, title, elapsed, progress, railW }) {
+function NowPlaying({ playing, mixTitle, currentTrack, elapsed, progress, railW }) {
   // Inject marquee keyframes once
   React.useEffect(function() {
     if (document.getElementById('wt-np-kf')) return;
@@ -86,8 +86,11 @@ function NowPlaying({ playing, title, elapsed, progress, railW }) {
     return [h, m, sec].map(function(n) { return String(n).padStart(2, '0'); }).join(':');
   }
 
-  // Double title for seamless scroll loop
-  var loop = title + '   ·   ' + title + '   ·   ';
+  // Show current track if known, fall back to mix title
+  var trackLabel = currentTrack
+    ? (currentTrack.artist ? currentTrack.artist + '  —  ' + currentTrack.title : currentTrack.title)
+    : mixTitle;
+  var loop = trackLabel + '   ·   ' + trackLabel + '   ·   ';
 
   return /*#__PURE__*/React.createElement("div", {
     style: {
@@ -253,6 +256,12 @@ function App() {
     return () => clearInterval(id);
   }, [playing, hasRealAudio]);
 
+  // Current track within the mix — find last entry whose timeSecs <= elapsed
+  const _tracklist = activeTx.tracklist || [];
+  const currentTrack = _tracklist.length > 0
+    ? (_tracklist.filter(function(t) { return t.timeSecs <= elapsed; }).pop() || _tracklist[0])
+    : null;
+
   // Derived display values
   const runSecs = _parseRunSecs(activeTx.run);
   const displayProgress = hasRealAudio ? audioProgress : runSecs > 0 ? Math.min(elapsed / runSecs, 1) : 0;
@@ -321,7 +330,8 @@ function App() {
     }
   }), /*#__PURE__*/React.createElement(Overlays, null), /*#__PURE__*/React.createElement(Rail, null), /*#__PURE__*/React.createElement(NowPlaying, {
     playing: playing,
-    title: activeTx.title,
+    mixTitle: activeTx.title,
+    currentTrack: currentTrack,
     elapsed: elapsed,
     progress: displayProgress,
     railW: railW
