@@ -48,12 +48,19 @@ public/assets/
 ## Phase 2 — JSON metadata
 
 Create:
-- `public/assets/metadata/mixes.json`
-- `public/assets/metadata/scenes.json`
+- `public/assets/metadata/mixes.json` ✅ Generated (94 entries)
+- `public/assets/metadata/scenes.json` 🔄 Pending
 
-Fields per mix: `id`, `title`, `slug`, `artist`, `duration`, `releaseDate`, `mood`, `tags`, `audioPath`, `thumbnailPath`, `youtubeUrl`, `soundcloudUrl`
+### mixes.json fields (finalised)
+`id`, `title`, `slug`, `duration`, `releaseDate`, `mood`, `views`, `audioPath`, `youtubeUrl`, `soundcloudUrl`
 
-Fields per scene: `id`, `name`, `slug`, `episodeNumber`, `startTime`, `endTime`, `duration`, `mood`, `tags`, `videoPath`, `thumbnailPath`
+- 72/94 have SoundCloud URLs; 22 early mixes are YouTube-only (null)
+- `mood` is one of: `chill`, `nostalgic`, `dirty`, `deep`
+- `views` = YouTube view count snapshot (static; refresh periodically)
+- No `artist`, `tags`, or `thumbnailPath` — not needed for the site
+
+### scenes.json fields (to define)
+`id`, `name`, `slug`, `episodeNumber`, `startTime`, `endTime`, `duration`, `mood`, `tags`, `videoPath`, `thumbnailPath`
 
 ---
 
