@@ -56,16 +56,18 @@ Create:
 
 - 72/94 have SoundCloud URLs; 22 early mixes are YouTube-only (null)
 - `mood` is one of: `chill`, `nostalgic`, `dirty`, `deep`
-- `views` = YouTube view count snapshot (static; refresh periodically)
+- `views` = YouTube view count snapshot; becomes live in Phase 4/5 via scheduled yt-dlp refresh against PostgreSQL
 - No `artist`, `tags`, or `thumbnailPath` — not needed for the site
 
 ### scenes.json fields (finalised)
-`id`, `name`, `slug`, `type`, `description`, `episodeNumber`, `startTime`, `mood`, `videoPath`, `thumbnailPath`
+`id`, `name`, `slug`, `type`, `description`, `episodeNumber`, `mood`, `videoPath`, `thumbnailPath`
 
 - 48 scenes across episodes 1–13
 - `type` is the badge chip shown on the card (e.g. "CLUB TERMINAL", "BEDROOM STATIC")
 - `description` is 1–2 sentences of evocative prose per scene
-- No `endTime`, `duration`, or `tags` — not needed on the frontend
+- `episodeNumber` kept for future episode-based filtering
+- No `startTime`, `endTime`, `duration`, or `tags` — not needed on the frontend
+- No `plays` yet — scene popularity requires Phase 4/5 (PostgreSQL tracks selections)
 
 ---
 
