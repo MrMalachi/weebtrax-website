@@ -4,8 +4,8 @@
 
 | # | Phase | Status |
 |---|-------|--------|
-| 1 | Local media organization | 🔄 In Progress |
-| 2 | JSON metadata | ⬜ Not started |
+| 1 | Local media organization | ✅ Complete |
+| 2 | JSON metadata | 🔄 In Progress |
 | 3 | Website reads JSON | ⬜ Not started |
 | 4 | Create backend / API (FastAPI) | ⬜ Not started |
 | 5 | Move JSON metadata into PostgreSQL | ⬜ Not started |
@@ -30,12 +30,17 @@ public/assets/
     scenes.json
 ```
 
+### Notes
+- Mix thumbnails live in `public/assets/scenes/thumbnails/` — user-selectable, not assigned per mix
+- 94 mixes converted from `.mp4` → `.mp3` and copied to `public/assets/mixes/audio/`
+- 48 scene clips across episodes 1–13, named `episode-XX_clip_tXXXXs.mp4`
+
 ### Checklist
 - [x] Slugify MP3 filenames on flash drive (Mixes folders)
 - [x] Slugify WAV filenames in Mastered folder
-- [ ] Organize mix audio files into `public/assets/mixes/audio/`
-- [ ] Organize mix thumbnails into `public/assets/mixes/thumbnails/`
-- [ ] Organize scene MP4 clips into `public/assets/scenes/videos/`
+- [x] Organize mix audio files into `public/assets/mixes/audio/`
+- [x] Organize mix thumbnails into `public/assets/scenes/thumbnails/` (user-selectable)
+- [x] Organize scene MP4 clips into `public/assets/scenes/videos/`
 - [x] Organize scene thumbnails into `public/assets/scenes/thumbnails/`
 
 ---
