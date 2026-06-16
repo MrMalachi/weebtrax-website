@@ -1568,28 +1568,20 @@ function Footer() {
       letterSpacing: 2.5,
       textTransform: 'uppercase'
     }
-  }, "MODULE .04"), /*#__PURE__*/React.createElement("span", {
-    style: {
-      fontFamily: WT2.mono,
-      fontSize: 10.5,
-      color: WT2.faint,
-      letterSpacing: 2.5,
-      textTransform: 'uppercase'
-    }
   }, "// ABOUT")), /*#__PURE__*/React.createElement(Wordmark, {
-    size: 38,
+    size: 64,
     glitch: false,
     style: {
       display: 'block'
     }
   }), /*#__PURE__*/React.createElement("p", {
     style: {
-      margin: '14px 0 0',
+      margin: '18px 0 0',
       fontFamily: WT2.sans,
-      fontSize: 13.5,
+      fontSize: 16,
       color: WT2.dim,
-      maxWidth: 260,
-      lineHeight: 1.5
+      maxWidth: 340,
+      lineHeight: 1.6
     }
   }, "Lo-Fi House sound + anime aesthetic.", /*#__PURE__*/React.createElement("br", null), "A weekly mix transmission & future", /*#__PURE__*/React.createElement("br", null), "independent recording label.")), /*#__PURE__*/React.createElement("div", {
     style: {
