@@ -2,16 +2,63 @@ import json, re
 
 def slugify(title):
     s = title.lower()
-    s = re.sub(r"['‘’`]", '', s)
+    s = re.sub('[\u2018\u2019`\']', '', s)
     s = re.sub(r'[^a-z0-9\s-]', ' ', s)
     s = re.sub(r'\s+', '-', s.strip())
     return re.sub(r'-+', '-', s).strip('-')
 
 def normalize(title):
-    """Strip prefix like 'Lo-Fi House Music | ' for matching."""
     if '|' in title:
         title = title.split('|', 1)[1]
     return re.sub(r'\s+', ' ', title.strip().lower())
+
+def fmt_duration(seconds):
+    h = seconds // 3600
+    m = (seconds % 3600) // 60
+    s = seconds % 60
+    return f"{h:02d}:{m:02d}:{s:02d}"
+
+def fmt_date(yyyymmdd):
+    if not yyyymmdd:
+        return None
+    return f"{yyyymmdd[:4]}.{yyyymmdd[4:6]}.{yyyymmdd[6:]}"
+
+# Upload dates keyed by YouTube video ID (YYYYMMDD)
+DATES = {
+    "ji9HUjdbbfs": "20230531", "1ltJN5PCHsw": "20230702", "kfxz4Llikic": "20230808",
+    "_Isrjs4DLPE": "20240103", "fWe_Pifvacg": "20240315", "p8Wn-pscT_o": "20240406",
+    "DTBPLvzi7p4": "20240508", "LQe9JlO9zoo": "20240617", "xVxLereRVBc": "20240921",
+    "7rzBRInrd-g": "20241115", "Kzu7OhNKmgg": "20241201", "zxhd5e8QWps": "20241230",
+    "wOhOVvg5r3U": "20250201", "ImZkVLHa7vc": "20250318",
+    "Ev5sCVzMspQ": "20201127", "DT2-17RLM9A": "20210305", "W96EDPbkxjI": "20200828",
+    "6QEPBdVqTOg": "20201211", "1G56f7ziIQw": "20200717", "gZAOQC6M-Vw": "20210312",
+    "eP4kSOyWEI8": "20201218", "D1Czc1M_DAo": "20200904", "0Ha8urdCt6c": "20200814",
+    "DgGRQCoUozc": "20200918", "BNQkjPU5lHI": "20210528", "qVDWiSTlEg0": "20210226",
+    "IKAtG6bHCMs": "20210129", "hFMOEoDpoTQ": "20200724", "DSxEs-Xs2H0": "20220617",
+    "0TZnP-6Q-6Q": "20210319", "VIDVRWQYc_k": "20220219", "2e82RN9sAKs": "20220822",
+    "fpyit-cgvxE": "20220130", "Oor-V-eEWLU": "20210417", "p-pLLBGca8A": "20201204",
+    "FJT2BXuaT88": "20210409", "gGbhpwAOZUk": "20230708", "fTxG4KqoGm8": "20220610",
+    "kV1L6XJalU8": "20200821", "f-0P_A0TK0k": "20210220", "NNdtYCFIL68": "20221029",
+    "GqmPdYAxIm0": "20200807", "_fVTpIGZIfY": "20201120", "3gA8fU5Fcaw": "20200731",
+    "PC0twDXW6mw": "20210212", "JOHHJ5UeNNQ": "20220604", "d8AqptCFXKw": "20211106",
+    "D_RtPmuD5hk": "20240302", "6jpyV4CqEw0": "20230422", "dlA8EXV_9Qc": "20210115",
+    "LLeJsPF7-hA": "20240525", "5Vt6Lf-Zo5Y": "20240430", "1Re1CYHR6A0": "20200927",
+    "lKO8AE8Lma8": "20210507", "zhFm4mc1k6Q": "20230617", "HpS4py33S3c": "20221210",
+    "j3bSodje_bI": "20230613", "i-9NooDHQMg": "20230626", "XbQgyHjEBqY": "20230506",
+    "DPzahNNpLcA": "20220924", "uKsgbOV9hQY": "20211113", "UanA5kHIMNI": "20230528",
+    "xi0Nr-plL78": "20221016", "Nsq8xu1x1LQ": "20220830", "5fJ_uZY0SBo": "20230513",
+    "1BuuAZeLtno": "20200515", "g7CcHOrSkQY": "20221004", "AegqPllWwM4": "20230120",
+    "z2YcXPU9bQE": "20230524", "gg0D64ziBIA": "20250111", "DeNplFluftk": "20260404",
+    "z6Omt_0lv68": "20220529", "FkmrrqCjABo": "20211211", "18TFZ_VI2Us": "20220815",
+    "KLwFKmDaijQ": "20230605", "VitreIs46f0": "20211224", "yFkJk4ytKOI": "20250823",
+    "yvWPp8UrmB8": "20250308", "V-w3xfq19HY": "20250119", "ln_7W93hQUI": "20250125",
+    "sL3cNkE5gZQ": "20241214", "N6cqvnPYtcQ": "20240105", "P09t3D7sdQY": "20240817",
+    "cAiXN3eLvK0": "20240831", "UgCTBRPnPZY": "20241221", "kQyCZASKCc0": "20250329",
+    "QeORW0r_7jg": "20250218", "zaMpe_r965E": "20251108", "zi5SaXnu7qU": "20241123",
+    "gk2V4Iwi02U": "20240622", "2JYacVX8XNQ": "20250121", "1lAmvchYbDk": "20241207",
+    "b4emPgjo7lo": None,  # blocked on copyright — date unavailable
+    "Oo4d67fRz_Q": None,  # blocked on copyright — date unavailable
+}
 
 # YouTube data: (yt_id, title, duration_seconds)
 YT = [
@@ -196,13 +243,15 @@ for sc_title, sc_url in SC:
     key = normalize(sc_title)
     sc_by_norm[key] = sc_url
 
+# Sort YouTube entries chronologically (oldest first); nulls go last
+YT_sorted = sorted(YT, key=lambda x: DATES.get(x[0]) or "99999999")
+
 mixes = []
 unmatched_yt = []
-for i, (yt_id, yt_title, duration) in enumerate(YT, 1):
+for i, (yt_id, yt_title, duration) in enumerate(YT_sorted, 1):
     norm = normalize(yt_title)
     sc_url = sc_by_norm.get(norm)
 
-    # Fallback: try without trailing "trax" or "mix"
     if not sc_url:
         norm2 = re.sub(r'\s+(trax|mix)$', '', norm)
         sc_url = sc_by_norm.get(norm2)
@@ -211,18 +260,17 @@ for i, (yt_id, yt_title, duration) in enumerate(YT, 1):
         unmatched_yt.append(yt_title)
 
     slug = slugify(yt_title)
-    audio_file = slug + ".mp3"
 
     mixes.append({
         "id": f"mix-{i:03d}",
         "title": yt_title,
         "slug": slug,
         "artist": "WeebTrax",
-        "duration": duration,
-        "releaseDate": None,
+        "duration": fmt_duration(duration),
+        "releaseDate": fmt_date(DATES.get(yt_id)),
         "mood": None,
         "tags": [],
-        "audioPath": f"public/assets/mixes/audio/{audio_file}",
+        "audioPath": f"public/assets/mixes/audio/{slug}.mp3",
         "thumbnailPath": None,
         "youtubeUrl": f"https://www.youtube.com/watch?v={yt_id}",
         "soundcloudUrl": sc_url,
@@ -234,6 +282,6 @@ with open(out, "w") as f:
 
 print(f"Wrote {len(mixes)} mixes to {out}")
 if unmatched_yt:
-    print(f"\nNo SoundCloud match found for {len(unmatched_yt)} YouTube entries:")
+    print(f"\nNo SoundCloud match for {len(unmatched_yt)} entries:")
     for t in unmatched_yt:
         print(f"  - {t}")
