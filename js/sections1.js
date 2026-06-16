@@ -15,12 +15,13 @@ function fmtTime(secs) {
   const s = secs % 60;
   return [h, m, s].map(n => String(n).padStart(2, '0')).join(':');
 }
-const RAIL_W = 92;
-const RAIL_W_NARROW = 44;
+const RAIL_W = 112;
+const RAIL_W_NARROW = 48;
 const RAIL_SECTIONS = ['wt-index', 'wt-archive', 'wt-signal', 'wt-uplink', 'wt-wired'];
 function Rail() {
   const nav = ['HOME', 'ARCHIVE', 'SCENES', 'SUBMIT', 'ABOUT'];
   const [active, setActive] = React.useState(0);
+  const [hovNav, setHovNav] = React.useState(-1);
   const winW = useWinW();
   const compact = winW < 560;
   const rW = compact ? RAIL_W_NARROW : RAIL_W;
@@ -128,6 +129,8 @@ function Rail() {
   }, nav.map((t, i) => /*#__PURE__*/React.createElement("button", {
     key: t,
     onClick: () => scrollTo(i),
+    onMouseEnter: () => setHovNav(i),
+    onMouseLeave: () => setHovNav(-1),
     title: compact ? t : undefined,
     style: {
       background: 'none',
@@ -136,28 +139,28 @@ function Rail() {
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      padding: compact ? '4px' : 0
+      padding: compact ? '6px' : '4px 0'
     }
   }, compact ? /*#__PURE__*/React.createElement("span", {
     style: {
       display: 'block',
-      width: 6,
-      height: 6,
-      borderRadius: 3,
-      background: i === active ? 'var(--wt-accent)' : WT2.faint,
-      boxShadow: i === active ? '0 0 6px var(--wt-accent)' : 'none',
-      transition: 'background .2s, box-shadow .2s'
+      width: 7,
+      height: 7,
+      borderRadius: 4,
+      background: i === active ? 'var(--wt-accent)' : hovNav === i ? WT2.dim : WT2.faint,
+      boxShadow: i === active ? '0 0 8px var(--wt-accent)' : hovNav === i ? '0 0 4px rgba(230,225,212,0.3)' : 'none',
+      transition: 'background .15s, box-shadow .15s'
     }
   }) : /*#__PURE__*/React.createElement("span", {
     style: {
       fontFamily: WT2.mono,
-      fontSize: 10.5,
+      fontSize: 12,
       letterSpacing: 2.5,
       writingMode: 'vertical-rl',
       transform: 'rotate(180deg)',
-      color: i === active ? 'var(--wt-accent)' : WT2.faint,
-      transition: 'color .2s',
-      textShadow: i === active ? '0 0 8px var(--wt-accent)' : 'none'
+      color: i === active ? 'var(--wt-accent)' : hovNav === i ? WT2.body : WT2.faint,
+      transition: 'color .15s, text-shadow .15s',
+      textShadow: i === active ? '0 0 10px var(--wt-accent)' : hovNav === i ? '0 0 6px rgba(230,225,212,0.25)' : 'none'
     }
   }, t)))), compact ? /*#__PURE__*/React.createElement("span", {
     className: "wt-pulse",
@@ -251,6 +254,7 @@ function SeekBar({
   onSeekStateChange
 }) {
   const trackRef = React.useRef(null);
+  const draggingRef = React.useRef(false);
   const [seeking, setSeeking] = React.useState(false);
   function getFraction(e) {
     const track = trackRef.current;
@@ -260,15 +264,17 @@ function SeekBar({
   }
   function onPointerDown(e) {
     e.currentTarget.setPointerCapture(e.pointerId);
+    draggingRef.current = true;
     setSeeking(true);
     if (onSeekStateChange) onSeekStateChange(true);
     if (onSeek) onSeek(getFraction(e));
   }
   function onPointerMove(e) {
-    if (!seeking) return;
+    if (!draggingRef.current) return;
     if (onSeek) onSeek(getFraction(e));
   }
   function onPointerUp() {
+    draggingRef.current = false;
     setSeeking(false);
     if (onSeekStateChange) onSeekStateChange(false);
   }
@@ -670,13 +676,14 @@ function Hero({
       color: WT2.faint
     }
   }, activeTxCode || 'TX-047')), /*#__PURE__*/React.createElement(Oscilloscope, {
-    height: 72,
+    height: 80,
     color: "var(--wt-accent)",
+    dense: 1.1,
     playing: playing,
     seeking: seeking
   }), /*#__PURE__*/React.createElement("div", {
     style: {
-      marginTop: 11
+      marginTop: 10
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
@@ -684,21 +691,34 @@ function Hero({
       fontSize: 12,
       lineHeight: 1.3,
       color: playing ? WT2.ink : WT2.faint,
-      marginBottom: 4
+      marginBottom: 6
     }
-  }, hasPlayed ? activeTitle || 'wired hours v.7' : '— — —'), /*#__PURE__*/React.createElement("span", {
-    style: {
-      fontFamily: WT2.mono,
-      fontSize: 10.5,
-      color: WT2.dim
-    }
-  }, hasPlayed ? fmtTime(elapsed) + ' / ' + (duration || '--:--:--') : '--:--:-- / --:--:--')), /*#__PURE__*/React.createElement(SeekBar, {
+  }, hasPlayed ? activeTitle || '— — —' : '— — —')), /*#__PURE__*/React.createElement(SeekBar, {
     progress: progress,
     onSeek: onSeek,
     height: 3,
-    mt: 9,
+    mt: 0,
     onSeekStateChange: onSeekStateChange
-  })), /*#__PURE__*/React.createElement(ScrollArchive, null));
+  }), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      marginTop: 5
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontFamily: WT2.mono,
+      fontSize: 10,
+      color: WT2.dim
+    }
+  }, hasPlayed ? fmtTime(elapsed) : '--:--:--'), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontFamily: WT2.mono,
+      fontSize: 10,
+      color: WT2.faint
+    }
+  }, duration || '--:--:--'))), /*#__PURE__*/React.createElement(ScrollArchive, null));
 }
 function FeatureModule({
   idx,

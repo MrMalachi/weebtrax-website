@@ -224,8 +224,8 @@ function ActiveRow({
       position: 'relative',
       display: narrow ? 'flex' : 'grid',
       flexDirection: narrow ? 'column' : undefined,
-      gridTemplateColumns: narrow ? undefined : '220px 1fr',
-      gap: narrow ? 16 : 32,
+      gridTemplateColumns: narrow ? undefined : '280px 1fr',
+      gap: narrow ? 16 : 28,
       minWidth: 0,
       overflow: 'hidden'
     }
@@ -253,14 +253,34 @@ function ActiveRow({
   }), /*#__PURE__*/React.createElement(SeekBar, {
     progress: progress,
     onSeek: onSeek,
-    height: 2,
+    height: 3,
     mt: 0,
     onSeekStateChange: onSeekStateChange
   }), /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'flex',
+      justifyContent: 'space-between',
       alignItems: 'center',
-      gap: 8
+      marginTop: 2
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontFamily: WT2.mono,
+      fontSize: 10,
+      color: WT2.dim
+    }
+  }, fmtTime(elapsed)), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontFamily: WT2.mono,
+      fontSize: 10,
+      color: WT2.faint
+    }
+  }, t.run)), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      alignItems: 'center',
+      gap: 8,
+      marginTop: 6
     }
   }, /*#__PURE__*/React.createElement("span", {
     style: {
@@ -306,21 +326,12 @@ function ActiveRow({
       fontSize: 26,
       color: WT2.ink
     }
-  }, t.title), /*#__PURE__*/React.createElement("p", {
-    style: {
-      margin: '0 0 auto',
-      fontFamily: WT2.sans,
-      fontSize: 14,
-      lineHeight: 1.55,
-      color: WT2.body,
-      maxWidth: 460
-    }
-  }, t.desc), /*#__PURE__*/React.createElement("div", {
+  }, t.title), /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'flex',
       alignItems: 'center',
       gap: 16,
-      marginTop: 18,
+      marginTop: 14,
       flexWrap: 'wrap'
     }
   }, /*#__PURE__*/React.createElement(Btn, {
@@ -341,26 +352,15 @@ function ActiveRow({
     onMouseEnter: () => setHovLink('sc'),
     onMouseLeave: () => setHovLink(null),
     style: hovLink === 'sc' ? extLinkHov : extLink
-  }, "SOUNDCLOUD \u2197")), /*#__PURE__*/React.createElement("div", {
+  }, "SOUNDCLOUD \u2197")), /*#__PURE__*/React.createElement("span", {
     style: {
-      display: 'flex',
-      alignItems: 'center',
-      gap: 20,
+      display: 'block',
+      fontFamily: WT2.mono,
+      fontSize: 10,
+      color: WT2.faint,
       marginTop: 10
     }
-  }, /*#__PURE__*/React.createElement("span", {
-    style: {
-      fontFamily: WT2.mono,
-      fontSize: 11,
-      color: WT2.dim
-    }
-  }, fmtTime(elapsed), " / ", t.run), /*#__PURE__*/React.createElement("span", {
-    style: {
-      fontFamily: WT2.mono,
-      fontSize: 11,
-      color: WT2.faint
-    }
-  }, t.date))));
+  }, t.date)));
 }
 function Transmissions({
   playing,
@@ -471,7 +471,7 @@ function Transmissions({
     style: {
       color: 'var(--wt-accent)'
     }
-  }, "transmissions/"), " \xA0 047 files \xA0\xB7\xA0", /*#__PURE__*/React.createElement("span", {
+  }, "transmissions/"), " \xA0 " + String(TX.length).padStart(3, '0') + " files \xA0\xB7\xA0", /*#__PURE__*/React.createElement("span", {
     onClick: cycleSort,
     style: {
       cursor: 'pointer',
@@ -530,7 +530,7 @@ function Transmissions({
     style: {
       textAlign: 'center'
     }
-  }, "VOL"), /*#__PURE__*/React.createElement("span", {
+  }, "OUTPUT"), /*#__PURE__*/React.createElement("span", {
     style: {
       textAlign: 'center'
     }
@@ -711,20 +711,16 @@ function Transmissions({
       }
     }, "NOW DECODING"), /*#__PURE__*/React.createElement("span", {
       style: {
-        fontFamily: WT2.mono,
-        fontSize: 11,
-        color: WT2.faint,
-        marginLeft: 10
-      }
-    }, t.file), /*#__PURE__*/React.createElement("span", {
-      style: {
         display: 'block',
-        fontFamily: WT2.sans,
-        fontSize: 12.5,
-        color: WT2.dim,
-        marginTop: 3
+        fontFamily: WT2.mono,
+        fontSize: 10,
+        color: WT2.faint,
+        marginTop: 3,
+        overflow: 'hidden',
+        textOverflow: 'ellipsis',
+        whiteSpace: 'nowrap'
       }
-    }, t.desc)), /*#__PURE__*/React.createElement("div", {
+    }, t.file)), /*#__PURE__*/React.createElement("div", {
       style: {
         display: 'flex',
         justifyContent: 'center'

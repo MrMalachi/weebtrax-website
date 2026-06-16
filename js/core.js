@@ -143,9 +143,9 @@ function Oscilloscope({
         x === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
       }
       ctx.strokeStyle = wtResolve(color);
-      ctx.lineWidth = 1.4;
+      ctx.lineWidth = 2.0;
       ctx.shadowColor = wtResolve(color);
-      ctx.shadowBlur = isPlaying ? 6 : 2;
+      ctx.shadowBlur = isPlaying ? 9 : 3;
       ctx.stroke();
       ctx.shadowBlur = 0;
       if (isPlaying && !reduce) t += 0.045;

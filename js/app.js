@@ -115,6 +115,8 @@ function App() {
       audio.removeEventListener('ended', onEnded);
     };
   }, []);
+  // Controls <audio> element volume (0–1). Browser JS cannot access system/OS volume
+  // for security reasons — there is no cross-browser API to read or set it.
   React.useEffect(() => {
     const audio = audioRef.current;
     if (audio) audio.volume = volume;
@@ -209,7 +211,7 @@ function App() {
     seeking: seeking,
     onSeekStateChange: setSeeking
   }), /*#__PURE__*/React.createElement(Ticker, {
-    items: ['NEW TRANSMISSION EVERY SATURDAY', 'wired hours v.7 — now decoding', 'SUBMISSIONS OPEN', pingLabel(ping), 'PRESENT DAY · PRESENT TIME']
+    items: ['NEW TRANSMISSION EVERY SATURDAY', (TX[TX.length - 1] ? TX[TX.length - 1].title + ' — now decoding' : 'latest mix — now decoding'), 'SUBMISSIONS OPEN', pingLabel(ping), 'PRESENT DAY · PRESENT TIME']
   }), /*#__PURE__*/React.createElement(Transmissions, {
     playing: playing,
     onPlayToggle: togglePlay,
