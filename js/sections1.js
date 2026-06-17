@@ -833,12 +833,10 @@ function SignalFeed({ scene, onClose }) {
   const [duration, setDuration] = React.useState(0);
   const [progress, setProgress] = React.useState(0);
   const [seeking, setSeeking] = React.useState(false);
-  const [muted, setMuted] = React.useState(true);
   const [expanded, setExpanded] = React.useState(false);
   const [hovPlay, setHovPlay] = React.useState(false);
   const [hovClose, setHovClose] = React.useState(false);
   const [hovExpand, setHovExpand] = React.useState(false);
-  const [hovMute, setHovMute] = React.useState(false);
 
   React.useEffect(() => {
     const v = videoRef.current;
@@ -958,7 +956,7 @@ function SignalFeed({ scene, onClose }) {
     },
       /*#__PURE__*/React.createElement("video", {
         ref: videoRef, src: scene.video, poster: scene.img,
-        muted: muted, playsInline: true, preload: "metadata",
+        muted: true, playsInline: true, preload: "metadata",
         style: { width: '100%', height: '100%', display: 'block', objectFit: 'contain', background: '#000' }
       }),
       /*#__PURE__*/React.createElement("div", {
@@ -1032,17 +1030,7 @@ function SignalFeed({ scene, onClose }) {
             flex: 1, minWidth: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap'
           }
         }, scene.name),
-        /*#__PURE__*/React.createElement("button", {
-          onClick: () => setMuted(function(m) { return !m; }),
-          onMouseEnter: () => setHovMute(true),
-          onMouseLeave: () => setHovMute(false),
-          title: muted ? 'Unmute video audio' : 'Mute video (mix audio still plays)',
-          style: {
-            ...btnBase,
-            border: '1px solid ' + (hovMute ? WT2.dim : WT2.line),
-            color: muted ? WT2.faint : WT2.dim, opacity: 0.72
-          }
-        }, muted ? '⊗ VID MUTED' : '♫ VID AUDIO')
+        // Video stays muted — mix audio is the primary audio experience
       )
     )
   );
