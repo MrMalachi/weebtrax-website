@@ -198,54 +198,6 @@ function Rail() {
     }
   }, "NODE.227")));
 }
-function ScrollArchive() {
-  const [hov, setHov] = React.useState(false);
-  const onClick = () => {
-    const el = document.getElementById('wt-archive');
-    if (el) window.scrollTo({
-      top: el.offsetTop,
-      behavior: 'smooth'
-    });
-  };
-  return /*#__PURE__*/React.createElement("button", {
-    onClick: onClick,
-    onMouseEnter: () => setHov(true),
-    onMouseLeave: () => setHov(false),
-    style: {
-      position: 'absolute',
-      left: '50%',
-      bottom: 8,
-      transform: 'translateX(-50%)',
-      zIndex: 6,
-      background: 'none',
-      border: 'none',
-      borderBottom: `1px solid ${hov ? 'var(--wt-accent)' : 'rgba(230,225,212,0.2)'}`,
-      padding: '5px 2px',
-      cursor: 'pointer',
-      whiteSpace: 'nowrap',
-      display: 'flex',
-      alignItems: 'center',
-      gap: 9,
-      fontFamily: WT2.mono,
-      fontSize: 10,
-      letterSpacing: 3,
-      color: hov ? 'var(--wt-accent)' : WT2.dim,
-      textShadow: hov ? '0 0 12px var(--wt-accent), 0 1px 16px rgba(0,0,0,1), 0 0 32px rgba(0,0,0,1)' : '0 1px 10px rgba(0,0,0,1), 0 0 20px rgba(0,0,0,0.95)',
-      transition: 'color .2s, border-color .2s, text-shadow .2s'
-    }
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "wt-pulse",
-    style: {
-      display: 'inline-block',
-      width: 5,
-      height: 5,
-      borderRadius: 3,
-      flexShrink: 0,
-      background: 'var(--wt-accent)',
-      boxShadow: '0 0 6px var(--wt-accent)'
-    }
-  }), "\u2193 SCROLL THE ARCHIVE");
-}
 function SeekBar({
   progress,
   onSeek,
@@ -718,7 +670,7 @@ function Hero({
       fontSize: 10,
       color: WT2.faint
     }
-  }, duration || '--:--:--'))), /*#__PURE__*/React.createElement(ScrollArchive, null));
+  }, duration || '--:--:--')));
 }
 function FeatureModule({
   idx,
