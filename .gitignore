@@ -28,3 +28,4 @@ public/assets/scenes/source-videos/
 # Misc
 *.log
 Thumbs.db
+tools/yt_meta/
