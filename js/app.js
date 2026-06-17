@@ -117,7 +117,7 @@ function BroadcastBar({ playing, currentTrack, elapsed, progress, railW, tickerI
       display: 'inline-block', whiteSpace: 'nowrap',
       fontFamily: WT2.mono, fontSize: 10.5, letterSpacing: 2,
       textTransform: 'uppercase',
-      color: playing ? WT2.body : WT2.faint,
+      color: playing ? WT2.body : WT2.dim,
       animation: 'wt-bb-scroll 32s linear infinite'
     }
   }, loop)), playing && /*#__PURE__*/React.createElement(React.Fragment, null,
@@ -288,6 +288,10 @@ function App() {
   function togglePlay() {
     const audio = audioRef.current;
     if (audio && hasRealAudio) {
+      if (!audio.src || audio.src === location.href) {
+        audio.src = activeTx.audioSrc;
+        audio.load();
+      }
       if (playing) audio.pause();else audio.play().catch(() => {});
     } else {
       if (!playing) setHasPlayed(true);
@@ -334,7 +338,7 @@ function App() {
     elapsed: elapsed,
     progress: displayProgress,
     railW: railW,
-    tickerItems: ['NEW TRANSMISSION EVERY SATURDAY', (TX[TX.length - 1] ? TX[TX.length - 1].title + ' — now decoding' : 'latest mix — now decoding'), 'SUBMISSIONS OPEN', pingLabel(ping), 'PRESENT DAY \xB7 PRESENT TIME']
+    tickerItems: ['NEW TRANSMISSION EVERY SATURDAY', (TX[TX.length - 1] ? TX[TX.length - 1].title + ' — now decoding' : 'latest mix — now decoding'), 'SUBMISSIONS OPEN', pingLabel(ping)]
   }), /*#__PURE__*/React.createElement("main", {
     style: {
       marginLeft: railW,
@@ -401,4 +405,9 @@ Promise.all([
   ReactDOM.createRoot(document.getElementById('root')).render(/*#__PURE__*/React.createElement(App, null));
 }).catch(function(err) {
   console.error('[WeebTrax] Failed to load metadata:', err);
+  var root = document.getElementById('root');
+  if (root) {
+    root.style.cssText = 'display:flex;align-items:center;justify-content:center;min-height:100vh;font-family:monospace;color:#ff8a80;background:#0a0b0e;padding:32px;text-align:center;flex-direction:column;gap:12px';
+    root.innerHTML = '<div style="font-size:13px;letter-spacing:2px;color:#c08a82">[ WEEBTRAX ] BOOT FAILURE</div><div style="font-size:12px;color:rgba(230,225,212,0.5);max-width:480px">' + (err && err.message ? err.message : String(err)) + '</div><div style="font-size:11px;color:rgba(230,225,212,0.3)">Check browser console (F12) for full details</div>';
+  }
 });

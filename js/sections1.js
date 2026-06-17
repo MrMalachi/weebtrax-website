@@ -670,7 +670,7 @@ function Hero({
       fontSize: 10,
       color: WT2.faint
     }
-  }, duration || '--:--:--')));
+  }, duration || '--:--:--'))));
 }
 function FeatureModule({
   idx,
