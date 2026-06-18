@@ -1180,7 +1180,15 @@ function SceneGrid() {
     desc: s.desc,
     img: s.img,
     selected: selected === s.id,
-    onSelect: () => setSelected(selected === s.id ? null : s.id)
+    onSelect: function() {
+      if (selected === s.id) {
+        setSelected(null);
+        var el = document.getElementById('wt-signal');
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else {
+        setSelected(s.id);
+      }
+    }
   }))), /*#__PURE__*/React.createElement(TermPageBar, {
     page: page,
     total: totalPages,
