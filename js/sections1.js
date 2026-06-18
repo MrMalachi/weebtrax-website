@@ -936,7 +936,8 @@ function SignalFeed({ scene, onClose }) {
             border: '1px solid var(--wt-accent)',
             color: playing ? 'var(--wt-accent)' : WT2.void,
             fontFamily: WT2.mono, fontSize: 9, letterSpacing: 2.5,
-            padding: '5px 18px', cursor: 'pointer', borderRadius: 0,
+            padding: '5px 0', width: 110, textAlign: 'center',
+            cursor: 'pointer', borderRadius: 0,
             textTransform: 'uppercase', transition: 'all .12s',
             textShadow: playing ? '0 0 8px var(--wt-accent)' : 'none'
           }
@@ -1086,7 +1087,7 @@ function SceneGrid() {
   }
   return /*#__PURE__*/React.createElement("div", null,
   /*#__PURE__*/React.createElement("div", {
-    style: { display: 'flex', alignItems: 'center', gap: 6, flexWrap: 'wrap', marginBottom: 20 }
+    style: { display: 'flex', alignItems: 'center', gap: 6, flexWrap: 'nowrap', overflowX: 'auto', marginBottom: 20, paddingBottom: 4 }
   }, /*#__PURE__*/React.createElement("span", {
     style: { fontFamily: WT2.mono, fontSize: 10, color: WT2.faint, letterSpacing: 1.5, marginRight: 2 }
   }, "EP:"), ['all'].concat(episodes).map(function(ep) {
