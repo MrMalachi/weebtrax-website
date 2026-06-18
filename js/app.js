@@ -138,6 +138,23 @@ function BroadcastBar({ playing, currentTrack, elapsed, progress, railW, tickerI
   })));
 }
 
+class ErrorBoundary extends React.Component {
+  constructor(props) { super(props); this.state = { error: null }; }
+  static getDerivedStateFromError(error) { return { error }; }
+  render() {
+    if (this.state.error) {
+      return /*#__PURE__*/React.createElement("div", {
+        style: { display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '100vh', fontFamily: "'IBM Plex Mono',monospace", color: '#ff8a80', background: '#0a0b0e', padding: 32, textAlign: 'center', flexDirection: 'column', gap: 12 }
+      },
+        /*#__PURE__*/React.createElement("div", { style: { fontSize: 13, letterSpacing: 2, color: '#c08a82' } }, '[ WEEBTRAX ] RENDER ERROR'),
+        /*#__PURE__*/React.createElement("div", { style: { fontSize: 12, color: 'rgba(230,225,212,0.5)', maxWidth: 480 } }, this.state.error.message || String(this.state.error)),
+        /*#__PURE__*/React.createElement("div", { style: { fontSize: 11, color: 'rgba(230,225,212,0.3)' } }, 'Check browser console (F12) for full details')
+      );
+    }
+    return this.props.children;
+  }
+}
+
 function App() {
   const TX = getMixes();
   const _session = loadSession();
@@ -436,7 +453,7 @@ Promise.all([
 ]).then(function(results) {
   window.__WT_MIXES = results[0];
   window.__WT_SCENES = results[1];
-  ReactDOM.createRoot(document.getElementById('root')).render(/*#__PURE__*/React.createElement(App, null));
+  ReactDOM.createRoot(document.getElementById('root')).render(/*#__PURE__*/React.createElement(ErrorBoundary, null, /*#__PURE__*/React.createElement(App, null)));
 }).catch(function(err) {
   console.error('[WeebTrax] Failed to load metadata:', err);
   var root = document.getElementById('root');

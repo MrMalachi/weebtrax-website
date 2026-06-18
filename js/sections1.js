@@ -672,112 +672,6 @@ function Hero({
     }
   }, duration || '--:--:--'))));
 }
-function FeatureModule({
-  idx,
-  kicker,
-  title,
-  body,
-  img,
-  accent,
-  flip
-}) {
-  const winW = useWinW();
-  const narrow = winW < 900;
-  const a = accent || 'var(--wt-accent)';
-  const imgEl = /*#__PURE__*/React.createElement("div", {
-    style: {
-      position: 'relative',
-      height: 300,
-      border: `1px solid ${WT2.line}`,
-      overflow: 'hidden'
-    }
-  }, /*#__PURE__*/React.createElement("img", {
-    src: img,
-    alt: "",
-    style: {
-      position: 'absolute',
-      inset: 0,
-      width: '100%',
-      height: '100%',
-      objectFit: 'cover',
-      display: 'block'
-    }
-  }), /*#__PURE__*/React.createElement("div", {
-    style: {
-      position: 'absolute',
-      inset: 0,
-      backgroundImage: 'repeating-linear-gradient(0deg, rgba(0,0,0,0.28) 0 1px, transparent 1px 3px)'
-    }
-  }), /*#__PURE__*/React.createElement("div", {
-    style: {
-      position: 'absolute',
-      inset: 0,
-      background: 'radial-gradient(100% 100% at 50% 50%, transparent 55%, rgba(7,8,9,0.6) 100%)'
-    }
-  }), /*#__PURE__*/React.createElement(FrameTicks, {
-    inset: 10,
-    len: 16
-  }), /*#__PURE__*/React.createElement("span", {
-    style: {
-      position: 'absolute',
-      bottom: 12,
-      left: 12,
-      fontFamily: WT2.mono,
-      fontSize: 9.5,
-      letterSpacing: 1,
-      color: WT2.faint
-    }
-  }, "[ cel-painted \xB7 placeholder ]"));
-  const txtEl = /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
-    style: {
-      display: 'flex',
-      alignItems: 'center',
-      gap: 11,
-      marginBottom: 18
-    }
-  }, /*#__PURE__*/React.createElement("span", {
-    style: {
-      fontFamily: WT2.mono,
-      fontSize: 12,
-      color: a,
-      letterSpacing: 2
-    }
-  }, "\u258C MODULE.", idx), /*#__PURE__*/React.createElement("span", {
-    style: {
-      fontFamily: WT2.mono,
-      fontSize: 10,
-      color: WT2.faint,
-      letterSpacing: 2
-    }
-  }, kicker)), /*#__PURE__*/React.createElement("h3", {
-    style: {
-      margin: '0 0 16px',
-      fontFamily: WT2.display,
-      fontWeight: 800,
-      fontSize: 30,
-      lineHeight: 1.14,
-      color: WT2.ink,
-      letterSpacing: '0'
-    }
-  }, title), /*#__PURE__*/React.createElement("p", {
-    style: {
-      margin: 0,
-      fontFamily: WT2.sans,
-      fontSize: 15.5,
-      lineHeight: 1.62,
-      color: WT2.body,
-      maxWidth: 400
-    }
-  }, body));
-  return /*#__PURE__*/React.createElement("div", {
-    style: {
-      display: 'grid',
-      gridTemplateColumns: narrow ? '1fr' : '1fr 1fr',
-      gap: narrow ? 32 : 48,
-      alignItems: 'center'
-    }
-  }, narrow ? /*#__PURE__*/React.createElement(React.Fragment, null, txtEl, imgEl) : flip ? /*#__PURE__*/React.createElement(React.Fragment, null, imgEl, txtEl) : /*#__PURE__*/React.createElement(React.Fragment, null, txtEl, imgEl));
-}
 function SignalFeed({ scene, onClose }) {
   const videoRef = React.useRef(null);
   const [playing, setPlaying] = React.useState(false);
@@ -1093,6 +987,7 @@ function SceneGrid() {
   const SCENES_PER_PAGE = 6;
   const [selected, setSelected] = React.useState(null);
   const [page, setPage] = React.useState(0);
+  const [epFilter, setEpFilter] = React.useState(null);
   const winW = useWinW();
   const cols = winW >= 1000 ? 3 : winW >= 700 ? 2 : 1;
   const SCENES = (window.__WT_SCENES || []).map(function(s) {
@@ -1103,19 +998,49 @@ function SceneGrid() {
       desc: s.description,
       img: '/' + s.thumbnailPath,
       video: '/' + s.videoPath,
+      episode: s.episodeNumber,
     };
   });
-  const totalPages = Math.max(1, Math.ceil(SCENES.length / SCENES_PER_PAGE));
-  const visible = SCENES.slice(page * SCENES_PER_PAGE, (page + 1) * SCENES_PER_PAGE);
-  const sel = SCENES.find(s => s.id === selected);
+  const episodes = SCENES.reduce(function(acc, s) {
+    if (s.episode != null && !acc.includes(s.episode)) acc.push(s.episode);
+    return acc;
+  }, []).sort(function(a, b) { return a - b; });
+  const filtered = epFilter != null ? SCENES.filter(function(s) { return s.episode === epFilter; }) : SCENES;
+  const totalPages = Math.max(1, Math.ceil(filtered.length / SCENES_PER_PAGE));
+  const visible = filtered.slice(page * SCENES_PER_PAGE, (page + 1) * SCENES_PER_PAGE);
+  const sel = filtered.find(s => s.id === selected);
   function goPage(next) {
     setPage(next);
     setSelected(null);
-    // Scroll the scenes section into view so the page doesn't jump into the Submit section
     const el = document.getElementById('wt-signal');
     if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
-  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+  function setEp(ep) {
+    setEpFilter(function(prev) { return prev === ep ? null : ep; });
+    setPage(0);
+    setSelected(null);
+  }
+  return /*#__PURE__*/React.createElement("div", null,
+  /*#__PURE__*/React.createElement("div", {
+    style: { display: 'flex', alignItems: 'center', gap: 6, flexWrap: 'wrap', marginBottom: 20 }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: { fontFamily: WT2.mono, fontSize: 10, color: WT2.faint, letterSpacing: 1.5, marginRight: 2 }
+  }, "EP:"), ['all'].concat(episodes).map(function(ep) {
+    const isAll = ep === 'all';
+    const active = isAll ? epFilter == null : epFilter === ep;
+    return /*#__PURE__*/React.createElement("button", {
+      key: ep,
+      onClick: function() { isAll ? (setEpFilter(null), setPage(0), setSelected(null)) : setEp(ep); },
+      style: {
+        background: active ? 'var(--wt-accent)' : 'none',
+        border: '1px solid ' + (active ? 'var(--wt-accent)' : WT2.line),
+        color: active ? WT2.void : WT2.dim,
+        fontFamily: WT2.mono, fontSize: 9.5, letterSpacing: 1,
+        padding: '3px 9px', cursor: 'pointer', borderRadius: 0,
+        transition: 'all .12s'
+      }
+    }, isAll ? 'ALL' : 'EP ' + String(ep).padStart(2, '0'));
+  })), /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'flex',
       justifyContent: 'flex-end',
@@ -1155,7 +1080,7 @@ function SceneGrid() {
     page: page,
     total: totalPages,
     onGoTo: goPage
-  }));
+  })));
 }
 function Features() {
   const winW = useWinW();

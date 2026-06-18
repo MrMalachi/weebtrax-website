@@ -177,13 +177,15 @@ function getMixes() {
       run: m.duration,
       date: m.releaseDate,
       plat: m.soundcloudUrl ? 'SOUNDCLOUD' : 'YOUTUBE',
+      mood: m.mood,
       tone: MOOD_TONE[m.mood] || WT2.amber,
       popularity: m.views,
       tracklist: m.tracklist || [],
     };
   });
 }
-const SORT_MODES = ['NEWEST', 'OLDEST', 'A-Z', 'POPULAR'];
+const SORT_MODES = ['NEWEST', 'OLDEST', 'A-Z'];
+const MOODS = ['chill', 'nostalgic', 'dirty', 'deep'];
 function fmtTime(secs) {
   const h = Math.floor(secs / 3600);
   const m = Math.floor(secs % 3600 / 60);
@@ -526,6 +528,7 @@ function Transmissions({
   const narrow = winW < 900;
   const [hover, setHover] = React.useState(-1);
   const [sortIdx, setSortIdx] = React.useState(0);
+  const [moodFilter, setMoodFilter] = React.useState(null);
   const [page, setPage] = React.useState(0);
   const [hovLink, setHovLink] = React.useState(null);
   const TX = getMixes();
@@ -533,16 +536,23 @@ function Transmissions({
   const sorted = React.useMemo(() => {
     const arr = [...TX];
     const mode = SORT_MODES[sortIdx];
-    if (mode === 'OLDEST') arr.sort((a, b) => a.date.localeCompare(b.date));else if (mode === 'A-Z') arr.sort((a, b) => a.title.localeCompare(b.title));else if (mode === 'POPULAR') arr.sort((a, b) => b.popularity - a.popularity);else arr.sort((a, b) => b.date.localeCompare(a.date));
+    if (mode === 'OLDEST') arr.sort((a, b) => a.date.localeCompare(b.date));
+    else if (mode === 'A-Z') arr.sort((a, b) => a.title.localeCompare(b.title));
+    else arr.sort((a, b) => b.date.localeCompare(a.date));
     return arr;
   }, [sortIdx]);
-  const totalPages = Math.max(1, Math.ceil(sorted.length / ARCHIVE_PER_PAGE));
-  const pageItems = sorted.slice(page * ARCHIVE_PER_PAGE, (page + 1) * ARCHIVE_PER_PAGE);
+  const filtered = moodFilter ? sorted.filter(function(t) { return t.mood === moodFilter; }) : sorted;
+  const totalPages = Math.max(1, Math.ceil(filtered.length / ARCHIVE_PER_PAGE));
+  const pageItems = filtered.slice(page * ARCHIVE_PER_PAGE, (page + 1) * ARCHIVE_PER_PAGE);
   function cycleSort() {
     setSortIdx(i => (i + 1) % SORT_MODES.length);
     setPage(0);
     setHover(-1);
-    // Do NOT call onReset() — sorting only reorders the list, never interrupts playback
+  }
+  function setMood(mood) {
+    setMoodFilter(function(prev) { return prev === mood ? null : mood; });
+    setPage(0);
+    setHover(-1);
   }
   function handleRowClick(id) {
     if (id === activeTxId) {
@@ -618,25 +628,35 @@ function Transmissions({
       color: WT2.faint
     }
   }, "~/weebtrax/"), /*#__PURE__*/React.createElement("span", {
-    style: {
-      color: 'var(--wt-accent)'
-    }
-  }, "transmissions/"), " \xA0 " + String(TX.length).padStart(3, '0') + " files \xA0\xB7\xA0", /*#__PURE__*/React.createElement("span", {
+    style: { color: 'var(--wt-accent)' }
+  }, "transmissions/"), " \xA0 " + String(filtered.length).padStart(3, '0') + (moodFilter ? '/' + String(TX.length).padStart(3, '0') : '') + " files \xA0\xB7\xA0", /*#__PURE__*/React.createElement("span", {
     onClick: cycleSort,
-    style: {
-      cursor: 'pointer',
-      userSelect: 'none'
-    }
+    style: { cursor: 'pointer', userSelect: 'none' }
   }, "sort: ", /*#__PURE__*/React.createElement("span", {
-    style: {
-      color: 'var(--wt-accent)'
-    }
+    style: { color: 'var(--wt-accent)' }
   }, SORT_MODES[sortIdx].toLowerCase()), /*#__PURE__*/React.createElement("span", {
-    style: {
-      color: WT2.faint,
-      marginLeft: 5
-    }
-  }, "\u2195")))), /*#__PURE__*/React.createElement(ActiveRow, {
+    style: { color: WT2.faint, marginLeft: 5 }
+  }, "\u2195"))), /*#__PURE__*/React.createElement("div", {
+    style: { display: 'flex', alignItems: 'center', gap: 6, flexWrap: 'wrap', marginTop: narrow ? 10 : 0 }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: { fontFamily: WT2.mono, fontSize: 10, color: WT2.faint, letterSpacing: 1.5, marginRight: 2 }
+  }, "MOOD:"), ['all'].concat(MOODS).map(function(m) {
+    const isAll = m === 'all';
+    const active = isAll ? !moodFilter : moodFilter === m;
+    const tone = isAll ? WT2.dim : MOOD_TONE[m];
+    return /*#__PURE__*/React.createElement("button", {
+      key: m,
+      onClick: function() { isAll ? setMoodFilter(null) || setPage(0) : setMood(m); },
+      style: {
+        background: active ? tone : 'none',
+        border: '1px solid ' + (active ? tone : WT2.line),
+        color: active ? WT2.void : tone || WT2.dim,
+        fontFamily: WT2.mono, fontSize: 9.5, letterSpacing: 1.5,
+        padding: '3px 9px', cursor: 'pointer', borderRadius: 0,
+        textTransform: 'uppercase', transition: 'all .12s'
+      }
+    }, m);
+  }))), /*#__PURE__*/React.createElement(ActiveRow, {
     t: activeTx,
     playing: playing,
     onPlayToggle: onPlayToggle,
@@ -707,7 +727,7 @@ function Transmissions({
       "aria-label": `${isActive && playing ? 'Pause' : 'Play'} ${t.title}`,
       style: {
         padding: '14px 18px',
-        borderBottom: i < sorted.length - 1 ? `1px solid ${WT2.line}` : 'none',
+        borderBottom: i < filtered.length - 1 ? `1px solid ${WT2.line}` : 'none',
         background: rowBg,
         boxShadow: isActive ? 'inset 0 0 0 1px rgba(143,191,159,0.22)' : 'none',
         transition: 'background .15s',
@@ -824,7 +844,7 @@ function Transmissions({
         gridTemplateColumns: '48px 1fr 68px 100px 108px 152px',
         alignItems: 'center',
         padding: '15px 18px',
-        borderBottom: i < sorted.length - 1 ? `1px solid ${WT2.line}` : 'none',
+        borderBottom: i < filtered.length - 1 ? `1px solid ${WT2.line}` : 'none',
         background: rowBg,
         boxShadow: isActive ? 'inset 0 0 0 1px rgba(143,191,159,0.22)' : 'none',
         transition: 'background .15s',
@@ -936,7 +956,7 @@ function Transmissions({
   })), /*#__PURE__*/React.createElement(TermPageBar, {
     page: page,
     total: totalPages,
-    onGoTo: function(p) { setPage(p); setHover(-1); }
+    onGoTo: function(p) { setPage(p); setHover(-1); window.scrollTo({ top: document.getElementById('wt-archive').offsetTop, behavior: 'smooth' }); }
   })));
 }
 function UplinkMeter() {
