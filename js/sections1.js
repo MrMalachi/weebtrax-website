@@ -683,6 +683,8 @@ function SignalFeed({ scene, onClose }) {
   const [hovVideo, setHovVideo] = React.useState(false);
   const [flashIcon, setFlashIcon] = React.useState(null);
   const [connected, setConnected] = React.useState(false);
+  const winW = useWinW();
+  const narrow = winW < 600;
 
   // Inject flash-fade keyframe once
   React.useEffect(() => {
@@ -767,7 +769,7 @@ function SignalFeed({ scene, onClose }) {
   } : {
     marginTop: 24, border: '1px solid ' + WT2.line2,
     background: WT2.void, position: 'relative', overflow: 'hidden',
-    maxWidth: 840
+    maxWidth: narrow ? '100%' : 840
   };
 
   return /*#__PURE__*/React.createElement("div", { style: outerStyle },
@@ -805,7 +807,7 @@ function SignalFeed({ scene, onClose }) {
             textTransform: 'uppercase', opacity: 0.7
           }
         }, scene.tag),
-        /*#__PURE__*/React.createElement("span", {
+        !narrow && /*#__PURE__*/React.createElement("span", {
           style: {
             fontFamily: WT2.mono, fontSize: 8, letterSpacing: 0.5,
             color: WT2.faint, overflow: 'hidden', textOverflow: 'ellipsis',
@@ -813,25 +815,29 @@ function SignalFeed({ scene, onClose }) {
           }
         }, wiredPath)
       ),
-      /*#__PURE__*/React.createElement("div", { style: { display: 'flex', alignItems: 'center', gap: 8, flexShrink: 0 } },
+      /*#__PURE__*/React.createElement("div", { style: { display: 'flex', alignItems: 'center', gap: narrow ? 6 : 8, flexShrink: 0 } },
         /*#__PURE__*/React.createElement("button", {
           onClick: function() { setExpanded(function(e) { return !e; }); },
           style: {
             background: expanded ? 'rgba(143,191,159,0.1)' : 'none',
             border: '1px solid var(--wt-accent)', color: 'var(--wt-accent)',
-            fontFamily: WT2.mono, fontSize: 9, letterSpacing: 1.5, padding: '5px 12px',
+            fontFamily: WT2.mono, fontSize: narrow ? 9 : 9, letterSpacing: 1.5,
+            padding: narrow ? '6px 10px' : '5px 12px',
             cursor: 'pointer', borderRadius: 0, textTransform: 'uppercase', transition: 'all .12s',
-            textShadow: '0 0 8px var(--wt-accent)'
+            textShadow: '0 0 8px var(--wt-accent)', minWidth: narrow ? 36 : undefined,
+            textAlign: 'center'
           }
-        }, expanded ? '⊟ COLLAPSE' : '⊞ FULLSCREEN'),
+        }, narrow ? (expanded ? '⊟' : '⊞') : (expanded ? '⊟ COLLAPSE' : '⊞ FULLSCREEN')),
         /*#__PURE__*/React.createElement("button", {
           onClick: onClose,
           style: {
             background: 'none', border: '1px solid ' + WT2.red, color: WT2.red,
-            fontFamily: WT2.mono, fontSize: 9, letterSpacing: 1.5, padding: '5px 12px',
-            cursor: 'pointer', borderRadius: 0, textTransform: 'uppercase', transition: 'all .12s'
+            fontFamily: WT2.mono, fontSize: narrow ? 9 : 9, letterSpacing: 1.5,
+            padding: narrow ? '6px 10px' : '5px 12px',
+            cursor: 'pointer', borderRadius: 0, textTransform: 'uppercase', transition: 'all .12s',
+            minWidth: narrow ? 36 : undefined, textAlign: 'center'
           }
-        }, '× DISCONNECT')
+        }, narrow ? '×' : '× DISCONNECT')
       )
     ),
 
@@ -910,10 +916,10 @@ function SignalFeed({ scene, onClose }) {
           textShadow: '0 0 32px var(--wt-accent), 0 0 64px var(--wt-accent)'
         }}, '▸'),
         !playing && /*#__PURE__*/React.createElement("span", { style: {
-          fontFamily: WT2.mono, fontSize: 10, letterSpacing: 4,
+          fontFamily: WT2.mono, fontSize: narrow ? 9 : 10, letterSpacing: narrow ? 2 : 4,
           color: 'var(--wt-accent)', textShadow: '0 0 12px var(--wt-accent)'
         }}, connected ? 'TRANSMIT SIGNAL' : 'ACQUIRING SIGNAL…'),
-        playing && hovVideo && /*#__PURE__*/React.createElement("span", { style: {
+        playing && hovVideo && !narrow && /*#__PURE__*/React.createElement("span", { style: {
           fontFamily: WT2.mono, fontSize: 11, letterSpacing: 3,
           color: 'rgba(230,225,212,0.55)'
         }}, '▐▐  SUSPEND SIGNAL')
@@ -925,18 +931,18 @@ function SignalFeed({ scene, onClose }) {
       style: {
         width: '100%', boxSizing: 'border-box',
         background: WT2.sink, borderTop: '1px solid ' + WT2.line2,
-        padding: '14px 16px 16px'
+        padding: narrow ? '10px 12px 12px' : '14px 16px 16px'
       }
     },
       // Scene name + description
-      /*#__PURE__*/React.createElement("div", { style: { marginBottom: 12 } },
+      /*#__PURE__*/React.createElement("div", { style: { marginBottom: narrow ? 8 : 12 } },
         /*#__PURE__*/React.createElement("div", {
           style: {
-            fontFamily: WT2.display, fontSize: 19, color: WT2.ink,
-            lineHeight: 1.2, marginBottom: 6
+            fontFamily: WT2.display, fontSize: narrow ? 15 : 19, color: WT2.ink,
+            lineHeight: 1.2, marginBottom: 4
           }
         }, scene.name),
-        scene.desc && /*#__PURE__*/React.createElement("p", {
+        scene.desc && !narrow && /*#__PURE__*/React.createElement("p", {
           style: {
             margin: 0, fontFamily: WT2.mono, fontSize: 10.5, color: WT2.faint,
             lineHeight: 1.65, letterSpacing: 0.2
@@ -949,11 +955,11 @@ function SignalFeed({ scene, onClose }) {
       }),
       // Bottom row
       /*#__PURE__*/React.createElement("div", {
-        style: { display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: 7 }
+        style: { display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: narrow ? 5 : 7 }
       },
         /*#__PURE__*/React.createElement("span", {
-          style: { fontFamily: WT2.mono, fontSize: 9, letterSpacing: 1.5, color: WT2.faint }
-        }, fmtT(elapsed) + '  ·  ' + (duration ? fmtT(duration) : '--:--') + '  ·  ∞ LOOP'),
+          style: { fontFamily: WT2.mono, fontSize: narrow ? 8.5 : 9, letterSpacing: 1, color: WT2.faint }
+        }, fmtT(elapsed) + ' · ' + (duration ? fmtT(duration) : '--:--') + (narrow ? '' : '  ·  ∞ LOOP')),
         /*#__PURE__*/React.createElement("button", {
           onClick: togglePlay,
           style: {
@@ -1172,7 +1178,11 @@ function SceneGrid() {
   }))), sel ? /*#__PURE__*/React.createElement(SignalFeed, {
     key: sel.id,
     scene: sel,
-    onClose: function() { setSelected(null); }
+    onClose: function() {
+      setSelected(null);
+      var el = document.getElementById('wt-signal');
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
   }) : null, /*#__PURE__*/React.createElement(TermPageBar, {
     page: page,
     total: totalPages,
