@@ -87,7 +87,7 @@ function BroadcastBar({ playing, currentTrack, elapsed, progress, railW, tickerI
   var trackLabel = playing && currentTrack
     ? (currentTrack.artist ? currentTrack.artist + ' — ' + currentTrack.title : currentTrack.title)
     : null;
-  var sep = '  ✶  ';
+  var sep = '  ·  ▒▒  ·  ';
   var allItems = trackLabel ? [trackLabel].concat(tickerItems) : tickerItems;
   var fullText = allItems.join(sep);
   var loop = fullText + sep + fullText + sep;
@@ -389,7 +389,7 @@ function App() {
     elapsed: elapsed,
     progress: displayProgress,
     railW: railW,
-    tickerItems: ['NEW TRANSMISSION EVERY SATURDAY', (TX[TX.length - 1] ? TX[TX.length - 1].title + ' — now decoding' : 'latest mix — now decoding'), 'SUBMISSIONS OPEN', pingLabel(ping)]
+    tickerItems: ['NEW TRANSMISSION EVERY SATURDAY', 'SUBMISSIONS OPEN', pingLabel(ping)]
   }), /*#__PURE__*/React.createElement("main", {
     style: {
       marginLeft: railW,
