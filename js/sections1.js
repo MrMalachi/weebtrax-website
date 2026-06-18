@@ -680,19 +680,25 @@ function SignalFeed({ scene, onClose }) {
   const [progress, setProgress] = React.useState(0);
   const [seeking, setSeeking] = React.useState(false);
   const [expanded, setExpanded] = React.useState(false);
-  const [hovPlay, setHovPlay] = React.useState(false);
-  const [hovClose, setHovClose] = React.useState(false);
-  const [hovExpand, setHovExpand] = React.useState(false);
+  const [hovVideo, setHovVideo] = React.useState(false);
+  const [flashIcon, setFlashIcon] = React.useState(null);
+  const [connected, setConnected] = React.useState(false);
+
+  // Inject flash-fade keyframe once
+  React.useEffect(() => {
+    if (document.getElementById('wt-sf-kf')) return;
+    var s = document.createElement('style');
+    s.id = 'wt-sf-kf';
+    s.textContent = '@keyframes wt-sf-flash{0%{opacity:0.9;transform:scale(1)}100%{opacity:0;transform:scale(1.5)}}';
+    document.head.appendChild(s);
+  }, []);
 
   React.useEffect(() => {
     const v = videoRef.current;
     if (!v) return;
     v.load();
-    setPlaying(false);
-    setElapsed(0);
-    setProgress(0);
-    setDuration(0);
-    setExpanded(false);
+    setPlaying(false); setElapsed(0); setProgress(0); setDuration(0);
+    setExpanded(false); setConnected(false);
   }, [scene.id]);
 
   React.useEffect(() => {
@@ -704,7 +710,7 @@ function SignalFeed({ scene, onClose }) {
         setProgress(v.currentTime / v.duration);
       }
     }
-    function onLoadedMetadata() { if (isFinite(v.duration)) setDuration(Math.floor(v.duration)); }
+    function onLoadedMetadata() { if (isFinite(v.duration)) { setDuration(Math.floor(v.duration)); setConnected(true); } }
     function onPlay() { setPlaying(true); }
     function onPause() { setPlaying(false); }
     v.addEventListener('timeupdate', onTimeUpdate);
@@ -723,7 +729,10 @@ function SignalFeed({ scene, onClose }) {
   function togglePlay() {
     const v = videoRef.current;
     if (!v) return;
-    if (playing) v.pause(); else v.play().catch(() => {});
+    const icon = playing ? 'pause' : 'play';
+    if (playing) v.pause(); else v.play().catch(function() {});
+    setFlashIcon(icon);
+    setTimeout(function() { setFlashIcon(null); }, 550);
   }
   function seekTo(frac) {
     const v = videoRef.current;
@@ -733,147 +742,205 @@ function SignalFeed({ scene, onClose }) {
     return String(Math.floor(s / 60)).padStart(2, '0') + ':' + String(Math.floor(s % 60)).padStart(2, '0');
   }
 
-  const btnBase = {
-    background: 'none', fontFamily: WT2.mono, fontSize: 9.5,
-    letterSpacing: 1.5, padding: '5px 10px', cursor: 'pointer',
-    borderRadius: 0, textTransform: 'uppercase', transition: 'all .12s'
-  };
   const maxW = expanded ? 1100 : undefined;
+  const wiredPath = 'WIRED://NODE.227/' + scene.name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+  const epLabel = scene.episode != null ? 'EP.' + String(scene.episode).padStart(2, '0') : '';
+
   const outerStyle = expanded ? {
     position: 'fixed', inset: 0, zIndex: 300,
-    background: 'rgba(5,6,8,0.97)',
+    background: 'rgba(4,5,7,0.98)',
     display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-    padding: 24
+    padding: 20
   } : {
     marginTop: 24, border: '1px solid ' + WT2.line2,
-    background: WT2.panel, position: 'relative', overflow: 'hidden'
+    background: WT2.void, position: 'relative', overflow: 'hidden'
   };
 
   return /*#__PURE__*/React.createElement("div", { style: outerStyle },
+
+    // ── HEADER ────────────────────────────────────────────────────────────
     /*#__PURE__*/React.createElement("div", {
       style: {
         display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-        padding: '9px 14px', background: WT2.sink, borderBottom: '1px solid ' + WT2.line,
-        width: '100%', maxWidth: maxW, boxSizing: 'border-box'
+        padding: '7px 14px', background: WT2.sink,
+        borderBottom: '1px solid ' + WT2.line,
+        width: '100%', maxWidth: maxW, boxSizing: 'border-box', gap: 10
       }
     },
-      /*#__PURE__*/React.createElement("div", { style: { display: 'flex', alignItems: 'center', gap: 12 } },
+      /*#__PURE__*/React.createElement("div", { style: { display: 'flex', alignItems: 'center', gap: 10, minWidth: 0, flex: 1 } },
+        /*#__PURE__*/React.createElement("span", {
+          className: playing ? 'wt-pulse' : '',
+          style: {
+            width: 6, height: 6, borderRadius: 3, flexShrink: 0,
+            background: connected ? 'var(--wt-accent)' : WT2.faint,
+            boxShadow: playing ? '0 0 8px var(--wt-accent)' : 'none',
+            transition: 'background .4s, box-shadow .4s'
+          }
+        }),
         /*#__PURE__*/React.createElement("span", {
           style: {
-            fontFamily: WT2.mono, fontSize: 9, letterSpacing: 2,
-            color: playing ? 'var(--wt-accent)' : WT2.faint,
+            fontFamily: WT2.mono, fontSize: 9, letterSpacing: 2, whiteSpace: 'nowrap',
+            color: connected ? (playing ? 'var(--wt-accent)' : WT2.dim) : WT2.faint,
             textShadow: playing ? '0 0 8px var(--wt-accent)' : 'none'
           }
-        }, playing ? '◉ TRANSMITTING' : '◎ SIGNAL READY'),
-        /*#__PURE__*/React.createElement(Tag, { color: playing ? 'var(--wt-accent)' : WT2.faint }, scene.tag)
-      ),
-      /*#__PURE__*/React.createElement("div", { style: { display: 'flex', gap: 8 } },
-        /*#__PURE__*/React.createElement("button", {
-          onClick: () => setExpanded(function(e) { return !e; }),
-          onMouseEnter: () => setHovExpand(true),
-          onMouseLeave: () => setHovExpand(false),
+        }, connected ? (playing ? '◉ SIGNAL ACTIVE' : '◎ SIGNAL READY') : '… ACQUIRING'),
+        /*#__PURE__*/React.createElement("span", {
           style: {
-            ...btnBase,
-            border: '1px solid ' + (hovExpand ? 'var(--wt-accent)' : WT2.line),
-            color: hovExpand ? 'var(--wt-accent)' : WT2.dim,
-            textShadow: hovExpand ? '0 0 8px var(--wt-accent)' : 'none'
+            fontFamily: WT2.mono, fontSize: 8, letterSpacing: 0.5,
+            color: WT2.faint, overflow: 'hidden', textOverflow: 'ellipsis',
+            whiteSpace: 'nowrap', minWidth: 0, opacity: 0.65
           }
-        }, expanded ? '⊟ COLLAPSE' : '⊞ EXPAND SIGNAL'),
+        }, wiredPath)
+      ),
+      /*#__PURE__*/React.createElement("div", { style: { display: 'flex', alignItems: 'center', gap: 7, flexShrink: 0 } },
+        /*#__PURE__*/React.createElement(Tag, { color: playing ? 'var(--wt-accent)' : WT2.faint }, scene.tag),
+        /*#__PURE__*/React.createElement("button", {
+          onClick: function() { setExpanded(function(e) { return !e; }); },
+          style: {
+            background: 'none', border: '1px solid ' + WT2.line, color: WT2.faint,
+            fontFamily: WT2.mono, fontSize: 8.5, letterSpacing: 1.5, padding: '4px 10px',
+            cursor: 'pointer', borderRadius: 0, textTransform: 'uppercase', transition: 'all .12s'
+          }
+        }, expanded ? '⊟ COLLAPSE' : '⊞ FULLSCREEN'),
         /*#__PURE__*/React.createElement("button", {
           onClick: onClose,
-          onMouseEnter: () => setHovClose(true),
-          onMouseLeave: () => setHovClose(false),
           style: {
-            ...btnBase,
-            border: '1px solid ' + (hovClose ? WT2.red : WT2.line),
-            color: hovClose ? WT2.red : WT2.faint
+            background: 'none', border: '1px solid ' + WT2.line2, color: WT2.faint,
+            fontFamily: WT2.mono, fontSize: 8.5, letterSpacing: 1.5, padding: '4px 10px',
+            cursor: 'pointer', borderRadius: 0, textTransform: 'uppercase', transition: 'all .12s'
           }
-        }, 'CLOSE SIGNAL ×')
+        }, '× DISCONNECT')
       )
     ),
+
+    // ── VIDEO ─────────────────────────────────────────────────────────────
     /*#__PURE__*/React.createElement("div", {
       style: {
         position: 'relative', width: '100%', maxWidth: maxW,
-        aspectRatio: '16/9', background: '#000', overflow: 'hidden'
-      }
+        aspectRatio: '16/9', background: '#000', overflow: 'hidden', cursor: 'pointer'
+      },
+      onClick: togglePlay,
+      onMouseEnter: function() { setHovVideo(true); },
+      onMouseLeave: function() { setHovVideo(false); }
     },
       /*#__PURE__*/React.createElement("video", {
         ref: videoRef, src: scene.video, poster: scene.img,
         muted: true, playsInline: true, loop: true, preload: "metadata",
-        style: { width: '100%', height: '100%', display: 'block', objectFit: 'contain', background: '#000' }
+        style: { width: '100%', height: '100%', display: 'block', objectFit: 'cover', background: '#000' }
       }),
-      /*#__PURE__*/React.createElement("div", {
-        'aria-hidden': true,
-        style: {
-          position: 'absolute', inset: 0, pointerEvents: 'none',
-          backgroundImage: 'repeating-linear-gradient(0deg, rgba(0,0,0,0.22) 0 1px, transparent 1px 3px)'
-        }
-      }),
-      /*#__PURE__*/React.createElement("div", {
-        'aria-hidden': true,
-        style: {
-          position: 'absolute', inset: 0, pointerEvents: 'none',
-          background: 'radial-gradient(100% 100% at 50% 50%, transparent 60%, rgba(0,0,0,0.5) 100%)'
-        }
-      }),
-      /*#__PURE__*/React.createElement("div", {
-        onClick: togglePlay,
-        style: {
-          position: 'absolute', inset: 0, display: 'flex',
-          alignItems: 'center', justifyContent: 'center', cursor: 'pointer',
-          opacity: playing ? 0 : 1, transition: 'opacity .2s',
-          background: playing ? 'transparent' : 'rgba(0,0,0,0.2)',
-          pointerEvents: playing ? 'none' : 'auto'
-        }
-      },
-        /*#__PURE__*/React.createElement("span", {
-          style: {
-            fontFamily: WT2.mono, fontSize: expanded ? 64 : 44,
-            color: 'var(--wt-accent)', lineHeight: 1, opacity: 0.9,
-            textShadow: '0 0 32px var(--wt-accent), 0 0 64px var(--wt-accent)'
-          }
-        }, '▸')
+      // Heavy CRT scanlines
+      /*#__PURE__*/React.createElement("div", { 'aria-hidden': true, style: {
+        position: 'absolute', inset: 0, pointerEvents: 'none',
+        backgroundImage: 'repeating-linear-gradient(0deg, rgba(0,0,0,0.38) 0 1px, transparent 1px 3px)',
+        mixBlendMode: 'multiply'
+      }}),
+      // Vignette
+      /*#__PURE__*/React.createElement("div", { 'aria-hidden': true, style: {
+        position: 'absolute', inset: 0, pointerEvents: 'none',
+        background: 'radial-gradient(ellipse 90% 90% at 50% 50%, transparent 45%, rgba(0,0,0,0.72) 100%)'
+      }}),
+      // Corner ticks
+      /*#__PURE__*/React.createElement(FrameTicks, { inset: 12, len: 20, color: 'rgba(143,191,159,0.45)' }),
+      // Top-left node readout
+      /*#__PURE__*/React.createElement("div", { 'aria-hidden': true, style: {
+        position: 'absolute', top: 14, left: 16,
+        fontFamily: WT2.mono, fontSize: 8.5, letterSpacing: 2,
+        color: 'rgba(143,191,159,0.6)', lineHeight: 2, pointerEvents: 'none'
+      }},
+        /*#__PURE__*/React.createElement("div", null, 'NODE.227'),
+        epLabel && /*#__PURE__*/React.createElement("div", null, epLabel)
+      ),
+      // Bottom-right timestamp
+      /*#__PURE__*/React.createElement("div", { 'aria-hidden': true, style: {
+        position: 'absolute', bottom: 14, right: 16,
+        fontFamily: WT2.mono, fontSize: 8.5, letterSpacing: 1.5,
+        color: 'rgba(143,191,159,0.6)', pointerEvents: 'none'
+      }}, fmtT(elapsed) + ' / ' + (duration ? fmtT(duration) : '--:--')),
+      // Flash icon on click
+      flashIcon && /*#__PURE__*/React.createElement("div", { 'aria-hidden': true, style: {
+        position: 'absolute', inset: 0, display: 'flex',
+        alignItems: 'center', justifyContent: 'center', pointerEvents: 'none',
+        animation: 'wt-sf-flash 0.55s ease-out forwards'
+      }},
+        /*#__PURE__*/React.createElement("span", { style: {
+          fontFamily: WT2.mono, fontSize: expanded ? 88 : 60,
+          color: 'var(--wt-accent)', lineHeight: 1,
+          textShadow: '0 0 40px var(--wt-accent), 0 0 80px var(--wt-accent)'
+        }}, flashIcon === 'play' ? '▸' : '▐▐')
+      ),
+      // Pause / hover overlay
+      /*#__PURE__*/React.createElement("div", { 'aria-hidden': true, style: {
+        position: 'absolute', inset: 0, display: 'flex',
+        flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+        background: playing
+          ? (hovVideo ? 'rgba(0,0,0,0.18)' : 'transparent')
+          : 'rgba(0,0,0,0.5)',
+        opacity: playing ? (hovVideo ? 1 : 0) : 1,
+        transition: 'opacity .22s, background .22s',
+        pointerEvents: 'none', gap: 10
+      }},
+        !playing && /*#__PURE__*/React.createElement("span", { style: {
+          fontFamily: WT2.mono, fontSize: expanded ? 72 : 52, lineHeight: 1,
+          color: 'var(--wt-accent)',
+          textShadow: '0 0 32px var(--wt-accent), 0 0 64px var(--wt-accent)'
+        }}, '▸'),
+        !playing && /*#__PURE__*/React.createElement("span", { style: {
+          fontFamily: WT2.mono, fontSize: 10, letterSpacing: 4,
+          color: 'var(--wt-accent)', textShadow: '0 0 12px var(--wt-accent)'
+        }}, connected ? 'TRANSMIT SIGNAL' : 'ACQUIRING SIGNAL…'),
+        playing && hovVideo && /*#__PURE__*/React.createElement("span", { style: {
+          fontFamily: WT2.mono, fontSize: 11, letterSpacing: 3,
+          color: 'rgba(230,225,212,0.55)'
+        }}, '▐▐  SUSPEND SIGNAL')
       )
     ),
+
+    // ── CONTROL BAR ───────────────────────────────────────────────────────
     /*#__PURE__*/React.createElement("div", {
       style: {
-        width: '100%', maxWidth: maxW, padding: '10px 14px',
-        background: WT2.panel, boxSizing: 'border-box',
-        borderTop: '1px solid ' + WT2.line
+        width: '100%', maxWidth: maxW, boxSizing: 'border-box',
+        background: WT2.sink, borderTop: '1px solid ' + WT2.line2,
+        padding: '14px 16px 16px'
       }
     },
-      /*#__PURE__*/React.createElement(SeekBar, {
-        progress: progress, onSeek: seekTo,
-        height: 3, mt: 0, onSeekStateChange: setSeeking
-      }),
-      /*#__PURE__*/React.createElement("div", {
-        style: { display: 'flex', justifyContent: 'space-between', marginTop: 3 }
-      },
-        /*#__PURE__*/React.createElement("span", { style: { fontFamily: WT2.mono, fontSize: 10, color: WT2.dim } }, fmtT(elapsed)),
-        /*#__PURE__*/React.createElement("span", { style: { fontFamily: WT2.mono, fontSize: 10, color: WT2.faint } }, fmtT(duration))
-      ),
-      /*#__PURE__*/React.createElement("div", {
-        style: { display: 'flex', alignItems: 'center', gap: 12, marginTop: 10, flexWrap: 'wrap' }
-      },
-        /*#__PURE__*/React.createElement("button", {
-          onClick: togglePlay,
-          onMouseEnter: () => setHovPlay(true),
-          onMouseLeave: () => setHovPlay(false),
+      // Scene name + description
+      /*#__PURE__*/React.createElement("div", { style: { marginBottom: 12 } },
+        /*#__PURE__*/React.createElement("div", {
           style: {
-            ...btnBase, fontSize: 10.5, padding: '6px 14px',
-            border: '1px solid var(--wt-accent)',
-            color: hovPlay ? WT2.void : 'var(--wt-accent)',
-            background: hovPlay ? 'var(--wt-accent)' : 'none',
-            textShadow: !hovPlay ? '0 0 8px var(--wt-accent)' : 'none'
-          }
-        }, playing ? '▐▐ PAUSE' : '▸ PLAY'),
-        /*#__PURE__*/React.createElement("span", {
-          style: {
-            fontFamily: WT2.display, fontSize: 14, color: WT2.body,
-            flex: 1, minWidth: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap'
+            fontFamily: WT2.display, fontSize: 19, color: WT2.ink,
+            lineHeight: 1.2, marginBottom: 6
           }
         }, scene.name),
-        // Video stays muted — mix audio is the primary audio experience
+        scene.desc && /*#__PURE__*/React.createElement("p", {
+          style: {
+            margin: 0, fontFamily: WT2.mono, fontSize: 10.5, color: WT2.faint,
+            lineHeight: 1.65, letterSpacing: 0.2
+          }
+        }, scene.desc)
+      ),
+      // Seekbar
+      /*#__PURE__*/React.createElement(SeekBar, {
+        progress: progress, onSeek: seekTo, height: 2, mt: 0, onSeekStateChange: setSeeking
+      }),
+      // Bottom row
+      /*#__PURE__*/React.createElement("div", {
+        style: { display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: 7 }
+      },
+        /*#__PURE__*/React.createElement("span", {
+          style: { fontFamily: WT2.mono, fontSize: 9, letterSpacing: 1.5, color: WT2.faint }
+        }, fmtT(elapsed) + '  ·  ' + (duration ? fmtT(duration) : '--:--') + '  ·  ∞ LOOP'),
+        /*#__PURE__*/React.createElement("button", {
+          onClick: togglePlay,
+          style: {
+            background: playing ? 'none' : 'var(--wt-accent)',
+            border: '1px solid var(--wt-accent)',
+            color: playing ? 'var(--wt-accent)' : WT2.void,
+            fontFamily: WT2.mono, fontSize: 9, letterSpacing: 2.5,
+            padding: '5px 18px', cursor: 'pointer', borderRadius: 0,
+            textTransform: 'uppercase', transition: 'all .12s',
+            textShadow: playing ? '0 0 8px var(--wt-accent)' : 'none'
+          }
+        }, playing ? '▐▐ SUSPEND' : '▸ TRANSMIT')
       )
     )
   );
