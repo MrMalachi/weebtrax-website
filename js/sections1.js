@@ -742,18 +742,27 @@ function SignalFeed({ scene, onClose }) {
     return String(Math.floor(s / 60)).padStart(2, '0') + ':' + String(Math.floor(s % 60)).padStart(2, '0');
   }
 
-  const maxW = expanded ? 1100 : undefined;
   const wiredPath = 'WIRED://NODE.227/' + scene.name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
   const epLabel = scene.episode != null ? 'EP.' + String(scene.episode).padStart(2, '0') : '';
+
+  // Lock body scroll when fullscreen
+  React.useEffect(function() {
+    if (expanded) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return function() { document.body.style.overflow = ''; };
+  }, [expanded]);
 
   const outerStyle = expanded ? {
     position: 'fixed', inset: 0, zIndex: 300,
     background: 'rgba(4,5,7,0.98)',
-    display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-    padding: 20
+    display: 'flex', flexDirection: 'column', overflow: 'hidden'
   } : {
     marginTop: 24, border: '1px solid ' + WT2.line2,
-    background: WT2.void, position: 'relative', overflow: 'hidden'
+    background: WT2.void, position: 'relative', overflow: 'hidden',
+    maxWidth: 840
   };
 
   return /*#__PURE__*/React.createElement("div", { style: outerStyle },
@@ -764,7 +773,7 @@ function SignalFeed({ scene, onClose }) {
         display: 'flex', alignItems: 'center', justifyContent: 'space-between',
         padding: '7px 14px', background: WT2.sink,
         borderBottom: '1px solid ' + WT2.line,
-        width: '100%', maxWidth: maxW, boxSizing: 'border-box', gap: 10
+        width: '100%', boxSizing: 'border-box', gap: 10
       }
     },
       /*#__PURE__*/React.createElement("div", { style: { display: 'flex', alignItems: 'center', gap: 10, minWidth: 0, flex: 1 } },
@@ -783,7 +792,7 @@ function SignalFeed({ scene, onClose }) {
             color: connected ? (playing ? 'var(--wt-accent)' : WT2.dim) : WT2.faint,
             textShadow: playing ? '0 0 8px var(--wt-accent)' : 'none'
           }
-        }, connected ? (playing ? '◉ SIGNAL ACTIVE' : '◎ SIGNAL READY') : '… ACQUIRING'),
+        }, connected ? (playing ? 'SIGNAL ACTIVE' : 'SIGNAL READY') : '… ACQUIRING'),
         /*#__PURE__*/React.createElement("span", {
           style: {
             fontFamily: WT2.mono, fontSize: 8, letterSpacing: 0.5,
@@ -815,8 +824,11 @@ function SignalFeed({ scene, onClose }) {
 
     // ── VIDEO ─────────────────────────────────────────────────────────────
     /*#__PURE__*/React.createElement("div", {
-      style: {
-        position: 'relative', width: '100%', maxWidth: maxW,
+      style: expanded ? {
+        position: 'relative', flex: 1, minHeight: 0, width: '100%',
+        background: '#000', overflow: 'hidden', cursor: 'pointer'
+      } : {
+        position: 'relative', width: '100%',
         aspectRatio: '16/9', background: '#000', overflow: 'hidden', cursor: 'pointer'
       },
       onClick: togglePlay,
@@ -863,7 +875,7 @@ function SignalFeed({ scene, onClose }) {
         animation: 'wt-sf-flash 0.55s ease-out forwards'
       }},
         /*#__PURE__*/React.createElement("span", { style: {
-          fontFamily: WT2.mono, fontSize: expanded ? 88 : 60,
+          fontFamily: WT2.mono, fontSize: expanded ? 72 : 52,
           color: 'var(--wt-accent)', lineHeight: 1,
           textShadow: '0 0 40px var(--wt-accent), 0 0 80px var(--wt-accent)'
         }}, flashIcon === 'play' ? '▸' : '▐▐')
@@ -898,7 +910,7 @@ function SignalFeed({ scene, onClose }) {
     // ── CONTROL BAR ───────────────────────────────────────────────────────
     /*#__PURE__*/React.createElement("div", {
       style: {
-        width: '100%', maxWidth: maxW, boxSizing: 'border-box',
+        width: '100%', boxSizing: 'border-box',
         background: WT2.sink, borderTop: '1px solid ' + WT2.line2,
         padding: '14px 16px 16px'
       }
