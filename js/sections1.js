@@ -707,19 +707,16 @@ function SignalFeed({ scene, onClose }) {
     function onLoadedMetadata() { if (isFinite(v.duration)) setDuration(Math.floor(v.duration)); }
     function onPlay() { setPlaying(true); }
     function onPause() { setPlaying(false); }
-    function onEnded() { setPlaying(false); setProgress(1); }
     v.addEventListener('timeupdate', onTimeUpdate);
     v.addEventListener('loadedmetadata', onLoadedMetadata);
     v.addEventListener('play', onPlay);
     v.addEventListener('pause', onPause);
-    v.addEventListener('ended', onEnded);
     return () => {
       v.pause();
       v.removeEventListener('timeupdate', onTimeUpdate);
       v.removeEventListener('loadedmetadata', onLoadedMetadata);
       v.removeEventListener('play', onPlay);
       v.removeEventListener('pause', onPause);
-      v.removeEventListener('ended', onEnded);
     };
   }, []);
 
