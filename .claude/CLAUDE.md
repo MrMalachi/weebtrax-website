@@ -52,20 +52,21 @@ Create:
 - `public/assets/metadata/scenes.json` ✅ Generated (48 entries)
 
 ### mixes.json fields (finalised)
-`id`, `title`, `slug`, `duration`, `releaseDate`, `mood`, `views`, `audioPath`, `youtubeUrl`, `soundcloudUrl`
+`id`, `title`, `slug`, `duration`, `releaseDate`, `mood`, `views`, `audioPath`, `youtubeUrl`, `soundcloudUrl`, `tracklist`
 
 - 72/94 have SoundCloud URLs; 22 early mixes are YouTube-only (null)
 - `mood` is one of: `chill`, `nostalgic`, `dirty`, `deep`
 - `views` = YouTube view count snapshot; becomes live in Phase 4/5 via scheduled yt-dlp refresh against PostgreSQL
+- `tracklist` = array of `{ timeSecs, title, artist? }` entries; 92/94 populated via yt-dlp from YouTube descriptions
 - No `artist`, `tags`, or `thumbnailPath` — not needed for the site
 
 ### scenes.json fields (finalised)
 `id`, `name`, `slug`, `type`, `description`, `episodeNumber`, `mood`, `videoPath`, `thumbnailPath`
 
-- 48 scenes across episodes 1–13
+- 48 scenes across episodes 1–13 (episode 9 has no footage — omitted intentionally)
 - `type` is the badge chip shown on the card (e.g. "CLUB TERMINAL", "BEDROOM STATIC")
 - `description` is 1–2 sentences of evocative prose per scene
-- `episodeNumber` kept for future episode-based filtering
+- `episodeNumber` drives the episode filter in the Scenes section
 - No `startTime`, `endTime`, `duration`, or `tags` — not needed on the frontend
 - No `plays` yet — scene popularity requires Phase 4/5 (PostgreSQL tracks selections)
 
@@ -79,10 +80,20 @@ Generates: archive rows, scene cards, thumbnails, play buttons, YT/SC links, moo
 ### What was done
 - Unbundled the Claude Artifact `index.html` into separate files: `js/react.js`, `js/react-dom.js`, `js/images.js`, `js/tweaks-panel.js`, `js/core.js`, `js/sections1.js`, `js/sections2.js`, `js/app.js`, `css/styles.css`
 - `app.js` pre-fetches both JSONs via `Promise.all([fetch(...), fetch(...)])` before mounting React, storing results in `window.__WT_MIXES` and `window.__WT_SCENES`
-- `sections2.js` — `getMixes()` transforms `window.__WT_MIXES` entries into the shape the Archive components expect; replaces the old hardcoded 5-item `TX` array. All 94 mixes now render.
-- `sections1.js` — `SceneGrid` reads `window.__WT_SCENES` and maps `type→tag`, `description→desc`, `thumbnailPath→img`. All 48 scenes now render with real thumbnails.
+- `sections2.js` — `getMixes()` transforms `window.__WT_MIXES` entries; all 94 mixes render with mood filter, sort, and pagination
+- `sections1.js` — `SceneGrid` renders all 48 scenes with episode filter, scene player, and pagination
 - Mood→accent color mapping: `chill→blue`, `nostalgic→purple`, `dirty→red`, `deep→green`
 - Serve with: `python3 -m http.server 3000` from the project root
+
+### Current features (as of 2026-06-18)
+- **Archive**: 94 mixes, mood filter chips, NEWEST/OLDEST/A-Z sort, 5-per-page pagination, active row player
+- **Playback**: auto-advance to next track, keyboard shortcuts (Space/←/→), session restore via localStorage
+- **Waveform**: Web Audio API AnalyserNode (`window.__WT_ANALYSER`) drives both oscilloscopes reactively; `window.__WT_ANALYSER` set on first play
+- **Tracklist**: broadcast bar shows current track artist/title from `tracklist[]` during playback
+- **Scenes**: 48 scenes, episode filter (EP 01–13, no EP 09 footage), 6-per-page pagination
+- **Scene player** (`SignalFeed`): Wired/Navi aesthetic — `WIRED://NODE.227` header, click-to-toggle video, flash icon, fullscreen mode (scroll-locked), mobile responsive (<600px)
+- **Error boundary**: wraps `<App>`, crashes show a readable message instead of blank screen
+- **Deleted**: `js/utils.js`, `js/main.js`, `src/` directories, dead `FeatureModule` component
 
 ### Checklist
 - [x] Unbundle app into plain separate JS/CSS files
@@ -92,6 +103,9 @@ Generates: archive rows, scene cards, thumbnails, play buttons, YT/SC links, moo
 - [x] Scenes section renders all 48 scenes from JSON with real thumbnails
 - [x] Mood tags drive accent color per archive row
 - [x] Null soundcloudUrl handled gracefully (shows YOUTUBE platform badge)
+- [x] Tracklists populated for 92/94 mixes from YouTube descriptions
+- [x] Episode filter, mood filter, sort, pagination all wired up
+- [x] Scene video player redesigned (Wired/Navi aesthetic, fullscreen, mobile)
 
 ---
 
