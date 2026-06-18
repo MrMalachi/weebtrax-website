@@ -1181,7 +1181,11 @@ function SceneGrid() {
     img: s.img,
     selected: selected === s.id,
     onSelect: () => setSelected(selected === s.id ? null : s.id)
-  }))), sel ? /*#__PURE__*/React.createElement("div", { ref: playerRef }, /*#__PURE__*/React.createElement(SignalFeed, {
+  }))), /*#__PURE__*/React.createElement(TermPageBar, {
+    page: page,
+    total: totalPages,
+    onGoTo: goPage
+  }), sel ? /*#__PURE__*/React.createElement("div", { ref: playerRef }, /*#__PURE__*/React.createElement(SignalFeed, {
     key: sel.id,
     scene: sel,
     onClose: function() {
@@ -1189,11 +1193,7 @@ function SceneGrid() {
       var el = document.getElementById('wt-signal');
       if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
-  })) : null, /*#__PURE__*/React.createElement(TermPageBar, {
-    page: page,
-    total: totalPages,
-    onGoTo: goPage
-  }));
+  })) : null);
 }
 function Features() {
   const winW = useWinW();
