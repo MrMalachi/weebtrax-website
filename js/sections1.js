@@ -1181,7 +1181,7 @@ function SceneGrid() {
     onClose: function() {
       setSelected(null);
       var el = document.getElementById('wt-signal');
-      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   }) : null, /*#__PURE__*/React.createElement(TermPageBar, {
     page: page,
