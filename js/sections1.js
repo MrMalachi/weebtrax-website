@@ -749,10 +749,15 @@ function SignalFeed({ scene, onClose }) {
   React.useEffect(function() {
     if (expanded) {
       document.body.style.overflow = 'hidden';
+      document.documentElement.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
     }
-    return function() { document.body.style.overflow = ''; };
+    return function() {
+      document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
+    };
   }, [expanded]);
 
   const outerStyle = expanded ? {
