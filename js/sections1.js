@@ -1113,7 +1113,7 @@ function SceneGrid() {
   /*#__PURE__*/React.createElement("div", {
     style: { display: 'flex', alignItems: 'center', gap: 6, flexWrap: 'nowrap', overflowX: 'auto', marginBottom: 20, paddingBottom: 4 }
   }, /*#__PURE__*/React.createElement("span", {
-    style: { fontFamily: WT2.mono, fontSize: 10, color: WT2.faint, letterSpacing: 1.5, marginRight: 2 }
+    style: { fontFamily: WT2.mono, fontSize: winW >= 1200 ? 11 : 10, color: WT2.faint, letterSpacing: 1.5, marginRight: 2 }
   }, "EP:"), ['all'].concat(episodes).map(function(ep) {
     const isAll = ep === 'all';
     const active = isAll ? epFilter == null : epFilter === ep;
@@ -1124,8 +1124,11 @@ function SceneGrid() {
         background: active ? 'var(--wt-accent)' : 'none',
         border: '1px solid ' + (active ? 'var(--wt-accent)' : WT2.line),
         color: active ? WT2.void : WT2.dim,
-        fontFamily: WT2.mono, fontSize: 9.5, letterSpacing: 1,
-        padding: '3px 9px', cursor: 'pointer', borderRadius: 0,
+        fontFamily: WT2.mono,
+        fontSize: winW >= 1200 ? 11 : 9.5,
+        letterSpacing: winW >= 1200 ? 1.5 : 1,
+        padding: winW >= 1200 ? '5px 13px' : '3px 9px',
+        cursor: 'pointer', borderRadius: 0,
         transition: 'all .12s'
       }
     }, isAll ? 'ALL' : 'EP ' + String(ep).padStart(2, '0'));
