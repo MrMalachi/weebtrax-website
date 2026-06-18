@@ -109,6 +109,36 @@ Generates: archive rows, scene cards, thumbnails, play buttons, YT/SC links, moo
 
 ---
 
+## Phase 3 — Remaining improvements (TODO)
+
+### Playback
+- [ ] Previous track button — auto-advance goes forward but no way to go back
+- [ ] Shuffle mode — random track selection
+- [ ] Show tracklist in the active player card (data exists for 92/94 mixes, currently only shown in ticker)
+
+### Scenes
+- [ ] Prev/next scene navigation within the video player (currently must close and pick from grid)
+- [ ] Scene card thumbnails are a fixed 100px height — feel small on large screens
+
+### Archive
+- [ ] Wide table layout (6 columns) is cramped on mid-size tablets — needs a responsive breakpoint between narrow and wide
+- [ ] Mood filter chips and sort control wrap awkwardly on some screen sizes
+
+### Data gaps
+- [ ] Ghetto Symphony Pt. 1 (`mix-046`) and Pt. 2 (`mix-075`) have no tracklist — add manually if descriptions available
+
+### Performance
+- [ ] `js/images.js` is 307KB and loads synchronously before React — delays first render on slow connections
+
+### Accessibility
+- [ ] Scene cards have no keyboard navigation (Tab/Enter to select)
+- [ ] No visible focus styles on interactive elements
+
+### Footer / About
+- [ ] "About" section has placeholder branding text — add short bio, release schedule, social links context
+
+---
+
 ## Phase 4 — Backend / API
 
 FastAPI backend with endpoints:
