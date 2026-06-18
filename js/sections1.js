@@ -1118,8 +1118,6 @@ function SceneGrid() {
   function goPage(next) {
     setPage(next);
     setSelected(null);
-    const el = document.getElementById('wt-signal');
-    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
   function setEp(ep) {
     setEpFilter(function(prev) { return prev === ep ? null : ep; });
