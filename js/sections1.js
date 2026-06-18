@@ -1144,7 +1144,7 @@ function SceneGrid() {
     page: page,
     total: totalPages,
     onGoTo: goPage
-  })));
+  }));
 }
 function Features() {
   const winW = useWinW();
