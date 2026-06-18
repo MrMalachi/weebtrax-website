@@ -166,6 +166,7 @@ function App() {
   const audioRef = React.useRef(null);
   const audioCtxRef = React.useRef(null);
   const analyserRef = React.useRef(null);
+  const gainNodeRef = React.useRef(null);
   const pendingRestoreRef = React.useRef(_session.currentTime || 0);
   const activeTxIdRef = React.useRef(_restoredId || TX[0].id);
   const loadTrackRef = React.useRef(null);
@@ -267,11 +268,11 @@ function App() {
       audio.removeEventListener('ended', onEnded);
     };
   }, []);
-  // Controls <audio> element volume (0–1). Browser JS cannot access system/OS volume
-  // for security reasons — there is no cross-browser API to read or set it.
+  // Volume is controlled via GainNode in the Web Audio graph.
+  // audio.volume has no effect once createMediaElementSource is called.
   React.useEffect(() => {
-    const audio = audioRef.current;
-    if (audio) audio.volume = volume;
+    if (gainNodeRef.current) gainNodeRef.current.gain.value = volume;
+    else if (audioRef.current) audioRef.current.volume = volume;
   }, [volume]);
 
   // Fallback simulated timer for tracks without a real audioSrc
@@ -327,10 +328,14 @@ function App() {
       const analyser = ctx.createAnalyser();
       analyser.fftSize = 512;
       analyser.smoothingTimeConstant = 0.92;
+      const gainNode = ctx.createGain();
+      gainNode.gain.value = gainNodeRef.current ? gainNodeRef.current.gain.value : 1;
       src.connect(analyser);
-      analyser.connect(ctx.destination);
+      analyser.connect(gainNode);
+      gainNode.connect(ctx.destination);
       audioCtxRef.current = ctx;
       analyserRef.current = analyser;
+      gainNodeRef.current = gainNode;
       window.__WT_ANALYSER = analyser;
     } catch(e) {}
   }
