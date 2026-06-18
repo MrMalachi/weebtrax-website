@@ -149,6 +149,7 @@ function App() {
   const audioRef = React.useRef(null);
   const pendingRestoreRef = React.useRef(_session.currentTime || 0);
   const activeTxIdRef = React.useRef(_restoredId || TX[0].id);
+  const loadTrackRef = React.useRef(null);
   const lastSaveRef = React.useRef(0);
   const [playing, setPlaying] = React.useState(false);
   const [elapsed, setElapsed] = React.useState(Math.floor(_session.currentTime || 0));
@@ -223,9 +224,16 @@ function App() {
       setPlaying(false);
     }
     function onEnded() {
-      setPlaying(false);
       setAudioProgress(1);
       setElapsed(Math.floor(audio.duration));
+      const allMixes = getMixes();
+      const idx = allMixes.findIndex(function(m) { return m.id === activeTxIdRef.current; });
+      const next = allMixes[idx + 1];
+      if (next && loadTrackRef.current) {
+        loadTrackRef.current(next.id);
+      } else {
+        setPlaying(false);
+      }
     }
     audio.addEventListener('timeupdate', onTimeUpdate);
     audio.addEventListener('loadedmetadata', onLoadedMetadata);
@@ -285,6 +293,32 @@ function App() {
       setPlaying(true);
     }
   }
+  loadTrackRef.current = loadTrack;
+  // Keyboard shortcuts: Space = play/pause, ← = back 10s, → = forward 10s
+  React.useEffect(() => {
+    function onKeyDown(e) {
+      const tag = (document.activeElement || {}).tagName;
+      if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT') return;
+      const audio = audioRef.current;
+      if (!audio) return;
+      if (e.code === 'Space') {
+        e.preventDefault();
+        if (!audio.src || audio.src === location.href) {
+          const tx = getMixes().find(function(m) { return m.id === activeTxIdRef.current; });
+          if (tx && tx.audioSrc && tx.audioSrc !== '#') { audio.src = tx.audioSrc; audio.load(); }
+        }
+        audio.paused ? audio.play().catch(function() {}) : audio.pause();
+      } else if (e.code === 'ArrowRight' && isFinite(audio.duration)) {
+        e.preventDefault();
+        audio.currentTime = Math.min(audio.currentTime + 10, audio.duration);
+      } else if (e.code === 'ArrowLeft' && isFinite(audio.duration)) {
+        e.preventDefault();
+        audio.currentTime = Math.max(audio.currentTime - 10, 0);
+      }
+    }
+    window.addEventListener('keydown', onKeyDown);
+    return function() { window.removeEventListener('keydown', onKeyDown); };
+  }, []);
   function togglePlay() {
     const audio = audioRef.current;
     if (audio && hasRealAudio) {
