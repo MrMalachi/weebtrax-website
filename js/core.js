@@ -396,7 +396,7 @@ function Ticker({
     }, /*#__PURE__*/React.createElement("span", null, item), /*#__PURE__*/React.createElement("span", {
       "aria-hidden": true,
       style: sepStyle
-    }, "\u2726"))));
+    }, "\u21af"))));
   }
   return /*#__PURE__*/React.createElement("div", {
     style: {

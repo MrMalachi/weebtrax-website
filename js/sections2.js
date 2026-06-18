@@ -602,34 +602,20 @@ function Transmissions({
       zIndex: 1
     }
   }, /*#__PURE__*/React.createElement("div", {
-    style: {
-      display: 'flex',
-      justifyContent: 'space-between',
-      alignItems: 'flex-end',
-      marginBottom: 30,
-      gap: 16,
-      flexWrap: 'wrap'
-    }
+    style: { marginBottom: 16 }
   }, /*#__PURE__*/React.createElement(SecHead, {
     idx: "01",
     kicker: "ARCHIVE",
     title: "Latest Transmissions"
   }), /*#__PURE__*/React.createElement("div", {
-    style: {
-      fontFamily: WT2.mono,
-      fontSize: 11.5,
-      color: WT2.dim,
-      letterSpacing: 0.5,
-      flexShrink: narrow ? 1 : 0,
-      whiteSpace: narrow ? 'normal' : 'nowrap'
-    }
+    style: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: 10, flexWrap: 'wrap', gap: 10 }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: { fontFamily: WT2.mono, fontSize: 11.5, color: WT2.dim, letterSpacing: 0.5, whiteSpace: 'nowrap' }
   }, /*#__PURE__*/React.createElement("span", {
-    style: {
-      color: WT2.faint
-    }
+    style: { color: WT2.faint }
   }, "~/weebtrax/"), /*#__PURE__*/React.createElement("span", {
     style: { color: 'var(--wt-accent)' }
-  }, "transmissions/"), " \xA0 " + String(filtered.length).padStart(3, '0') + (moodFilter ? '/' + String(TX.length).padStart(3, '0') : '') + " files \xA0\xB7\xA0", /*#__PURE__*/React.createElement("span", {
+  }, "transmissions/"), " \xA0 " + String(filtered.length).padStart(3, '0') + '/' + String(TX.length).padStart(3, '0') + " files \xA0↯\xA0", /*#__PURE__*/React.createElement("span", {
     onClick: cycleSort,
     style: { cursor: 'pointer', userSelect: 'none' }
   }, "sort: ", /*#__PURE__*/React.createElement("span", {
@@ -637,26 +623,26 @@ function Transmissions({
   }, SORT_MODES[sortIdx].toLowerCase()), /*#__PURE__*/React.createElement("span", {
     style: { color: WT2.faint, marginLeft: 5 }
   }, "\u2195"))), /*#__PURE__*/React.createElement("div", {
-    style: { display: 'flex', alignItems: 'center', gap: 6, flexWrap: 'wrap', marginTop: narrow ? 10 : 0 }
+    style: { display: 'flex', alignItems: 'center', gap: 5, flexShrink: 0 }
   }, /*#__PURE__*/React.createElement("span", {
     style: { fontFamily: WT2.mono, fontSize: 10, color: WT2.faint, letterSpacing: 1.5, marginRight: 2 }
   }, "MOOD:"), ['all'].concat(MOODS).map(function(m) {
     const isAll = m === 'all';
     const active = isAll ? !moodFilter : moodFilter === m;
-    const tone = isAll ? WT2.dim : MOOD_TONE[m];
+    const tone = isAll ? 'var(--wt-accent)' : MOOD_TONE[m];
     return /*#__PURE__*/React.createElement("button", {
       key: m,
       onClick: function() { isAll ? setMoodFilter(null) || setPage(0) : setMood(m); },
       style: {
         background: active ? tone : 'none',
         border: '1px solid ' + (active ? tone : WT2.line),
-        color: active ? WT2.void : tone || WT2.dim,
+        color: active ? WT2.void : isAll ? WT2.dim : tone,
         fontFamily: WT2.mono, fontSize: 9.5, letterSpacing: 1.5,
         padding: '3px 9px', cursor: 'pointer', borderRadius: 0,
         textTransform: 'uppercase', transition: 'all .12s'
       }
     }, m);
-  }))), /*#__PURE__*/React.createElement(ActiveRow, {
+  })))), /*#__PURE__*/React.createElement(ActiveRow, {
     t: activeTx,
     playing: playing,
     onPlayToggle: onPlayToggle,

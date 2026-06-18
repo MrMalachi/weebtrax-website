@@ -87,7 +87,7 @@ function BroadcastBar({ playing, currentTrack, elapsed, progress, railW, tickerI
   var trackLabel = playing && currentTrack
     ? (currentTrack.artist ? currentTrack.artist + ' — ' + currentTrack.title : currentTrack.title)
     : null;
-  var sep = '  ▒░▒  ';
+  var sep = '  ↯  ';
   var allItems = trackLabel ? [trackLabel].concat(tickerItems) : tickerItems;
   var fullText = allItems.join(sep);
   var loop = fullText + sep + fullText + sep;
