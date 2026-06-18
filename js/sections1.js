@@ -949,11 +949,15 @@ function SignalFeed({ scene, onClose }) {
             color: playing ? 'var(--wt-accent)' : WT2.void,
             fontFamily: WT2.mono, fontSize: 9, letterSpacing: 2.5,
             padding: '5px 0', width: 110, textAlign: 'center',
-            cursor: 'pointer', borderRadius: 0,
+            cursor: 'pointer', borderRadius: 0, display: 'inline-flex',
+            alignItems: 'center', justifyContent: 'center', gap: 6,
             textTransform: 'uppercase', transition: 'all .12s',
             textShadow: playing ? '0 0 8px var(--wt-accent)' : 'none'
           }
-        }, playing ? '▐▐ SUSPEND' : '▸ TRANSMIT')
+        },
+        /*#__PURE__*/React.createElement("span", { style: { fontSize: playing ? 7 : 12, lineHeight: 1, letterSpacing: 0 } }, playing ? '▐▐' : '▸'),
+        playing ? 'SUSPEND' : 'TRANSMIT'
+        )
       )
     )
   );
