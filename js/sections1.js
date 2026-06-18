@@ -795,27 +795,35 @@ function SignalFeed({ scene, onClose }) {
         }, connected ? (playing ? 'SIGNAL ACTIVE' : 'SIGNAL READY') : '… ACQUIRING'),
         /*#__PURE__*/React.createElement("span", {
           style: {
+            fontFamily: WT2.mono, fontSize: 8, letterSpacing: 1.5,
+            color: WT2.faint, whiteSpace: 'nowrap', flexShrink: 0,
+            textTransform: 'uppercase', opacity: 0.7
+          }
+        }, scene.tag),
+        /*#__PURE__*/React.createElement("span", {
+          style: {
             fontFamily: WT2.mono, fontSize: 8, letterSpacing: 0.5,
             color: WT2.faint, overflow: 'hidden', textOverflow: 'ellipsis',
-            whiteSpace: 'nowrap', minWidth: 0, opacity: 0.65
+            whiteSpace: 'nowrap', minWidth: 0, opacity: 0.45
           }
         }, wiredPath)
       ),
-      /*#__PURE__*/React.createElement("div", { style: { display: 'flex', alignItems: 'center', gap: 7, flexShrink: 0 } },
-        /*#__PURE__*/React.createElement(Tag, { color: playing ? 'var(--wt-accent)' : WT2.faint }, scene.tag),
+      /*#__PURE__*/React.createElement("div", { style: { display: 'flex', alignItems: 'center', gap: 8, flexShrink: 0 } },
         /*#__PURE__*/React.createElement("button", {
           onClick: function() { setExpanded(function(e) { return !e; }); },
           style: {
-            background: 'none', border: '1px solid ' + WT2.line, color: WT2.faint,
-            fontFamily: WT2.mono, fontSize: 8.5, letterSpacing: 1.5, padding: '4px 10px',
-            cursor: 'pointer', borderRadius: 0, textTransform: 'uppercase', transition: 'all .12s'
+            background: expanded ? 'rgba(143,191,159,0.1)' : 'none',
+            border: '1px solid var(--wt-accent)', color: 'var(--wt-accent)',
+            fontFamily: WT2.mono, fontSize: 9, letterSpacing: 1.5, padding: '5px 12px',
+            cursor: 'pointer', borderRadius: 0, textTransform: 'uppercase', transition: 'all .12s',
+            textShadow: '0 0 8px var(--wt-accent)'
           }
         }, expanded ? '⊟ COLLAPSE' : '⊞ FULLSCREEN'),
         /*#__PURE__*/React.createElement("button", {
           onClick: onClose,
           style: {
-            background: 'none', border: '1px solid ' + WT2.line2, color: WT2.faint,
-            fontFamily: WT2.mono, fontSize: 8.5, letterSpacing: 1.5, padding: '4px 10px',
+            background: 'none', border: '1px solid ' + WT2.red, color: WT2.red,
+            fontFamily: WT2.mono, fontSize: 9, letterSpacing: 1.5, padding: '5px 12px',
             cursor: 'pointer', borderRadius: 0, textTransform: 'uppercase', transition: 'all .12s'
           }
         }, '× DISCONNECT')
