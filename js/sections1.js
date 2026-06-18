@@ -1109,6 +1109,12 @@ function SceneGrid() {
   const totalPages = Math.max(1, Math.ceil(filtered.length / SCENES_PER_PAGE));
   const visible = filtered.slice(page * SCENES_PER_PAGE, (page + 1) * SCENES_PER_PAGE);
   const sel = filtered.find(s => s.id === selected);
+  const playerRef = React.useRef(null);
+  React.useEffect(function() {
+    if (selected && playerRef.current) {
+      playerRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }, [selected]);
   function goPage(next) {
     setPage(next);
     setSelected(null);
@@ -1175,7 +1181,7 @@ function SceneGrid() {
     img: s.img,
     selected: selected === s.id,
     onSelect: () => setSelected(selected === s.id ? null : s.id)
-  }))), sel ? /*#__PURE__*/React.createElement(SignalFeed, {
+  }))), sel ? /*#__PURE__*/React.createElement("div", { ref: playerRef }, /*#__PURE__*/React.createElement(SignalFeed, {
     key: sel.id,
     scene: sel,
     onClose: function() {
@@ -1183,7 +1189,7 @@ function SceneGrid() {
       var el = document.getElementById('wt-signal');
       if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
-  }) : null, /*#__PURE__*/React.createElement(TermPageBar, {
+  })) : null, /*#__PURE__*/React.createElement(TermPageBar, {
     page: page,
     total: totalPages,
     onGoTo: goPage
