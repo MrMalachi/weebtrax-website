@@ -126,21 +126,33 @@ function Oscilloscope({
       ctx.moveTo(0, H / 2);
       ctx.lineTo(W, H / 2);
       ctx.stroke();
-      // waveform
+      // waveform — real audio data when analyser is available, else simulated
       ctx.beginPath();
-      for (let x = 0; x <= W; x++) {
-        const p = x / W;
-        let y;
-        if (isSeeking) {
-          // stabilising flat line while user seeks
-          y = H / 2 + (Math.random() - 0.5) * 0.5;
-        } else if (isPlaying) {
-          const env = Math.sin(p * Math.PI);
-          y = H / 2 + env * (Math.sin(p * 18 * dense + t * 2.1) * 9 + Math.sin(p * 7 * dense - t * 1.3) * 6 + (Math.random() - 0.5) * 3.2);
-        } else {
-          y = H / 2 + (Math.random() - 0.5) * 0.8;
+      const analyser = window.__WT_ANALYSER;
+      if (analyser && isPlaying && !isSeeking) {
+        const buf = new Uint8Array(analyser.frequencyBinCount);
+        analyser.getByteTimeDomainData(buf);
+        const step = buf.length / W;
+        for (let x = 0; x <= W; x++) {
+          const idx = Math.min(Math.floor(x * step), buf.length - 1);
+          const v = (buf[idx] / 128.0) - 1.0;
+          const y = H / 2 + v * (H / 2) * 0.88;
+          x === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
         }
-        x === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+      } else {
+        for (let x = 0; x <= W; x++) {
+          const p = x / W;
+          let y;
+          if (isSeeking) {
+            y = H / 2 + (Math.random() - 0.5) * 0.5;
+          } else if (isPlaying) {
+            const env = Math.sin(p * Math.PI);
+            y = H / 2 + env * (Math.sin(p * 18 * dense + t * 2.1) * 9 + Math.sin(p * 7 * dense - t * 1.3) * 6 + (Math.random() - 0.5) * 3.2);
+          } else {
+            y = H / 2 + (Math.random() - 0.5) * 0.8;
+          }
+          x === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+        }
       }
       ctx.strokeStyle = wtResolve(color);
       ctx.lineWidth = 2.0;

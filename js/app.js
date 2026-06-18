@@ -87,7 +87,7 @@ function BroadcastBar({ playing, currentTrack, elapsed, progress, railW, tickerI
   var trackLabel = playing && currentTrack
     ? (currentTrack.artist ? currentTrack.artist + ' — ' + currentTrack.title : currentTrack.title)
     : null;
-  var sep = '  ·  ▒▒  ·  ';
+  var sep = '  ▒░▒  ';
   var allItems = trackLabel ? [trackLabel].concat(tickerItems) : tickerItems;
   var fullText = allItems.join(sep);
   var loop = fullText + sep + fullText + sep;
@@ -164,6 +164,8 @@ function App() {
   const winW = useWinW();
   const railW = winW < 560 ? RAIL_W_NARROW : RAIL_W;
   const audioRef = React.useRef(null);
+  const audioCtxRef = React.useRef(null);
+  const analyserRef = React.useRef(null);
   const pendingRestoreRef = React.useRef(_session.currentTime || 0);
   const activeTxIdRef = React.useRef(_restoredId || TX[0].id);
   const loadTrackRef = React.useRef(null);
@@ -304,6 +306,7 @@ function App() {
     if (audio && tx.audioSrc && tx.audioSrc !== '#') {
       audio.src = tx.audioSrc;
       audio.load();
+      ensureAnalyser();
       audio.play().catch(() => {});
     } else {
       setHasPlayed(true);
@@ -311,6 +314,26 @@ function App() {
     }
   }
   loadTrackRef.current = loadTrack;
+  function ensureAnalyser() {
+    if (analyserRef.current) {
+      if (audioCtxRef.current && audioCtxRef.current.state === 'suspended') audioCtxRef.current.resume();
+      return;
+    }
+    const audio = audioRef.current;
+    if (!audio) return;
+    try {
+      const ctx = new (window.AudioContext || window.webkitAudioContext)();
+      const src = ctx.createMediaElementSource(audio);
+      const analyser = ctx.createAnalyser();
+      analyser.fftSize = 512;
+      analyser.smoothingTimeConstant = 0.8;
+      src.connect(analyser);
+      analyser.connect(ctx.destination);
+      audioCtxRef.current = ctx;
+      analyserRef.current = analyser;
+      window.__WT_ANALYSER = analyser;
+    } catch(e) {}
+  }
   // Keyboard shortcuts: Space = play/pause, ← = back 10s, → = forward 10s
   React.useEffect(() => {
     function onKeyDown(e) {
@@ -343,6 +366,7 @@ function App() {
         audio.src = activeTx.audioSrc;
         audio.load();
       }
+      ensureAnalyser();
       if (playing) audio.pause();else audio.play().catch(() => {});
     } else {
       if (!playing) setHasPlayed(true);
