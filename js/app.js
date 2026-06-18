@@ -177,7 +177,7 @@ function App() {
   const [audioProgress, setAudioProgress] = React.useState(0);
   const [audioDurSecs, setAudioDurSecs] = React.useState(null);
   const [seeking, setSeeking] = React.useState(false);
-  const [volume, setVolume] = React.useState(0.8);
+  const [volume, setVolume] = React.useState(1);
 
   // Keep activeTxIdRef in sync for use inside event listeners
   React.useEffect(() => { activeTxIdRef.current = activeTxId; }, [activeTxId]);
