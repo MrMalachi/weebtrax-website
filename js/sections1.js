@@ -802,7 +802,7 @@ function SignalFeed({ scene, onClose }) {
     },
       /*#__PURE__*/React.createElement("video", {
         ref: videoRef, src: scene.video, poster: scene.img,
-        muted: true, playsInline: true, preload: "metadata",
+        muted: true, playsInline: true, loop: true, preload: "metadata",
         style: { width: '100%', height: '100%', display: 'block', objectFit: 'contain', background: '#000' }
       }),
       /*#__PURE__*/React.createElement("div", {
