@@ -326,7 +326,7 @@ function App() {
       const src = ctx.createMediaElementSource(audio);
       const analyser = ctx.createAnalyser();
       analyser.fftSize = 512;
-      analyser.smoothingTimeConstant = 0.8;
+      analyser.smoothingTimeConstant = 0.92;
       src.connect(analyser);
       analyser.connect(ctx.destination);
       audioCtxRef.current = ctx;

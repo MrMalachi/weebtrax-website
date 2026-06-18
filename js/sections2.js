@@ -956,7 +956,7 @@ function Transmissions({
   })), /*#__PURE__*/React.createElement(TermPageBar, {
     page: page,
     total: totalPages,
-    onGoTo: function(p) { setPage(p); setHover(-1); window.scrollTo({ top: document.getElementById('wt-archive').offsetTop, behavior: 'smooth' }); }
+    onGoTo: function(p) { setPage(p); setHover(-1); }
   })));
 }
 function UplinkMeter() {
