@@ -874,7 +874,7 @@ function SignalFeed({ scene, onClose, onPrev, onNext }) {
       /*#__PURE__*/React.createElement(FrameTicks, { inset: 12, len: 20, color: 'rgba(143,191,159,0.45)' }),
       // Top-left node readout
       /*#__PURE__*/React.createElement("div", { 'aria-hidden': true, style: {
-        position: 'absolute', top: 14, left: 16,
+        position: 'absolute', top: 22, left: 26,
         fontFamily: WT2.mono, fontSize: 8.5, letterSpacing: 2,
         color: 'rgba(143,191,159,0.6)', lineHeight: 2, pointerEvents: 'none'
       }},
@@ -883,7 +883,7 @@ function SignalFeed({ scene, onClose, onPrev, onNext }) {
       ),
       // Bottom-right timestamp
       /*#__PURE__*/React.createElement("div", { 'aria-hidden': true, style: {
-        position: 'absolute', bottom: 14, right: 16,
+        position: 'absolute', bottom: 22, right: 26,
         fontFamily: WT2.mono, fontSize: 8.5, letterSpacing: 1.5,
         color: 'rgba(143,191,159,0.6)', pointerEvents: 'none'
       }}, fmtT(elapsed) + ' / ' + (duration ? fmtT(duration) : '--:--')),
@@ -1113,7 +1113,6 @@ function SceneGrid() {
   const [page, setPage] = React.useState(0);
   const [epFilter, setEpFilter] = React.useState(null);
   const winW = useWinW();
-  const cols = winW >= 1000 ? 3 : winW >= 700 ? 2 : 1;
   const SCENES = (window.__WT_SCENES || []).map(function(s) {
     return {
       id: s.id,
@@ -1197,7 +1196,7 @@ function SceneGrid() {
   }, sel ? 'SELECTED SIGNAL: ' + sel.name.toUpperCase() : 'SELECT A SIGNAL ↓')), /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'grid',
-      gridTemplateColumns: 'repeat(' + cols + ', 1fr)',
+      gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
       gap: 16,
       minHeight: 300,
       alignContent: 'start'

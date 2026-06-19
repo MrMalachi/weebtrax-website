@@ -151,7 +151,7 @@ function BroadcastBar({ playing, currentTrack, elapsed, progress, railW, tickerI
   }, loopedItems.map(function(item, i) {
     return /*#__PURE__*/React.createElement(React.Fragment, { key: i },
       /*#__PURE__*/React.createElement("span", { style: { fontSize: 10.5 } }, item),
-      /*#__PURE__*/React.createElement("span", { "aria-hidden": true, style: { fontSize: 15, padding: '0 18px', opacity: 0.6 } }, '\xB7')
+      /*#__PURE__*/React.createElement("span", { "aria-hidden": true, style: { fontSize: 19, padding: '0 18px', opacity: 0.6 } }, '\xB7')
     );
   }))), playing && /*#__PURE__*/React.createElement(React.Fragment, null,
     /*#__PURE__*/React.createElement("span", { style: { width: 1, height: 14, background: WT2.line2, flexShrink: 0 } }),
