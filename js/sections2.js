@@ -366,6 +366,7 @@ function ActiveRow({
   onVolChange
 }) {
   const [hovLink, setHovLink] = React.useState(null);
+  const [tracklistOpen, setTracklistOpen] = React.useState(false);
   const extLink = {
     fontFamily: WT2.mono,
     fontSize: 10.5,
@@ -507,20 +508,26 @@ function ActiveRow({
     onMouseEnter: () => setHovLink('sc'),
     onMouseLeave: () => setHovLink(null),
     style: hovLink === 'sc' ? extLinkHov : extLink
-  }, "SOUNDCLOUD \u2197")), t.tracklist && t.tracklist.length > 0 && /*#__PURE__*/React.createElement("div", {
-    style: { marginTop: 14, borderTop: '1px solid ' + WT2.line, paddingTop: 10, maxHeight: 160, overflowY: 'auto' }
-  }, t.tracklist.map(function(entry, i) {
+  }, "SOUNDCLOUD \u2197")), t.tracklist && t.tracklist.length > 0 && React.createElement("div", {
+    style: { marginTop: 14, borderTop: '1px solid ' + WT2.line }
+  }, React.createElement("button", {
+      onClick: function() { setTracklistOpen(function(o) { return !o; }); },
+      style: { display: 'flex', alignItems: 'center', gap: 8, width: '100%', background: 'none', border: 'none', cursor: 'pointer', padding: '8px 0 6px', fontFamily: WT2.mono, fontSize: 9, letterSpacing: 2, color: WT2.faint, textTransform: 'uppercase' }
+    }, 'TRACK I.D.', React.createElement('span', { style: { marginLeft: 'auto', color: 'var(--wt-accent)', fontSize: 8 } }, tracklistOpen ? '\u25b2' : '\u25bc')),
+    tracklistOpen && React.createElement("div", {
+      style: { maxHeight: 160, overflowY: 'auto', paddingBottom: 4 }
+    }, t.tracklist.map(function(entry, i) {
     var isCur = elapsed >= entry.timeSecs && (i === t.tracklist.length - 1 || elapsed < t.tracklist[i + 1].timeSecs);
     var m = Math.floor(entry.timeSecs / 60), s = entry.timeSecs % 60;
     var ts = String(m).padStart(2, '0') + ':' + String(s).padStart(2, '0');
-    return /*#__PURE__*/React.createElement("div", {
+    return React.createElement("div", {
       key: i,
       style: { display: 'flex', gap: 8, padding: '2px 6px', marginBottom: 1, borderLeft: isCur ? '2px solid var(--wt-accent)' : '2px solid transparent', background: isCur ? 'rgba(143,191,159,0.05)' : 'none', transition: 'border-color .15s, background .15s' }
     },
-      /*#__PURE__*/React.createElement("span", { style: { flexShrink: 0, minWidth: 30, fontFamily: WT2.mono, fontSize: 10, color: WT2.faint, opacity: 0.7 } }, ts),
-      /*#__PURE__*/React.createElement("span", { style: { minWidth: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', fontFamily: WT2.mono, fontSize: 10, color: isCur ? 'var(--wt-accent)' : WT2.dim } }, entry.artist ? entry.artist + ' \u2014 ' + entry.title : entry.title)
+      React.createElement("span", { style: { flexShrink: 0, minWidth: 30, fontFamily: WT2.mono, fontSize: 10, color: WT2.faint, opacity: 0.7 } }, ts),
+      React.createElement("span", { style: { minWidth: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', fontFamily: WT2.mono, fontSize: 10, color: isCur ? 'var(--wt-accent)' : WT2.dim } }, entry.artist ? entry.artist + ' \u2014 ' + entry.title : entry.title)
     );
-  }))));
+  })))));
 }
 function Transmissions({
   playing,
