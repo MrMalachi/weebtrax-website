@@ -1490,7 +1490,7 @@ function Footer() {
       maxWidth: 260,
       lineHeight: 1.5
     }
-  }, "Lo-Fi House mixes rooted in anime culture.", /*#__PURE__*/React.createElement("br", null), "New transmission every Saturday.", /*#__PURE__*/React.createElement("br", null), "A future independent label from the Wired."), /*#__PURE__*/React.createElement("div", {
+  }, "Lo-Fi House sound + Anime aesthetic.", /*#__PURE__*/React.createElement("br", null), "New transmissions every Saturday.", /*#__PURE__*/React.createElement("br", null), "A future independent label from the Wired."), /*#__PURE__*/React.createElement("div", {
     style: {
       borderTop: `1px solid ${WT2.line}`,
       paddingTop: 14
@@ -1621,7 +1621,7 @@ function Footer() {
       maxWidth: 260,
       lineHeight: 1.5
     }
-  }, "Lo-Fi House mixes rooted in anime culture.", /*#__PURE__*/React.createElement("br", null), "New transmission every Saturday.", /*#__PURE__*/React.createElement("br", null), "A future independent label from the Wired.")), /*#__PURE__*/React.createElement("div", {
+  }, "Lo-Fi House sound + Anime aesthetic.", /*#__PURE__*/React.createElement("br", null), "New transmissions every Saturday.", /*#__PURE__*/React.createElement("br", null), "A future independent label from the Wired.")), /*#__PURE__*/React.createElement("div", {
     style: {
       gridColumn: '2 / 4',
       gridRow: 1,
