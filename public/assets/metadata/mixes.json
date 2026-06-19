@@ -2797,7 +2797,59 @@
     "views": null,
     "audioPath": "public/assets/mixes/audio/lo-fi-house-music-ghetto-symphony-mix.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=b4emPgjo7lo",
-    "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-music-ghetto-symphony-mix"
+    "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-music-ghetto-symphony-mix",
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "artist": "S Olbricht",
+        "title": "Purpleblue"
+      },
+      {
+        "timeSecs": 373,
+        "artist": "RAAR",
+        "title": "Moan"
+      },
+      {
+        "timeSecs": 676,
+        "artist": "DJ Ædidias",
+        "title": "Flexin On My x"
+      },
+      {
+        "timeSecs": 933,
+        "artist": "Sketchy & benuebermensch",
+        "title": "Not the Type"
+      },
+      {
+        "timeSecs": 1145,
+        "artist": "DJ Swagger",
+        "title": "Glock & Gualla"
+      },
+      {
+        "timeSecs": 1417,
+        "artist": "Dos",
+        "title": "Cant Even"
+      },
+      {
+        "timeSecs": 1765,
+        "artist": "MTRLV",
+        "title": "Oceans Apart"
+      },
+      {
+        "timeSecs": 2233,
+        "artist": "No_4mat",
+        "title": "Good Year"
+      },
+      {
+        "timeSecs": 2490,
+        "artist": "FTRMNK",
+        "title": "Я Не Умею"
+      },
+      {
+        "timeSecs": 2626,
+        "artist": "DJ Felix C",
+        "title": "Scopin Wit Da Red Dot"
+      }
+    ]
   },
   {
     "id": "mix-047",
