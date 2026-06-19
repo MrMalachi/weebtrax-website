@@ -525,7 +525,7 @@ function ActiveRow({
       onClick: function() {
         var parts = (t.run || '00:00:00').split(':').map(Number);
         var totalSecs = parts[0] * 3600 + parts[1] * 60 + parts[2];
-        if (totalSecs > 0 && onSeek) onSeek(entry.timeSecs / totalSecs);
+        if (totalSecs > 0 && onSeek) onSeek((entry.timeSecs + 1) / totalSecs);
       },
       style: { display: 'flex', gap: 8, padding: '2px 6px', marginBottom: 1, cursor: 'pointer', borderLeft: isCur ? '2px solid var(--wt-accent)' : '2px solid transparent', background: isCur ? 'rgba(143,191,159,0.05)' : 'none', transition: 'border-color .15s, background .15s' }
     },
