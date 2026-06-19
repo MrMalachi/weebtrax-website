@@ -512,8 +512,8 @@ function ActiveRow({
     style: { marginTop: 10, borderTop: '1px solid ' + WT2.line }
   }, React.createElement("button", {
       onClick: function() { setTracklistOpen(function(o) { return !o; }); },
-      style: { display: 'inline-flex', alignItems: 'center', gap: 6, background: 'none', border: 'none', cursor: 'pointer', padding: '3px 0 3px', fontFamily: WT2.mono, fontSize: 9, letterSpacing: 2, color: WT2.faint, textTransform: 'uppercase' }
-    }, 'TRACK I.D.', React.createElement('span', { style: { color: 'var(--wt-accent)', fontSize: 8 } }, tracklistOpen ? '\u25b2' : '\u25bc')),
+      style: { display: 'flex', alignItems: 'center', gap: 8, width: '100%', background: 'none', border: 'none', cursor: 'pointer', padding: '3px 0 3px', fontFamily: WT2.mono, fontSize: 9, letterSpacing: 2, color: WT2.faint, textTransform: 'uppercase' }
+    }, 'TRACK I.D.', React.createElement('span', { style: { marginLeft: 'auto', color: 'var(--wt-accent)', fontSize: 8 } }, tracklistOpen ? '\u25b2' : '\u25bc')),
     tracklistOpen && React.createElement("div", {
       style: { maxHeight: 160, overflowY: 'auto', paddingBottom: 4 }
     }, t.tracklist.map(function(entry, i) {
