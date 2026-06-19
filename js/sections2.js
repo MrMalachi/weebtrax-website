@@ -1515,7 +1515,7 @@ function Footer() {
       letterSpacing: 0.5,
       lineHeight: 1.6
     }
-  }, "WEEBTRAX \xB7 LOW-FIDELITY HOUSE MIXES", /*#__PURE__*/React.createElement("br", null), "FROM CYBERIA CAF\xC9 & CLUB"))), /*#__PURE__*/React.createElement("div", null, colLabel('// NAV'), /*#__PURE__*/React.createElement("div", {
+  }, "WEEBTRAX \xB7 LOW-FIDELITY HOUSE MIXES", /*#__PURE__*/React.createElement("br", null), "FROM CYBERIA CAF\xC9 & CLUB CYBERIA"))), /*#__PURE__*/React.createElement("div", null, colLabel('// NAV'), /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'grid',
       gridTemplateColumns: '1fr 1fr',
@@ -1664,7 +1664,7 @@ function Footer() {
       letterSpacing: 0.5,
       lineHeight: 1.6
     }
-  }, "WEEBTRAX \xB7 LOW-FIDELITY HOUSE MIXES", /*#__PURE__*/React.createElement("br", null), "FROM CYBERIA CAF\xC9 & CLUB")), /*#__PURE__*/React.createElement("div", {
+  }, "WEEBTRAX \xB7 LOW-FIDELITY HOUSE MIXES", /*#__PURE__*/React.createElement("br", null), "FROM CYBERIA CAF\xC9 & CLUB CYBERIA")), /*#__PURE__*/React.createElement("div", {
     style: {
       gridColumn: 2,
       gridRow: 2,
