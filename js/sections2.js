@@ -546,6 +546,7 @@ function Transmissions({
   const ARCHIVE_PER_PAGE = 5;
   const winW = useWinW();
   const narrow = winW < 900;
+  const mid = winW >= 900 && winW < 1200;
   const [hover, setHover] = React.useState(-1);
   const [sortIdx, setSortIdx] = React.useState(0);
   const [moodFilter, setMoodFilter] = React.useState(null);
@@ -628,7 +629,7 @@ function Transmissions({
     kicker: "ARCHIVE",
     title: "Latest Transmissions"
   }), /*#__PURE__*/React.createElement("div", {
-    style: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: 10, flexWrap: 'wrap', gap: 10 }
+    style: { display: 'flex', flexDirection: 'column', marginTop: 10, gap: 8 }
   }, /*#__PURE__*/React.createElement("div", {
     style: { fontFamily: WT2.mono, fontSize: 11.5, color: WT2.dim, letterSpacing: 0.5, whiteSpace: 'nowrap' }
   }, /*#__PURE__*/React.createElement("span", {
@@ -643,7 +644,7 @@ function Transmissions({
   }, SORT_MODES[sortIdx].toLowerCase()), /*#__PURE__*/React.createElement("span", {
     style: { color: WT2.faint, marginLeft: 5 }
   }, "\u2195"))), /*#__PURE__*/React.createElement("div", {
-    style: { display: 'flex', alignItems: 'center', gap: 5, flexShrink: 0 }
+    style: { display: 'flex', alignItems: 'center', gap: 5, flexWrap: 'wrap' }
   }, /*#__PURE__*/React.createElement("span", {
     style: { fontFamily: WT2.mono, fontSize: 10, color: WT2.faint, letterSpacing: 1.5, marginRight: 2 }
   }, "MOOD:"), ['all'].concat(MOODS).map(function(m) {
@@ -683,7 +684,7 @@ function Transmissions({
   }, !narrow && /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'grid',
-      gridTemplateColumns: '48px 1fr 68px 100px 108px 152px',
+      gridTemplateColumns: mid ? '40px 1fr 60px 80px 90px 120px' : '48px 1fr 68px 100px 108px 152px',
       alignItems: 'center',
       padding: '11px 18px',
       borderBottom: `1px solid ${WT2.line}`,
@@ -847,7 +848,7 @@ function Transmissions({
       "aria-label": `${isActive && playing ? 'Pause' : 'Play'} ${t.title}`,
       style: {
         display: 'grid',
-        gridTemplateColumns: '48px 1fr 68px 100px 108px 152px',
+        gridTemplateColumns: mid ? '40px 1fr 60px 80px 90px 120px' : '48px 1fr 68px 100px 108px 152px',
         alignItems: 'center',
         padding: '15px 18px',
         borderBottom: i < filtered.length - 1 ? `1px solid ${WT2.line}` : 'none',
