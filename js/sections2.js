@@ -528,8 +528,8 @@ function ActiveRow({
       },
       style: { display: 'flex', gap: 8, padding: '2px 6px', marginBottom: 1, cursor: 'pointer', borderLeft: isCur ? '2px solid var(--wt-accent)' : '2px solid transparent', background: isCur ? 'rgba(143,191,159,0.05)' : 'none', transition: 'border-color .15s, background .15s' }
     },
-      React.createElement("span", { style: { flexShrink: 0, minWidth: 30, fontFamily: WT2.mono, fontSize: 10, color: WT2.faint, opacity: 0.7 } }, ts),
-      React.createElement("span", { style: { minWidth: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', fontFamily: WT2.mono, fontSize: 10, color: isCur ? 'var(--wt-accent)' : WT2.dim } }, entry.artist ? entry.artist + ' \u2014 ' + entry.title : entry.title)
+      React.createElement("span", { style: { flexShrink: 0, minWidth: 32, fontFamily: WT2.mono, fontSize: 11, color: WT2.faint, opacity: 0.7 } }, ts),
+      React.createElement("span", { style: { minWidth: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', fontFamily: WT2.mono, fontSize: 10, color: isCur ? 'var(--wt-accent)' : WT2.dim, fontSize: 12 } }, entry.artist ? entry.artist + ' \u2014 ' + entry.title : entry.title)
     );
   }))))
 }
