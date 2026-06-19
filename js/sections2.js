@@ -514,7 +514,7 @@ function ActiveRow({
       style: { display: 'flex', alignItems: 'center', gap: 4, background: 'none', border: 'none', cursor: 'pointer', padding: '0 4px', fontFamily: WT2.mono, fontSize: 9, letterSpacing: 2, color: WT2.faint, textTransform: 'uppercase', flexShrink: 0 }
     }, 'TRACK I.D.', React.createElement('span', { style: { color: 'var(--wt-accent)', fontSize: 8, marginLeft: 2 } }, tracklistOpen ? '\u25b2' : '\u25bc'))
   ), tracklistOpen && t.tracklist && t.tracklist.length > 0 && React.createElement("div", {
-    style: { marginTop: 6 }
+    style: { marginTop: 10, borderTop: '1px solid ' + WT2.line, maxHeight: 160, overflowY: 'auto', paddingBottom: 4 }
   }, t.tracklist.map(function(entry, i) {
     var isCur = elapsed >= entry.timeSecs && (i === t.tracklist.length - 1 || elapsed < t.tracklist[i + 1].timeSecs);
     var m = Math.floor(entry.timeSecs / 60), s = entry.timeSecs % 60;
