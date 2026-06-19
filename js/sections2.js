@@ -1051,7 +1051,7 @@ function Submissions() {
     idx: "03",
     kicker: "SUBMIT",
     title: "Track Submissions",
-    sub: "producers \u2014 transmit your signal into the wired",
+    sub: "Producers \u2014 transmit your signal into The Wired",
     style: {
       marginBottom: 34
     }
@@ -1436,7 +1436,7 @@ function Footer() {
     }
   }, /*#__PURE__*/React.createElement("span", null, "ARCHIVE.SYS \xB7 NODE.227 \xB7 35.68N 139.69E"), /*#__PURE__*/React.createElement("span", {
     style: { color: 'var(--wt-accent)', textShadow: '0 0 8px var(--wt-accent)' }
-  }, "STATUS: ONLINE")), /*#__PURE__*/React.createElement("div", {
+  }, "LET THERE BE HOUSE")), /*#__PURE__*/React.createElement("div", {
     style: {
       position: 'relative',
       zIndex: 1
@@ -1513,7 +1513,7 @@ function Footer() {
       letterSpacing: 0.5,
       lineHeight: 1.6
     }
-  }, "WEEBTRAX \xB7 LOW-FIDELITY HOUSE MIXES", /*#__PURE__*/React.createElement("br", null), "FROM CYBERIA CAF\xC9"))), /*#__PURE__*/React.createElement("div", null, colLabel('// NAV'), /*#__PURE__*/React.createElement("div", {
+  }, "WEEBTRAX \xB7 LOW-FIDELITY HOUSE MIXES", /*#__PURE__*/React.createElement("br", null), "FROM CLUB CYBERIA"))), /*#__PURE__*/React.createElement("div", null, colLabel('// NAV'), /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'grid',
       gridTemplateColumns: '1fr 1fr',
@@ -1662,7 +1662,7 @@ function Footer() {
       letterSpacing: 0.5,
       lineHeight: 1.6
     }
-  }, "WEEBTRAX \xB7 LOW-FIDELITY HOUSE MIXES", /*#__PURE__*/React.createElement("br", null), "FROM CYBERIA CAF\xC9")), /*#__PURE__*/React.createElement("div", {
+  }, "WEEBTRAX \xB7 LOW-FIDELITY HOUSE MIXES", /*#__PURE__*/React.createElement("br", null), "FROM CLUB CYBERIA")), /*#__PURE__*/React.createElement("div", {
     style: {
       gridColumn: 2,
       gridRow: 2,

@@ -22,6 +22,7 @@ function Rail() {
   const nav = ['HOME', 'ARCHIVE', 'SCENES', 'SUBMIT', 'ABOUT'];
   const [active, setActive] = React.useState(0);
   const [hovNav, setHovNav] = React.useState(-1);
+  const [hovWT, setHovWT] = React.useState(false);
   const winW = useWinW();
   const compact = winW < 560;
   const rW = compact ? RAIL_W_NARROW : RAIL_W;
@@ -77,36 +78,46 @@ function Rail() {
       transition: 'width 0.2s'
     }
   }, /*#__PURE__*/React.createElement("div", {
+    onMouseEnter: function() { setHovWT(true); },
+    onMouseLeave: function() { setHovWT(false); },
+    onClick: function() { window.scrollTo({ top: 0, behavior: 'smooth' }); },
     style: {
       width: compact ? 28 : 42,
       height: compact ? 28 : 42,
-      border: `1px solid ${WT2.line2}`,
+      border: hovWT ? '1px solid var(--wt-accent)' : `1px solid ${WT2.line2}`,
+      boxShadow: hovWT ? '0 0 18px rgba(143,191,159,0.28), inset 0 0 10px rgba(143,191,159,0.06)' : 'none',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
       position: 'relative',
-      background: 'rgba(143,191,159,0.03)',
-      flexShrink: 0
+      background: hovWT ? 'rgba(143,191,159,0.07)' : 'rgba(143,191,159,0.03)',
+      flexShrink: 0,
+      cursor: 'pointer',
+      transition: 'border-color 0.2s, box-shadow 0.25s, background 0.2s'
     }
   }, !compact && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
     style: {
       position: 'absolute',
       top: 3,
       left: 3,
-      width: 6,
-      height: 6,
+      width: hovWT ? 9 : 6,
+      height: hovWT ? 9 : 6,
       borderTop: `1px solid ${WT2.green}`,
-      borderLeft: `1px solid ${WT2.green}`
+      borderLeft: `1px solid ${WT2.green}`,
+      opacity: hovWT ? 1 : 0.7,
+      transition: 'width 0.2s, height 0.2s, opacity 0.2s'
     }
   }), /*#__PURE__*/React.createElement("div", {
     style: {
       position: 'absolute',
       bottom: 3,
       right: 3,
-      width: 6,
-      height: 6,
+      width: hovWT ? 9 : 6,
+      height: hovWT ? 9 : 6,
       borderBottom: `1px solid ${WT2.green}`,
-      borderRight: `1px solid ${WT2.green}`
+      borderRight: `1px solid ${WT2.green}`,
+      opacity: hovWT ? 1 : 0.7,
+      transition: 'width 0.2s, height 0.2s, opacity 0.2s'
     }
   })), /*#__PURE__*/React.createElement("span", {
     style: {
@@ -115,9 +126,32 @@ function Rail() {
       fontSize: compact ? 9 : 12,
       letterSpacing: 1,
       color: WT2.green,
-      textShadow: `0 0 10px ${WT2.green}`
+      textShadow: hovWT
+        ? `0 0 6px ${WT2.green}, 0 0 18px ${WT2.green}, 0 0 36px rgba(143,191,159,0.4)`
+        : `0 0 10px ${WT2.green}`,
+      transition: 'text-shadow 0.2s'
     }
-  }, "WT")), /*#__PURE__*/React.createElement("nav", {
+  }, "WT")), /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: 'absolute',
+      left: rW + 10,
+      top: compact ? 7 : 13,
+      opacity: hovWT ? 1 : 0,
+      transform: hovWT ? 'translateX(0)' : 'translateX(-8px)',
+      transition: 'opacity 0.2s, transform 0.2s',
+      pointerEvents: 'none',
+      fontFamily: WT2.mono,
+      fontSize: 8.5,
+      letterSpacing: 2.5,
+      color: 'var(--wt-accent)',
+      background: 'rgba(7,8,9,0.92)',
+      border: `1px solid ${WT2.line2}`,
+      padding: '5px 10px',
+      whiteSpace: 'nowrap',
+      zIndex: 201,
+      backdropFilter: 'blur(4px)'
+    }
+  }, "// WEEBTRAX"), /*#__PURE__*/React.createElement("nav", {
     style: {
       flex: 1,
       display: 'flex',
@@ -458,9 +492,9 @@ function Hero({
   }), /*#__PURE__*/React.createElement("div", {
     style: {
       position: 'absolute',
-      top: 24,
-      left: 40,
-      right: 40,
+      top: 32,
+      left: 36,
+      right: 36,
       display: 'flex',
       justifyContent: 'space-between',
       alignItems: 'center',

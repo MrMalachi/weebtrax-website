@@ -341,6 +341,7 @@ function App() {
       audio.src = tx.audioSrc;
       audio.load();
       ensureAnalyser();
+      fadeIn();
       audio.play().catch(() => {});
     } else {
       setHasPlayed(true);
@@ -348,6 +349,35 @@ function App() {
     }
   }
   loadTrackRef.current = loadTrack;
+  const FADE_SECS = 0.25;
+  function fadeIn() {
+    const gain = gainNodeRef.current;
+    const ctx = audioCtxRef.current;
+    if (!gain || !ctx) return;
+    if (ctx.state === 'suspended') ctx.resume();
+    const now = ctx.currentTime;
+    gain.gain.cancelScheduledValues(now);
+    gain.gain.setValueAtTime(0, now);
+    gain.gain.linearRampToValueAtTime(volume, now + FADE_SECS);
+  }
+  function fadeOut(onDone) {
+    const gain = gainNodeRef.current;
+    const ctx = audioCtxRef.current;
+    if (!gain || !ctx) { onDone(); return; }
+    const now = ctx.currentTime;
+    const cur = gain.gain.value;
+    gain.gain.cancelScheduledValues(now);
+    gain.gain.setValueAtTime(cur, now);
+    gain.gain.linearRampToValueAtTime(0, now + FADE_SECS);
+    setTimeout(() => {
+      onDone();
+      const t2 = audioCtxRef.current ? audioCtxRef.current.currentTime : 0;
+      if (gainNodeRef.current) {
+        gainNodeRef.current.gain.cancelScheduledValues(t2);
+        gainNodeRef.current.gain.setValueAtTime(volume, t2);
+      }
+    }, FADE_SECS * 1000);
+  }
   function ensureAnalyser() {
     if (analyserRef.current) {
       if (audioCtxRef.current && audioCtxRef.current.state === 'suspended') audioCtxRef.current.resume();
@@ -385,7 +415,8 @@ function App() {
           const tx = getMixes().find(function(m) { return m.id === activeTxIdRef.current; });
           if (tx && tx.audioSrc && tx.audioSrc !== '#') { audio.src = tx.audioSrc; audio.load(); }
         }
-        audio.paused ? audio.play().catch(function() {}) : audio.pause();
+        ensureAnalyser();
+        if (audio.paused) { fadeIn(); audio.play().catch(function() {}); } else { fadeOut(function() { audio.pause(); }); }
       } else if (e.code === 'ArrowRight' && isFinite(audio.duration)) {
         e.preventDefault();
         audio.currentTime = Math.min(audio.currentTime + 10, audio.duration);
@@ -405,7 +436,7 @@ function App() {
         audio.load();
       }
       ensureAnalyser();
-      if (playing) audio.pause();else audio.play().catch(() => {});
+      if (playing) { fadeOut(() => audio.pause()); } else { fadeIn(); audio.play().catch(() => {}); }
     } else {
       if (!playing) setHasPlayed(true);
       setPlaying(p => !p);
@@ -414,8 +445,7 @@ function App() {
   function resetPlay() {
     const audio = audioRef.current;
     if (audio) {
-      audio.pause();
-      audio.currentTime = 0;
+      fadeOut(() => { audio.pause(); audio.currentTime = 0; });
     }
     setPlaying(false);
     setElapsed(0);
