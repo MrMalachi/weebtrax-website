@@ -1015,6 +1015,10 @@ function SceneCard({
     onClick: onSelect,
     onMouseEnter: () => setHov(true),
     onMouseLeave: () => setHov(false),
+    role: "button",
+    tabIndex: 0,
+    onKeyDown: function(e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onSelect(); } },
+    'aria-label': 'Open scene: ' + name,
     style: {
       cursor: 'pointer',
       border: `1px solid ${active ? 'var(--wt-accent)' : WT2.line}`,

@@ -1612,6 +1612,13 @@
   .wt-flink { transition: color .15s; position: relative; }
   .wt-flink:hover { color: var(--wt-accent) !important; }
 
+  /* ---- focus ---- */
+  *:focus-visible {
+    outline: 2px solid var(--wt-accent);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px rgba(143,191,159,0.14);
+  }
+
   /* ---- tweak toggles ---- */
   body.no-scan .wt-scan { display: none !important; }
   body.no-grain .wt-grain { display: none !important; }
