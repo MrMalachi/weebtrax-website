@@ -1017,7 +1017,7 @@ function SceneCard({
     onMouseLeave: () => setHov(false),
     role: "button",
     tabIndex: 0,
-    onKeyDown: function(e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onSelect(); } },
+    onKeyDown: function(e) { if (e.key === 'Enter') { e.preventDefault(); onSelect(); } },
     'aria-label': 'Open scene: ' + name,
     style: {
       cursor: 'pointer',
