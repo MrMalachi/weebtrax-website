@@ -562,7 +562,7 @@ function Hero({
       maxWidth: 440,
       letterSpacing: 0.3
     }
-  }, "Low-fidelity house mixes", /*#__PURE__*/React.createElement("br", null), "from Cyberia Caf\xE9 & Club."), /*#__PURE__*/React.createElement("div", {
+  }, "Low-Fidelity House mixes", /*#__PURE__*/React.createElement("br", null), "from Cyberia Caf\xE9 & Club."), /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'flex',
       gap: 14,
