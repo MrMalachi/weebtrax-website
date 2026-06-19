@@ -509,10 +509,10 @@ function ActiveRow({
     onMouseLeave: () => setHovLink(null),
     style: hovLink === 'sc' ? extLinkHov : extLink
   }, "SOUNDCLOUD \u2197")), t.tracklist && t.tracklist.length > 0 && React.createElement("div", {
-    style: { marginTop: 14, borderTop: '1px solid ' + WT2.line }
+    style: { marginTop: 10, borderTop: '1px solid ' + WT2.line }
   }, React.createElement("button", {
       onClick: function() { setTracklistOpen(function(o) { return !o; }); },
-      style: { display: 'flex', alignItems: 'center', gap: 8, width: '100%', background: 'none', border: 'none', cursor: 'pointer', padding: '8px 0 6px', fontFamily: WT2.mono, fontSize: 9, letterSpacing: 2, color: WT2.faint, textTransform: 'uppercase' }
+      style: { display: 'flex', alignItems: 'center', gap: 8, width: '100%', background: 'none', border: 'none', cursor: 'pointer', padding: '3px 0 3px', fontFamily: WT2.mono, fontSize: 9, letterSpacing: 2, color: WT2.faint, textTransform: 'uppercase' }
     }, 'TRACK I.D.', React.createElement('span', { style: { marginLeft: 'auto', color: 'var(--wt-accent)', fontSize: 8 } }, tracklistOpen ? '\u25b2' : '\u25bc')),
     tracklistOpen && React.createElement("div", {
       style: { maxHeight: 160, overflowY: 'auto', paddingBottom: 4 }
@@ -522,7 +522,12 @@ function ActiveRow({
     var ts = String(m).padStart(2, '0') + ':' + String(s).padStart(2, '0');
     return React.createElement("div", {
       key: i,
-      style: { display: 'flex', gap: 8, padding: '2px 6px', marginBottom: 1, borderLeft: isCur ? '2px solid var(--wt-accent)' : '2px solid transparent', background: isCur ? 'rgba(143,191,159,0.05)' : 'none', transition: 'border-color .15s, background .15s' }
+      onClick: function() {
+        var parts = (t.run || '00:00:00').split(':').map(Number);
+        var totalSecs = parts[0] * 3600 + parts[1] * 60 + parts[2];
+        if (totalSecs > 0 && onSeek) onSeek(entry.timeSecs / totalSecs);
+      },
+      style: { display: 'flex', gap: 8, padding: '2px 6px', marginBottom: 1, cursor: 'pointer', borderLeft: isCur ? '2px solid var(--wt-accent)' : '2px solid transparent', background: isCur ? 'rgba(143,191,159,0.05)' : 'none', transition: 'border-color .15s, background .15s' }
     },
       React.createElement("span", { style: { flexShrink: 0, minWidth: 30, fontFamily: WT2.mono, fontSize: 10, color: WT2.faint, opacity: 0.7 } }, ts),
       React.createElement("span", { style: { minWidth: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', fontFamily: WT2.mono, fontSize: 10, color: isCur ? 'var(--wt-accent)' : WT2.dim } }, entry.artist ? entry.artist + ' \u2014 ' + entry.title : entry.title)
