@@ -78,19 +78,22 @@ function BroadcastBar({ playing, currentTrack, elapsed, progress, railW, tickerI
   var SPEED = 60; // px/sec
 
   React.useEffect(function() {
-    var lastHw = 0;
+    var lastOneW = 0;
+    var REPEAT = 10;
     function tick(t) {
       var el = tickerRef.current;
       if (el) {
         if (lastTRef.current !== null) {
           var dt = Math.min((t - lastTRef.current) / 1000, 0.1);
           posRef.current -= SPEED * dt;
-          var hw = el.scrollWidth / 2;
-          if (lastHw > 0 && Math.abs(hw - lastHw) > 1) {
-            posRef.current = (posRef.current / lastHw) * hw;
+          var oneW = el.scrollWidth / REPEAT;
+          if (lastOneW > 0 && Math.abs(oneW - lastOneW) > 1) {
+            posRef.current = (posRef.current / lastOneW) * oneW;
           }
-          lastHw = hw;
-          if (hw > 0 && posRef.current < -hw) posRef.current = posRef.current % hw;
+          lastOneW = oneW;
+          if (oneW > 0 && posRef.current < -oneW) {
+            posRef.current = -((-posRef.current) % oneW);
+          }
         }
         lastTRef.current = t;
         el.style.transform = 'translateX(' + posRef.current + 'px)';
@@ -111,8 +114,9 @@ function BroadcastBar({ playing, currentTrack, elapsed, progress, railW, tickerI
     : null;
   var sep = '  ↯  ';
   var allItems = trackLabel ? [trackLabel].concat(tickerItems) : tickerItems;
-  var fullText = allItems.join(sep);
-  var loop = fullText + sep + fullText + sep;
+  var singleText = allItems.join(sep) + sep;
+  var REPEAT = 10;
+  var loop = singleText.repeat(REPEAT);
 
   return /*#__PURE__*/React.createElement("div", {
     style: {
