@@ -816,24 +816,6 @@ function SignalFeed({ scene, onClose, onPrev, onNext }) {
         }, wiredPath)
       ),
       /*#__PURE__*/React.createElement("div", { style: { display: 'flex', alignItems: 'center', gap: narrow ? 6 : 8, flexShrink: 0 } },
-        onPrev && /*#__PURE__*/React.createElement("button", {
-          onClick: onPrev, title: 'Previous scene',
-          style: {
-            background: 'none', border: '1px solid ' + WT2.line2, color: WT2.dim,
-            fontFamily: WT2.mono, fontSize: 9, letterSpacing: 1.5,
-            padding: narrow ? '6px 8px' : '5px 10px',
-            cursor: 'pointer', borderRadius: 0, textTransform: 'uppercase', transition: 'all .12s'
-          }
-        }, narrow ? '\u2190' : '\u2190 PREV'),
-        onNext && /*#__PURE__*/React.createElement("button", {
-          onClick: onNext, title: 'Next scene',
-          style: {
-            background: 'none', border: '1px solid ' + WT2.line2, color: WT2.dim,
-            fontFamily: WT2.mono, fontSize: 9, letterSpacing: 1.5,
-            padding: narrow ? '6px 8px' : '5px 10px',
-            cursor: 'pointer', borderRadius: 0, textTransform: 'uppercase', transition: 'all .12s'
-          }
-        }, narrow ? '\u2192' : 'NEXT \u2192'),
         /*#__PURE__*/React.createElement("button", {
           onClick: function() { setExpanded(function(e) { return !e; }); },
           style: {
@@ -978,22 +960,42 @@ function SignalFeed({ scene, onClose, onPrev, onNext }) {
         /*#__PURE__*/React.createElement("span", {
           style: { fontFamily: WT2.mono, fontSize: narrow ? 8.5 : 9, letterSpacing: 1, color: WT2.faint }
         }, fmtT(elapsed) + ' · ' + (duration ? fmtT(duration) : '--:--') + (narrow ? '' : '  ·  ∞ LOOP')),
-        /*#__PURE__*/React.createElement("button", {
-          onClick: togglePlay,
-          style: {
-            background: playing ? 'none' : 'var(--wt-accent)',
-            border: '1px solid var(--wt-accent)',
-            color: playing ? 'var(--wt-accent)' : WT2.void,
-            fontFamily: WT2.mono, fontSize: 9, letterSpacing: 2.5,
-            padding: '5px 0', width: 110, textAlign: 'center',
-            cursor: 'pointer', borderRadius: 0, display: 'inline-flex',
-            alignItems: 'center', justifyContent: 'center', gap: 6,
-            textTransform: 'uppercase', transition: 'all .12s',
-            textShadow: playing ? '0 0 8px var(--wt-accent)' : 'none'
-          }
-        },
-        /*#__PURE__*/React.createElement("span", { style: { fontSize: playing ? 7 : 12, lineHeight: 1, letterSpacing: 0 } }, playing ? '▐▐' : '▸'),
-        playing ? 'SUSPEND' : 'TRANSMIT'
+        /*#__PURE__*/React.createElement("div", { style: { display: 'flex', alignItems: 'center', gap: 6 } },
+          onPrev && /*#__PURE__*/React.createElement("button", {
+            onClick: onPrev, title: 'Previous scene',
+            style: {
+              background: 'none', border: '1px solid ' + WT2.line2, color: WT2.dim,
+              fontFamily: WT2.mono, fontSize: 9, letterSpacing: 1.5,
+              padding: '5px 10px', cursor: 'pointer', borderRadius: 0,
+              textTransform: 'uppercase', transition: 'all .12s'
+            }
+          }, '\u2190'),
+          /*#__PURE__*/React.createElement("button", {
+            onClick: togglePlay,
+            style: {
+              background: playing ? 'none' : 'var(--wt-accent)',
+              border: '1px solid var(--wt-accent)',
+              color: playing ? 'var(--wt-accent)' : WT2.void,
+              fontFamily: WT2.mono, fontSize: 9, letterSpacing: 2.5,
+              padding: '5px 0', width: 110, textAlign: 'center',
+              cursor: 'pointer', borderRadius: 0, display: 'inline-flex',
+              alignItems: 'center', justifyContent: 'center', gap: 6,
+              textTransform: 'uppercase', transition: 'all .12s',
+              textShadow: playing ? '0 0 8px var(--wt-accent)' : 'none'
+            }
+          },
+          /*#__PURE__*/React.createElement("span", { style: { fontSize: playing ? 7 : 12, lineHeight: 1, letterSpacing: 0 } }, playing ? '▐▐' : '▸'),
+          playing ? 'SUSPEND' : 'TRANSMIT'
+          ),
+          onNext && /*#__PURE__*/React.createElement("button", {
+            onClick: onNext, title: 'Next scene',
+            style: {
+              background: 'none', border: '1px solid ' + WT2.line2, color: WT2.dim,
+              fontFamily: WT2.mono, fontSize: 9, letterSpacing: 1.5,
+              padding: '5px 10px', cursor: 'pointer', borderRadius: 0,
+              textTransform: 'uppercase', transition: 'all .12s'
+            }
+          }, '\u2192')
         )
       )
     )
