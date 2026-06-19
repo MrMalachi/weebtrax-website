@@ -672,7 +672,7 @@ function Hero({
     }
   }, duration || '--:--:--'))));
 }
-function SignalFeed({ scene, onClose }) {
+function SignalFeed({ scene, onClose, onPrev, onNext }) {
   const videoRef = React.useRef(null);
   const [playing, setPlaying] = React.useState(false);
   const [elapsed, setElapsed] = React.useState(0);
@@ -816,6 +816,24 @@ function SignalFeed({ scene, onClose }) {
         }, wiredPath)
       ),
       /*#__PURE__*/React.createElement("div", { style: { display: 'flex', alignItems: 'center', gap: narrow ? 6 : 8, flexShrink: 0 } },
+        onPrev && /*#__PURE__*/React.createElement("button", {
+          onClick: onPrev, title: 'Previous scene',
+          style: {
+            background: 'none', border: '1px solid ' + WT2.line2, color: WT2.dim,
+            fontFamily: WT2.mono, fontSize: 9, letterSpacing: 1.5,
+            padding: narrow ? '6px 8px' : '5px 10px',
+            cursor: 'pointer', borderRadius: 0, textTransform: 'uppercase', transition: 'all .12s'
+          }
+        }, narrow ? '\u2190' : '\u2190 PREV'),
+        onNext && /*#__PURE__*/React.createElement("button", {
+          onClick: onNext, title: 'Next scene',
+          style: {
+            background: 'none', border: '1px solid ' + WT2.line2, color: WT2.dim,
+            fontFamily: WT2.mono, fontSize: 9, letterSpacing: 1.5,
+            padding: narrow ? '6px 8px' : '5px 10px',
+            cursor: 'pointer', borderRadius: 0, textTransform: 'uppercase', transition: 'all .12s'
+          }
+        }, narrow ? '\u2192' : 'NEXT \u2192'),
         /*#__PURE__*/React.createElement("button", {
           onClick: function() { setExpanded(function(e) { return !e; }); },
           style: {
@@ -1010,7 +1028,7 @@ function SceneCard({
     color: "var(--wt-accent)"
   }), /*#__PURE__*/React.createElement("div", {
     style: {
-      height: 100,
+      aspectRatio: '16/9',
       background: WT2.fill,
       border: `1px solid ${WT2.line2}`,
       marginBottom: 14,
@@ -1109,12 +1127,19 @@ function SceneGrid() {
   const totalPages = Math.max(1, Math.ceil(filtered.length / SCENES_PER_PAGE));
   const visible = filtered.slice(page * SCENES_PER_PAGE, (page + 1) * SCENES_PER_PAGE);
   const sel = filtered.find(s => s.id === selected);
+  const selIdx = sel ? filtered.indexOf(sel) : -1;
   const playerRef = React.useRef(null);
   React.useEffect(function() {
     if (selected && playerRef.current) {
       playerRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   }, [selected]);
+  function navScene(nextScene) {
+    const newIdx = filtered.indexOf(nextScene);
+    const newPage = Math.floor(newIdx / SCENES_PER_PAGE);
+    if (newPage !== page) setPage(newPage);
+    setSelected(nextScene.id);
+  }
   function goPage(next) {
     setPage(next);
     setSelected(null);
@@ -1198,7 +1223,9 @@ function SceneGrid() {
       setSelected(null);
       var el = document.getElementById('wt-signal');
       if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+    },
+    onPrev: selIdx > 0 ? function() { navScene(filtered[selIdx - 1]); } : null,
+    onNext: selIdx < filtered.length - 1 ? function() { navScene(filtered[selIdx + 1]); } : null
   })) : null);
 }
 function Features() {
