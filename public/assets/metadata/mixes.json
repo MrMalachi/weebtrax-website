@@ -5179,7 +5179,64 @@
     "views": null,
     "audioPath": "public/assets/mixes/audio/lo-fi-house-mix-ghetto-symphony-pt-2.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=Oo4d67fRz_Q",
-    "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-mix-ghetto-symphony-pt-2"
+    "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-mix-ghetto-symphony-pt-2",
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "artist": "Delroy Edwards",
+        "title": "4 Club Use Only"
+      },
+      {
+        "timeSecs": 506,
+        "artist": "GLANSLIN",
+        "title": "Cloud 9 (feat. Al Noir)"
+      },
+      {
+        "timeSecs": 771,
+        "artist": "Good Luck",
+        "title": "Bitch I Will"
+      },
+      {
+        "timeSecs": 952,
+        "artist": "Tlim Shug",
+        "title": "Sma (Ny Mix)"
+      },
+      {
+        "timeSecs": 1207,
+        "artist": "benuebermensch",
+        "title": "Give a Fuck"
+      },
+      {
+        "timeSecs": 1417,
+        "artist": "Skin On Skin",
+        "title": "Multiply"
+      },
+      {
+        "timeSecs": 1762,
+        "artist": "Rimbaudian",
+        "title": "Hansa"
+      },
+      {
+        "timeSecs": 2068,
+        "artist": "DJ Boneyard",
+        "title": "Antipodean"
+      },
+      {
+        "timeSecs": 2488,
+        "artist": "Earth Trax",
+        "title": "Disintegration"
+      },
+      {
+        "timeSecs": 2788,
+        "artist": "Earth Trax",
+        "title": "Swamp"
+      },
+      {
+        "timeSecs": 3051,
+        "artist": "DJ Different",
+        "title": "Real"
+      }
+    ]
   },
   {
     "id": "mix-076",
