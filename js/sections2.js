@@ -356,6 +356,9 @@ function ActiveRow({
   t,
   playing,
   onPlayToggle,
+  onPrevTrack,
+  shuffle,
+  onShuffleToggle,
   elapsed,
   narrow,
   progress,
@@ -490,6 +493,8 @@ function ActiveRow({
       flexWrap: 'wrap'
     }
   }, /*#__PURE__*/React.createElement(Btn, {
+    kind: 'ghost', sm: true, onClick: onPrevTrack, title: 'Previous track'
+  }, '◄ PREV'), /*#__PURE__*/React.createElement(Btn, {
     kind: "primary",
     sm: true,
     onClick: onPlayToggle
@@ -507,7 +512,23 @@ function ActiveRow({
     onMouseEnter: () => setHovLink('sc'),
     onMouseLeave: () => setHovLink(null),
     style: hovLink === 'sc' ? extLinkHov : extLink
-  }, "SOUNDCLOUD \u2197"))));
+  }, "SOUNDCLOUD \u2197"), /*#__PURE__*/React.createElement(Btn, {
+    kind: 'ghost', sm: true, onClick: onShuffleToggle, title: shuffle ? 'Shuffle on' : 'Shuffle off',
+    style: { opacity: shuffle ? 1 : 0.45, background: shuffle ? 'rgba(143,191,159,0.08)' : 'none' }
+  }, '\u21C4 SHUFFLE')), t.tracklist && t.tracklist.length > 0 && /*#__PURE__*/React.createElement("div", {
+    style: { marginTop: 14, borderTop: '1px solid ' + WT2.line, paddingTop: 10, maxHeight: 160, overflowY: 'auto' }
+  }, t.tracklist.map(function(entry, i) {
+    var isCur = elapsed >= entry.timeSecs && (i === t.tracklist.length - 1 || elapsed < t.tracklist[i + 1].timeSecs);
+    var m = Math.floor(entry.timeSecs / 60), s = entry.timeSecs % 60;
+    var ts = String(m).padStart(2, '0') + ':' + String(s).padStart(2, '0');
+    return /*#__PURE__*/React.createElement("div", {
+      key: i,
+      style: { display: 'flex', gap: 8, padding: '2px 6px', marginBottom: 1, borderLeft: isCur ? '2px solid var(--wt-accent)' : '2px solid transparent', background: isCur ? 'rgba(143,191,159,0.05)' : 'none', transition: 'border-color .15s, background .15s' }
+    },
+      /*#__PURE__*/React.createElement("span", { style: { flexShrink: 0, minWidth: 30, fontFamily: WT2.mono, fontSize: 10, color: WT2.faint, opacity: 0.7 } }, ts),
+      /*#__PURE__*/React.createElement("span", { style: { minWidth: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', fontFamily: WT2.mono, fontSize: 10, color: isCur ? 'var(--wt-accent)' : WT2.dim } }, entry.artist ? entry.artist + ' \u2014 ' + entry.title : entry.title)
+    );
+  }))));
 }
 function Transmissions({
   playing,
@@ -516,6 +537,9 @@ function Transmissions({
   onReset,
   activeTxId,
   onLoadTrack,
+  onPrevTrack,
+  shuffle,
+  onShuffleToggle,
   progress,
   onSeek,
   seeking,
@@ -646,6 +670,9 @@ function Transmissions({
     t: activeTx,
     playing: playing,
     onPlayToggle: onPlayToggle,
+    onPrevTrack: onPrevTrack,
+    shuffle: shuffle,
+    onShuffleToggle: onShuffleToggle,
     elapsed: elapsed,
     narrow: narrow,
     progress: progress,
