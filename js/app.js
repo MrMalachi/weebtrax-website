@@ -78,14 +78,19 @@ function BroadcastBar({ playing, currentTrack, elapsed, progress, railW, tickerI
   var SPEED = 60; // px/sec
 
   React.useEffect(function() {
+    var lastHw = 0;
     function tick(t) {
       var el = tickerRef.current;
       if (el) {
         if (lastTRef.current !== null) {
-          var dt = (t - lastTRef.current) / 1000;
+          var dt = Math.min((t - lastTRef.current) / 1000, 0.1);
           posRef.current -= SPEED * dt;
           var hw = el.scrollWidth / 2;
-          if (hw > 0 && posRef.current < -hw) posRef.current += hw;
+          if (lastHw > 0 && Math.abs(hw - lastHw) > 1) {
+            posRef.current = (posRef.current / lastHw) * hw;
+          }
+          lastHw = hw;
+          if (hw > 0 && posRef.current < -hw) posRef.current = posRef.current % hw;
         }
         lastTRef.current = t;
         el.style.transform = 'translateX(' + posRef.current + 'px)';
