@@ -112,11 +112,12 @@ function BroadcastBar({ playing, currentTrack, elapsed, progress, railW, tickerI
   var trackLabel = playing && currentTrack
     ? (currentTrack.artist ? currentTrack.artist + ' — ' + currentTrack.title : currentTrack.title)
     : null;
-  var sep = '  ↯  ';
   var allItems = trackLabel ? [trackLabel].concat(tickerItems) : tickerItems;
-  var singleText = allItems.join(sep) + sep;
   var REPEAT = 10;
-  var loop = singleText.repeat(REPEAT);
+  var loopedItems = [];
+  for (var _r = 0; _r < REPEAT; _r++) {
+    for (var _j = 0; _j < allItems.length; _j++) { loopedItems.push(allItems[_j]); }
+  }
 
   return /*#__PURE__*/React.createElement("div", {
     style: {
@@ -141,13 +142,18 @@ function BroadcastBar({ playing, currentTrack, elapsed, progress, railW, tickerI
   }, /*#__PURE__*/React.createElement("span", {
     ref: tickerRef,
     style: {
-      display: 'inline-block', whiteSpace: 'nowrap',
-      fontFamily: WT2.mono, fontSize: 10.5, letterSpacing: 2,
+      display: 'inline-flex', alignItems: 'center', whiteSpace: 'nowrap',
+      fontFamily: WT2.mono, letterSpacing: 2,
       textTransform: 'uppercase',
       color: playing ? WT2.body : WT2.dim,
       willChange: 'transform'
     }
-  }, loop)), playing && /*#__PURE__*/React.createElement(React.Fragment, null,
+  }, loopedItems.map(function(item, i) {
+    return /*#__PURE__*/React.createElement(React.Fragment, { key: i },
+      /*#__PURE__*/React.createElement("span", { style: { fontSize: 10.5 } }, item),
+      /*#__PURE__*/React.createElement("span", { "aria-hidden": true, style: { fontSize: 15, padding: '0 18px', opacity: 0.6 } }, '\xB7')
+    );
+  }))), playing && /*#__PURE__*/React.createElement(React.Fragment, null,
     /*#__PURE__*/React.createElement("span", { style: { width: 1, height: 14, background: WT2.line2, flexShrink: 0 } }),
     /*#__PURE__*/React.createElement("span", {
       style: { fontFamily: WT2.mono, fontSize: 10, color: WT2.dim, flexShrink: 0, letterSpacing: 0.5, whiteSpace: 'nowrap' }

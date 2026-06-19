@@ -387,8 +387,7 @@ function Ticker({
 }) {
   const a = color || 'var(--wt-accent)';
   const sepStyle = {
-    padding: '0 28px',
-    opacity: 0.55
+    padding: '0 28px'
   };
   function Seg() {
     return /*#__PURE__*/React.createElement(React.Fragment, null, items.map((item, i) => /*#__PURE__*/React.createElement(React.Fragment, {
@@ -396,7 +395,7 @@ function Ticker({
     }, /*#__PURE__*/React.createElement("span", null, item), /*#__PURE__*/React.createElement("span", {
       "aria-hidden": true,
       style: sepStyle
-    }, "\u21af"))));
+    }, "\xB7"))));
   }
   return /*#__PURE__*/React.createElement("div", {
     style: {

@@ -633,22 +633,20 @@ function Transmissions({
     kicker: "ARCHIVE",
     title: "Latest Transmissions"
   }), /*#__PURE__*/React.createElement("div", {
-    style: { display: 'flex', flexDirection: 'column', marginTop: 10, gap: 8 }
-  }, /*#__PURE__*/React.createElement("div", {
-    style: { fontFamily: WT2.mono, fontSize: 11.5, color: WT2.dim, letterSpacing: 0.5, whiteSpace: 'nowrap' }
+    style: { fontFamily: WT2.mono, fontSize: 11.5, color: WT2.dim, letterSpacing: 0.5, whiteSpace: 'nowrap', marginTop: 10 }
   }, /*#__PURE__*/React.createElement("span", {
     style: { color: WT2.faint }
   }, "~/weebtrax/"), /*#__PURE__*/React.createElement("span", {
     style: { color: 'var(--wt-accent)' }
-  }, "transmissions/"), " \xA0 " + String(filtered.length).padStart(3, '0') + '/' + String(TX.length).padStart(3, '0') + " files \xA0↯\xA0", /*#__PURE__*/React.createElement("span", {
+  }, "transmissions/"), " \xA0 " + String(filtered.length).padStart(3, '0') + " files \xA0\xA0", /*#__PURE__*/React.createElement("span", {
     onClick: cycleSort,
     style: { cursor: 'pointer', userSelect: 'none' }
   }, "sort: ", /*#__PURE__*/React.createElement("span", {
     style: { color: 'var(--wt-accent)' }
   }, SORT_MODES[sortIdx].toLowerCase()), /*#__PURE__*/React.createElement("span", {
     style: { color: WT2.faint, marginLeft: 5 }
-  }, "\u2195"))), /*#__PURE__*/React.createElement("div", {
-    style: { display: 'flex', alignItems: 'center', gap: 5, flexWrap: 'wrap' }
+  }, "\u2195")))), /*#__PURE__*/React.createElement("div", {
+    style: { display: 'flex', justifyContent: 'flex-end', alignItems: 'center', gap: 5, flexWrap: 'wrap', marginBottom: 10 }
   }, /*#__PURE__*/React.createElement("span", {
     style: { fontFamily: WT2.mono, fontSize: 10, color: WT2.faint, letterSpacing: 1.5, marginRight: 2 }
   }, "MOOD:"), ['all'].concat(MOODS).map(function(m) {
@@ -667,7 +665,7 @@ function Transmissions({
         textTransform: 'uppercase', transition: 'all .12s'
       }
     }, m);
-  })))), /*#__PURE__*/React.createElement(ActiveRow, {
+  })), /*#__PURE__*/React.createElement(ActiveRow, {
     t: activeTx,
     playing: playing,
     onPlayToggle: onPlayToggle,
@@ -1515,7 +1513,7 @@ function Footer() {
       letterSpacing: 0.5,
       lineHeight: 1.6
     }
-  }, "WEEBTRAX \xB7 LOW-FIDELITY HOUSE MIXES", /*#__PURE__*/React.createElement("br", null), "FROM CYBERIA CAF\xC9 & CLUB CYBERIA"))), /*#__PURE__*/React.createElement("div", null, colLabel('// NAV'), /*#__PURE__*/React.createElement("div", {
+  }, "WEEBTRAX \xB7 LOW-FIDELITY HOUSE MIXES", /*#__PURE__*/React.createElement("br", null), "FROM CYBERIA CAF\xC9"))), /*#__PURE__*/React.createElement("div", null, colLabel('// NAV'), /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'grid',
       gridTemplateColumns: '1fr 1fr',
@@ -1664,7 +1662,7 @@ function Footer() {
       letterSpacing: 0.5,
       lineHeight: 1.6
     }
-  }, "WEEBTRAX \xB7 LOW-FIDELITY HOUSE MIXES", /*#__PURE__*/React.createElement("br", null), "FROM CYBERIA CAF\xC9 & CLUB CYBERIA")), /*#__PURE__*/React.createElement("div", {
+  }, "WEEBTRAX \xB7 LOW-FIDELITY HOUSE MIXES", /*#__PURE__*/React.createElement("br", null), "FROM CYBERIA CAF\xC9")), /*#__PURE__*/React.createElement("div", {
     style: {
       gridColumn: 2,
       gridRow: 2,

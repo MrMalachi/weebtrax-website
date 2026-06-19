@@ -85,14 +85,16 @@ Generates: archive rows, scene cards, thumbnails, play buttons, YT/SC links, moo
 - Mood→accent color mapping: `chill→blue`, `nostalgic→purple`, `dirty→red`, `deep→green`
 - Serve with: `python3 -m http.server 3000` from the project root
 
-### Current features (as of 2026-06-18)
-- **Archive**: 94 mixes, mood filter chips, NEWEST/OLDEST/A-Z sort, 5-per-page pagination, active row player
+### Current features (as of 2026-06-19)
+- **Archive**: 94 mixes, mood filter chips (right-aligned, above player), NEWEST/OLDEST/A-Z sort, 5-per-page pagination, active row player
+- **Archive status line**: shows filtered file count only (e.g. `094 files`), not a fraction
 - **Playback**: auto-advance to next track, keyboard shortcuts (Space/←/→), session restore via localStorage
 - **Waveform**: Web Audio API AnalyserNode (`window.__WT_ANALYSER`) drives both oscilloscopes reactively; `window.__WT_ANALYSER` set on first play
-- **Tracklist**: broadcast bar shows current track artist/title from `tracklist[]` during playback
+- **Broadcast bar**: in `js/app.js` (`BroadcastBar` component, ~line 73) — NOT the `Ticker` component in `core.js` (that is dead/unused code). Separator is `·` (middle dot `\xB7`), rendered as a separate span at `fontSize: 15` inside a `loopedItems` array. Items and separators rendered as React elements (not a joined string) to allow independent sizing.
 - **Scenes**: 48 scenes, episode filter (EP 01–13, no EP 09 footage), 6-per-page pagination
 - **Scene player** (`SignalFeed`): Wired/Navi aesthetic — `WIRED://NODE.227` header, click-to-toggle video, flash icon, fullscreen mode (scroll-locked), mobile responsive (<600px)
 - **Error boundary**: wraps `<App>`, crashes show a readable message instead of blank screen
+- **About section**: "FROM CYBERIA CAFÉ" (no "& CLUB CYBERIA")
 - **Deleted**: `js/utils.js`, `js/main.js`, `src/` directories, dead `FeatureModule` component
 
 ### Checklist
