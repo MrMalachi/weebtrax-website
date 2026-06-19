@@ -71,12 +71,29 @@ function pingLabel(ms) {
   return 'WIRED ACTIVITY · ' + ms + 'ms ' + bars;
 }
 function BroadcastBar({ playing, currentTrack, elapsed, progress, railW, tickerItems }) {
+  var tickerRef = React.useRef(null);
+  var posRef = React.useRef(0);
+  var rafRef = React.useRef(null);
+  var lastTRef = React.useRef(null);
+  var SPEED = 60; // px/sec
+
   React.useEffect(function() {
-    if (document.getElementById('wt-bb-kf')) return;
-    var s = document.createElement('style');
-    s.id = 'wt-bb-kf';
-    s.textContent = '@keyframes wt-bb-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}';
-    document.head.appendChild(s);
+    function tick(t) {
+      var el = tickerRef.current;
+      if (el) {
+        if (lastTRef.current !== null) {
+          var dt = (t - lastTRef.current) / 1000;
+          posRef.current -= SPEED * dt;
+          var hw = el.scrollWidth / 2;
+          if (hw > 0 && posRef.current < -hw) posRef.current += hw;
+        }
+        lastTRef.current = t;
+        el.style.transform = 'translateX(' + posRef.current + 'px)';
+      }
+      rafRef.current = requestAnimationFrame(tick);
+    }
+    rafRef.current = requestAnimationFrame(tick);
+    return function() { if (rafRef.current) cancelAnimationFrame(rafRef.current); };
   }, []);
 
   function fmtT(s) {
@@ -113,12 +130,13 @@ function BroadcastBar({ playing, currentTrack, elapsed, progress, railW, tickerI
   ), /*#__PURE__*/React.createElement("div", {
     style: { flex: 1, overflow: 'hidden', minWidth: 0 }
   }, /*#__PURE__*/React.createElement("span", {
+    ref: tickerRef,
     style: {
       display: 'inline-block', whiteSpace: 'nowrap',
       fontFamily: WT2.mono, fontSize: 10.5, letterSpacing: 2,
       textTransform: 'uppercase',
       color: playing ? WT2.body : WT2.dim,
-      animation: 'wt-bb-scroll 32s linear infinite'
+      willChange: 'transform'
     }
   }, loop)), playing && /*#__PURE__*/React.createElement(React.Fragment, null,
     /*#__PURE__*/React.createElement("span", { style: { width: 1, height: 14, background: WT2.line2, flexShrink: 0 } }),
