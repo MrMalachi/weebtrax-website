@@ -356,9 +356,6 @@ function ActiveRow({
   t,
   playing,
   onPlayToggle,
-  onPrevTrack,
-  shuffle,
-  onShuffleToggle,
   elapsed,
   narrow,
   progress,
@@ -493,8 +490,6 @@ function ActiveRow({
       flexWrap: 'wrap'
     }
   }, /*#__PURE__*/React.createElement(Btn, {
-    kind: 'ghost', sm: true, onClick: onPrevTrack, title: 'Previous track'
-  }, '◄ PREV'), /*#__PURE__*/React.createElement(Btn, {
     kind: "primary",
     sm: true,
     onClick: onPlayToggle
@@ -512,10 +507,7 @@ function ActiveRow({
     onMouseEnter: () => setHovLink('sc'),
     onMouseLeave: () => setHovLink(null),
     style: hovLink === 'sc' ? extLinkHov : extLink
-  }, "SOUNDCLOUD \u2197"), /*#__PURE__*/React.createElement(Btn, {
-    kind: 'ghost', sm: true, onClick: onShuffleToggle, title: shuffle ? 'Shuffle on' : 'Shuffle off',
-    style: { opacity: shuffle ? 1 : 0.45, background: shuffle ? 'rgba(143,191,159,0.08)' : 'none' }
-  }, '\u21C4 SHUFFLE')), t.tracklist && t.tracklist.length > 0 && /*#__PURE__*/React.createElement("div", {
+  }, "SOUNDCLOUD \u2197")), t.tracklist && t.tracklist.length > 0 && /*#__PURE__*/React.createElement("div", {
     style: { marginTop: 14, borderTop: '1px solid ' + WT2.line, paddingTop: 10, maxHeight: 160, overflowY: 'auto' }
   }, t.tracklist.map(function(entry, i) {
     var isCur = elapsed >= entry.timeSecs && (i === t.tracklist.length - 1 || elapsed < t.tracklist[i + 1].timeSecs);
@@ -537,9 +529,6 @@ function Transmissions({
   onReset,
   activeTxId,
   onLoadTrack,
-  onPrevTrack,
-  shuffle,
-  onShuffleToggle,
   progress,
   onSeek,
   seeking,
@@ -670,9 +659,6 @@ function Transmissions({
     t: activeTx,
     playing: playing,
     onPlayToggle: onPlayToggle,
-    onPrevTrack: onPrevTrack,
-    shuffle: shuffle,
-    onShuffleToggle: onShuffleToggle,
     elapsed: elapsed,
     narrow: narrow,
     progress: progress,

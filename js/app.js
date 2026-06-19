@@ -179,12 +179,9 @@ function App() {
   const [audioDurSecs, setAudioDurSecs] = React.useState(null);
   const [seeking, setSeeking] = React.useState(false);
   const [volume, setVolume] = React.useState(1);
-  const shuffleRef = React.useRef(false);
-  const [shuffle, setShuffle] = React.useState(false);
 
   // Keep activeTxIdRef in sync for use inside event listeners
   React.useEffect(() => { activeTxIdRef.current = activeTxId; }, [activeTxId]);
-  React.useEffect(() => { shuffleRef.current = shuffle; }, [shuffle]);
 
   // On mount: if restoring a session, pre-load the track (no autoplay)
   React.useEffect(() => {
@@ -251,13 +248,7 @@ function App() {
       setElapsed(Math.floor(audio.duration));
       const allMixes = getMixes();
       const idx = allMixes.findIndex(function(m) { return m.id === activeTxIdRef.current; });
-      let next;
-      if (shuffleRef.current) {
-        const others = allMixes.filter(function(_, i) { return i !== idx; });
-        next = others[Math.floor(Math.random() * others.length)];
-      } else {
-        next = allMixes[idx + 1];
-      }
+      const next = allMixes[idx + 1];
       if (next && loadTrackRef.current) {
         loadTrackRef.current(next.id);
       } else {
@@ -324,12 +315,6 @@ function App() {
     }
   }
   loadTrackRef.current = loadTrack;
-  function prevTrack() {
-    const allMixes = getMixes();
-    const idx = allMixes.findIndex(function(m) { return m.id === activeTxId; });
-    const prev = allMixes[idx - 1];
-    if (prev) loadTrack(prev.id);
-  }
   function ensureAnalyser() {
     if (analyserRef.current) {
       if (audioCtxRef.current && audioCtxRef.current.state === 'suspended') audioCtxRef.current.resume();
@@ -457,9 +442,6 @@ function App() {
     onReset: resetPlay,
     activeTxId: activeTxId,
     onLoadTrack: loadTrack,
-    onPrevTrack: prevTrack,
-    shuffle: shuffle,
-    onShuffleToggle: () => setShuffle(s => !s),
     progress: displayProgress,
     onSeek: seekTo,
     seeking: seeking,
