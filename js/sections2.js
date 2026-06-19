@@ -517,8 +517,8 @@ function ActiveRow({
     style: { marginTop: 10, borderTop: '1px solid ' + WT2.line, maxHeight: 160, overflowY: 'auto', paddingBottom: 4 }
   }, t.tracklist.map(function(entry, i) {
     var isCur = elapsed >= entry.timeSecs && (i === t.tracklist.length - 1 || elapsed < t.tracklist[i + 1].timeSecs);
-    var m = Math.floor(entry.timeSecs / 60), s = entry.timeSecs % 60;
-    var ts = String(m).padStart(2, '0') + ':' + String(s).padStart(2, '0');
+    var h = Math.floor(entry.timeSecs / 3600), m = Math.floor((entry.timeSecs % 3600) / 60), s = entry.timeSecs % 60;
+    var ts = h > 0 ? h + ':' + String(m).padStart(2, '0') + ':' + String(s).padStart(2, '0') : String(m).padStart(2, '0') + ':' + String(s).padStart(2, '0');
     return React.createElement("div", {
       key: i,
       onClick: function() {
@@ -528,7 +528,7 @@ function ActiveRow({
       },
       style: { display: 'flex', gap: 8, padding: '2px 6px', marginBottom: 1, cursor: 'pointer', borderLeft: isCur ? '2px solid var(--wt-accent)' : '2px solid transparent', background: isCur ? 'rgba(143,191,159,0.05)' : 'none', transition: 'border-color .15s, background .15s' }
     },
-      React.createElement("span", { style: { flexShrink: 0, minWidth: 32, fontFamily: WT2.mono, fontSize: 11, color: WT2.faint, opacity: 0.7 } }, ts),
+      React.createElement("span", { style: { flexShrink: 0, minWidth: 44, fontFamily: WT2.mono, fontSize: 11, color: WT2.faint, opacity: 0.7 } }, ts),
       React.createElement("span", { style: { minWidth: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', fontFamily: WT2.mono, fontSize: 10, color: isCur ? 'var(--wt-accent)' : WT2.dim, fontSize: 12 } }, entry.artist ? entry.artist + ' \u2014 ' + entry.title : entry.title)
     );
   }))))
