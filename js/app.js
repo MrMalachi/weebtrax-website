@@ -203,6 +203,7 @@ function App() {
   const pendingRestoreRef = React.useRef(_session.currentTime || 0);
   const activeTxIdRef = React.useRef(_restoredId || TX[0].id);
   const loadTrackRef = React.useRef(null);
+  const togglePlayRef = React.useRef(null);
   const lastSaveRef = React.useRef(0);
   const [playing, setPlaying] = React.useState(false);
   const [elapsed, setElapsed] = React.useState(Math.floor(_session.currentTime || 0));
@@ -349,7 +350,8 @@ function App() {
     }
   }
   loadTrackRef.current = loadTrack;
-  const FADE_SECS = 0.25;
+  const FADE_IN_SECS = 0.2;
+  const FADE_OUT_SECS = 0.015;
   function fadeIn() {
     const gain = gainNodeRef.current;
     const ctx = audioCtxRef.current;
@@ -358,7 +360,7 @@ function App() {
     const now = ctx.currentTime;
     gain.gain.cancelScheduledValues(now);
     gain.gain.setValueAtTime(0, now);
-    gain.gain.linearRampToValueAtTime(volume, now + FADE_SECS);
+    gain.gain.linearRampToValueAtTime(volume, now + FADE_IN_SECS);
   }
   function fadeOut(onDone) {
     const gain = gainNodeRef.current;
@@ -368,7 +370,7 @@ function App() {
     const cur = gain.gain.value;
     gain.gain.cancelScheduledValues(now);
     gain.gain.setValueAtTime(cur, now);
-    gain.gain.linearRampToValueAtTime(0, now + FADE_SECS);
+    gain.gain.linearRampToValueAtTime(0, now + FADE_OUT_SECS);
     setTimeout(() => {
       onDone();
       const t2 = audioCtxRef.current ? audioCtxRef.current.currentTime : 0;
@@ -376,7 +378,7 @@ function App() {
         gainNodeRef.current.gain.cancelScheduledValues(t2);
         gainNodeRef.current.gain.setValueAtTime(volume, t2);
       }
-    }, FADE_SECS * 1000);
+    }, FADE_OUT_SECS * 1000);
   }
   function ensureAnalyser() {
     if (analyserRef.current) {
@@ -415,8 +417,7 @@ function App() {
           const tx = getMixes().find(function(m) { return m.id === activeTxIdRef.current; });
           if (tx && tx.audioSrc && tx.audioSrc !== '#') { audio.src = tx.audioSrc; audio.load(); }
         }
-        ensureAnalyser();
-        if (audio.paused) { fadeIn(); audio.play().catch(function() {}); } else { fadeOut(function() { audio.pause(); }); }
+        if (togglePlayRef.current) togglePlayRef.current();
       } else if (e.code === 'ArrowRight' && isFinite(audio.duration)) {
         e.preventDefault();
         audio.currentTime = Math.min(audio.currentTime + 10, audio.duration);
@@ -442,6 +443,7 @@ function App() {
       setPlaying(p => !p);
     }
   }
+  togglePlayRef.current = togglePlay;
   function resetPlay() {
     const audio = audioRef.current;
     if (audio) {
