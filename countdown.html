@@ -36,7 +36,7 @@
       background: var(--void);
       color: var(--body);
       font-family: var(--mono);
-      overflow: hidden;
+      overflow-x: hidden;
     }
 
     /* scan lines */
@@ -56,7 +56,7 @@
     }
 
     .page {
-      height: 100vh;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
     }
@@ -252,19 +252,37 @@
     }
 
     /* ── responsive ── */
-    @media (max-width: 560px) {
-      .frame { padding: 24px 20px; }
-      .unit  { min-width: 62px; }
-      .unit-value { font-size: 42px; letter-spacing: -1px; }
-      .sep   { font-size: 32px; }
+    @media (max-width: 600px) {
+      .topbar { padding: 12px 16px; }
       .topbar-center { display: none; }
-      .countdown { gap: 8px; }
+      .main { gap: 22px; padding: 16px; }
+      .headline { font-size: 22px; letter-spacing: 3px; }
+      .frame { padding: 20px 16px; }
+      .countdown { gap: 6px; }
+      .unit  { min-width: 54px; gap: 8px; }
+      .unit-value { font-size: 40px; letter-spacing: -1px; }
+      .sep   { font-size: 28px; margin-top: 4px; }
+      .target-value { font-size: 13px; letter-spacing: 3px; }
+      .bottombar { padding: 10px 16px; }
     }
 
-    @media (max-width: 340px) {
-      .unit  { min-width: 48px; }
-      .unit-value { font-size: 30px; }
+    @media (max-width: 380px) {
+      .headline { font-size: 18px; letter-spacing: 2px; }
+      .frame { padding: 16px 10px; }
+      .countdown { gap: 4px; }
+      .unit  { min-width: 44px; }
+      .unit-value { font-size: 32px; letter-spacing: -1px; }
       .sep   { font-size: 22px; }
+      .target-value { font-size: 11px; letter-spacing: 2px; }
+      .bottombar-left { font-size: 7.5px; }
+      .bottombar-right { font-size: 7.5px; }
+    }
+
+    @media (max-width: 320px) {
+      .unit  { min-width: 36px; }
+      .unit-value { font-size: 26px; }
+      .sep   { font-size: 18px; }
+      .headline { font-size: 15px; }
     }
   </style>
 </head>
