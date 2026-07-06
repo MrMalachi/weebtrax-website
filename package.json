@@ -2,16 +2,7 @@
   "name": "weebtrax-website",
   "version": "1.0.0",
   "description": "WeebTrax — ARCHIVE.SYS music player website",
-  "main": "index.html",
-  "scripts": {
-    "start": "npx serve .",
-    "dev": "npx live-server --port=3000"
-  },
   "keywords": ["music", "anime", "weebtrax"],
   "author": "",
-  "license": "MIT",
-  "devDependencies": {
-    "serve": "^14.0.0",
-    "live-server": "^1.2.2"
-  }
+  "license": "MIT"
 }
