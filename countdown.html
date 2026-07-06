@@ -36,7 +36,7 @@
       background: var(--void);
       color: var(--body);
       font-family: var(--mono);
-      overflow-x: hidden;
+      overflow: hidden;
     }
 
     /* scan lines */
@@ -56,7 +56,7 @@
     }
 
     .page {
-      min-height: 100vh;
+      height: 100vh;
       display: flex;
       flex-direction: column;
     }
@@ -94,15 +94,21 @@
       text-transform: uppercase;
     }
 
-    /* ── main ── */
-    .main {
+    /* ── body (centers main+footer as a group) ── */
+    .body {
       flex: 1;
       display: flex;
       flex-direction: column;
-      align-items: center;
       justify-content: center;
+    }
+
+    /* ── main ── */
+    .main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       gap: 36px;
-      padding: 24px;
+      padding: 24px 24px 20px;
     }
 
     .eyebrow {
@@ -221,24 +227,24 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 12px 24px;
-      border-top: 1px solid var(--line);
+      padding: 14px 24px;
+      border-top: 1px solid var(--line2);
       flex-shrink: 0;
     }
 
     .bottombar-left {
-      font-size: 8.5px;
-      letter-spacing: 2px;
+      font-size: 11px;
+      letter-spacing: 3px;
       color: var(--green);
-      text-shadow: 0 0 10px rgba(143,191,159,0.4);
+      text-shadow: 0 0 12px rgba(143,191,159,0.6);
       text-transform: uppercase;
     }
 
     .bottombar-right {
-      font-size: 8.5px;
-      letter-spacing: 2px;
+      font-size: 11px;
+      letter-spacing: 3px;
       color: var(--green);
-      text-shadow: 0 0 10px rgba(143,191,159,0.4);
+      text-shadow: 0 0 12px rgba(143,191,159,0.6);
       text-transform: uppercase;
     }
 
@@ -255,7 +261,7 @@
     @media (max-width: 600px) {
       .topbar { padding: 12px 16px; }
       .topbar-center { display: none; }
-      .main { gap: 22px; padding: 16px; }
+      .main { gap: 20px; padding: 16px 16px 16px; }
       .headline { font-size: 22px; letter-spacing: 3px; }
       .frame { padding: 20px 16px; }
       .countdown { gap: 6px; }
@@ -263,19 +269,18 @@
       .unit-value { font-size: 40px; letter-spacing: -1px; }
       .sep   { font-size: 28px; margin-top: 4px; }
       .target-value { font-size: 13px; letter-spacing: 3px; }
-      .bottombar { padding: 10px 16px; }
+      .bottombar { padding: 12px 16px; }
     }
 
     @media (max-width: 380px) {
       .headline { font-size: 18px; letter-spacing: 2px; }
-      .frame { padding: 16px 10px; }
+      .main { gap: 16px; }
+      .frame { padding: 14px 10px; }
       .countdown { gap: 4px; }
       .unit  { min-width: 44px; }
       .unit-value { font-size: 32px; letter-spacing: -1px; }
       .sep   { font-size: 22px; }
       .target-value { font-size: 11px; letter-spacing: 2px; }
-      .bottombar-left { font-size: 7.5px; }
-      .bottombar-right { font-size: 7.5px; }
     }
 
     @media (max-width: 320px) {
@@ -295,6 +300,7 @@
     <div class="topbar-node">NODE.WT2</div>
   </div>
 
+  <div class="body">
   <div class="main">
     <div class="eyebrow">// TRANSMISSION PENDING</div>
 
@@ -337,6 +343,7 @@
   <div class="bottombar">
     <div class="bottombar-left">LET THERE BE HOUSE</div>
     <div class="bottombar-right">STANDBY <span class="cursor">▮</span></div>
+  </div>
   </div>
 
 </div>
