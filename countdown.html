@@ -8,6 +8,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;700&display=swap" rel="stylesheet">
   <style>
+    @font-face {
+      font-family: 'Love Letter TW';
+      src: url('public/assets/fonts/loveletter.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
@@ -65,7 +73,7 @@
 
     .topbar-logo {
       font-size: 13px;
-      font-weight: 700;
+      font-weight: 400;
       letter-spacing: 5px;
       color: var(--green);
       text-shadow: 0 0 14px rgba(143,191,159,0.45);
@@ -105,8 +113,9 @@
     }
 
     .headline {
-      font-size: 11px;
-      letter-spacing: 6px;
+      font-family: 'Love Letter TW', 'Special Elite', 'IBM Plex Mono', monospace;
+      font-size: 28px;
+      letter-spacing: 4px;
       color: var(--green);
       text-transform: uppercase;
       text-shadow: 0 0 10px rgba(143,191,159,0.35);
@@ -316,7 +325,7 @@
 
 <script>
   // ─── SET YOUR LAUNCH DATE HERE ─────────────────────────────────────────────
-  const LAUNCH_DATE = new Date('2026-10-01T00:00:00');
+  const LAUNCH_DATE = new Date('2026-08-29T12:00:00');
   // ───────────────────────────────────────────────────────────────────────────
 
   const MONTHS = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
