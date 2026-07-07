@@ -7,6 +7,7 @@
 | 1 | Local media organization | ✅ Complete |
 | 2 | JSON metadata | ✅ Complete |
 | 3 | Website reads JSON | ✅ Complete |
+| 3.5 | Countdown page (pre-launch holding page) | ✅ Live — remove before full launch |
 | 4 | Create backend / API (FastAPI) | ⬜ Not started |
 | 5 | Move JSON metadata into PostgreSQL | ⬜ Not started |
 | 6 | Deploy with Railway | ⬜ Not started |
@@ -142,6 +143,27 @@ Generates: archive rows, scene cards, thumbnails, play buttons, YT/SC links, moo
 
 ### Footer / About
 - [ ] "About" section has placeholder branding text — add short bio, release schedule, social links context
+
+---
+
+---
+
+## Phase 3.5 — Countdown page (pre-launch holding page)
+
+A static `countdown.html` is deployed on Cloudflare Pages as a holding page while the full site is being built.
+
+### How it works
+- **File**: `countdown.html` at the project root — self-contained single-file page with all CSS inline
+- **Routing**: `_redirects` rewrites `/` → `/countdown.html` with a 200 (rewrite, not redirect), so visitors hit the countdown without seeing the URL change
+- **Design**: matches the main site aesthetic — IBM Plex Mono, scan lines, `--void` background, green accent
+
+### To go live with the real site (cutover checklist)
+- [ ] Delete or empty `_redirects` (removing the rewrite rule exposes `index.html` as the Cloudflare Pages default)
+- [ ] Optionally delete `countdown.html` — it is no longer served after `_redirects` is removed
+- [ ] Confirm `index.html` loads correctly on the deployed URL
+- [ ] Verify audio, scenes, and JSON fetch all work in production (CORS, asset paths)
+
+> **Do not touch `_redirects` until the full site is ready to go live.** Removing it immediately exposes `index.html` to all traffic.
 
 ---
 
