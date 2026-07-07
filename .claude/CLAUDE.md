@@ -157,6 +157,11 @@ A static `countdown.html` is deployed on Cloudflare Pages as a holding page whil
 - **Routing**: `_redirects` rewrites `/` → `/countdown.html` with a 200 (rewrite, not redirect), so visitors hit the countdown without seeing the URL change
 - **Design**: matches the main site aesthetic — IBM Plex Mono, scan lines, `--void` background, green accent
 
+### Favicons
+- **Tab favicon**: `public/assets/images/favicon-wt.svg` — SVG with transparent background, green `#8fbf9f` "WT" text with glow, and corner tick marks. JetBrains Mono Bold is subsetted to W+T only (~5KB) and embedded as a base64 `@font-face` so the font renders correctly in all browsers without a local install.
+- **New tab / bookmark icon**: `public/assets/images/apple-touch-icon-wt.png` — 180×180 PNG, transparent background, same WT + corner tick design scaled up. Safari applies its own rounded rect container.
+- **Regenerating icons**: use the Python script pattern in session history (requires Pillow + fontTools in a venv). Always bump the `?v=N` cache-buster in the `<link>` tags after regenerating.
+
 ### To go live with the real site (cutover checklist)
 - [ ] Delete or empty `_redirects` (removing the rewrite rule exposes `index.html` as the Cloudflare Pages default)
 - [ ] Optionally delete `countdown.html` — it is no longer served after `_redirects` is removed
