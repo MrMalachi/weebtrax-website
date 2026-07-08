@@ -158,9 +158,10 @@ A static `countdown.html` is deployed on Cloudflare Pages as a holding page whil
 - **Design**: matches the main site aesthetic — IBM Plex Mono, scan lines, `--void` background, green accent
 
 ### Favicons
-- **Tab favicon**: `public/assets/images/favicon-wt.svg` — SVG with transparent background, green `#8fbf9f` "WT" text with glow, and corner tick marks. JetBrains Mono Bold is subsetted to W+T only (~5KB) and embedded as a base64 `@font-face` so the font renders correctly in all browsers without a local install.
-- **New tab / bookmark icon**: `public/assets/images/apple-touch-icon-wt.png` — 180×180 PNG, transparent background, same WT + corner tick design scaled up. Safari applies its own rounded rect container.
-- **Regenerating icons**: use the Python script pattern in session history (requires Pillow + fontTools in a venv). Always bump the `?v=N` cache-buster in the `<link>` tags after regenerating.
+- **Tab favicon**: `public/assets/images/favicon-pylon.svg` — SVG of SEL-inspired power line transmission tower (#18 design). Green `#8fbf9f` on transparent background with green glow filter. 3 widening cross-arms, diagonal braces, insulator circles at arm ends, drooping catenary wire curves, ground anchor. viewBox 0 0 96 96.
+- **New tab / bookmark icon**: `public/assets/images/apple-touch-icon-pylon.png` — 180×180 PNG, `#0d0d0d` background, generated from the SVG via qlmanage + Pillow.
+- **Old WT icons kept**: `favicon-wt.svg` and `apple-touch-icon-wt.png` remain in the folder but are no longer referenced.
+- **Regenerating icons**: render `favicon-pylon.svg` via `qlmanage -t -s 180 -o /tmp/out/ favicon-pylon.svg`, then composite onto `#0d0d0d` canvas with Pillow. Always bump the `?v=N` cache-buster in the `<link>` tags after regenerating.
 
 ### To go live with the real site (cutover checklist)
 - [ ] Delete or empty `_redirects` (removing the rewrite rule exposes `index.html` as the Cloudflare Pages default)
