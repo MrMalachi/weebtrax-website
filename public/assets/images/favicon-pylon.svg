@@ -4,40 +4,44 @@
       <feGaussianBlur stdDeviation="1.5" result="blur"/>
       <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
+    <style>
+      svg { color: #8fbf9f; }
+      @media (prefers-color-scheme: light) { svg { color: #1a1a1a; } }
+    </style>
   </defs>
   <g filter="url(#glow)">
     <!-- central pole -->
-    <line x1="48" y1="8" x2="48" y2="88" stroke="#8fbf9f" stroke-width="2"/>
+    <line x1="48" y1="8" x2="48" y2="88" stroke="currentColor" stroke-width="2"/>
     <!-- top cross-arm -->
-    <line x1="30" y1="20" x2="66" y2="20" stroke="#8fbf9f" stroke-width="2"/>
+    <line x1="30" y1="20" x2="66" y2="20" stroke="currentColor" stroke-width="2"/>
     <!-- mid cross-arm -->
-    <line x1="22" y1="38" x2="74" y2="38" stroke="#8fbf9f" stroke-width="2"/>
+    <line x1="22" y1="38" x2="74" y2="38" stroke="currentColor" stroke-width="2"/>
     <!-- lower cross-arm -->
-    <line x1="14" y1="56" x2="82" y2="56" stroke="#8fbf9f" stroke-width="2"/>
+    <line x1="14" y1="56" x2="82" y2="56" stroke="currentColor" stroke-width="2"/>
     <!-- diagonal structural braces (pole → top arm) -->
-    <line x1="48" y1="30" x2="30" y2="20" stroke="#8fbf9f" stroke-width="1" opacity="0.5"/>
-    <line x1="48" y1="30" x2="66" y2="20" stroke="#8fbf9f" stroke-width="1" opacity="0.5"/>
+    <line x1="48" y1="30" x2="30" y2="20" stroke="currentColor" stroke-width="1" opacity="0.5"/>
+    <line x1="48" y1="30" x2="66" y2="20" stroke="currentColor" stroke-width="1" opacity="0.5"/>
     <!-- pole → mid arm braces -->
-    <line x1="48" y1="46" x2="22" y2="38" stroke="#8fbf9f" stroke-width="1" opacity="0.5"/>
-    <line x1="48" y1="46" x2="74" y2="38" stroke="#8fbf9f" stroke-width="1" opacity="0.5"/>
+    <line x1="48" y1="46" x2="22" y2="38" stroke="currentColor" stroke-width="1" opacity="0.5"/>
+    <line x1="48" y1="46" x2="74" y2="38" stroke="currentColor" stroke-width="1" opacity="0.5"/>
     <!-- insulators at arm ends -->
-    <circle cx="30" cy="20" r="2.5" fill="none" stroke="#8fbf9f" stroke-width="1.5"/>
-    <circle cx="66" cy="20" r="2.5" fill="none" stroke="#8fbf9f" stroke-width="1.5"/>
-    <circle cx="22" cy="38" r="2.5" fill="none" stroke="#8fbf9f" stroke-width="1.5"/>
-    <circle cx="74" cy="38" r="2.5" fill="none" stroke="#8fbf9f" stroke-width="1.5"/>
-    <circle cx="14" cy="56" r="2.5" fill="none" stroke="#8fbf9f" stroke-width="1.5"/>
-    <circle cx="82" cy="56" r="2.5" fill="none" stroke="#8fbf9f" stroke-width="1.5"/>
+    <circle cx="30" cy="20" r="2.5" fill="none" stroke="currentColor" stroke-width="1.5"/>
+    <circle cx="66" cy="20" r="2.5" fill="none" stroke="currentColor" stroke-width="1.5"/>
+    <circle cx="22" cy="38" r="2.5" fill="none" stroke="currentColor" stroke-width="1.5"/>
+    <circle cx="74" cy="38" r="2.5" fill="none" stroke="currentColor" stroke-width="1.5"/>
+    <circle cx="14" cy="56" r="2.5" fill="none" stroke="currentColor" stroke-width="1.5"/>
+    <circle cx="82" cy="56" r="2.5" fill="none" stroke="currentColor" stroke-width="1.5"/>
     <!-- drooping wires from lower arm -->
-    <path d="M 14,56 Q 2,72 -4,82"  fill="none" stroke="#8fbf9f" stroke-width="1.2" stroke-linecap="round"/>
-    <path d="M 82,56 Q 94,72 100,82" fill="none" stroke="#8fbf9f" stroke-width="1.2" stroke-linecap="round"/>
+    <path d="M 14,56 Q 2,72 -4,82"  fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+    <path d="M 82,56 Q 94,72 100,82" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
     <!-- drooping wires from mid arm -->
-    <path d="M 22,38 Q 10,56 6,68"  fill="none" stroke="#8fbf9f" stroke-width="1"   stroke-linecap="round" opacity="0.65"/>
-    <path d="M 74,38 Q 86,56 90,68" fill="none" stroke="#8fbf9f" stroke-width="1"   stroke-linecap="round" opacity="0.65"/>
+    <path d="M 22,38 Q 10,56 6,68"  fill="none" stroke="currentColor" stroke-width="1"   stroke-linecap="round" opacity="0.65"/>
+    <path d="M 74,38 Q 86,56 90,68" fill="none" stroke="currentColor" stroke-width="1"   stroke-linecap="round" opacity="0.65"/>
     <!-- drooping wires from top arm -->
-    <path d="M 30,20 Q 20,34 16,44" fill="none" stroke="#8fbf9f" stroke-width="0.75" stroke-linecap="round" opacity="0.4"/>
-    <path d="M 66,20 Q 76,34 80,44" fill="none" stroke="#8fbf9f" stroke-width="0.75" stroke-linecap="round" opacity="0.4"/>
+    <path d="M 30,20 Q 20,34 16,44" fill="none" stroke="currentColor" stroke-width="0.75" stroke-linecap="round" opacity="0.4"/>
+    <path d="M 66,20 Q 76,34 80,44" fill="none" stroke="currentColor" stroke-width="0.75" stroke-linecap="round" opacity="0.4"/>
     <!-- ground anchor -->
-    <line x1="40" y1="88" x2="56" y2="88" stroke="#8fbf9f" stroke-width="2"/>
-    <line x1="44" y1="92" x2="52" y2="92" stroke="#8fbf9f" stroke-width="1.5" opacity="0.5"/>
+    <line x1="40" y1="88" x2="56" y2="88" stroke="currentColor" stroke-width="2"/>
+    <line x1="44" y1="92" x2="52" y2="92" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
   </g>
 </svg>
