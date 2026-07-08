@@ -183,6 +183,19 @@ FastAPI backend with endpoints:
 
 Can still read from JSON initially, then swap to PostgreSQL.
 
+### Learning resources
+
+Read these FastAPI docs sections in order before building:
+
+1. [First Steps](https://fastapi.tiangolo.com/tutorial/first-steps/) — routes, JSON responses, auto docs
+2. [Path Parameters](https://fastapi.tiangolo.com/tutorial/path-parameters/) — e.g. `/api/mixes/{id}`
+3. [Query Parameters](https://fastapi.tiangolo.com/tutorial/query-parameters/) — e.g. `?page=1&mood=chill`
+4. [Response Model](https://fastapi.tiangolo.com/tutorial/response-model/) — shaping what the API returns
+5. [Bigger Applications](https://fastapi.tiangolo.com/tutorial/bigger-applications/) — splitting mixes/scenes into separate router files with `APIRouter`
+6. [SQL (Relational) Databases](https://fastapi.tiangolo.com/tutorial/sql-databases/) — SQLAlchemy setup (relevant for Phase 5)
+
+Skip everything else until you hit a specific need — body/request data, security, background tasks, WebSockets are not required for v1.
+
 ---
 
 ## Phase 5 — PostgreSQL
