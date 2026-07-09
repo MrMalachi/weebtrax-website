@@ -168,6 +168,7 @@ A static `countdown.html` is deployed on Cloudflare Pages as a holding page whil
 - [ ] Optionally delete `countdown.html` — it is no longer served after `_redirects` is removed
 - [ ] Confirm `index.html` loads correctly on the deployed URL
 - [ ] Verify audio, scenes, and JSON fetch all work in production (CORS, asset paths)
+- [ ] Consider enabling Cloudflare Web Analytics alongside Umami — Cloudflare is server-side (catches bots + ad-blocker users), Umami is JS-based (real humans only). The gap between their numbers reveals how many visitors block scripts. Not urgent pre-launch but worth reviewing once real traffic arrives.
 
 > **Do not touch `_redirects` until the full site is ready to go live.** Removing it immediately exposes `index.html` to all traffic.
 
