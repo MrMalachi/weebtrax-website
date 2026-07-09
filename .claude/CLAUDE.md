@@ -174,6 +174,18 @@ A static `countdown.html` is deployed on Cloudflare Pages as a holding page whil
 
 ---
 
+## Analytics — Umami
+
+Umami is live on both pages. No consent popup is required — Umami is cookieless and collects no personal data (GDPR-compliant by design).
+
+### Setup
+- **Instance**: self-hosted on Railway at `https://umami-production-3b7d.up.railway.app`
+- **Script**: `<script defer src="https://umami-production-3b7d.up.railway.app/script.js" data-website-id="b3e9a766-c21b-4acb-8b35-bf120b3f2aef"></script>`
+- **Pages tracked**: `countdown.html` (lines 291–292) and `index.html` (lines 10–11)
+- Both pages use the same `data-website-id`
+
+---
+
 ## Phase 4 — Backend / API
 
 FastAPI backend with endpoints:
