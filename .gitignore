@@ -16,6 +16,7 @@ npm-debug.log*
 # Python
 venv/
 .env/
+.env
 
 # Large media / source videos
 *.mkv
