@@ -976,16 +976,28 @@ function SignalFeed({ scene, onClose, onPrev, onNext }) {
       ),
       // Bottom row
       /*#__PURE__*/React.createElement("div", {
-        style: { display: 'flex', alignItems: 'center', justifyContent: 'flex-end', marginTop: narrow ? 5 : 7 }
+        style: { display: 'flex', alignItems: 'center', justifyContent: narrow ? 'space-between' : 'flex-end', marginTop: narrow ? 5 : 7 }
       },
+        // Mobile-only close — thumb-reachable even when header is scrolled off screen
+        narrow && /*#__PURE__*/React.createElement("button", {
+          onClick: onClose,
+          style: {
+            background: 'none', border: '1px solid ' + WT2.line2, color: WT2.faint,
+            fontFamily: WT2.mono, fontSize: 9, letterSpacing: 1.5,
+            padding: '12px 14px', cursor: 'pointer', borderRadius: 0,
+            textTransform: 'uppercase', transition: 'all .12s',
+            WebkitTapHighlightColor: 'transparent'
+          }
+        }, '\u00d7 CLOSE'),
         /*#__PURE__*/React.createElement("div", { style: { display: 'flex', alignItems: 'center', gap: 6 } },
           onPrev && /*#__PURE__*/React.createElement("button", {
             onClick: onPrev, title: 'Previous scene',
             style: {
               background: 'none', border: '1px solid ' + WT2.line2, color: WT2.dim,
               fontFamily: WT2.mono, fontSize: 9, letterSpacing: 1.5,
-              padding: '5px 10px', cursor: 'pointer', borderRadius: 0,
-              textTransform: 'uppercase', transition: 'all .12s'
+              padding: narrow ? '12px 16px' : '5px 10px', cursor: 'pointer', borderRadius: 0,
+              textTransform: 'uppercase', transition: 'all .12s',
+              WebkitTapHighlightColor: 'transparent'
             }
           }, '\u2190'),
           /*#__PURE__*/React.createElement("button", {
@@ -995,14 +1007,15 @@ function SignalFeed({ scene, onClose, onPrev, onNext }) {
               border: '1px solid var(--wt-accent)',
               color: playing ? 'var(--wt-accent)' : WT2.void,
               fontFamily: WT2.mono, fontSize: 9, letterSpacing: 2.5,
-              padding: '5px 0', width: 110, textAlign: 'center',
+              padding: narrow ? '12px 0' : '5px 0', width: narrow ? 90 : 110, textAlign: 'center',
               cursor: 'pointer', borderRadius: 0, display: 'inline-flex',
               alignItems: 'center', justifyContent: 'center', gap: 6,
               textTransform: 'uppercase', transition: 'all .12s',
-              textShadow: playing ? '0 0 8px var(--wt-accent)' : 'none'
+              textShadow: playing ? '0 0 8px var(--wt-accent)' : 'none',
+              WebkitTapHighlightColor: 'transparent'
             }
           },
-          /*#__PURE__*/React.createElement("span", { style: { fontSize: playing ? 7 : 12, lineHeight: 1, letterSpacing: 0 } }, playing ? '▐▐' : '▸'),
+          /*#__PURE__*/React.createElement("span", { style: { fontSize: playing ? 7 : 12, lineHeight: 1, letterSpacing: 0 } }, playing ? '\u258e\u258e' : '\u25b8'),
           playing ? 'SUSPEND' : 'TRANSMIT'
           ),
           onNext && /*#__PURE__*/React.createElement("button", {
@@ -1010,8 +1023,9 @@ function SignalFeed({ scene, onClose, onPrev, onNext }) {
             style: {
               background: 'none', border: '1px solid ' + WT2.line2, color: WT2.dim,
               fontFamily: WT2.mono, fontSize: 9, letterSpacing: 1.5,
-              padding: '5px 10px', cursor: 'pointer', borderRadius: 0,
-              textTransform: 'uppercase', transition: 'all .12s'
+              padding: narrow ? '12px 16px' : '5px 10px', cursor: 'pointer', borderRadius: 0,
+              textTransform: 'uppercase', transition: 'all .12s',
+              WebkitTapHighlightColor: 'transparent'
             }
           }, '\u2192')
         )

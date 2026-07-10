@@ -73,16 +73,18 @@ function TermPageBar({ page, total, onGoTo }) {
   const isFirst = page === 0;
   const isLast = page >= total - 1;
   const wide = winW >= 900;
+  const isMobile = winW < 600;
   const navBtn = {
     background: 'none',
     fontFamily: WT2.mono,
     fontSize: wide ? 12 : 10,
     letterSpacing: 1.5,
-    padding: wide ? '9px 18px' : '6px 12px',
+    padding: wide ? '9px 18px' : isMobile ? '14px 20px' : '6px 12px',
     textTransform: 'uppercase',
     transition: 'all .12s',
     borderRadius: 0,
-    whiteSpace: 'nowrap'
+    whiteSpace: 'nowrap',
+    WebkitTapHighlightColor: 'transparent'
   };
   // Build windowed set: always include first, last, and current ±2
   const WIN = 2;
@@ -95,7 +97,6 @@ function TermPageBar({ page, total, onGoTo }) {
     if (k > 0 && nums[k] - nums[k - 1] > 1) items.push('gap' + k);
     items.push(nums[k]);
   }
-  const isMobile = winW < 600;
   return /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'flex',
