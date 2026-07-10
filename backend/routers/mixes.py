@@ -13,6 +13,6 @@ def get_mixes():
 
 @router.get("/mixes/latest")
 def get_latest(n: int = Query(5)):
-    sorted(DATA, key=lambda m: m["releaseDate"], reverse=True)
+    sorted_mixes = sorted(DATA, key=lambda m: m["releaseDate"], reverse=True)
     return sorted_mixes[:n]
 
