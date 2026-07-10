@@ -1032,6 +1032,7 @@ function SignalFeed({ scene, onClose, onPrev, onNext }) {
         ),
         /*#__PURE__*/React.createElement("div", { style: { display: 'flex', alignItems: 'center', gap: 6 } },
           /*#__PURE__*/React.createElement("button", {
+            className: 'wt-page-btn',
             onClick: onPrev || undefined,
             title: 'Previous scene',
             style: {
@@ -1065,6 +1066,7 @@ function SignalFeed({ scene, onClose, onPrev, onNext }) {
           playing ? 'SUSPEND' : 'TRANSMIT'
           ),
           /*#__PURE__*/React.createElement("button", {
+            className: 'wt-page-btn',
             onClick: onNext || undefined,
             title: 'Next scene',
             style: {

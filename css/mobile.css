@@ -115,6 +115,15 @@ main { margin-left: 0 !important; }
   transition: opacity 0.2s;
 }
 
+/* Hide the TX-mix-078 · slug · date metadata line in the active player */
+.wt-active-meta { display: none !important; }
+
+/* Subtle press feedback for PREV/NEXT pagination and scene nav buttons */
+.wt-page-btn:active {
+  opacity: 0.55 !important;
+  background: rgba(143, 191, 159, 0.1) !important;
+}
+
 /* Scene cards: compact + consistent height — hide desc, reduce padding */
 .wt-scene-card {
   padding: 10px !important;

@@ -105,6 +105,7 @@ function TermPageBar({ page, total, onGoTo }) {
       marginTop: wide ? 36 : 28
     }
   }, /*#__PURE__*/React.createElement("button", {
+    className: "wt-page-btn",
     onClick: isFirst ? undefined : () => { setHov(null); onGoTo(page - 1); },
     onMouseEnter: () => setHov('prev'),
     onMouseLeave: () => setHov(null),
@@ -156,6 +157,7 @@ function TermPageBar({ page, total, onGoTo }) {
       }
     }, String(item + 1).padStart(2, '0'));
   }), /*#__PURE__*/React.createElement("button", {
+    className: "wt-page-btn",
     onClick: isLast ? undefined : () => { setHov(null); onGoTo(page + 1); },
     onMouseEnter: () => setHov('next'),
     onMouseLeave: () => setHov(null),
@@ -481,6 +483,7 @@ function ActiveRow({
   }, /*#__PURE__*/React.createElement(Tag, {
     color: "var(--wt-accent)"
   }, playing ? '◉ NOW DECODING' : '◎ STANDBY'), /*#__PURE__*/React.createElement("span", {
+    className: "wt-active-meta",
     style: {
       fontFamily: WT2.mono,
       fontSize: 11,
@@ -492,9 +495,10 @@ function ActiveRow({
       fontFamily: WT2.display,
       fontWeight: 800,
       fontSize: 26,
-      color: WT2.ink
+      color: WT2.ink,
+      whiteSpace: mobile ? 'pre-line' : undefined
     }
-  }, t.title), /*#__PURE__*/React.createElement("div", {
+  }, mobile && t.title.includes('|') ? t.title.replace('|', '\n') : t.title), /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'flex',
       flexDirection: 'column',
@@ -653,21 +657,8 @@ function Transmissions({
     title: "Latest Transmissions"
   }), /*#__PURE__*/React.createElement("div", {
     className: "wt-archive-statusbar",
-    style: { fontFamily: WT2.mono, fontSize: 11.5, color: WT2.dim, letterSpacing: 0.5, whiteSpace: 'nowrap', marginTop: 10 }
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "wt-statusbar-path",
-    style: { color: WT2.faint }
-  }, "~/weebtrax/"), /*#__PURE__*/React.createElement("span", {
-    className: "wt-statusbar-path",
-    style: { color: 'var(--wt-accent)' }
-  }, "transmissions/"), " \xA0 " + String(filtered.length).padStart(3, '0') + " files \xA0\xA0", /*#__PURE__*/React.createElement("span", {
-    onClick: cycleSort,
-    style: { cursor: 'pointer', userSelect: 'none' }
-  }, "sort: ", /*#__PURE__*/React.createElement("span", {
-    style: { color: 'var(--wt-accent)' }
-  }, SORT_MODES[sortIdx].toLowerCase()), /*#__PURE__*/React.createElement("span", {
-    style: { color: WT2.faint, marginLeft: 5 }
-  }, "\u2195")))), /*#__PURE__*/React.createElement("div", {
+    style: { fontFamily: WT2.mono, fontSize: 11.5, color: WT2.dim, letterSpacing: 0.5, whiteSpace: isMobile ? 'normal' : 'nowrap', marginTop: 10, display: isMobile ? 'flex' : undefined, justifyContent: isMobile ? 'space-between' : undefined, alignItems: isMobile ? 'center' : undefined }
+  }, isMobile ? React.createElement(React.Fragment, null, React.createElement("span", null, String(filtered.length).padStart(3, '0') + " files"), React.createElement("span", { onClick: cycleSort, style: { cursor: 'pointer', userSelect: 'none' } }, "sort: ", React.createElement("span", { style: { color: 'var(--wt-accent)' } }, SORT_MODES[sortIdx].toLowerCase()), React.createElement("span", { style: { color: WT2.faint, marginLeft: 5 } }, "\u2195"))) : React.createElement(React.Fragment, null, React.createElement("span", { className: "wt-statusbar-path", style: { color: WT2.faint } }, "~/weebtrax/"), React.createElement("span", { className: "wt-statusbar-path", style: { color: 'var(--wt-accent)' } }, "transmissions/"), " \xA0 " + String(filtered.length).padStart(3, '0') + " files \xA0\xA0", React.createElement("span", { onClick: cycleSort, style: { cursor: 'pointer', userSelect: 'none' } }, "sort: ", React.createElement("span", { style: { color: 'var(--wt-accent)' } }, SORT_MODES[sortIdx].toLowerCase()), React.createElement("span", { style: { color: WT2.faint, marginLeft: 5 } }, "\u2195"))))) , /*#__PURE__*/React.createElement("div", {
     className: "wt-mood-chips",
     style: { display: 'flex', justifyContent: 'flex-end', alignItems: 'center', gap: 5, flexWrap: 'wrap', marginBottom: 10 }
   }, /*#__PURE__*/React.createElement("span", {
