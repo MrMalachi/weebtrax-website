@@ -62,6 +62,7 @@ function Rail() {
     });
   }
   return /*#__PURE__*/React.createElement("aside", {
+    className: 'wt-rail',
     style: {
       position: 'fixed',
       left: 0,
@@ -1028,6 +1029,7 @@ function SceneCard({
   const [hov, setHov] = React.useState(false);
   const active = selected || hov;
   return /*#__PURE__*/React.createElement("div", {
+    className: 'wt-scene-card',
     onClick: onSelect,
     onMouseEnter: () => setHov(true),
     onMouseLeave: () => setHov(false),
@@ -1049,6 +1051,7 @@ function SceneCard({
     len: 10,
     color: "var(--wt-accent)"
   }), /*#__PURE__*/React.createElement("div", {
+    className: 'wt-scene-thumb',
     style: {
       aspectRatio: '16/9',
       background: WT2.fill,
@@ -1113,6 +1116,7 @@ function SceneCard({
   }, name), /*#__PURE__*/React.createElement(Tag, {
     color: active ? 'var(--wt-accent)' : WT2.faint
   }, tag)), /*#__PURE__*/React.createElement("p", {
+    className: 'wt-scene-desc',
     style: {
       margin: 0,
       fontFamily: WT2.mono,
@@ -1127,8 +1131,9 @@ function SceneGrid() {
   const [selected, setSelected] = React.useState(null);
   const [page, setPage] = React.useState(0);
   const [epFilter, setEpFilter] = React.useState(null);
+  const touchXRef = React.useRef(null);
   const winW = useWinW();
-  const SCENES_PER_PAGE = winW < 600 ? 2 : 4;
+  const SCENES_PER_PAGE = 4;
   const SCENES = (window.__WT_SCENES || []).map(function(s) {
     return {
       id: s.id,
@@ -1171,8 +1176,10 @@ function SceneGrid() {
     setSelected(null);
   }
   return /*#__PURE__*/React.createElement("div", null,
+  /*#__PURE__*/React.createElement("div", { className: 'wt-ep-scroll-wrap', style: { position: 'relative', marginBottom: 20 } },
   /*#__PURE__*/React.createElement("div", {
-    style: { display: 'flex', alignItems: 'center', gap: 6, flexWrap: 'nowrap', overflowX: 'auto', marginBottom: 20, paddingBottom: 4 }
+    className: 'wt-ep-scroll',
+    style: { display: 'flex', alignItems: 'center', gap: 6, flexWrap: 'nowrap', overflowX: 'auto', paddingBottom: 4, paddingRight: 40 }
   }, /*#__PURE__*/React.createElement("span", {
     style: { fontFamily: WT2.mono, fontSize: winW >= 1200 ? 11 : 10, color: WT2.faint, letterSpacing: 1.5, marginRight: 2 }
   }, "EP:"), ['all'].concat(episodes).map(function(ep) {
@@ -1193,7 +1200,7 @@ function SceneGrid() {
         transition: 'all .12s'
       }
     }, isAll ? 'ALL' : 'EP ' + String(ep).padStart(2, '0'));
-  })), /*#__PURE__*/React.createElement("div", {
+  })), /*#__PURE__*/React.createElement("div", { className: 'wt-ep-fade-hint' })), /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'flex',
       justifyContent: 'flex-end',
@@ -1210,7 +1217,16 @@ function SceneGrid() {
       textShadow: sel ? '0 0 8px var(--wt-accent)' : 'none'
     }
   }, sel ? 'SELECTED SIGNAL: ' + sel.name.toUpperCase() : 'SELECT A SIGNAL ↓')), /*#__PURE__*/React.createElement("div", {
-    className: 'wt-scene-grid'
+    className: 'wt-scene-grid',
+    onTouchStart: function(e) { touchXRef.current = e.touches[0].clientX; },
+    onTouchEnd: function(e) {
+      if (touchXRef.current === null) return;
+      var dx = e.changedTouches[0].clientX - touchXRef.current;
+      touchXRef.current = null;
+      if (Math.abs(dx) < 50) return;
+      if (dx < 0 && page < totalPages - 1) goPage(page + 1);
+      else if (dx > 0 && page > 0) goPage(page - 1);
+    }
   }, visible.map(s => /*#__PURE__*/React.createElement(SceneCard, {
     key: s.id,
     name: s.name,
@@ -1306,9 +1322,104 @@ function Features() {
     }
   }, "Choose a visual scene to pair with the current mix.")), /*#__PURE__*/React.createElement(SceneGrid, null));
 }
+function MobileNav() {
+  var _nav = ['HOME', 'ARCHIVE', 'SCENES', 'SUBMIT', 'ABOUT'];
+  var _state = React.useState(0);
+  var active = _state[0];
+  var setActive = _state[1];
+
+  React.useEffect(function() {
+    function onScroll() {
+      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) {
+        setActive(RAIL_SECTIONS.length - 1);
+        return;
+      }
+      var vpCenter = window.scrollY + window.innerHeight / 2;
+      var best = 0;
+      var bestDist = Infinity;
+      RAIL_SECTIONS.forEach(function(id, i) {
+        var el = document.getElementById(id);
+        if (!el) return;
+        var elCenter = el.offsetTop + el.offsetHeight / 2;
+        var dist = Math.abs(elCenter - vpCenter);
+        if (dist < bestDist) { bestDist = dist; best = i; }
+      });
+      setActive(best);
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    return function() { window.removeEventListener('scroll', onScroll); };
+  }, []);
+
+  function navScrollTo(i) {
+    setActive(i);
+    var el = document.getElementById(RAIL_SECTIONS[i]);
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  return React.createElement('nav', {
+    className: 'wt-mobile-nav',
+    style: {
+      position: 'fixed',
+      bottom: 34,
+      left: 0, right: 0,
+      zIndex: 199,
+      background: 'rgba(7,8,9,0.96)',
+      borderTop: '1px solid ' + WT2.line,
+      backdropFilter: 'blur(8px)',
+      WebkitBackdropFilter: 'blur(8px)',
+      display: 'flex',
+      height: 48,
+    }
+  }, _nav.map(function(label, i) {
+    var isActive = i === active;
+    return React.createElement('button', {
+      key: label,
+      onClick: function() { navScrollTo(i); },
+      style: {
+        flex: 1,
+        background: 'none',
+        border: 'none',
+        boxShadow: isActive ? 'inset 0 2px 0 var(--wt-accent)' : 'none',
+        cursor: 'pointer',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        gap: 4,
+        padding: '6px 0',
+        WebkitTapHighlightColor: 'transparent',
+        transition: 'box-shadow .15s',
+      }
+    },
+      React.createElement('span', {
+        style: {
+          width: 5, height: 5, borderRadius: 3,
+          background: isActive ? 'var(--wt-accent)' : WT2.faint,
+          boxShadow: isActive ? '0 0 8px var(--wt-accent)' : 'none',
+          transition: 'background .15s, box-shadow .15s',
+          flexShrink: 0,
+        }
+      }),
+      React.createElement('span', {
+        style: {
+          fontFamily: WT2.mono,
+          fontSize: 8,
+          letterSpacing: 2,
+          color: isActive ? 'var(--wt-accent)' : WT2.dim,
+          textTransform: 'uppercase',
+          textShadow: isActive ? '0 0 8px var(--wt-accent)' : 'none',
+          transition: 'color .15s, text-shadow .15s',
+        }
+      }, label)
+    );
+  }));
+}
+
 Object.assign(window, {
   useWinW,
   Rail,
+  MobileNav,
   Hero,
   Features,
   SeekBar,

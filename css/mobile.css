@@ -9,8 +9,20 @@ html, body {
   touch-action: manipulation;
 }
 
-/* Push page content above the fixed broadcast bar (34px + breathing room) */
-body { padding-bottom: 56px !important; }
+/* Push page content above the bottom nav (48px) + broadcast bar (34px) */
+body { padding-bottom: 96px !important; }
+
+/* Hide desktop left rail on mobile */
+.wt-rail { display: none !important; }
+
+/* Remove left margin since rail is hidden */
+main { margin-left: 0 !important; }
+
+/* Broadcast bar: full width on mobile (no rail offset) */
+.wt-broadcast-bar { left: 0 !important; }
+
+/* Show bottom nav bar on mobile */
+.wt-mobile-nav { display: flex !important; }
 
 /* Scene grid: 2 columns on mobile */
 .wt-scene-grid {
@@ -69,3 +81,29 @@ body { padding-bottom: 56px !important; }
 .wt-hero-module  { margin-bottom: 14px !important; padding-top: 32px; }   /* MODULE → WeebTrax */
 .wt-hero-text h1 { margin: 0 0 16px !important; }     /* WeebTrax → paragraph */
 .wt-hero-text p  { margin: 0 0 20px !important; }     /* paragraph → CTA */
+
+/* Episode filter: hide scrollbar, right-edge fade hint */
+.wt-ep-scroll {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.wt-ep-scroll::-webkit-scrollbar { display: none; }
+.wt-ep-fade-hint {
+  display: block;
+  position: absolute;
+  right: 0; top: 0; bottom: 0;
+  width: 52px;
+  pointer-events: none;
+  background: linear-gradient(to right, transparent, #0a0b0e 88%);
+}
+
+/* Scene cards: compact + consistent height — hide desc, reduce padding */
+.wt-scene-card {
+  padding: 10px !important;
+}
+.wt-scene-desc {
+  display: none !important;
+}
+.wt-scene-thumb {
+  margin-bottom: 10px !important;
+}

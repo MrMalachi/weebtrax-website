@@ -70,7 +70,7 @@ function pingLabel(ms) {
   const bars = ms < 30 ? '▌▌▌▌▌' : ms < 80 ? '▌▌▌▌░' : ms < 150 ? '▌▌▌░░' : ms < 300 ? '▌▌░░░' : '▌░░░░';
   return 'WIRED ACTIVITY · ' + ms + 'ms ' + bars;
 }
-function BroadcastBar({ playing, currentTrack, elapsed, progress, railW, tickerItems }) {
+function BroadcastBar({ playing, activeTitle, currentTrack, elapsed, progress, railW, tickerItems }) {
   var tickerRef = React.useRef(null);
   var posRef = React.useRef(0);
   var rafRef = React.useRef(null);
@@ -112,7 +112,10 @@ function BroadcastBar({ playing, currentTrack, elapsed, progress, railW, tickerI
   var trackLabel = playing && currentTrack
     ? (currentTrack.artist ? currentTrack.artist + ' — ' + currentTrack.title : currentTrack.title)
     : null;
-  var allItems = trackLabel ? [trackLabel].concat(tickerItems) : tickerItems;
+  var playingItems = playing
+    ? (activeTitle ? [activeTitle] : []).concat(trackLabel ? [trackLabel] : [])
+    : [];
+  var allItems = playingItems.concat(tickerItems);
   var REPEAT = 10;
   var loopedItems = [];
   for (var _r = 0; _r < REPEAT; _r++) {
@@ -120,6 +123,7 @@ function BroadcastBar({ playing, currentTrack, elapsed, progress, railW, tickerI
   }
 
   return /*#__PURE__*/React.createElement("div", {
+    className: 'wt-broadcast-bar',
     style: {
       position: 'fixed', bottom: 0, left: railW, right: 0, zIndex: 150,
       background: WT2.sink,
@@ -477,8 +481,9 @@ function App() {
     style: {
       display: 'none'
     }
-  }), /*#__PURE__*/React.createElement(Overlays, null), /*#__PURE__*/React.createElement(Rail, null), /*#__PURE__*/React.createElement(BroadcastBar, {
+  }), /*#__PURE__*/React.createElement(Overlays, null), /*#__PURE__*/React.createElement(Rail, null), /*#__PURE__*/React.createElement(MobileNav, null), /*#__PURE__*/React.createElement(BroadcastBar, {
     playing: playing,
+    activeTitle: activeTx.title,
     currentTrack: currentTrack,
     elapsed: elapsed,
     progress: displayProgress,

@@ -1648,3 +1648,9 @@
 }
 
 
+
+/* Mobile bottom nav — hidden on desktop, shown via mobile.css */
+.wt-mobile-nav { display: none; }
+
+/* Episode scroll fade hint — hidden on desktop, shown via mobile.css */
+.wt-ep-fade-hint { display: none; }
