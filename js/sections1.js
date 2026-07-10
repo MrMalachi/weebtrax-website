@@ -616,10 +616,7 @@ function Hero({
     kind: "primary",
     onClick: () => {
       const el = document.getElementById('wt-archive');
-      if (el) window.scrollTo({
-        top: el.offsetTop,
-        behavior: 'smooth'
-      });
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   }, "\u25B8 Listen to the Latest Mix"), /*#__PURE__*/React.createElement(Btn, {
     onClick: () => {

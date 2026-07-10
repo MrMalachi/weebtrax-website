@@ -410,6 +410,7 @@ function ActiveRow({
       gap: 5
     }
   }, /*#__PURE__*/React.createElement("div", {
+    className: "wt-archive-osc-row",
     style: {
       display: 'flex',
       alignItems: 'stretch',

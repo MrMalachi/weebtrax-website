@@ -9,6 +9,9 @@ html, body {
   touch-action: manipulation;
 }
 
+/* Push page content above the fixed broadcast bar (34px + breathing room) */
+body { padding-bottom: 56px !important; }
+
 /* Scene grid: 2 columns on mobile */
 .wt-scene-grid {
   grid-template-columns: repeat(2, 1fr) !important;
@@ -22,6 +25,9 @@ html, body {
 /* Centre buttons and CTAs */
 .wt-hero-cta { justify-content: center !important; }
 .wt-btn { text-align: center; }
+
+/* Hide archive player oscilloscope on mobile — saves ~80px so full card fits in viewport */
+.wt-archive-osc-row { display: none !important; }
 
 /* Archive status bar: allow wrapping so sort doesn't fall off-screen */
 .wt-archive-statusbar {
