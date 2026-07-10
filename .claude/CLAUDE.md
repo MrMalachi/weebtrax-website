@@ -171,8 +171,24 @@ Mobile has a working bottom nav bar and several archive/player polish passes. Co
 - [x] PREV/NEXT + ← → instant press feedback via CSS :active
 
 **Still to do:**
+
+*Archive*
 - [ ] Archive table mid-width breakpoint — 5-column layout is cramped on tablets (~600–900px)
+- [ ] Previous track button — auto-advance goes forward only, no way to go back
+- [ ] Shuffle mode — random track selection
+- [ ] Show tracklist in the active player card (data exists for 92/94 mixes)
+
+*Scenes / fullscreen*
+- [ ] Fullscreen video: header bar and control bar eat screen real estate on tall phones, leaving a large letterboxed area — consider auto-hiding controls after a few seconds (native video player behaviour)
 - [ ] Scene cards feel small on large mobile screens (thumbnail fixed height)
+- [ ] "SELECTED SIGNAL: ..." label above the scene grid doesn't serve much purpose on mobile since the player is right below it
+
+*Hero section*
+- [ ] After hiding the player card and tagline, the hero feels sparse on mobile — mostly just title and CTA button vs the richer desktop version
+
+*General*
+- [ ] Touch targets throughout are designed for hover (desktop) — most buttons are `padding: 5px 10px`, under Apple's 44px minimum recommended tap target
+- [ ] No landscape orientation handling — rotated phone likely looks broken
 - [ ] Overall mobile layout is still CSS overrides on desktop structure — a first-class mobile layout pass would improve spacing, typography scale, and section rhythm
 
 ### Merch / Monetization
