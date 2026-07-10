@@ -68,7 +68,6 @@ const MOOD_TONE = { chill: WT2.blue, nostalgic: WT2.purple, dirty: WT2.red, deep
 // TODO: Replace with server-side cursor pagination once PostgreSQL + FastAPI are connected (Phase 4/5).
 function TermPageBar({ page, total, onGoTo }) {
   const [hov, setHov] = React.useState(null);
-  const [pressedNav, setPressedNav] = React.useState(null);
   const winW = useWinW();
   if (total <= 1) return null;
   const isFirst = page === 0;
@@ -107,18 +106,16 @@ function TermPageBar({ page, total, onGoTo }) {
       marginTop: wide ? 36 : 28
     }
   }, /*#__PURE__*/React.createElement("button", {
-    onClick: isFirst ? undefined : function() {
-      setHov(null); setPressedNav('prev'); setTimeout(function() { setPressedNav(null); }, 200); onGoTo(page - 1);
-    },
+    onClick: isFirst ? undefined : () => { setHov(null); onGoTo(page - 1); },
     onMouseEnter: () => setHov('prev'),
     onMouseLeave: () => setHov(null),
     onBlur: () => setHov(null),
     style: {
       ...navBtn,
       border: '1px solid ' + (isFirst ? WT2.line : 'var(--wt-accent)'),
-      color: isFirst ? WT2.faint : (pressedNav === 'prev' || hov === 'prev') ? WT2.void : 'var(--wt-accent)',
-      background: !isFirst && (pressedNav === 'prev' || hov === 'prev') ? 'var(--wt-accent)' : 'none',
-      textShadow: !isFirst && !(pressedNav === 'prev' || hov === 'prev') ? '0 0 8px var(--wt-accent)' : 'none',
+      color: isFirst ? WT2.faint : hov === 'prev' ? WT2.void : 'var(--wt-accent)',
+      background: !isFirst && hov === 'prev' ? 'var(--wt-accent)' : 'none',
+      textShadow: !isFirst && hov !== 'prev' ? '0 0 8px var(--wt-accent)' : 'none',
       opacity: isFirst ? 0.3 : 1,
       cursor: isFirst ? 'default' : 'pointer',
       marginRight: wide ? 10 : 6,
@@ -160,18 +157,16 @@ function TermPageBar({ page, total, onGoTo }) {
       }
     }, String(item + 1).padStart(2, '0'));
   }), /*#__PURE__*/React.createElement("button", {
-    onClick: isLast ? undefined : function() {
-      setHov(null); setPressedNav('next'); setTimeout(function() { setPressedNav(null); }, 200); onGoTo(page + 1);
-    },
+    onClick: isLast ? undefined : () => { setHov(null); onGoTo(page + 1); },
     onMouseEnter: () => setHov('next'),
     onMouseLeave: () => setHov(null),
     onBlur: () => setHov(null),
     style: {
       ...navBtn,
       border: '1px solid ' + (isLast ? WT2.line : 'var(--wt-accent)'),
-      color: isLast ? WT2.faint : (pressedNav === 'next' || hov === 'next') ? WT2.void : 'var(--wt-accent)',
-      background: !isLast && (pressedNav === 'next' || hov === 'next') ? 'var(--wt-accent)' : 'none',
-      textShadow: !isLast && !(pressedNav === 'next' || hov === 'next') ? '0 0 8px var(--wt-accent)' : 'none',
+      color: isLast ? WT2.faint : hov === 'next' ? WT2.void : 'var(--wt-accent)',
+      background: !isLast && hov === 'next' ? 'var(--wt-accent)' : 'none',
+      textShadow: !isLast && hov !== 'next' ? '0 0 8px var(--wt-accent)' : 'none',
       opacity: isLast ? 0.3 : 1,
       cursor: isLast ? 'default' : 'pointer',
       marginLeft: wide ? 10 : 6,
