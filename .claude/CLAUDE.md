@@ -7,11 +7,12 @@
 | 1 | Local media organization | ✅ Complete |
 | 2 | JSON metadata | ✅ Complete |
 | 3 | Website reads JSON | ✅ Complete |
-| 3.5 | Countdown page (pre-launch holding page) | ✅ Live — remove before full launch |
+| 3.5 | Countdown page (pre-launch holding page) | ✅ Live |
 | 4 | Create backend / API (FastAPI) | 🟨 In progress — `backend/` scaffolded, reads from JSON |
 | 5 | Move JSON metadata into PostgreSQL | ⬜ Not started |
 | 6 | Deploy with Railway | ⬜ Not started |
 | 7 | Move large media to storage bucket (Cloudflare R2) | ⬜ Not started |
+| Pre-launch | Verification, Cloudflare config, launch procedure | ⬜ Not started |
 
 ---
 
@@ -202,27 +203,48 @@ Mobile has a working bottom nav bar and several archive/player polish passes. Co
 
 ## Phase 3.5 — Countdown page (pre-launch holding page)
 
-A static `countdown.html` is deployed on Cloudflare Pages as a holding page while the full site is being built.
+A self-contained countdown page deployed on Cloudflare Pages as a holding page while the full site is being built.
+
+### Repository structure (as of 2026-07-10)
+
+```
+countdown/                  ← Cloudflare Pages deploys ONLY this directory
+  index.html                ← countdown page (self-contained, inline CSS)
+  fonts/
+    loveletter.ttf          ← Love Letter TW font
+  images/
+    favicon-pylon.svg       ← tab favicon
+    apple-touch-icon-pylon.png
+
+production/                 ← never deployed pre-launch, lives only in git
+  index.html
+  css/
+    styles.css
+    mobile.css
+  js/
+    app.js, core.js, sections1.js, sections2.js,
+    images.js, tweaks-panel.js, react.js, react-dom.js
+  public/assets/
+    metadata/mixes.json, scenes.json
+    scenes/thumbnails/
+    images/
+    fonts/
+```
 
 ### How it works
-- **File**: `countdown.html` at the project root — self-contained single-file page with all CSS inline
-- **Routing**: `_redirects` rewrites `/` → `/countdown.html` with a 200 (rewrite, not redirect), so visitors hit the countdown without seeing the URL change
+- **Cloudflare Pages build output directory**: `countdown` — only files inside `countdown/` are deployed; `production/` is never uploaded to Cloudflare
+- **No `_redirects` needed**: `countdown/index.html` is the directory index, served automatically at `weebtrax.com/`
 - **Design**: matches the main site aesthetic — IBM Plex Mono, scan lines, `--void` background, green accent
+- **Launch target**: `2026-08-29T12:00:00` (local time) — hardcoded in `countdown/index.html` JS
 
 ### Favicons
-- **Tab favicon**: `public/assets/images/favicon-pylon.svg` — SVG of SEL-inspired power line transmission tower (#18 design). Uses `currentColor` + `prefers-color-scheme` media query: green `#8fbf9f` in dark mode, near-black `#1a1a1a` in light mode. glow filter applied to `<g>`. 3 widening cross-arms, diagonal braces, insulator circles at arm ends, drooping catenary wire curves, ground anchor. viewBox 0 0 96 96. macOS/iOS "Auto Appearance" switches this at sunrise/sunset automatically.
-- **New tab / bookmark icon**: `public/assets/images/apple-touch-icon-pylon.png` — 180×180 PNG, `#0d0d0d` background, generated from the SVG via qlmanage + Pillow.
-- **Old WT icons kept**: `favicon-wt.svg` and `apple-touch-icon-wt.png` remain in the folder but are no longer referenced.
+- **Tab favicon**: `countdown/images/favicon-pylon.svg` — SVG of SEL-inspired power line transmission tower (#18 design). Uses `currentColor` + `prefers-color-scheme` media query: green `#8fbf9f` in dark mode, near-black `#1a1a1a` in light mode. glow filter applied to `<g>`. 3 widening cross-arms, diagonal braces, insulator circles at arm ends, drooping catenary wire curves, ground anchor. viewBox 0 0 96 96. macOS/iOS "Auto Appearance" switches this at sunrise/sunset automatically.
+- **New tab / bookmark icon**: `countdown/images/apple-touch-icon-pylon.png` — 180×180 PNG, `#0d0d0d` background, generated from the SVG via qlmanage + Pillow.
 - **Regenerating icons**: render `favicon-pylon.svg` via `qlmanage -t -s 180 -o /tmp/out/ favicon-pylon.svg`, then composite onto `#0d0d0d` canvas with Pillow. Always bump the `?v=N` cache-buster in the `<link>` tags after regenerating.
 
-### To go live with the real site (cutover checklist)
-- [ ] Delete or empty `_redirects` (removing the rewrite rule exposes `index.html` as the Cloudflare Pages default)
-- [ ] Optionally delete `countdown.html` — it is no longer served after `_redirects` is removed
-- [ ] Confirm `index.html` loads correctly on the deployed URL
-- [ ] Verify audio, scenes, and JSON fetch all work in production (CORS, asset paths)
-- [ ] Consider enabling Cloudflare Web Analytics alongside Umami — Cloudflare is server-side (catches bots + ad-blocker users), Umami is JS-based (real humans only). The gap between their numbers reveals how many visitors block scripts. Not urgent pre-launch but worth reviewing once real traffic arrives.
-
-> **Do not touch `_redirects` until the full site is ready to go live.** Removing it immediately exposes `index.html` to all traffic.
+### Git branches
+- `main` — contains both `countdown/` and `production/`; Cloudflare deploys from `countdown/` via build output directory setting
+- `launch` — snapshot of the full production site at the old root structure (pre-restructure); kept as reference
 
 ---
 
@@ -233,7 +255,7 @@ Umami is live on both pages. No consent popup is required — Umami is cookieles
 ### Setup
 - **Instance**: self-hosted on Railway at `https://umami-production-3b7d.up.railway.app`
 - **Script**: `<script defer src="https://umami-production-3b7d.up.railway.app/script.js" data-website-id="b3e9a766-c21b-4acb-8b35-bf120b3f2aef"></script>`
-- **Pages tracked**: `countdown.html` (lines 291–292) and `index.html` (lines 10–11)
+- **Pages tracked**: `countdown/index.html` and `production/index.html`
 - Both pages use the same `data-website-id`
 
 ---
@@ -288,3 +310,169 @@ JSON fields become table columns. DB stores metadata + file paths only (not file
 ## Phase 7 — Media storage bucket (if needed)
 
 Move large files from repo to Cloudflare R2. DB paths change from `/assets/...` to `https://media.weebtrax.com/...`.
+
+---
+
+---
+
+# Pre-Launch Steps
+
+Complete these steps in order immediately before going live. All development phases (1–7) should be finished before starting here.
+
+---
+
+## Step 1 — Pre-Launch Verification Checklist
+
+### Countdown Website Verification
+
+Confirm the countdown website:
+- Loads correctly at `https://weebtrax.com` (no `/countdown` in the URL)
+- Loads correctly on desktop browsers, mobile browsers, and different screen sizes
+
+Verify:
+- [ ] Custom fonts load correctly
+- [ ] Favicon loads correctly
+- [ ] Images/assets load correctly
+- [ ] Countdown timer functions correctly
+- [ ] No JavaScript errors in the browser console
+- [ ] No broken links
+
+### Production Website Verification (Without Deploying)
+
+Before launch, test the official website privately (locally or via private preview deployment). Do not expose it publicly before launch.
+
+- [ ] Homepage loads correctly
+- [ ] All navigation links work
+- [ ] Images load
+- [ ] CSS styles load
+- [ ] JavaScript functions correctly
+- [ ] Mobile responsiveness works
+- [ ] Browser console contains no errors
+- [ ] Audio files play correctly
+- [ ] Scene videos play correctly
+- [ ] JSON metadata loads (mixes, scenes)
+
+### Security Verification
+
+- [ ] Production files are not deployed to Cloudflare Pages
+- [ ] `weebtrax.com/index.html` does not reveal the production website
+- [ ] Production JavaScript files cannot be accessed
+- [ ] Production images cannot be accessed
+- [ ] Production JSON files cannot be accessed
+- [ ] No API keys, tokens, or secrets exist in frontend files
+- [ ] Cloudflare Pages build output directory is set to `countdown`
+
+The only publicly available files should be:
+```
+countdown/
+  index.html
+  fonts/loveletter.ttf
+  images/favicon-pylon.svg
+  images/apple-touch-icon-pylon.png
+```
+
+### SEO / Indexing Verification
+
+- [ ] Confirm the countdown page includes `<meta name="robots" content="noindex, nofollow">`
+- [ ] Confirm no production pages are indexed — check `site:weebtrax.com`
+- [ ] Remove any outdated indexed pages if necessary
+
+---
+
+## Step 2 — Final Cloudflare Pages Configuration
+
+Verify Cloudflare Pages is configured correctly for the countdown period:
+
+- **Production branch**: `main`
+- **Build output directory**: `countdown`
+- **Build command**: empty
+- No `_redirects` workarounds
+- No Cloudflare Redirect Rules active
+- No Workers rewriting requests
+
+Expected behaviour:
+```
+https://weebtrax.com → Countdown website
+```
+
+---
+
+## Step 3 — Choose the Launch Deployment Strategy
+
+### Option A — Change Build Output Directory (Current setup)
+
+Change in Cloudflare Pages settings:
+```
+countdown  →  production
+```
+
+**Advantages**: Simple, fast, no branch switching.
+**Disadvantages**: Countdown and production remain in the same branch — easier to accidentally deploy the wrong folder.
+
+### Option B — Switch Git Branch (Recommended for a brand launch)
+
+```
+main (countdown)  →  launch (production website)
+```
+
+Change the Cloudflare Pages production branch from `main` to `launch`.
+
+**Advantages**: Clean separation, isolated production code, easy rollback, less chance of accidental exposure.
+**Disadvantages**: Requires keeping the `launch` branch up to date with production development.
+
+> Recommendation: **Option A** if launching soon and `production/` is already up to date on `main`. **Option B** if you want cleaner long-term branch hygiene.
+
+---
+
+## Step 4 — Launch Day Procedure
+
+### Before switching live
+- [ ] Final production website review complete
+- [ ] All files confirmed ready
+- [ ] DNS confirmed correct
+- [ ] SSL certificate confirmed active
+
+### Launch steps
+
+**Step 4.1** — Update Cloudflare deployment:
+- Option A: Change build output directory from `countdown` to `production`
+- Option B: Change production branch from `main` to `launch`
+
+**Step 4.2** — Save settings and trigger a new deployment. Wait for status: `Success`.
+
+**Step 4.3** — Verify live website:
+- [ ] `https://weebtrax.com` loads the official homepage
+- [ ] Navigation works
+- [ ] Images load
+- [ ] Fonts load
+- [ ] JavaScript works
+- [ ] Audio plays
+- [ ] Scene videos play
+- [ ] No console errors
+- [ ] `https://weebtrax.com/index.html` loads the official website normally
+
+---
+
+## Step 5 — Post-Launch Cleanup
+
+### Remove countdown-specific items
+- [ ] Remove `<meta name="robots" content="noindex, nofollow">` from production pages and replace with normal SEO tags
+- [ ] Optionally delete or archive the `countdown/` directory from `main`
+
+### SEO launch tasks
+- [ ] Submit sitemap
+- [ ] Verify Google Search Console
+- [ ] Verify Bing Webmaster Tools
+- [ ] Confirm pages are indexed correctly
+
+### Monitoring
+After launch, monitor:
+- Cloudflare analytics
+- Umami analytics
+- Website errors and broken links
+- Failed asset requests
+- User traffic
+- Search indexing
+
+### Enable Cloudflare Web Analytics (optional)
+Cloudflare analytics are server-side (catch bots + ad-blocker users); Umami is JS-based (real humans only). The gap between their numbers reveals how many visitors block scripts.
