@@ -306,7 +306,8 @@ function SeekBar({
       paddingTop: 9,
       paddingBottom: 9,
       cursor: onSeek ? 'pointer' : 'default',
-      outline: 'none'
+      outline: 'none',
+      touchAction: 'none'
     }
   }, /*#__PURE__*/React.createElement("div", {
     ref: trackRef,
