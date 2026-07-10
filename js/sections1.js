@@ -1142,7 +1142,7 @@ function SceneCard({
   }, desc));
 }
 function SceneGrid() {
-  const SCENES_PER_PAGE = 6;
+  const SCENES_PER_PAGE = 4;
   const [selected, setSelected] = React.useState(null);
   const [page, setPage] = React.useState(0);
   const [epFilter, setEpFilter] = React.useState(null);
