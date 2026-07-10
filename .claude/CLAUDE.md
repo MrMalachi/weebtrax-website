@@ -86,7 +86,7 @@ Generates: archive rows, scene cards, thumbnails, play buttons, YT/SC links, moo
 - Mood→accent color mapping: `chill→blue`, `nostalgic→purple`, `dirty→red`, `deep→green`
 - Serve with: `python3 -m http.server 3000` from the project root
 
-### Current features (as of 2026-06-19)
+### Current features (as of 2026-07-10)
 - **Archive**: 94 mixes, mood filter chips (right-aligned, above player), NEWEST/OLDEST/A-Z sort, 5-per-page pagination, active row player
 - **Archive status line**: shows filtered file count only (e.g. `094 files`), not a fraction
 - **Playback**: auto-advance to next track, keyboard shortcuts (Space/←/→), session restore via localStorage. Spacebar routes through `togglePlayRef` to avoid stale closure.
@@ -94,13 +94,24 @@ Generates: archive rows, scene cards, thumbnails, play buttons, YT/SC links, moo
 - **Waveform**: Web Audio API AnalyserNode (`window.__WT_ANALYSER`) drives both oscilloscopes reactively; `window.__WT_ANALYSER` set on first play
 - **Broadcast bar**: in `js/app.js` (`BroadcastBar` component, ~line 73) — NOT the `Ticker` component in `core.js` (that is dead/unused code). Separator is `·` (middle dot `\xB7`), rendered as a separate span at `fontSize: 15` inside a `loopedItems` array. Items and separators rendered as React elements (not a joined string) to allow independent sizing.
 - **Scenes**: 48 scenes, episode filter (EP 01–13, no EP 09 footage), 6-per-page pagination; grid uses `repeat(auto-fill, minmax(300px, 1fr))` for responsive card sizing
-- **Scene player** (`SignalFeed`): Wired/Navi aesthetic — `WIRED://NODE.227` header, click-to-toggle video, flash icon, fullscreen mode (scroll-locked), mobile responsive (<600px); corner labels (`NODE.227`, `EP.XX`, timecode) offset `22/26px` from edges for breathing room from `FrameTicks` brackets
+- **Scene player** (`SignalFeed`): Wired/Navi aesthetic — `WIRED://NODE.227` header, click-to-toggle video, flash icon, fullscreen mode (scroll-locked), mobile responsive (<600px); corner labels (`NODE.227`, `EP.XX`, timecode) offset `22/26px` from edges for breathing room from `FrameTicks` brackets; prev/next scene navigation with disabled state at boundaries; closing fullscreen does NOT trigger on prev/next (key prop removed from SignalFeed)
 - **Hero text bar**: repositioned to `top: 32, left/right: 36` to match video player corner offset ratio (`inset: 22` + 10/14px breathing room)
 - **Rail WT logo**: hover state — accent border glow, corner ticks expand 6→9px, WT text bloom, `// WEEBTRAX` label slides in to the right; click scrolls to top
 - **About section**: "FROM CLUB CYBERIA"; footer bar reads "LET THERE BE HOUSE" (was "STATUS: ONLINE"); subtitle "Producers — transmit your signal into The Wired"
 - **Visibility**: `WT2` text opacity raised — `body` 0.72→0.86, `dim` 0.5→0.64, `faint` 0.3→0.44; `line` 0.14→0.20, `line2` 0.28→0.38
 - **Error boundary**: wraps `<App>`, crashes show a readable message instead of blank screen
 - **Deleted**: `js/utils.js`, `js/main.js`, `src/` directories, dead `FeatureModule` component
+
+#### Mobile-specific features (`css/mobile.css`, loaded only at ≤599px)
+- **Bottom nav bar** (`MobileNav` in `sections1.js`): fixed 5-tab bar — Home / Archive / Scenes / Submit / About; accent dot on active section; smooth scroll via `window.scrollTo({ top: el.offsetTop })`
+- **Oscilloscope**: compact height (60px vs 110px desktop), strokeWidth 2.5; VolBar hidden
+- **Mood chips**: horizontal scroll strip, no wrapping, hidden scrollbar, larger tap targets
+- **Archive status bar**: flex row — `094 files` pinned left, `sort: newest ↕` pinned right; path spans hidden
+- **Active player**: metadata line (`TX-id · slug · date`) hidden; track title splits on `|` with `pre-line` whitespace — text after pipe moves to new line, pipe stays
+- **Seekbar**: visual-drag pattern — local position state during drag, `audio.currentTime` only written on pointerdown + pointerup; `touchAction: 'none'` prevents browser scroll stealing
+- **SignalFeed bottom bar**: red `×` close (left) + green `⊞/⊟` expand toggle (right) replace the old single close button
+- **PREV/NEXT + ← → buttons**: `wt-page-btn` class; CSS `:active` gives instant subtle press feedback (opacity 0.55, faint green bg); no JS state, no transition lag
+- **Kenburns** animation disabled; hero player card hidden; hero section auto-height
 
 ### Checklist
 - [x] Unbundle app into plain separate JS/CSS files
@@ -124,7 +135,7 @@ Generates: archive rows, scene cards, thumbnails, play buttons, YT/SC links, moo
 - [ ] Show tracklist in the active player card (data exists for 92/94 mixes, currently only shown in ticker)
 
 ### Scenes
-- [ ] Prev/next scene navigation within the video player (currently must close and pick from grid)
+- [x] Prev/next scene navigation within the video player — ← → buttons with disabled state at boundaries; fullscreen stays open on nav
 - [ ] Scene card thumbnails are a fixed 100px height — feel small on large screens
 
 ### Archive
@@ -144,20 +155,25 @@ Generates: archive rows, scene cards, thumbnails, play buttons, YT/SC links, moo
 ### Footer / About
 - [ ] "About" section has placeholder branding text — add short bio, release schedule, social links context
 
-### Mobile (needs significant further work)
+### Mobile
 
-Current mobile state is CSS overrides on top of the desktop layout — functional but not purpose-built. The biggest open item is **navigation**: the desktop rail (left-side scroll dots + WT logo) is invisible/unusable on mobile, leaving no way to jump between sections.
+Mobile has a working bottom nav bar and several archive/player polish passes. Core UX is functional; remaining work is refinement and layout.
 
-Three options considered (2026-07-10):
+**Done:**
+- [x] Fixed bottom nav bar (Home / Archive / Scenes / Submit / About), accent dot on active section
+- [x] Compact oscilloscope (60px, strokeWidth 2.5), VolBar hidden
+- [x] Mood chips horizontal scroll strip
+- [x] Archive status bar: flex row (file count left, sort right)
+- [x] Active player metadata line hidden
+- [x] Track title pipe `|` → line break (text after pipe moves to new line)
+- [x] Seekbar visual-drag pattern (no stuck drag on touch)
+- [x] SignalFeed bottom bar: red × close + green ⊞/⊟ expand
+- [x] PREV/NEXT + ← → instant press feedback via CSS :active
 
-1. **Hamburger menu** — universal pattern, users expect it. Risk of feeling generic, but can be styled to match the Wired/Navi aesthetic: monospace label, accent glow on open, slide-in panel with IBM Plex Mono + scan-line treatment.
-2. **Fixed bottom nav bar** ⭐ *preferred* — 4 tabs pinned to the bottom (Home, Archive, Scenes, About). Thumb-friendly, sits naturally above the broadcast bar, and can be styled heavily enough to feel like part of the terminal aesthetic rather than a generic mobile component. Fewer taps than a hamburger to reach any section.
-3. **Enlarged rail dots** — make existing scroll-position dots bigger and tap-friendly. Most consistent with desktop, lowest effort, but no section labels so discoverability is poor.
-
-When resuming mobile work, treat it as a purpose-built redesign (new layout pass), not more CSS patches.
-
-- [ ] Implement fixed bottom nav bar for mobile (Home / Archive / Scenes / About tabs, styled to Wired aesthetic)
-- [ ] Revisit overall mobile layout as a first-class design pass, not overrides
+**Still to do:**
+- [ ] Archive table mid-width breakpoint — 5-column layout is cramped on tablets (~600–900px)
+- [ ] Scene cards feel small on large mobile screens (thumbnail fixed height)
+- [ ] Overall mobile layout is still CSS overrides on desktop structure — a first-class mobile layout pass would improve spacing, typography scale, and section rhythm
 
 ### Merch / Monetization
 - [ ] Set up merch store (Printful/Printify print-on-demand) — can launch as sole proprietor, doesn't require the LLC or 50k-subscriber label milestone
