@@ -85,7 +85,7 @@ Generates: archive rows, scene cards, thumbnails, play buttons, YT/SC links, moo
 - `sections2.js` — `getMixes()` transforms `window.__WT_MIXES` entries; all 94 mixes render with mood filter, sort, and pagination
 - `sections1.js` — `SceneGrid` renders all 48 scenes with episode filter, scene player, and pagination
 - Mood→accent color mapping: `chill→blue`, `nostalgic→purple`, `dirty→red`, `deep→green`
-- Serve with: `python3 -m http.server 3000` from the project root
+- Serve with: `cd production && python3 -m http.server 3000` (site now lives under `production/`, not the repo root — serving from the wrong directory causes `/public/assets/metadata/*.json` 404s and a BOOT FAILURE screen)
 
 ### Current features (as of 2026-07-10)
 - **Archive**: 94 mixes, mood filter chips (right-aligned, above player), NEWEST/OLDEST/A-Z sort, 5-per-page pagination, active row player

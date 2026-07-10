@@ -1652,6 +1652,9 @@
 /* Mobile bottom nav — hidden on desktop, shown via mobile.css */
 .wt-mobile-nav { display: none; }
 
+/* Hero portrait accent — mobile only, hidden on desktop, shown via mobile.css */
+.wt-hero-portrait-mobile { display: none; }
+
 /* Episode scroll fade hint — hidden on desktop, shown via mobile.css */
 .wt-ep-fade-hint { display: none; }
 .wt-ep-fade-hint-left { display: none; }

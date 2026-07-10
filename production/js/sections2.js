@@ -428,7 +428,7 @@ function ActiveRow({
       gap: 8
     }
   }, /*#__PURE__*/React.createElement(Oscilloscope, {
-    height: mobile ? 60 : narrow ? 72 : 110,
+    height: mobile ? 84 : narrow ? 72 : 110,
     strokeWidth: mobile ? 2.5 : 2.0,
     color: "var(--wt-accent)",
     dense: 1.1,
@@ -440,7 +440,7 @@ function ActiveRow({
     onVolChange: onVolChange,
     tone: "var(--wt-accent)",
     interactive: true,
-    oscHeight: mobile ? 60 : narrow ? 72 : 110
+    oscHeight: mobile ? 84 : narrow ? 72 : 110
   })), /*#__PURE__*/React.createElement(SeekBar, {
     progress: progress,
     onSeek: onSeek,
