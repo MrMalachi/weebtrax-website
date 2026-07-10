@@ -1,0 +1,6782 @@
+[
+  {
+    "id": "mix-001",
+    "title": "Lo-Fi House Mix | Retrospect",
+    "slug": "lo-fi-house-mix-retrospect",
+    "duration": "00:45:18",
+    "releaseDate": "2020.05.15",
+    "mood": "nostalgic",
+    "views": 1892,
+    "audioPath": "public/assets/mixes/audio/lo-fi-house-mix-retrospect.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=1BuuAZeLtno",
+    "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-music-retrospect-mix",
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "artist": "DJ Boring",
+        "title": "Sunday Avenue"
+      },
+      {
+        "timeSecs": 516,
+        "artist": "Shaolin Cowboy",
+        "title": "Everything Will Be Ok"
+      },
+      {
+        "timeSecs": 834,
+        "artist": "COMPUTER DATA",
+        "title": "Healing"
+      },
+      {
+        "timeSecs": 1087,
+        "artist": "snctm. & jamesjamesjames",
+        "title": "omokage."
+      },
+      {
+        "timeSecs": 1293,
+        "artist": "Jacopo Sb",
+        "title": "Lo-Fi Tapes 01"
+      },
+      {
+        "timeSecs": 1643,
+        "artist": "Louf",
+        "title": "Lost Touch"
+      },
+      {
+        "timeSecs": 1897,
+        "artist": "Jacopo Sb",
+        "title": "Roots"
+      },
+      {
+        "timeSecs": 2337,
+        "artist": "Tv.Out",
+        "title": "Always Anyways"
+      }
+    ]
+  },
+  {
+    "id": "mix-002",
+    "title": "Lo-Fi House Music | Summer Sunset Mix",
+    "slug": "lo-fi-house-music-summer-sunset-mix",
+    "duration": "00:46:22",
+    "releaseDate": "2020.07.17",
+    "mood": "chill",
+    "views": 13676,
+    "audioPath": "public/assets/mixes/audio/lo-fi-house-music-summer-sunset-mix.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=1G56f7ziIQw",
+    "soundcloudUrl": null,
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "artist": "COMPUTER DATA",
+        "title": "Healintro"
+      },
+      {
+        "timeSecs": 249,
+        "artist": "Grant",
+        "title": "Mainstream Belief"
+      },
+      {
+        "timeSecs": 496,
+        "artist": "Tom Vernon",
+        "title": "Healing Process"
+      },
+      {
+        "timeSecs": 726,
+        "artist": "RealSense",
+        "title": "Make Me Float (RealSense Remix)"
+      },
+      {
+        "timeSecs": 951,
+        "artist": "COMPUTER DATA",
+        "title": "Selbstbesinnungen"
+      },
+      {
+        "timeSecs": 1120,
+        "artist": "Vivra Verra",
+        "title": "Mobius"
+      },
+      {
+        "timeSecs": 1519,
+        "artist": "Helter",
+        "title": "Super Unison"
+      },
+      {
+        "timeSecs": 1749,
+        "artist": "Palms Trax",
+        "title": "Sumo Acid Crew"
+      },
+      {
+        "timeSecs": 2087,
+        "artist": "Steve Hammer",
+        "title": "Unconditional (Paul Rudder Remix)"
+      },
+      {
+        "timeSecs": 2395,
+        "artist": "2XM",
+        "title": "Sukin"
+      }
+    ]
+  },
+  {
+    "id": "mix-003",
+    "title": "Lo-Fi House Music | Summer Nights Mix",
+    "slug": "lo-fi-house-music-summer-nights-mix",
+    "duration": "00:55:18",
+    "releaseDate": "2020.07.24",
+    "mood": "chill",
+    "views": 6370,
+    "audioPath": "public/assets/mixes/audio/lo-fi-house-music-summer-nights-mix.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=hFMOEoDpoTQ",
+    "soundcloudUrl": null,
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "artist": "Marquis Hawkes",
+        "title": "Tunnel"
+      },
+      {
+        "timeSecs": 371,
+        "artist": "Baltra",
+        "title": "Angel"
+      },
+      {
+        "timeSecs": 698,
+        "artist": "COMPUTER DATA",
+        "title": "Traumfolge"
+      },
+      {
+        "timeSecs": 939,
+        "artist": "TRP",
+        "title": "Raindrop Shape"
+      },
+      {
+        "timeSecs": 1347,
+        "artist": "Jacopo Sb",
+        "title": "Lo-Fi Tapes 02"
+      },
+      {
+        "timeSecs": 1747,
+        "artist": "Route 8",
+        "title": "Relaxed"
+      },
+      {
+        "timeSecs": 2114,
+        "artist": "Tom Vernon",
+        "title": "This Moment (I Feel)"
+      },
+      {
+        "timeSecs": 2454,
+        "artist": "RealSense",
+        "title": "Valentina’s Ride"
+      },
+      {
+        "timeSecs": 2720,
+        "artist": "Palms Trax",
+        "title": "Heron"
+      },
+      {
+        "timeSecs": 2974,
+        "artist": "Mr. Sosa",
+        "title": "Feel the Love"
+      }
+    ]
+  },
+  {
+    "id": "mix-004",
+    "title": "Lo-Fi House Music | Against The Grain Mix",
+    "slug": "lo-fi-house-music-against-the-grain-mix",
+    "duration": "00:39:50",
+    "releaseDate": "2020.07.31",
+    "mood": "chill",
+    "views": 3593,
+    "audioPath": "public/assets/mixes/audio/lo-fi-house-music-against-the-grain-mix.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=3gA8fU5Fcaw",
+    "soundcloudUrl": null,
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "artist": "Baltra",
+        "title": "Make It Right"
+      },
+      {
+        "timeSecs": 139,
+        "artist": "박혜진 Park Hye Jin",
+        "title": "Like This"
+      },
+      {
+        "timeSecs": 371,
+        "artist": "GLANSLIN",
+        "title": "Her Smile"
+      },
+      {
+        "timeSecs": 573,
+        "artist": "COMPUTER DATA",
+        "title": "Elektronisch"
+      },
+      {
+        "timeSecs": 967,
+        "artist": "Tom Vernon",
+        "title": "Amber Fade"
+      },
+      {
+        "timeSecs": 1246,
+        "artist": "TRP",
+        "title": "M7"
+      },
+      {
+        "timeSecs": 1370,
+        "artist": "Jacopo Sb",
+        "title": "A1"
+      },
+      {
+        "timeSecs": 1680,
+        "artist": "TRP",
+        "title": "The Future"
+      },
+      {
+        "timeSecs": 1951,
+        "artist": "Palms Trax",
+        "title": "Equation"
+      }
+    ]
+  },
+  {
+    "id": "mix-005",
+    "title": "Lo-Fi House Music | Sentimental Sunsets Mix",
+    "slug": "lo-fi-house-music-sentimental-sunsets-mix",
+    "duration": "00:53:32",
+    "releaseDate": "2020.08.07",
+    "mood": "nostalgic",
+    "views": 3908,
+    "audioPath": "public/assets/mixes/audio/lo-fi-house-music-sentimental-sunsets-mix.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=GqmPdYAxIm0",
+    "soundcloudUrl": null,
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "artist": "Jacopo Sb",
+        "title": "Last Romantics"
+      },
+      {
+        "timeSecs": 406,
+        "artist": "Helter",
+        "title": "Designer Wool"
+      },
+      {
+        "timeSecs": 687,
+        "artist": "Earth Trax",
+        "title": "I’m Not Afraid (COMPUTER DATA Remix)"
+      },
+      {
+        "timeSecs": 983,
+        "artist": "Baltra",
+        "title": "Untitled (A)"
+      },
+      {
+        "timeSecs": 1311,
+        "artist": "Nørus",
+        "title": "Untitled B"
+      },
+      {
+        "timeSecs": 1608,
+        "artist": "COMPUTER DATA",
+        "title": "Alles"
+      },
+      {
+        "timeSecs": 1998,
+        "artist": "Good Luck",
+        "title": "4 Ever"
+      },
+      {
+        "timeSecs": 2185,
+        "artist": "TRP",
+        "title": "Highjacked"
+      },
+      {
+        "timeSecs": 2529,
+        "artist": "Jakintosh",
+        "title": "Métamorphose"
+      },
+      {
+        "timeSecs": 2762,
+        "artist": "Route 8",
+        "title": "This Raw Feeling"
+      }
+    ]
+  },
+  {
+    "id": "mix-006",
+    "title": "Lo-Fi House Music | Final Days Of Summer Mix",
+    "slug": "lo-fi-house-music-final-days-of-summer-mix",
+    "duration": "00:43:00",
+    "releaseDate": "2020.08.14",
+    "mood": "chill",
+    "views": 8125,
+    "audioPath": "public/assets/mixes/audio/lo-fi-house-music-final-days-of-summer-mix.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=0Ha8urdCt6c",
+    "soundcloudUrl": null,
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "artist": "Vivra Verra",
+        "title": "Stay, You Breath in Colour"
+      },
+      {
+        "timeSecs": 367,
+        "artist": "COMPUTER DATA",
+        "title": "Baum"
+      },
+      {
+        "timeSecs": 628,
+        "artist": "Bob Citrus & Rico Tubbs",
+        "title": "Lovely (Kira Blush Remix)"
+      },
+      {
+        "timeSecs": 874,
+        "artist": "DJ Boring & Baltra",
+        "title": "I Know You Want To (Baltra Remix)"
+      },
+      {
+        "timeSecs": 1189,
+        "artist": "Ross from Friends",
+        "title": "Romeo, Romeo"
+      },
+      {
+        "timeSecs": 1572,
+        "artist": "DJ .wav",
+        "title": "Unfolding"
+      },
+      {
+        "timeSecs": 1864,
+        "artist": "DJ Hoshino",
+        "title": "Don’t Make Me Wait (Instrumental)"
+      },
+      {
+        "timeSecs": 2314,
+        "artist": "박혜진 Park Hye Jin",
+        "title": "I Don’t Care"
+      }
+    ]
+  },
+  {
+    "id": "mix-007",
+    "title": "Lo-Fi House Music | Back2Back Mix",
+    "slug": "lo-fi-house-music-back2back-mix",
+    "duration": "00:41:38",
+    "releaseDate": "2020.08.21",
+    "mood": "dirty",
+    "views": 4224,
+    "audioPath": "public/assets/mixes/audio/lo-fi-house-music-back2back-mix.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=kV1L6XJalU8",
+    "soundcloudUrl": null,
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "artist": "Jacopo Sb",
+        "title": "Jv1080 Lover"
+      },
+      {
+        "timeSecs": 409,
+        "artist": "Jacopo Sb",
+        "title": "Cloudy Sky"
+      },
+      {
+        "timeSecs": 708,
+        "artist": "DJ Hoshino",
+        "title": "Didn’t Get To Say Goodbye"
+      },
+      {
+        "timeSecs": 1074,
+        "artist": "DJ Hoshino",
+        "title": "She Told Me To Be Patient (Instrumental)"
+      },
+      {
+        "timeSecs": 1389,
+        "artist": "DJ .wav",
+        "title": "Aqua-Line"
+      },
+      {
+        "timeSecs": 1704,
+        "artist": "DJ .wav",
+        "title": "Eva"
+      },
+      {
+        "timeSecs": 2129,
+        "artist": "Baltra",
+        "title": "Ahead of Time"
+      },
+      {
+        "timeSecs": 2255,
+        "artist": "Baltra & 박혜진 Park Hye Jin",
+        "title": "Ahead of Time (Edit)"
+      }
+    ]
+  },
+  {
+    "id": "mix-008",
+    "title": "Lo-Fi House Music | Tokyo Midnight Drive Mix (Wicked City)",
+    "slug": "lo-fi-house-music-tokyo-midnight-drive-mix-wicked-city",
+    "duration": "00:49:16",
+    "releaseDate": "2020.08.28",
+    "mood": "deep",
+    "views": 29679,
+    "audioPath": "public/assets/mixes/audio/lo-fi-house-music-tokyo-midnight-drive-mix-wicked-city.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=W96EDPbkxjI",
+    "soundcloudUrl": null,
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "artist": "Subjoi",
+        "title": "When You Love Me"
+      },
+      {
+        "timeSecs": 306,
+        "artist": "DJ Different",
+        "title": "Without Her"
+      },
+      {
+        "timeSecs": 621,
+        "artist": "Chaos In The CBD",
+        "title": "Midnight in Peckham"
+      },
+      {
+        "timeSecs": 972,
+        "artist": "Jacopo Sb",
+        "title": "L’Ego"
+      },
+      {
+        "timeSecs": 1293,
+        "artist": "Joaz",
+        "title": "Through the Night"
+      },
+      {
+        "timeSecs": 1581,
+        "artist": "Tilman",
+        "title": "Just a Motion Away"
+      },
+      {
+        "timeSecs": 1885,
+        "artist": "Gloved Hands",
+        "title": "Say Things"
+      },
+      {
+        "timeSecs": 2125,
+        "artist": "kemt",
+        "title": "100 reasons"
+      },
+      {
+        "timeSecs": 2413,
+        "artist": "Nasanieru",
+        "title": "Lo-Fi Till I Die"
+      }
+    ]
+  },
+  {
+    "id": "mix-009",
+    "title": "Lo-Fi House Music | Clipping Mix",
+    "slug": "lo-fi-house-music-clipping-mix",
+    "duration": "00:42:26",
+    "releaseDate": "2020.09.04",
+    "mood": "dirty",
+    "views": 8461,
+    "audioPath": "public/assets/mixes/audio/lo-fi-house-music-clipping-mix.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=D1Czc1M_DAo",
+    "soundcloudUrl": null,
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "artist": "2XM & Quails",
+        "title": "Leave With You"
+      },
+      {
+        "timeSecs": 393,
+        "artist": "Ricky Razu",
+        "title": "Moonlight Jam"
+      },
+      {
+        "timeSecs": 645,
+        "artist": "World Above",
+        "title": "Someone New"
+      },
+      {
+        "timeSecs": 901,
+        "artist": "Jacopo Sb",
+        "title": "Wait"
+      },
+      {
+        "timeSecs": 1235,
+        "artist": "Folamour",
+        "title": "Dancing on That Rainbow in the Pony Matrix"
+      },
+      {
+        "timeSecs": 1550,
+        "artist": "WAKON",
+        "title": "Tokyo Is Dying"
+      },
+      {
+        "timeSecs": 1723,
+        "artist": "Null_user",
+        "title": "mega_city (feat. Quick Nines)"
+      },
+      {
+        "timeSecs": 1943,
+        "artist": "Monolithic",
+        "title": "Alone With You"
+      },
+      {
+        "timeSecs": 2117,
+        "artist": "Nasanieru",
+        "title": "Let’s Get Our Groove On"
+      }
+    ]
+  },
+  {
+    "id": "mix-010",
+    "title": "Lo-Fi House Music | Happy Endings Mix",
+    "slug": "lo-fi-house-music-happy-endings-mix",
+    "duration": "00:43:27",
+    "releaseDate": "2020.09.18",
+    "mood": "deep",
+    "views": 7530,
+    "audioPath": "public/assets/mixes/audio/lo-fi-house-music-happy-endings-mix.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=DgGRQCoUozc",
+    "soundcloudUrl": null,
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "artist": "Folamour",
+        "title": "Lost Between Friendly Fires"
+      },
+      {
+        "timeSecs": 434,
+        "artist": "World Above",
+        "title": "In Time"
+      },
+      {
+        "timeSecs": 630,
+        "artist": "Leon Revol",
+        "title": "Y"
+      },
+      {
+        "timeSecs": 930,
+        "artist": "DJ Houseplants",
+        "title": "I Don’t Mind"
+      },
+      {
+        "timeSecs": 1243,
+        "artist": "Space Ghost",
+        "title": "Sim City"
+      },
+      {
+        "timeSecs": 1425,
+        "artist": "deRijk",
+        "title": "Indian Summer"
+      },
+      {
+        "timeSecs": 1622,
+        "artist": "Folamour",
+        "title": "In the World of Moomin"
+      },
+      {
+        "timeSecs": 2059,
+        "artist": "DJ Houseplants",
+        "title": "Was Lost and You Found Me"
+      },
+      {
+        "timeSecs": 2303,
+        "artist": "DJ Bigspin",
+        "title": "Come Over"
+      }
+    ]
+  },
+  {
+    "id": "mix-011",
+    "title": "Lo-Fi House Music | Haunting Mix",
+    "slug": "lo-fi-house-music-haunting-mix",
+    "duration": "00:45:26",
+    "releaseDate": "2020.09.27",
+    "mood": "deep",
+    "views": 2709,
+    "audioPath": "public/assets/mixes/audio/lo-fi-house-music-haunting-mix.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=1Re1CYHR6A0",
+    "soundcloudUrl": null,
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "artist": "Fabio Monesi & Hissman",
+        "title": "Jamie"
+      },
+      {
+        "timeSecs": 409,
+        "artist": "Baltra",
+        "title": "Never Let Go (Of Me)"
+      },
+      {
+        "timeSecs": 755,
+        "artist": "Earth Trax & Newborn Jr",
+        "title": "Acid Burn"
+      },
+      {
+        "timeSecs": 1054,
+        "artist": "TRP",
+        "title": "Balance (Version 2)"
+      },
+      {
+        "timeSecs": 1290,
+        "artist": "Lake Haze",
+        "title": "Her Pale Skin Glowing on the Dancefloor"
+      },
+      {
+        "timeSecs": 1573,
+        "artist": "Raw M.T.",
+        "title": "One Last Shot"
+      },
+      {
+        "timeSecs": 1825,
+        "artist": "Interplanetary Criminal",
+        "title": "Work"
+      },
+      {
+        "timeSecs": 2093,
+        "artist": "Jesse Perez",
+        "title": "Thot"
+      },
+      {
+        "timeSecs": 2407,
+        "artist": "Fabio Monesi",
+        "title": "Chi-Town"
+      }
+    ]
+  },
+  {
+    "id": "mix-012",
+    "title": "Lo-Fi House Music | Typhoon, Taifū, 台風 Mix",
+    "slug": "lo-fi-house-music-typhoon-taif-mix",
+    "duration": "00:59:09",
+    "releaseDate": "2020.11.20",
+    "mood": "deep",
+    "views": 3782,
+    "audioPath": "public/assets/mixes/audio/lo-fi-house-music-typhoon-taif-mix.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=_fVTpIGZIfY",
+    "soundcloudUrl": null,
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "artist": "nthng",
+        "title": "A Souls Search"
+      },
+      {
+        "timeSecs": 491,
+        "artist": "Imre Kiss",
+        "title": "Love"
+      },
+      {
+        "timeSecs": 893,
+        "artist": "Steven Simpson",
+        "title": "Qaua"
+      },
+      {
+        "timeSecs": 1273,
+        "artist": "Ray Kandinski",
+        "title": "Run"
+      },
+      {
+        "timeSecs": 1621,
+        "artist": "DJ Different",
+        "title": "Cloud Dancin’"
+      },
+      {
+        "timeSecs": 2059,
+        "artist": "Gilmer Galibard",
+        "title": "Stoner’s Paradise"
+      },
+      {
+        "timeSecs": 2307,
+        "artist": "DJ Hoshino",
+        "title": "Basic Intentions"
+      },
+      {
+        "timeSecs": 2655,
+        "artist": "TRP",
+        "title": "Stash"
+      },
+      {
+        "timeSecs": 2934,
+        "artist": "Asok",
+        "title": "Virtual Light"
+      },
+      {
+        "timeSecs": 3274,
+        "artist": "Mood J",
+        "title": "Don’t Cha"
+      }
+    ]
+  },
+  {
+    "id": "mix-013",
+    "title": "Lo-Fi House Music | Clubbing Withdrawal Symptoms Mix",
+    "slug": "lo-fi-house-music-clubbing-withdrawal-symptoms-mix",
+    "duration": "00:51:52",
+    "releaseDate": "2020.11.27",
+    "mood": "deep",
+    "views": 181953,
+    "audioPath": "public/assets/mixes/audio/lo-fi-house-music-clubbing-withdrawal-symptoms-mix.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=Ev5sCVzMspQ",
+    "soundcloudUrl": null,
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "artist": "Otto Taimela",
+        "title": "Shimmer"
+      },
+      {
+        "timeSecs": 310,
+        "artist": "Daze",
+        "title": "Lips (07 Skyline Mix)"
+      },
+      {
+        "timeSecs": 689,
+        "artist": "Earth Trax & Newborn Jr",
+        "title": "Aquamarine"
+      },
+      {
+        "timeSecs": 1004,
+        "artist": "DJ Planet Express",
+        "title": "Fantasy Forever"
+      },
+      {
+        "timeSecs": 1304,
+        "artist": "Baltra",
+        "title": "16 Pads [update 26092017] v2 (FIX 4 MPC)"
+      },
+      {
+        "timeSecs": 1596,
+        "artist": "1800HaightStreet",
+        "title": "Flood"
+      },
+      {
+        "timeSecs": 1964,
+        "artist": "Steve Hammer",
+        "title": "INka"
+      },
+      {
+        "timeSecs": 2211,
+        "artist": "DJ BORING",
+        "title": "Unspoken Presence"
+      },
+      {
+        "timeSecs": 2485,
+        "artist": "Bicep",
+        "title": "Circles"
+      },
+      {
+        "timeSecs": 2869,
+        "artist": "Baccus",
+        "title": "First Time"
+      }
+    ]
+  },
+  {
+    "id": "mix-014",
+    "title": "Lo-Fi House Music | F*ck An Hour Long Mix",
+    "slug": "lo-fi-house-music-f-ck-an-hour-long-mix",
+    "duration": "00:39:57",
+    "releaseDate": "2020.12.04",
+    "mood": "dirty",
+    "views": 5029,
+    "audioPath": "public/assets/mixes/audio/lo-fi-house-music-f-ck-an-hour-long-mix.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=p-pLLBGca8A",
+    "soundcloudUrl": null,
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "artist": "Journeymann Trax",
+        "title": "Jade Tour (feat. D Tiffany)"
+      },
+      {
+        "timeSecs": 419,
+        "artist": "Route 8",
+        "title": "Withoutyou"
+      },
+      {
+        "timeSecs": 587,
+        "artist": "Space Ghost",
+        "title": "Strange Sequences (feat. Morgan)"
+      },
+      {
+        "timeSecs": 904,
+        "artist": "World Above",
+        "title": "Strong Ties"
+      },
+      {
+        "timeSecs": 1103,
+        "artist": "Lootbeg",
+        "title": "Orbital (feat. Bajazo)"
+      },
+      {
+        "timeSecs": 1305,
+        "artist": "DJ Hoshino",
+        "title": "Break Your Obsession"
+      },
+      {
+        "timeSecs": 1607,
+        "artist": "Supreems",
+        "title": "Close Your Eyes (And Feel)"
+      },
+      {
+        "timeSecs": 1895,
+        "artist": "Supreems",
+        "title": "PGesus"
+      },
+      {
+        "timeSecs": 2134,
+        "artist": "Palms Trax",
+        "title": "Late Jam"
+      }
+    ]
+  },
+  {
+    "id": "mix-015",
+    "title": "Lo-Fi House Music | The 80's Were A Vibe Mix",
+    "slug": "lo-fi-house-music-the-80s-were-a-vibe-mix",
+    "duration": "00:52:07",
+    "releaseDate": "2020.12.11",
+    "mood": "deep",
+    "views": 19681,
+    "audioPath": "public/assets/mixes/audio/lo-fi-house-music-the-80s-were-a-vibe-mix.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=6QEPBdVqTOg",
+    "soundcloudUrl": null,
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "artist": "Imre Kiss",
+        "title": "Shadow Universe"
+      },
+      {
+        "timeSecs": 349,
+        "artist": "GREETINGS",
+        "title": "Itaewon Living"
+      },
+      {
+        "timeSecs": 708,
+        "artist": "Space Ghost",
+        "title": "New World Energy (Sunset Mix)"
+      },
+      {
+        "timeSecs": 994,
+        "artist": "Khotin",
+        "title": "For U to Feel"
+      },
+      {
+        "timeSecs": 1401,
+        "artist": "Jesse Bru",
+        "title": "Spine Meld"
+      },
+      {
+        "timeSecs": 1700,
+        "artist": "Ray Kandinski",
+        "title": "Haus am Pazifik"
+      },
+      {
+        "timeSecs": 1968,
+        "artist": "DJ Hoshino",
+        "title": "You Don’t Know"
+      },
+      {
+        "timeSecs": 2341,
+        "artist": "Null_user",
+        "title": "Skyline"
+      },
+      {
+        "timeSecs": 2550,
+        "artist": "Journeymann Trax",
+        "title": "Arboreal Harp Jam (feat. Khotin)"
+      },
+      {
+        "timeSecs": 2858,
+        "artist": "1-800 GIRLS",
+        "title": "Just Cause"
+      }
+    ]
+  },
+  {
+    "id": "mix-016",
+    "title": "Lo-Fi House Music | House Is A Feeling Mix",
+    "slug": "lo-fi-house-music-house-is-a-feeling-mix",
+    "duration": "00:55:21",
+    "releaseDate": "2020.12.18",
+    "mood": "deep",
+    "views": 9515,
+    "audioPath": "public/assets/mixes/audio/lo-fi-house-music-house-is-a-feeling-mix.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=eP4kSOyWEI8",
+    "soundcloudUrl": null,
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "artist": "Baltra",
+        "title": "What I Really Meant Was"
+      },
+      {
+        "timeSecs": 276,
+        "artist": "Tape Hiss",
+        "title": "Washed Out"
+      },
+      {
+        "timeSecs": 559,
+        "artist": "DJ .wav",
+        "title": "Atmos"
+      },
+      {
+        "timeSecs": 913,
+        "artist": "GREETINGS",
+        "title": "Discovery"
+      },
+      {
+        "timeSecs": 1185,
+        "artist": "Trudge",
+        "title": "Give"
+      },
+      {
+        "timeSecs": 1547,
+        "artist": "Jadu Jadu",
+        "title": "you make my life complete"
+      },
+      {
+        "timeSecs": 1783,
+        "artist": "COMPUTER DATA",
+        "title": "Alright"
+      },
+      {
+        "timeSecs": 2289,
+        "artist": "Moox",
+        "title": "Paradise"
+      },
+      {
+        "timeSecs": 2682,
+        "artist": "Earth Trax",
+        "title": "Los Conquistadores"
+      },
+      {
+        "timeSecs": 2918,
+        "artist": "No Moon",
+        "title": "Is It Vibey Is It Yolo"
+      }
+    ]
+  },
+  {
+    "id": "mix-017",
+    "title": "Lo-Fi House Music | House Is A Feeling Mix (Alternative Ending)",
+    "slug": "lo-fi-house-music-house-is-a-feeling-mix-alternative-ending",
+    "duration": "00:46:12",
+    "releaseDate": "2021.01.15",
+    "mood": "deep",
+    "views": 2966,
+    "audioPath": "public/assets/mixes/audio/lo-fi-house-music-house-is-a-feeling-mix-alternative-ending.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=dlA8EXV_9Qc",
+    "soundcloudUrl": null,
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "artist": "Baltra",
+        "title": "What I Really Meant Was"
+      },
+      {
+        "timeSecs": 277,
+        "artist": "Tape Hiss",
+        "title": "Washed Out"
+      },
+      {
+        "timeSecs": 560,
+        "artist": "DJ .wav",
+        "title": "Atmos"
+      },
+      {
+        "timeSecs": 914,
+        "artist": "GREETINGS",
+        "title": "Discovery"
+      },
+      {
+        "timeSecs": 1185,
+        "artist": "Space Ghost",
+        "title": "New World Energy"
+      },
+      {
+        "timeSecs": 1461,
+        "artist": "Jacopo Sb",
+        "title": "Prova 1"
+      },
+      {
+        "timeSecs": 1744,
+        "artist": "Hackman",
+        "title": "Change My Life (Original)"
+      },
+      {
+        "timeSecs": 1980,
+        "artist": "Lootbeg & Bajazo",
+        "title": "Feel Free to Get in Touch"
+      },
+      {
+        "timeSecs": 2308,
+        "artist": "Adyiano",
+        "title": "Wanna Give U"
+      },
+      {
+        "timeSecs": 2582,
+        "artist": "Pray J",
+        "title": "When This Song Comes On"
+      }
+    ]
+  },
+  {
+    "id": "mix-018",
+    "title": "Lo-Fi House Music | 4 Nighttime Use Only Mix",
+    "slug": "lo-fi-house-music-4-nighttime-use-only-mix",
+    "duration": "00:50:54",
+    "releaseDate": "2021.01.29",
+    "mood": "deep",
+    "views": 6594,
+    "audioPath": "public/assets/mixes/audio/lo-fi-house-music-4-nighttime-use-only-mix.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=IKAtG6bHCMs",
+    "soundcloudUrl": null,
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "artist": "Otto Taimela",
+        "title": "Idle"
+      },
+      {
+        "timeSecs": 357,
+        "artist": "Trudge",
+        "title": "Dust"
+      },
+      {
+        "timeSecs": 708,
+        "artist": "DJ Seinfeld",
+        "title": "U Hold Me Without Touch"
+      },
+      {
+        "timeSecs": 1048,
+        "artist": "DJ Planet Express & Augustix",
+        "title": "Everywhere I Go"
+      },
+      {
+        "timeSecs": 1345,
+        "artist": "Turenne",
+        "title": "Jack-Up"
+      },
+      {
+        "timeSecs": 1508,
+        "artist": "Trudge",
+        "title": "Last Night She Left the Ground"
+      },
+      {
+        "timeSecs": 1916,
+        "artist": "Moox",
+        "title": "Fantasy"
+      },
+      {
+        "timeSecs": 2294,
+        "artist": "Ejeca",
+        "title": "Walk You Home"
+      },
+      {
+        "timeSecs": 2521,
+        "artist": "Braga Circuit",
+        "title": "Epple"
+      },
+      {
+        "timeSecs": 2763,
+        "artist": "Paluma Sound",
+        "title": "As We Are"
+      }
+    ]
+  },
+  {
+    "id": "mix-019",
+    "title": "Lo-Fi House Music | Sad Boy Hours Mix (Ode To E)",
+    "slug": "lo-fi-house-music-sad-boy-hours-mix-ode-to-e",
+    "duration": "00:44:53",
+    "releaseDate": "2021.02.12",
+    "mood": "nostalgic",
+    "views": 3190,
+    "audioPath": "public/assets/mixes/audio/lo-fi-house-music-sad-boy-hours-mix-ode-to-e.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=PC0twDXW6mw",
+    "soundcloudUrl": null,
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "artist": "Baltra",
+        "title": "Please Listen"
+      },
+      {
+        "timeSecs": 371,
+        "artist": "Otik",
+        "title": "Night Visions"
+      },
+      {
+        "timeSecs": 582,
+        "artist": "sn33ze",
+        "title": "Basics"
+      },
+      {
+        "timeSecs": 841,
+        "artist": "1-800 GIRLS",
+        "title": "Sunscream"
+      },
+      {
+        "timeSecs": 1034,
+        "artist": "Baltra",
+        "title": "Fantasy"
+      },
+      {
+        "timeSecs": 1417,
+        "artist": "DJ Barbo$$a",
+        "title": "Make It"
+      },
+      {
+        "timeSecs": 1694,
+        "artist": "DJ Houseplants",
+        "title": "All Those Nights"
+      },
+      {
+        "timeSecs": 1934,
+        "artist": "Ronnie Pacitti",
+        "title": "Nostalgia (Extended)"
+      },
+      {
+        "timeSecs": 2171,
+        "artist": "Dreemwax",
+        "title": "You Wouldn’t Understand"
+      },
+      {
+        "timeSecs": 2470,
+        "artist": "Shaolin Cowboy",
+        "title": "I Guess It’s Just Us Now"
+      }
+    ]
+  },
+  {
+    "id": "mix-020",
+    "title": "Lo-Fi House Music | 100 Subscribers Mix (Goku Midnight Eye)",
+    "slug": "lo-fi-house-music-100-subscribers-mix-goku-midnight-eye",
+    "duration": "00:50:48",
+    "releaseDate": "2021.02.20",
+    "mood": "deep",
+    "views": 4221,
+    "audioPath": "public/assets/mixes/audio/lo-fi-house-music-100-subscribers-mix-goku-midnight-eye.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=f-0P_A0TK0k",
+    "soundcloudUrl": null,
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "artist": "Route 8",
+        "title": "Pacific Paradise"
+      },
+      {
+        "timeSecs": 264,
+        "artist": "Supreems",
+        "title": "Untitled"
+      },
+      {
+        "timeSecs": 592,
+        "artist": "Patricia",
+        "title": "Josephine"
+      },
+      {
+        "timeSecs": 904,
+        "artist": "Trudge",
+        "title": "Inside of Me"
+      },
+      {
+        "timeSecs": 1269,
+        "artist": "Willrijk",
+        "title": "Promise Land"
+      },
+      {
+        "timeSecs": 1519,
+        "artist": "Code.pump",
+        "title": "Decay Chain"
+      },
+      {
+        "timeSecs": 1756,
+        "artist": "Florian Kupfer",
+        "title": "Discotag"
+      },
+      {
+        "timeSecs": 2095,
+        "artist": "Marco Lazovic",
+        "title": "Winter Flowers"
+      },
+      {
+        "timeSecs": 2424,
+        "artist": "Subjoi",
+        "title": "Hyperfunk"
+      },
+      {
+        "timeSecs": 2680,
+        "artist": "DJ Different",
+        "title": "Call It Minimal"
+      }
+    ]
+  },
+  {
+    "id": "mix-021",
+    "title": "Lo-Fi House Music | DJ Different Mix (Visions Album)",
+    "slug": "lo-fi-house-music-dj-different-mix-visions-album",
+    "duration": "00:52:52",
+    "releaseDate": "2021.02.26",
+    "mood": "deep",
+    "views": 6992,
+    "audioPath": "public/assets/mixes/audio/lo-fi-house-music-dj-different-mix-visions-album.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=qVDWiSTlEg0",
+    "soundcloudUrl": null,
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "artist": "DJ Different",
+        "title": "Terra"
+      },
+      {
+        "timeSecs": 313,
+        "artist": "DJ Different",
+        "title": "Beyond Time Beyond Space"
+      },
+      {
+        "timeSecs": 715,
+        "artist": "DJ Different",
+        "title": "Bedroom Track"
+      },
+      {
+        "timeSecs": 966,
+        "artist": "DJ Different",
+        "title": "Meet Me at the Graveyard"
+      },
+      {
+        "timeSecs": 1523,
+        "artist": "DJ Different",
+        "title": "His Name Was Aquarius"
+      },
+      {
+        "timeSecs": 1834,
+        "artist": "DJ Different",
+        "title": "Violence & Cruelty"
+      },
+      {
+        "timeSecs": 2213,
+        "artist": "DJ Different",
+        "title": "Stand By Me"
+      },
+      {
+        "timeSecs": 2561,
+        "artist": "DJ Different",
+        "title": "I’ll Be Good"
+      },
+      {
+        "timeSecs": 2858,
+        "artist": "DJ Different",
+        "title": "Flash"
+      }
+    ]
+  },
+  {
+    "id": "mix-022",
+    "title": "Lo-Fi House Music | Heartbreaks & Breakbeat Mix (Batman Beyond)",
+    "slug": "lo-fi-house-music-heartbreaks-breakbeat-mix-batman-beyond",
+    "duration": "00:37:36",
+    "releaseDate": "2021.03.05",
+    "mood": "dirty",
+    "views": 40701,
+    "audioPath": "public/assets/mixes/audio/lo-fi-house-music-heartbreaks-breakbeat-mix-batman-beyond.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=DT2-17RLM9A",
+    "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-music-breakups-breakbeat-mix-batman-beyond",
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "artist": "COMPUTER DATA",
+        "title": "Tonpooleins"
+      },
+      {
+        "timeSecs": 413,
+        "artist": "Fold",
+        "title": "Dreamscape (Kassem Mosse Remix)"
+      },
+      {
+        "timeSecs": 692,
+        "artist": "Borai & Denham Audio",
+        "title": "Skrrrt"
+      },
+      {
+        "timeSecs": 875,
+        "artist": "Mr. Sosa",
+        "title": "Orion"
+      },
+      {
+        "timeSecs": 1132,
+        "artist": "Turnstile & Mall Grab",
+        "title": "I Wanna Be Blind"
+      },
+      {
+        "timeSecs": 1380,
+        "artist": "Kanyalang",
+        "title": "To Tell You the Truth I Lied (Instrumental)"
+      },
+      {
+        "timeSecs": 1713,
+        "artist": "Clafrica",
+        "title": "Flexin on That Bihhh"
+      },
+      {
+        "timeSecs": 1984,
+        "artist": "Denham Audio",
+        "title": "Pocari Sweat (feat. Borai)"
+      },
+      {
+        "timeSecs": 2258,
+        "artist": "Borai & Denham Audio",
+        "title": "Make Me"
+      }
+    ]
+  },
+  {
+    "id": "mix-023",
+    "title": "Lo-Fi House Music | Natural High Mix",
+    "slug": "lo-fi-house-music-natural-high-mix",
+    "duration": "00:49:23",
+    "releaseDate": "2021.03.12",
+    "mood": "deep",
+    "views": 12423,
+    "audioPath": "public/assets/mixes/audio/lo-fi-house-music-natural-high-mix.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=gZAOQC6M-Vw",
+    "soundcloudUrl": null,
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "artist": "Otto Taimela",
+        "title": "Don’t Let Go"
+      },
+      {
+        "timeSecs": 295,
+        "artist": "Marco Lazovic",
+        "title": "Violin Feelings"
+      },
+      {
+        "timeSecs": 588,
+        "artist": "DJ Different",
+        "title": "Madrun"
+      },
+      {
+        "timeSecs": 873,
+        "artist": "DJ .wav",
+        "title": "Vision Sequence"
+      },
+      {
+        "timeSecs": 1243,
+        "artist": "Gilmer Galibard",
+        "title": "Clickers"
+      },
+      {
+        "timeSecs": 1560,
+        "artist": "MDMAXEL",
+        "title": "High On the Low"
+      },
+      {
+        "timeSecs": 1915,
+        "artist": "Adryiano",
+        "title": "Down South"
+      },
+      {
+        "timeSecs": 2210,
+        "artist": "Armec",
+        "title": "Like Tears"
+      },
+      {
+        "timeSecs": 2373,
+        "artist": "Kanyalang",
+        "title": "See You Space Cowboy (Instrumental)"
+      },
+      {
+        "timeSecs": 2639,
+        "artist": "Jeigo",
+        "title": "Pearl Leaf"
+      },
+      {
+        "timeSecs": 0,
+        "artist": "Otto Taimela",
+        "title": "Don’t Let Go"
+      },
+      {
+        "timeSecs": 295,
+        "artist": "Marco Lazovic",
+        "title": "Violin Feelings"
+      },
+      {
+        "timeSecs": 588,
+        "artist": "DJ Different",
+        "title": "Madrun"
+      },
+      {
+        "timeSecs": 873,
+        "artist": "DJ .wav",
+        "title": "Vision Sequence"
+      },
+      {
+        "timeSecs": 1243,
+        "artist": "Gilmer Galibard",
+        "title": "Clickers"
+      },
+      {
+        "timeSecs": 1560,
+        "artist": "MDMAXEL",
+        "title": "High On the Low"
+      },
+      {
+        "timeSecs": 1915,
+        "artist": "Adryiano",
+        "title": "Down South"
+      },
+      {
+        "timeSecs": 2210,
+        "artist": "Armec",
+        "title": "Like Tears"
+      },
+      {
+        "timeSecs": 2373,
+        "artist": "Kanyalang",
+        "title": "See You Space Cowboy (Instrumental)"
+      },
+      {
+        "timeSecs": 2639,
+        "artist": "Jeigo",
+        "title": "Pearl Leaf"
+      }
+    ]
+  },
+  {
+    "id": "mix-024",
+    "title": "Lo-Fi House Music | Tears Of Nostalgic Joy Mix (Cowboy Bebop)",
+    "slug": "lo-fi-house-music-tears-of-nostalgic-joy-mix-cowboy-bebop",
+    "duration": "00:48:17",
+    "releaseDate": "2021.03.19",
+    "mood": "nostalgic",
+    "views": 6194,
+    "audioPath": "public/assets/mixes/audio/lo-fi-house-music-tears-of-nostalgic-joy-mix-cowboy-bebop.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=0TZnP-6Q-6Q",
+    "soundcloudUrl": null,
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "artist": "Kanyalang",
+        "title": "Breaking Thru"
+      },
+      {
+        "timeSecs": 322,
+        "artist": "Luc Veermeer",
+        "title": "Ode To D"
+      },
+      {
+        "timeSecs": 637,
+        "artist": "Mr. Sosa",
+        "title": "Zealous"
+      },
+      {
+        "timeSecs": 915,
+        "artist": "Earth Trax",
+        "title": "Deprive Me of Air"
+      },
+      {
+        "timeSecs": 1250,
+        "artist": "Tom Vernon",
+        "title": "Break Time"
+      },
+      {
+        "timeSecs": 1509,
+        "artist": "DJ Houseplants",
+        "title": "Looking Over Shoulders (Edit)"
+      },
+      {
+        "timeSecs": 1737,
+        "artist": "Jadu Jadu",
+        "title": "i’ll be your xtc (feat. Shaolin Cowboy)"
+      },
+      {
+        "timeSecs": 1981,
+        "artist": "DJ Bigspin",
+        "title": "Like Gucci and Shit"
+      },
+      {
+        "timeSecs": 2225,
+        "artist": "Lootbeg & Bajazo",
+        "title": "24 Horas"
+      },
+      {
+        "timeSecs": 2499,
+        "artist": "Earth Trax & Newborn Jr",
+        "title": "Bailando (feat. Annjet)"
+      }
+    ]
+  },
+  {
+    "id": "mix-025",
+    "title": "Lo-Fi House Music | A Trip You Won't Forget Mix",
+    "slug": "lo-fi-house-music-a-trip-you-wont-forget-mix",
+    "duration": "00:41:54",
+    "releaseDate": "2021.04.09",
+    "mood": "deep",
+    "views": 4917,
+    "audioPath": "public/assets/mixes/audio/lo-fi-house-music-a-trip-you-won-t-forget-mix.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=FJT2BXuaT88",
+    "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-music-a-trip-you-wont-forget-mix",
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "artist": "Joakim Hellgren",
+        "title": "Integer Fractions"
+      },
+      {
+        "timeSecs": 341,
+        "artist": "Route 8",
+        "title": "I Can’t"
+      },
+      {
+        "timeSecs": 798,
+        "artist": "DJ Bigspin",
+        "title": "Soft Shell (Instrumental)"
+      },
+      {
+        "timeSecs": 1112,
+        "artist": "Shaolin Cowboy",
+        "title": "I.S.W.A.D.I.B.H.A.F"
+      },
+      {
+        "timeSecs": 1301,
+        "artist": "Raw M.T.",
+        "title": "Two"
+      },
+      {
+        "timeSecs": 1522,
+        "artist": "Otto Taimela",
+        "title": "Miyazaki"
+      },
+      {
+        "timeSecs": 1758,
+        "artist": "Ghoose",
+        "title": "Diatoms"
+      },
+      {
+        "timeSecs": 2003,
+        "artist": "Paradiso Rhythm",
+        "title": "Laura Palmer On Acid"
+      },
+      {
+        "timeSecs": 2251,
+        "artist": "JSTNURMIND",
+        "title": "GET ME OUT"
+      }
+    ]
+  },
+  {
+    "id": "mix-026",
+    "title": "Lo-Fi House Music | A Dream In The Making Mix (Ninja Scroll)",
+    "slug": "lo-fi-house-music-a-dream-in-the-making-mix-ninja-scroll",
+    "duration": "00:42:34",
+    "releaseDate": "2021.04.17",
+    "mood": "deep",
+    "views": 5404,
+    "audioPath": "public/assets/mixes/audio/lo-fi-house-music-a-dream-in-the-making-mix-ninja-scroll.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=Oor-V-eEWLU",
+    "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-music-a-dream-in-the-making-mix-ninja-scroll",
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "artist": "Route 8",
+        "title": "Departure"
+      },
+      {
+        "timeSecs": 378,
+        "artist": "Otto Taimela",
+        "title": "Some Blue Moment"
+      },
+      {
+        "timeSecs": 683,
+        "artist": "DJ .wav",
+        "title": "Retrograde"
+      },
+      {
+        "timeSecs": 955,
+        "artist": "Choopsie",
+        "title": "Saturday Afternoon"
+      },
+      {
+        "timeSecs": 1147,
+        "artist": "Alex Lustig",
+        "title": "Serenity"
+      },
+      {
+        "timeSecs": 1277,
+        "artist": "Khotin",
+        "title": "Aloe Drink"
+      },
+      {
+        "timeSecs": 1581,
+        "artist": "Kanyalang",
+        "title": "I Can Luv U"
+      },
+      {
+        "timeSecs": 1949,
+        "artist": "DJ Houseplants",
+        "title": "Elissa Steamer"
+      },
+      {
+        "timeSecs": 2261,
+        "artist": "Monolithic",
+        "title": "You Won’t Even Call Me"
+      }
+    ]
+  },
+  {
+    "id": "mix-027",
+    "title": "Lo-Fi House & Breakbeat Music | Golden Era Of OVA Mix (Angel Cop)",
+    "slug": "lo-fi-house-breakbeat-music-golden-era-of-ova-mix-angel-cop",
+    "duration": "00:43:32",
+    "releaseDate": "2021.05.07",
+    "mood": "dirty",
+    "views": 2666,
+    "audioPath": "public/assets/mixes/audio/lo-fi-house-breakbeat-music-golden-era-of-ova-mix-angel-cop.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=lKO8AE8Lma8",
+    "soundcloudUrl": "https://soundcloud.com/weebtrax/golden-era-of-ova-mix-angel-cop",
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "artist": "Baltra",
+        "title": "when i said"
+      },
+      {
+        "timeSecs": 295,
+        "artist": "Tom Jarmey",
+        "title": "Slow Rotations (1-800 Girls Remix)"
+      },
+      {
+        "timeSecs": 636,
+        "artist": "Supreems",
+        "title": "Broken (And out of Sync)"
+      },
+      {
+        "timeSecs": 903,
+        "artist": "Ghoose",
+        "title": "In Return"
+      },
+      {
+        "timeSecs": 1322,
+        "artist": "Overmono",
+        "title": "Winged (Muted Due To Copyright Claims)"
+      },
+      {
+        "timeSecs": 1560,
+        "artist": "Turenne",
+        "title": "Tender Heart From The Lagoon"
+      },
+      {
+        "timeSecs": 1823,
+        "artist": "Most Days",
+        "title": "Anthony"
+      },
+      {
+        "timeSecs": 2100,
+        "artist": "Steven Be Calm",
+        "title": "Never Come Back"
+      },
+      {
+        "timeSecs": 2376,
+        "artist": "RITCHRD",
+        "title": "SOMETHING"
+      }
+    ]
+  },
+  {
+    "id": "mix-028",
+    "title": "Lo-Fi House Music | Reminiscing About Love Mix",
+    "slug": "lo-fi-house-music-reminiscing-about-love-mix",
+    "duration": "00:47:01",
+    "releaseDate": "2021.05.28",
+    "mood": "nostalgic",
+    "views": 7099,
+    "audioPath": "public/assets/mixes/audio/lo-fi-house-music-reminiscing-about-love-mix.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=BNQkjPU5lHI",
+    "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-music-reminiscing-about-love-mix",
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "artist": "1989",
+        "title": "Foolish [Step Back Trax]"
+      },
+      {
+        "timeSecs": 356,
+        "artist": "Nørus",
+        "title": "Untitled A"
+      },
+      {
+        "timeSecs": 634,
+        "artist": "PROTO-9",
+        "title": "Miss You"
+      },
+      {
+        "timeSecs": 960,
+        "artist": "DJ Houseplants",
+        "title": "Always On Me"
+      },
+      {
+        "timeSecs": 1223,
+        "artist": "Baltra",
+        "title": "Summer Of ‘98"
+      },
+      {
+        "timeSecs": 1501,
+        "artist": "dj givup & DJ Planet Express",
+        "title": "Late Nite"
+      },
+      {
+        "timeSecs": 1726,
+        "artist": "Jesse Bru",
+        "title": "Good Life"
+      },
+      {
+        "timeSecs": 2073,
+        "artist": "Jacopo Sb",
+        "title": "Don’t Matter"
+      },
+      {
+        "timeSecs": 2411,
+        "artist": "AL94",
+        "title": "Gift"
+      },
+      {
+        "timeSecs": 2664,
+        "artist": "Good Luck",
+        "title": "Lost"
+      }
+    ]
+  },
+  {
+    "id": "mix-029",
+    "title": "Lo-Fi House Music | Don't Speak, Just Listen Mix",
+    "slug": "lo-fi-house-music-dont-speak-just-listen-mix",
+    "duration": "00:51:03",
+    "releaseDate": "2021.11.06",
+    "mood": "deep",
+    "views": 3178,
+    "audioPath": "public/assets/mixes/audio/lo-fi-house-music-don-t-speak-just-listen-mix.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=d8AqptCFXKw",
+    "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-music-dont-speak-just-listen-mix",
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "artist": "Natureboy Gold",
+        "title": "Prozac Test"
+      },
+      {
+        "timeSecs": 530,
+        "artist": "Mall Grab",
+        "title": "I’ve Always Liked Grime"
+      },
+      {
+        "timeSecs": 852,
+        "artist": "DJ Planet Express",
+        "title": "Modified"
+      },
+      {
+        "timeSecs": 1067,
+        "artist": "Lifecoach",
+        "title": "656"
+      },
+      {
+        "timeSecs": 1420,
+        "artist": "kanyalang!",
+        "title": "The Last Dance"
+      },
+      {
+        "timeSecs": 1758,
+        "artist": "5HTTP",
+        "title": "Since Then"
+      },
+      {
+        "timeSecs": 1989,
+        "artist": "Mr. Sosa",
+        "title": "Weak"
+      },
+      {
+        "timeSecs": 2219,
+        "artist": "350hz",
+        "title": "Simply Red"
+      },
+      {
+        "timeSecs": 2469,
+        "artist": "meltingscreen",
+        "title": "Mind On You"
+      },
+      {
+        "timeSecs": 2822,
+        "artist": "DJ Planet Express",
+        "title": "More Than You’d Ever Wanna Know"
+      }
+    ]
+  },
+  {
+    "id": "mix-030",
+    "title": "Lo-Fi House Music | A Dream Within A Dream Mix (Bubblegum Crisis)",
+    "slug": "lo-fi-house-music-a-dream-within-a-dream-mix-bubblegum-crisis",
+    "duration": "00:31:01",
+    "releaseDate": "2021.11.13",
+    "mood": "deep",
+    "views": 2238,
+    "audioPath": "public/assets/mixes/audio/lo-fi-house-music-a-dream-within-a-dream-mix-bubblegum-crisis.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=uKsgbOV9hQY",
+    "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-music-a-dream-within-a-dream-mix-bubblegum-crisis",
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "artist": "DJ Seinfeld",
+        "title": "Home Calling"
+      },
+      {
+        "timeSecs": 138,
+        "artist": "Otto Taimela",
+        "title": "Underneath the Breathing Trees"
+      },
+      {
+        "timeSecs": 368,
+        "artist": "Earth Trax",
+        "title": "Ambient Dancing"
+      },
+      {
+        "timeSecs": 696,
+        "artist": "Bruce Trail",
+        "title": "Silver II"
+      },
+      {
+        "timeSecs": 952,
+        "artist": "Khotin & Via App",
+        "title": "Nakhodka"
+      },
+      {
+        "timeSecs": 1200,
+        "artist": "DJ Club Sandwich",
+        "title": "Untitled [Glove Traxx]"
+      },
+      {
+        "timeSecs": 1472,
+        "artist": "Willrijk",
+        "title": "Melting Blues"
+      },
+      {
+        "timeSecs": 1728,
+        "artist": "Musashiii",
+        "title": "Radiation (Intro)"
+      }
+    ]
+  },
+  {
+    "id": "mix-031",
+    "title": "Lo-Fi House Music | Stargazing + Breakbeat = Vibey Mix",
+    "slug": "lo-fi-house-music-stargazing-breakbeat-vibey-mix",
+    "duration": "00:46:49",
+    "releaseDate": "2021.12.11",
+    "mood": "deep",
+    "views": 1562,
+    "audioPath": "public/assets/mixes/audio/lo-fi-house-music-stargazing-breakbeat-vibey-mix.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=FkmrrqCjABo",
+    "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-music-stargazing-breakbeat-vibey-mix",
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "artist": "Otto Taimela",
+        "title": "The Passage Of Time"
+      },
+      {
+        "timeSecs": 275,
+        "artist": "SI-FI",
+        "title": "They Don’t Know"
+      },
+      {
+        "timeSecs": 526,
+        "artist": "kanyalang!",
+        "title": "As Above, So Below"
+      },
+      {
+        "timeSecs": 932,
+        "artist": "COMPUTER DATA",
+        "title": "Keinrussich"
+      },
+      {
+        "timeSecs": 1198,
+        "artist": "1-800 GIRLS",
+        "title": "Slipping"
+      },
+      {
+        "timeSecs": 1516,
+        "artist": "Jesse Bru",
+        "title": "Summer Rain"
+      },
+      {
+        "timeSecs": 1818,
+        "artist": "DOS",
+        "title": "Red Moon"
+      },
+      {
+        "timeSecs": 2069,
+        "artist": "DJ Seinfeld",
+        "title": "Stargard (Mixed)"
+      },
+      {
+        "timeSecs": 2151,
+        "artist": "Earth Trax & Newborn Jr",
+        "title": "If You feat. Annjet [Club Mix] (Mixed)"
+      },
+      {
+        "timeSecs": 2317,
+        "artist": "Solu Music",
+        "title": "Fade (Cedarwood State Trax Edit)"
+      },
+      {
+        "timeSecs": 2642,
+        "artist": "DJ Seinfeld",
+        "title": "Walking With Ur Smile"
+      }
+    ]
+  },
+  {
+    "id": "mix-032",
+    "title": "Lo-Fi House Music | Stargazing + Breakbeat = Vibey Mix (Alternative Ending)",
+    "slug": "lo-fi-house-music-stargazing-breakbeat-vibey-mix-alternative-ending",
+    "duration": "00:50:17",
+    "releaseDate": "2021.12.24",
+    "mood": "deep",
+    "views": 1402,
+    "audioPath": "public/assets/mixes/audio/lo-fi-house-music-stargazing-breakbeat-vibey-mix-alternative-ending.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=VitreIs46f0",
+    "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-music-stargazing-breakbeat-vibey-mix-alternative-ending",
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "artist": "Otto Taimela",
+        "title": "The Passage Of Time"
+      },
+      {
+        "timeSecs": 275,
+        "artist": "SI-FI",
+        "title": "They Don’t Know"
+      },
+      {
+        "timeSecs": 528,
+        "artist": "kanyalang!",
+        "title": "As Above, So Below"
+      },
+      {
+        "timeSecs": 871,
+        "artist": "Ray Kandinski",
+        "title": "Needless to Say, Pt. 2"
+      },
+      {
+        "timeSecs": 1127,
+        "artist": "DJ Seinfeld",
+        "title": "Too Late for U and M1"
+      },
+      {
+        "timeSecs": 1482,
+        "artist": "DJibouti & DJacuzzi",
+        "title": "Miroki"
+      },
+      {
+        "timeSecs": 1746,
+        "artist": "Froman",
+        "title": "If You Were"
+      },
+      {
+        "timeSecs": 1943,
+        "artist": "Paluma Sound",
+        "title": "Real Flow"
+      },
+      {
+        "timeSecs": 2247,
+        "artist": "cuanzi",
+        "title": "Amlv"
+      },
+      {
+        "timeSecs": 2536,
+        "artist": "Foamek",
+        "title": "From The Very Start"
+      },
+      {
+        "timeSecs": 2810,
+        "artist": "notnoize",
+        "title": "you’ll never be"
+      }
+    ]
+  },
+  {
+    "id": "mix-033",
+    "title": "Lo-Fi House Music | Dystopian Future Mix (Ghost in the Shell)",
+    "slug": "lo-fi-house-music-dystopian-future-mix-ghost-in-the-shell",
+    "duration": "00:51:30",
+    "releaseDate": "2022.01.30",
+    "mood": "deep",
+    "views": 5497,
+    "audioPath": "public/assets/mixes/audio/lo-fi-house-music-dystopian-future-mix-ghost-in-the-shell.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=fpyit-cgvxE",
+    "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-music-dystopian-future-mix-ghost-in-the-shell",
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "artist": "Voyd",
+        "title": "Anx [Glove Traxx]"
+      },
+      {
+        "timeSecs": 325,
+        "artist": "1989",
+        "title": "Stolen Eyes"
+      },
+      {
+        "timeSecs": 610,
+        "artist": "Jon Fay",
+        "title": "1271"
+      },
+      {
+        "timeSecs": 933,
+        "artist": "DJ Hoshino",
+        "title": "We Will Be Free"
+      },
+      {
+        "timeSecs": 1293,
+        "artist": "Florian Kupfer",
+        "title": "Feelin (Dubb Micx)"
+      },
+      {
+        "timeSecs": 1605,
+        "artist": "Grey People",
+        "title": "Lizard Man Dance"
+      },
+      {
+        "timeSecs": 1910,
+        "artist": "Aroy Dee & Ma Spaventi",
+        "title": "The Way We Love"
+      },
+      {
+        "timeSecs": 2238,
+        "artist": "Gilmer Galibard",
+        "title": "Lost Tapes"
+      },
+      {
+        "timeSecs": 2479,
+        "artist": "Daze",
+        "title": "Death Whirl"
+      },
+      {
+        "timeSecs": 2830,
+        "artist": "sansibar",
+        "title": "Sun"
+      }
+    ]
+  },
+  {
+    "id": "mix-034",
+    "title": "Lo-Fi House Music | Transcendent Mix (Trigun)",
+    "slug": "lo-fi-house-music-transcendent-mix-trigun",
+    "duration": "00:38:01",
+    "releaseDate": "2022.02.19",
+    "mood": "deep",
+    "views": 6107,
+    "audioPath": "public/assets/mixes/audio/lo-fi-house-music-transcendent-mix-trigun.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=VIDVRWQYc_k",
+    "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-music-transcendent-mix-trigun",
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "artist": "Space Ghost",
+        "title": "Mirage"
+      },
+      {
+        "timeSecs": 240,
+        "artist": "Akasha System",
+        "title": "Mineral Jam"
+      },
+      {
+        "timeSecs": 576,
+        "artist": "PVLMS",
+        "title": "Resonator"
+      },
+      {
+        "timeSecs": 856,
+        "artist": "Froman",
+        "title": "You Haven’t Seen Anything Yet"
+      },
+      {
+        "timeSecs": 1000,
+        "artist": "PVLMS",
+        "title": "In the Water"
+      },
+      {
+        "timeSecs": 1352,
+        "artist": "dj ignorant",
+        "title": "Feels Like We Never Met"
+      },
+      {
+        "timeSecs": 1576,
+        "artist": "1-800 GIRLS",
+        "title": "U, Me and Madonna"
+      },
+      {
+        "timeSecs": 1782,
+        "artist": "YLXR & midnight",
+        "title": "Promethium Reprise"
+      },
+      {
+        "timeSecs": 2007,
+        "artist": "SLIM HUSTLA",
+        "title": "Codeine Cups (feat. DJ ÆDIDIAS)"
+      }
+    ]
+  },
+  {
+    "id": "mix-035",
+    "title": "Lo-Fi House Music | Point of No Return Mix (Broly The Legendary Super Saiyan)",
+    "slug": "lo-fi-house-music-point-of-no-return-mix-broly-the-legendary-super-saiyan",
+    "duration": "00:46:15",
+    "releaseDate": "2022.05.29",
+    "mood": "deep",
+    "views": 1578,
+    "audioPath": "public/assets/mixes/audio/lo-fi-house-music-point-of-no-return-mix-broly-the-legendary-super-saiyan.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=z6Omt_0lv68",
+    "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-music-point-of-no-return-mix-broly-the-legendary-super-saiyan-1",
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "title": "MTRLV – Without Your Light"
+      },
+      {
+        "timeSecs": 515,
+        "title": "MTRLV – Distant Memories"
+      },
+      {
+        "timeSecs": 811,
+        "title": "Coastdream – Untitled"
+      },
+      {
+        "timeSecs": 1030,
+        "title": "DJ Different – Das Boot"
+      },
+      {
+        "timeSecs": 1310,
+        "title": "RAAR – Best Intention"
+      },
+      {
+        "timeSecs": 1546,
+        "title": "Florian Kupfer – English Mercedes"
+      },
+      {
+        "timeSecs": 1843,
+        "title": "Fabio Monesi – Flanger City"
+      },
+      {
+        "timeSecs": 2124,
+        "title": "Maniqin – Bump"
+      },
+      {
+        "timeSecs": 2529,
+        "title": "Jozef K – Disintergrated"
+      }
+    ]
+  },
+  {
+    "id": "mix-036",
+    "title": "Lo-Fi House Music | Doomed Romance Mix (Berserk)",
+    "slug": "lo-fi-house-music-doomed-romance-mix-berserk",
+    "duration": "00:46:40",
+    "releaseDate": "2022.06.04",
+    "mood": "nostalgic",
+    "views": 3183,
+    "audioPath": "public/assets/mixes/audio/lo-fi-house-music-doomed-romance-mix-berserk.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=JOHHJ5UeNNQ",
+    "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-music-doomed-romance-mix-berserk",
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "artist": "Kronol",
+        "title": "KRONOLOGIA"
+      },
+      {
+        "timeSecs": 254,
+        "title": "Cbdj – Towards You"
+      },
+      {
+        "timeSecs": 539,
+        "title": "kemt – Next to You"
+      },
+      {
+        "timeSecs": 832,
+        "title": "Bomat – Feels Like I’ve Seen You"
+      },
+      {
+        "timeSecs": 1036,
+        "title": "Veen – U Crossed My Mind"
+      },
+      {
+        "timeSecs": 1319,
+        "title": "DJ Houseplants – Unconditional"
+      },
+      {
+        "timeSecs": 1572,
+        "title": "Jacopo Sb – Rosalìa"
+      },
+      {
+        "timeSecs": 1823,
+        "title": "Folamour – Sunday Morning"
+      },
+      {
+        "timeSecs": 2201,
+        "title": "Dj Windows 7 – Noche Bajo Estrellas"
+      },
+      {
+        "timeSecs": 2453,
+        "title": "Dos – Need U"
+      }
+    ]
+  },
+  {
+    "id": "mix-037",
+    "title": "Lo-Fi House Music | Zero Gravity Mix (Bubblegum Crisis)",
+    "slug": "lo-fi-house-music-zero-gravity-mix-bubblegum-crisis",
+    "duration": "00:51:25",
+    "releaseDate": "2022.06.10",
+    "mood": "deep",
+    "views": 4638,
+    "audioPath": "public/assets/mixes/audio/lo-fi-house-music-zero-gravity-mix-bubblegum-crisis.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=fTxG4KqoGm8",
+    "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-music-zero-gravity-mix-bubblegum-crisis",
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "artist": "Raär",
+        "title": "Sometimes I Hear Sirens"
+      },
+      {
+        "timeSecs": 382,
+        "artist": "DJ Hoshino",
+        "title": "Just For a Short While"
+      },
+      {
+        "timeSecs": 662,
+        "artist": "Creme de la Creme",
+        "title": "Truth"
+      },
+      {
+        "timeSecs": 895,
+        "artist": "Lootbeg",
+        "title": "Out of Body Experience"
+      },
+      {
+        "timeSecs": 1243,
+        "artist": "Palmate",
+        "title": "Mittelweg"
+      },
+      {
+        "timeSecs": 1429,
+        "artist": "DJ Ædidias",
+        "title": "Seductive"
+      },
+      {
+        "timeSecs": 1614,
+        "artist": "Fullempty",
+        "title": "Mister Irk"
+      },
+      {
+        "timeSecs": 1802,
+        "artist": "DJ Maybe",
+        "title": "Alter Ego"
+      },
+      {
+        "timeSecs": 2112,
+        "artist": "Tom Vernon & Soshi Takeda",
+        "title": "B17? (Overseas Edit)"
+      },
+      {
+        "timeSecs": 2452,
+        "artist": "DJacuzzi",
+        "title": "Running From You"
+      },
+      {
+        "timeSecs": 2623,
+        "artist": "DJ Planet Express",
+        "title": "Wanted U 2 Kno"
+      },
+      {
+        "timeSecs": 2863,
+        "artist": "PVLMS",
+        "title": "Realizing the Limits"
+      }
+    ]
+  },
+  {
+    "id": "mix-038",
+    "title": "Lo-Fi Breakbeat Music | Shifting Gears Mix (Initial D)",
+    "slug": "lo-fi-breakbeat-music-shifting-gears-mix-initial-d",
+    "duration": "00:42:41",
+    "releaseDate": "2022.06.17",
+    "mood": "dirty",
+    "views": 6217,
+    "audioPath": "public/assets/mixes/audio/lo-fi-breakbeat-music-shifting-gears-mix-initial-d.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=DSxEs-Xs2H0",
+    "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-breakbeat-music-shifting-gears-mix-initial-d",
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "artist": "Baltra",
+        "title": "I’m Okay"
+      },
+      {
+        "timeSecs": 274,
+        "artist": "dan PM",
+        "title": "Nissan Skyline Night Driving 2003"
+      },
+      {
+        "timeSecs": 518,
+        "artist": "kanyalang!",
+        "title": "This Side Of Paradise"
+      },
+      {
+        "timeSecs": 784,
+        "artist": "Tom Vernon",
+        "title": "Disappear"
+      },
+      {
+        "timeSecs": 1123,
+        "artist": "DJ Seinfeld",
+        "title": "Electrian"
+      },
+      {
+        "timeSecs": 1404,
+        "artist": "Shaolin Cowboy",
+        "title": "Somethin’ Bout U"
+      },
+      {
+        "timeSecs": 1611,
+        "artist": "SI-FI",
+        "title": "Sweeter"
+      },
+      {
+        "timeSecs": 1810,
+        "artist": "Cedarwood State Trax",
+        "title": "Still Luv U"
+      },
+      {
+        "timeSecs": 2209,
+        "artist": "Borai & Denham Audio",
+        "title": "Triple Drop & Lose Your Shoes"
+      },
+      {
+        "timeSecs": 2394,
+        "artist": "Dooley",
+        "title": "Uplifter"
+      }
+    ]
+  },
+  {
+    "id": "mix-039",
+    "title": "Lo-Fi House Music | Unfinished Business Mix (Mobile Suit Gundam)",
+    "slug": "lo-fi-house-music-unfinished-business-mix-mobile-suit-gundam",
+    "duration": "00:36:23",
+    "releaseDate": "2022.08.15",
+    "mood": "deep",
+    "views": 1530,
+    "audioPath": "public/assets/mixes/audio/lo-fi-house-music-unfinished-business-mix-mobile-suit-gundam.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=18TFZ_VI2Us",
+    "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-breakbeat-music-unfinished-business-mix",
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "artist": "Dansa",
+        "title": "The Real U"
+      },
+      {
+        "timeSecs": 349,
+        "artist": "detailseventy3",
+        "title": "Troublesome 96"
+      },
+      {
+        "timeSecs": 666,
+        "artist": "Paperkraft",
+        "title": "S Act"
+      },
+      {
+        "timeSecs": 1047,
+        "artist": "PVLMS",
+        "title": "Going Upstairs"
+      },
+      {
+        "timeSecs": 1301,
+        "artist": "Eva 00",
+        "title": "Stalk Me, Stalk Me, Do It Again"
+      },
+      {
+        "timeSecs": 1537,
+        "artist": "RAAR",
+        "title": "Wrong"
+      },
+      {
+        "timeSecs": 2015,
+        "artist": "Voyd",
+        "title": "Telling You"
+      }
+    ]
+  },
+  {
+    "id": "mix-040",
+    "title": "Lo-Fi House Music | Who Hurt You Mix (Whisper of the Heart)",
+    "slug": "lo-fi-house-music-who-hurt-you-mix-whisper-of-the-heart",
+    "duration": "00:47:47",
+    "releaseDate": "2022.08.22",
+    "mood": "nostalgic",
+    "views": 5787,
+    "audioPath": "public/assets/mixes/audio/lo-fi-house-music-who-hurt-you-mix-whisper-of-the-heart.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=2e82RN9sAKs",
+    "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-music-who-hurt-you-mix-whisper-of-the-heart",
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "artist": "Lv Amaj",
+        "title": "Yung Bruh Fangirl"
+      },
+      {
+        "timeSecs": 253,
+        "artist": "ugly nick",
+        "title": "Postmoskva20 (feat. lowdan)"
+      },
+      {
+        "timeSecs": 689,
+        "artist": "POSER",
+        "title": "If U love me"
+      },
+      {
+        "timeSecs": 983,
+        "artist": "Dustin Hoffman",
+        "title": "MISS UR LOVE FINISHED"
+      },
+      {
+        "timeSecs": 1249,
+        "artist": "DJ Houseplants",
+        "title": "Loving Ain’t the Same"
+      },
+      {
+        "timeSecs": 1533,
+        "artist": "Jafunk",
+        "title": "I Just Keep Her Satisfied"
+      },
+      {
+        "timeSecs": 1769,
+        "artist": "Rodfæstet",
+        "title": "No Miami"
+      },
+      {
+        "timeSecs": 2057,
+        "artist": "dipsmith",
+        "title": "other girls"
+      },
+      {
+        "timeSecs": 2277,
+        "artist": "Tom Vernon",
+        "title": "Start Again"
+      },
+      {
+        "timeSecs": 2576,
+        "artist": "DJ U Too",
+        "title": "Human"
+      }
+    ]
+  },
+  {
+    "id": "mix-041",
+    "title": "Lo-Fi House & Breakbeat Music | Lo-Fi Laced Sounds Mix",
+    "slug": "lo-fi-house-breakbeat-music-lo-fi-laced-sounds-mix",
+    "duration": "00:43:07",
+    "releaseDate": "2022.08.30",
+    "mood": "dirty",
+    "views": 2093,
+    "audioPath": "public/assets/mixes/audio/lo-fi-house-breakbeat-music-lo-fi-laced-sounds-mix.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=Nsq8xu1x1LQ",
+    "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-breakbeat-music-lo-fi-laced-sounds-mix",
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "artist": "wafula",
+        "title": "You Were Never Really Here"
+      },
+      {
+        "timeSecs": 178,
+        "artist": "DJ Sickfuck",
+        "title": "Wake the Fuck Up"
+      },
+      {
+        "timeSecs": 347,
+        "artist": "DJ Bigspin",
+        "title": "Downtown Mob"
+      },
+      {
+        "timeSecs": 635,
+        "artist": "DJ Different",
+        "title": "Doin It Differently"
+      },
+      {
+        "timeSecs": 789,
+        "artist": "DJ M4A4",
+        "title": "Emo Party Haus Whip"
+      },
+      {
+        "timeSecs": 1125,
+        "artist": "70’s Network",
+        "title": "Invisibeauty"
+      },
+      {
+        "timeSecs": 1544,
+        "artist": "Upper Class",
+        "title": "Chasing Lights"
+      },
+      {
+        "timeSecs": 1731,
+        "artist": "DJ Hoshino",
+        "title": "Wait For Me"
+      },
+      {
+        "timeSecs": 1998,
+        "artist": "Overmono",
+        "title": "BMW Track"
+      },
+      {
+        "timeSecs": 2352,
+        "artist": "Borai & Denham Audio",
+        "title": "Lucid Dreams"
+      }
+    ]
+  },
+  {
+    "id": "mix-042",
+    "title": "Lo-Fi House Music | Faster Than Life Mix",
+    "slug": "lo-fi-house-music-faster-than-life-mix",
+    "duration": "00:34:14",
+    "releaseDate": "2022.09.24",
+    "mood": "deep",
+    "views": 2280,
+    "audioPath": "public/assets/mixes/audio/lo-fi-house-music-faster-than-life-mix.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=DPzahNNpLcA",
+    "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-music-faster-than-life-mix",
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "title": "Faster Than Life"
+      },
+      {
+        "timeSecs": 307,
+        "title": "Milkshakes On the Fast Lane"
+      },
+      {
+        "timeSecs": 492,
+        "title": "Tunneling"
+      },
+      {
+        "timeSecs": 747,
+        "title": "Headin’ Nowhere Ever"
+      },
+      {
+        "timeSecs": 942,
+        "title": "Smoking Area"
+      },
+      {
+        "timeSecs": 1152,
+        "title": "Chasing Lights"
+      },
+      {
+        "timeSecs": 1392,
+        "title": "Onmyway2u"
+      },
+      {
+        "timeSecs": 1565,
+        "title": "Watching Life Fly By"
+      },
+      {
+        "timeSecs": 1738,
+        "title": "No Road Ahead"
+      }
+    ]
+  },
+  {
+    "id": "mix-043",
+    "title": "Lo-Fi House Music | Fake The Funk Mix",
+    "slug": "lo-fi-house-music-fake-the-funk-mix",
+    "duration": "00:43:02",
+    "releaseDate": "2022.10.04",
+    "mood": "deep",
+    "views": 1871,
+    "audioPath": "public/assets/mixes/audio/lo-fi-house-music-fake-the-funk-mix.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=g7CcHOrSkQY",
+    "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-music-fake-the-funk-mix",
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "artist": "NxWorries",
+        "title": "Scared Money (Rodfæstet Edit)"
+      },
+      {
+        "timeSecs": 232,
+        "artist": "4004",
+        "title": "In the Mood"
+      },
+      {
+        "timeSecs": 527,
+        "artist": "Bayer & Waits",
+        "title": "Royals"
+      },
+      {
+        "timeSecs": 756,
+        "artist": "Mood J",
+        "title": "Turn Your Love Around"
+      },
+      {
+        "timeSecs": 975,
+        "artist": "Tell",
+        "title": "I Lost 200€ In A Club"
+      },
+      {
+        "timeSecs": 1171,
+        "artist": "Jack J",
+        "title": "Looking Forward To You"
+      },
+      {
+        "timeSecs": 1576,
+        "artist": "DJ Oakland",
+        "title": "Most of All"
+      },
+      {
+        "timeSecs": 1899,
+        "artist": "Crowd Control & DJ Atlance",
+        "title": "Last Night In Alderaan"
+      },
+      {
+        "timeSecs": 2141,
+        "artist": "Slamb",
+        "title": "Down Wit Boo"
+      },
+      {
+        "timeSecs": 2399,
+        "artist": "kryptogram",
+        "title": "How Long Have You Been Away?"
+      }
+    ]
+  },
+  {
+    "id": "mix-044",
+    "title": "Lo-Fi House Music | Happiness Is Fleeting Mix",
+    "slug": "lo-fi-house-music-happiness-is-fleeting-mix",
+    "duration": "00:41:33",
+    "releaseDate": "2022.10.16",
+    "mood": "deep",
+    "views": 2107,
+    "audioPath": "public/assets/mixes/audio/lo-fi-house-music-happiness-is-fleeting-mix.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=xi0Nr-plL78",
+    "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-music-happiness-is-fleeting-mix",
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "artist": "Mark Mass",
+        "title": "Back"
+      },
+      {
+        "timeSecs": 238,
+        "artist": "Dustin Hoffman",
+        "title": "Ocean beach chill me with ur loving touch"
+      },
+      {
+        "timeSecs": 514,
+        "artist": "Beverly Hills Mom",
+        "title": "ex husband just filed for a restraining order against me"
+      },
+      {
+        "timeSecs": 744,
+        "artist": "DJ Bigspin",
+        "title": "Miracles"
+      },
+      {
+        "timeSecs": 1021,
+        "artist": "Dooley",
+        "title": "Eastside Memory"
+      },
+      {
+        "timeSecs": 1180,
+        "artist": "Kask",
+        "title": "Ouroboros"
+      },
+      {
+        "timeSecs": 1413,
+        "artist": "No Moon",
+        "title": "Unusual Light Curve"
+      },
+      {
+        "timeSecs": 1720,
+        "artist": "Tusl",
+        "title": "Club Lime"
+      },
+      {
+        "timeSecs": 1966,
+        "artist": "Gloved Hands",
+        "title": "That Can’t Be"
+      },
+      {
+        "timeSecs": 2181,
+        "artist": "Sportsmen",
+        "title": "Where I Left Off"
+      }
+    ]
+  },
+  {
+    "id": "mix-045",
+    "title": "Lo-Fi House Music | Cyberpunk Mix",
+    "slug": "lo-fi-house-music-cyberpunk-mix",
+    "duration": "00:40:07",
+    "releaseDate": "2022.10.29",
+    "mood": "deep",
+    "views": 4072,
+    "audioPath": "public/assets/mixes/audio/lo-fi-house-music-cyberpunk-mix.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=NNdtYCFIL68",
+    "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-music-cyberpunk-mix",
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "artist": "Otto Taimela",
+        "title": "Prophecy"
+      },
+      {
+        "timeSecs": 322,
+        "artist": "Tom Vernon",
+        "title": "Unexpected Departure"
+      },
+      {
+        "timeSecs": 645,
+        "artist": "Vrdnprvchk",
+        "title": "Clinic Depression"
+      },
+      {
+        "timeSecs": 921,
+        "artist": "jamejamesjames",
+        "title": "Ciara"
+      },
+      {
+        "timeSecs": 1201,
+        "artist": "70’s Network",
+        "title": "Rememba Me (Dub Rework)"
+      },
+      {
+        "timeSecs": 1513,
+        "artist": "DJ Plant Texture",
+        "title": "WeFi"
+      },
+      {
+        "timeSecs": 1864,
+        "artist": "DJ Club Sandwich",
+        "title": "Roll in Peace"
+      },
+      {
+        "timeSecs": 2077,
+        "artist": "SLIM HUSTLA",
+        "title": "Night Patrollin"
+      }
+    ]
+  },
+  {
+    "id": "mix-046",
+    "title": "Lo-Fi House Music | Ghetto Symphony Mix",
+    "slug": "lo-fi-house-music-ghetto-symphony-mix",
+    "duration": "00:47:21",
+    "releaseDate": "2022.11.28",
+    "mood": "deep",
+    "views": null,
+    "audioPath": "public/assets/mixes/audio/lo-fi-house-music-ghetto-symphony-mix.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=b4emPgjo7lo",
+    "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-music-ghetto-symphony-mix",
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "artist": "S Olbricht",
+        "title": "Purpleblue"
+      },
+      {
+        "timeSecs": 373,
+        "artist": "RAAR",
+        "title": "Moan"
+      },
+      {
+        "timeSecs": 676,
+        "artist": "DJ Ædidias",
+        "title": "Flexin On My x"
+      },
+      {
+        "timeSecs": 933,
+        "artist": "Sketchy & benuebermensch",
+        "title": "Not the Type"
+      },
+      {
+        "timeSecs": 1145,
+        "artist": "DJ Swagger",
+        "title": "Glock & Gualla"
+      },
+      {
+        "timeSecs": 1417,
+        "artist": "Dos",
+        "title": "Cant Even"
+      },
+      {
+        "timeSecs": 1765,
+        "artist": "MTRLV",
+        "title": "Oceans Apart"
+      },
+      {
+        "timeSecs": 2233,
+        "artist": "No_4mat",
+        "title": "Good Year"
+      },
+      {
+        "timeSecs": 2490,
+        "artist": "FTRMNK",
+        "title": "Я Не Умею"
+      },
+      {
+        "timeSecs": 2626,
+        "artist": "DJ Felix C",
+        "title": "Scopin Wit Da Red Dot"
+      }
+    ]
+  },
+  {
+    "id": "mix-047",
+    "title": "Lo-Fi House Mix | Love Is Contagious",
+    "slug": "lo-fi-house-mix-love-is-contagious",
+    "duration": "00:50:39",
+    "releaseDate": "2022.12.10",
+    "mood": "deep",
+    "views": 2557,
+    "audioPath": "public/assets/mixes/audio/lo-fi-house-mix-love-is-contagious.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=HpS4py33S3c",
+    "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-music-love-is-contagious-mix",
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "artist": "Dustin Hoffman",
+        "title": "I NEED U DONE"
+      },
+      {
+        "timeSecs": 412,
+        "artist": "Rimbaudian",
+        "title": "I Would Do Everything I Did Again and Again"
+      },
+      {
+        "timeSecs": 778,
+        "artist": "Jshacou",
+        "title": "If Only You Were My Pelican"
+      },
+      {
+        "timeSecs": 967,
+        "artist": "kemt",
+        "title": "I will never let you go"
+      },
+      {
+        "timeSecs": 1251,
+        "artist": "QUASAR",
+        "title": "Purple Gain"
+      },
+      {
+        "timeSecs": 1597,
+        "artist": "Art School Girlfriend & Baltra",
+        "title": "In The Middle (Baltra Remix)"
+      },
+      {
+        "timeSecs": 1947,
+        "artist": "Seb",
+        "title": "Dad"
+      },
+      {
+        "timeSecs": 2148,
+        "artist": "No Moon",
+        "title": "Highland Spring"
+      },
+      {
+        "timeSecs": 2382,
+        "artist": "Jacopo Sb",
+        "title": "Lovers in a dystopian world"
+      },
+      {
+        "timeSecs": 2726,
+        "artist": "Yung SmartRider",
+        "title": "Night of Solace"
+      }
+    ]
+  },
+  {
+    "id": "mix-048",
+    "title": "Ambient Lo-Fi House Mix | Mesmerizing Soundscapes",
+    "slug": "ambient-lo-fi-house-mix-mesmerizing-soundscapes",
+    "duration": "00:50:15",
+    "releaseDate": "2023.01.20",
+    "mood": "chill",
+    "views": 1834,
+    "audioPath": "public/assets/mixes/audio/ambient-lo-fi-house-mix-mesmerizing-soundscapes.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=AegqPllWwM4",
+    "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-music-mesmerizing-soundscapes-mix",
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "artist": "Terekke",
+        "title": "Nuwav2"
+      },
+      {
+        "timeSecs": 1165,
+        "artist": "DJ LOSTBOI",
+        "title": "L.T.B."
+      },
+      {
+        "timeSecs": 1316,
+        "artist": "Design A Wave",
+        "title": "Weird F"
+      },
+      {
+        "timeSecs": 1466,
+        "artist": "Otto Taimela",
+        "title": "Samoyed Pup"
+      },
+      {
+        "timeSecs": 1706,
+        "artist": "DJ LOSTBOI",
+        "title": "Esprit SE"
+      },
+      {
+        "timeSecs": 1947,
+        "artist": "No Moon",
+        "title": "Infinite Dreamz"
+      },
+      {
+        "timeSecs": 2370,
+        "artist": "Jeigo",
+        "title": "By My Side"
+      },
+      {
+        "timeSecs": 2719,
+        "artist": "DJ Different",
+        "title": "Loan Sloan"
+      }
+    ]
+  },
+  {
+    "id": "mix-049",
+    "title": "Lo-Fi House Mix | I Love You",
+    "slug": "lo-fi-house-mix-i-love-you",
+    "duration": "00:47:35",
+    "releaseDate": "2023.04.22",
+    "mood": "nostalgic",
+    "views": 3113,
+    "audioPath": "public/assets/mixes/audio/lo-fi-house-mix-i-love-you.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=6jpyV4CqEw0",
+    "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi",
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "artist": "DJ Psychiatre",
+        "title": "And So Much More..."
+      },
+      {
+        "timeSecs": 399,
+        "artist": "Buddy Broke",
+        "title": "Tisha"
+      },
+      {
+        "timeSecs": 645,
+        "artist": "Hotline",
+        "title": "Drugs"
+      },
+      {
+        "timeSecs": 969,
+        "artist": "Jamesjamesjames",
+        "title": "Lindsay2006"
+      },
+      {
+        "timeSecs": 1261,
+        "artist": "DJ Swagger & DJ Ædidias",
+        "title": "Track3"
+      },
+      {
+        "timeSecs": 1430,
+        "artist": "514",
+        "title": "Numbers"
+      },
+      {
+        "timeSecs": 1722,
+        "artist": "sunflwr",
+        "title": "Porco Rosso"
+      },
+      {
+        "timeSecs": 1941,
+        "artist": "SLIM HUSTLA",
+        "title": "Objects of Desire"
+      },
+      {
+        "timeSecs": 2340,
+        "artist": "SI-FI",
+        "title": "Can I Live"
+      },
+      {
+        "timeSecs": 2586,
+        "artist": "70’s Network",
+        "title": "Rememba Me"
+      }
+    ]
+  },
+  {
+    "id": "mix-050",
+    "title": "Lo-Fi House Mix | Otto's Anticlimax Pt. 1",
+    "slug": "lo-fi-house-mix-ottos-anticlimax-pt-1",
+    "duration": "00:32:36",
+    "releaseDate": "2023.05.06",
+    "mood": "deep",
+    "views": 2287,
+    "audioPath": "public/assets/mixes/audio/lo-fi-house-mix-otto-s-anticlimax-pt-1.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=XbQgyHjEBqY",
+    "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-mix-ottos-anticlimax-pt-1",
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "artist": "Otto Taimela",
+        "title": "Dream 1"
+      },
+      {
+        "timeSecs": 406,
+        "artist": "Otto Taimela",
+        "title": "Routine & Regret"
+      },
+      {
+        "timeSecs": 638,
+        "artist": "Otto Taimela",
+        "title": "Walking Away/Прочь"
+      },
+      {
+        "timeSecs": 847,
+        "artist": "Otto Taimela",
+        "title": "Ssri Tears"
+      },
+      {
+        "timeSecs": 1108,
+        "artist": "Otto Taimela",
+        "title": "Мечтательный"
+      },
+      {
+        "timeSecs": 1439,
+        "artist": "Otto Taimela",
+        "title": "Suspense"
+      }
+    ]
+  },
+  {
+    "id": "mix-051",
+    "title": "Lo-Fi House Mix | Otto's Anticlimax Pt. 2",
+    "slug": "lo-fi-house-mix-ottos-anticlimax-pt-2",
+    "duration": "00:30:52",
+    "releaseDate": "2023.05.13",
+    "mood": "deep",
+    "views": 1916,
+    "audioPath": "public/assets/mixes/audio/lo-fi-house-mix-otto-s-anticlimax-pt-2.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=5fJ_uZY0SBo",
+    "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-mix-ottos-anticlimax-pt-2",
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "artist": "Otto Taimela",
+        "title": "Senseless"
+      },
+      {
+        "timeSecs": 547,
+        "artist": "Otto Taimela",
+        "title": "Time Doesn’t Heal All Wounds"
+      },
+      {
+        "timeSecs": 956,
+        "artist": "Otto Taimela",
+        "title": "Forgive"
+      },
+      {
+        "timeSecs": 1128,
+        "artist": "wshdway",
+        "title": "elusive (feat Otto Taimela)"
+      },
+      {
+        "timeSecs": 1456,
+        "artist": "Otto Taimela",
+        "title": "when Helsinki sleeps"
+      }
+    ]
+  },
+  {
+    "id": "mix-052",
+    "title": "Lo-Fi House Mix | A Chill Summer's Day",
+    "slug": "lo-fi-house-mix-a-chill-summers-day",
+    "duration": "00:42:29",
+    "releaseDate": "2023.05.24",
+    "mood": "chill",
+    "views": 1758,
+    "audioPath": "public/assets/mixes/audio/lo-fi-house-mix-a-chill-summer-s-day.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=z2YcXPU9bQE",
+    "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-mix-summer-unwind",
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "artist": "DJ Heure",
+        "title": "Mechta"
+      },
+      {
+        "timeSecs": 327,
+        "artist": "COMPUTER DATA",
+        "title": "R0"
+      },
+      {
+        "timeSecs": 491,
+        "artist": "DJ Psychiatre",
+        "title": "So Sorry For Delays"
+      },
+      {
+        "timeSecs": 876,
+        "artist": "Ross from Friends",
+        "title": "Bootman"
+      },
+      {
+        "timeSecs": 1067,
+        "artist": "kemt",
+        "title": "i need you (in my life)"
+      },
+      {
+        "timeSecs": 1395,
+        "artist": "Rodfæstet",
+        "title": "Halas"
+      },
+      {
+        "timeSecs": 1642,
+        "artist": "Maude",
+        "title": "Let Your Feelings Go"
+      },
+      {
+        "timeSecs": 1999,
+        "artist": "kemt",
+        "title": "I’m yours"
+      },
+      {
+        "timeSecs": 2333,
+        "artist": "Maribou State",
+        "title": "Wallflower (Ross from Friends Remix)"
+      }
+    ]
+  },
+  {
+    "id": "mix-053",
+    "title": "Lo-Fi House Mix | Spacious Void",
+    "slug": "lo-fi-house-mix-spacious-void",
+    "duration": "00:34:09",
+    "releaseDate": "2023.05.28",
+    "mood": "deep",
+    "views": 2114,
+    "audioPath": "public/assets/mixes/audio/lo-fi-house-mix-spacious-void.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=UanA5kHIMNI",
+    "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-mix-spacious-void",
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "artist": "Terekke",
+        "title": "Unother"
+      },
+      {
+        "timeSecs": 59,
+        "artist": "DJ BORING",
+        "title": "Winona"
+      },
+      {
+        "timeSecs": 535,
+        "artist": "DJ Something",
+        "title": "Reminiscence"
+      },
+      {
+        "timeSecs": 916,
+        "artist": "wshdway",
+        "title": "ride"
+      },
+      {
+        "timeSecs": 1075,
+        "artist": "Mr. Sosa",
+        "title": "Wu-Tang Flow"
+      },
+      {
+        "timeSecs": 1361,
+        "artist": "VNZO",
+        "title": "World Is Yours"
+      },
+      {
+        "timeSecs": 1726,
+        "artist": "Jejüne",
+        "title": "Terminé"
+      }
+    ]
+  },
+  {
+    "id": "mix-054",
+    "title": "Lo-Fi House Essentials | Summer 2023 Trax",
+    "slug": "lo-fi-house-essentials-summer-2023-trax",
+    "duration": "02:19:25",
+    "releaseDate": "2023.05.31",
+    "mood": "chill",
+    "views": 12777,
+    "audioPath": "public/assets/mixes/audio/lo-fi-house-essentials-summer-2023-trax.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=ji9HUjdbbfs",
+    "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-essentials-summer-2023-trax",
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "artist": "M44K",
+        "title": "4 Page Letter (M44K’s rawcut)"
+      },
+      {
+        "timeSecs": 338,
+        "artist": "Hidden Spheres",
+        "title": "Beachy"
+      },
+      {
+        "timeSecs": 690,
+        "artist": "Rodfæstet",
+        "title": "No Miami"
+      },
+      {
+        "timeSecs": 1045,
+        "artist": "Code.pump",
+        "title": "Decay Chain"
+      },
+      {
+        "timeSecs": 1386,
+        "artist": "Guy Incognito",
+        "title": "Lovedrug"
+      },
+      {
+        "timeSecs": 1690,
+        "artist": "Tshxlx Irl",
+        "title": "Broken Ones"
+      },
+      {
+        "timeSecs": 1905,
+        "artist": "DJ Houseplants",
+        "title": "I Don’t Mind"
+      },
+      {
+        "timeSecs": 2253,
+        "artist": "POSER",
+        "title": "I hope U think of me"
+      },
+      {
+        "timeSecs": 2602,
+        "artist": "Slowonder",
+        "title": "Remember"
+      },
+      {
+        "timeSecs": 2906,
+        "artist": "Holo",
+        "title": "Juniper"
+      },
+      {
+        "timeSecs": 3191,
+        "artist": "DJ Maybe",
+        "title": "Injured"
+      },
+      {
+        "timeSecs": 3569,
+        "artist": "Slamb",
+        "title": "Down Wit Boo"
+      },
+      {
+        "timeSecs": 3894,
+        "artist": "Subjoi",
+        "title": "Take Care"
+      },
+      {
+        "timeSecs": 4201,
+        "artist": "willi6m",
+        "title": "Must Be Love"
+      },
+      {
+        "timeSecs": 4470,
+        "artist": "Shinichi Atobe",
+        "title": "Butterfly Effect"
+      },
+      {
+        "timeSecs": 5175,
+        "artist": "Space Ghost",
+        "title": "Ocean Odyssey"
+      },
+      {
+        "timeSecs": 5335,
+        "artist": "DOS",
+        "title": "High"
+      },
+      {
+        "timeSecs": 5638,
+        "artist": "J.Cause",
+        "title": "Morning Stroll"
+      },
+      {
+        "timeSecs": 5953,
+        "artist": "doubleA",
+        "title": "Aquatic Ambiance"
+      },
+      {
+        "timeSecs": 6332,
+        "artist": "Tom Vernon",
+        "title": "Healing Process"
+      },
+      {
+        "timeSecs": 6623,
+        "artist": "glue70",
+        "title": "What You Want"
+      },
+      {
+        "timeSecs": 6846,
+        "artist": "Baltra",
+        "title": "Summer Of ‘98"
+      },
+      {
+        "timeSecs": 7224,
+        "artist": "Rimbaudian",
+        "title": "I Would Do Everything I Did Again and Again"
+      },
+      {
+        "timeSecs": 7656,
+        "artist": "Tunnel Vision",
+        "title": "Pay the Rent"
+      },
+      {
+        "timeSecs": 7963,
+        "artist": "2XM",
+        "title": "Sukin"
+      }
+    ]
+  },
+  {
+    "id": "mix-055",
+    "title": "Lo-Fi House Mix | Short But Funky",
+    "slug": "lo-fi-house-mix-short-but-funky",
+    "duration": "00:30:16",
+    "releaseDate": "2023.06.05",
+    "mood": "chill",
+    "views": 1481,
+    "audioPath": "public/assets/mixes/audio/lo-fi-house-mix-short-but-funky.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=KLwFKmDaijQ",
+    "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-mix-short-but-funky",
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "artist": "Omar Santis",
+        "title": "Like Buttah On Yo Breakfast Toast"
+      },
+      {
+        "timeSecs": 210,
+        "artist": "Broosnica",
+        "title": "J Dilla Life House"
+      },
+      {
+        "timeSecs": 366,
+        "artist": "Tour-Maubourg",
+        "title": "Manhattan to Brooklyn"
+      },
+      {
+        "timeSecs": 694,
+        "artist": "Braga Circuit",
+        "title": "Foolish"
+      },
+      {
+        "timeSecs": 928,
+        "artist": "Jacopo Sb",
+        "title": "Our Music Our Love"
+      },
+      {
+        "timeSecs": 1217,
+        "artist": "Mood J",
+        "title": "NY Vibration"
+      },
+      {
+        "timeSecs": 1436,
+        "artist": "QUASAR",
+        "title": "The Dusty Tape Of Love"
+      }
+    ]
+  },
+  {
+    "id": "mix-056",
+    "title": "Lo-Fi House Mix | Untitled",
+    "slug": "lo-fi-house-mix-untitled",
+    "duration": "00:49:33",
+    "releaseDate": "2023.06.13",
+    "mood": "deep",
+    "views": 2547,
+    "audioPath": "public/assets/mixes/audio/lo-fi-house-mix-untitled.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=j3bSodje_bI",
+    "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-mix-untitled",
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "artist": "vgav",
+        "title": "Untitled"
+      },
+      {
+        "timeSecs": 276,
+        "artist": "mr.brown",
+        "title": "Imagination"
+      },
+      {
+        "timeSecs": 570,
+        "artist": "detailseventy3",
+        "title": "The Journey"
+      },
+      {
+        "timeSecs": 923,
+        "artist": "DJ Seinfeld",
+        "title": "Come Thru for U"
+      },
+      {
+        "timeSecs": 1261,
+        "artist": "DJ Psychiatre",
+        "title": "Home Soon"
+      },
+      {
+        "timeSecs": 1618,
+        "artist": "wshdway",
+        "title": "stolen"
+      },
+      {
+        "timeSecs": 1887,
+        "artist": "Slim Hustla",
+        "title": "√ SEEN 02:37"
+      },
+      {
+        "timeSecs": 2209,
+        "artist": "DJ Planet Express",
+        "title": "Side x Side ft. Augustix"
+      },
+      {
+        "timeSecs": 2494,
+        "artist": "Baltra",
+        "title": "Iwunnaf33l"
+      },
+      {
+        "timeSecs": 2755,
+        "artist": "DOS",
+        "title": "Come A Little Closer (Original Mix)"
+      }
+    ]
+  },
+  {
+    "id": "mix-057",
+    "title": "Lo-Fi House Mix | Cliffhanger",
+    "slug": "lo-fi-house-mix-cliffhanger",
+    "duration": "00:38:53",
+    "releaseDate": "2023.06.17",
+    "mood": "deep",
+    "views": 2611,
+    "audioPath": "public/assets/mixes/audio/lo-fi-house-mix-cliffhanger.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=zhFm4mc1k6Q",
+    "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-mix-cliffhanger",
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "artist": "DJ Ædidias",
+        "title": "Drift"
+      },
+      {
+        "timeSecs": 287,
+        "artist": "DATSKO & Itani",
+        "title": "Cody Was a Tank"
+      },
+      {
+        "timeSecs": 498,
+        "artist": "Marquis Hawkes",
+        "title": "Clockin’ out"
+      },
+      {
+        "timeSecs": 755,
+        "artist": "Subjoi",
+        "title": "Treat You Right"
+      },
+      {
+        "timeSecs": 1028,
+        "artist": "DJ Planet Express",
+        "title": "Enjoy Tonite"
+      },
+      {
+        "timeSecs": 1285,
+        "artist": "Mr. Sosa",
+        "title": "Paradox"
+      },
+      {
+        "timeSecs": 1619,
+        "artist": "DJ Swagger & DJ Ædidias",
+        "title": "ствол"
+      },
+      {
+        "timeSecs": 1831,
+        "artist": "Tlim Shug",
+        "title": "Blunttech"
+      },
+      {
+        "timeSecs": 2024,
+        "artist": "Jozef K",
+        "title": "Wrongs (feat. Jade Parker)"
+      }
+    ]
+  },
+  {
+    "id": "mix-058",
+    "title": "Lo-Fi House Mix | Summer Solstice",
+    "slug": "lo-fi-house-mix-summer-solstice",
+    "duration": "00:39:04",
+    "releaseDate": "2023.06.26",
+    "mood": "chill",
+    "views": 2406,
+    "audioPath": "public/assets/mixes/audio/lo-fi-house-mix-summer-solstice.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=i-9NooDHQMg",
+    "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-mix-summer-solstice",
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "artist": "wshdway",
+        "title": "z"
+      },
+      {
+        "timeSecs": 64,
+        "artist": "Tlim Shug",
+        "title": "Insert"
+      },
+      {
+        "timeSecs": 401,
+        "artist": "Loz Goddard",
+        "title": "With You"
+      },
+      {
+        "timeSecs": 656,
+        "artist": "glue70",
+        "title": "What You Want"
+      },
+      {
+        "timeSecs": 848,
+        "artist": "wshdway",
+        "title": "cherish"
+      },
+      {
+        "timeSecs": 1088,
+        "artist": "Slowonder",
+        "title": "Remember"
+      },
+      {
+        "timeSecs": 1328,
+        "artist": "WARREN RAWW",
+        "title": "A HOUSE IS A HOUSE"
+      },
+      {
+        "timeSecs": 1585,
+        "artist": "DJ Houseplants",
+        "title": "Bbtropix"
+      },
+      {
+        "timeSecs": 1857,
+        "artist": "Liam Robertson",
+        "title": "Forever"
+      },
+      {
+        "timeSecs": 2080,
+        "artist": "dipsmith",
+        "title": "want me 2"
+      }
+    ]
+  },
+  {
+    "id": "mix-059",
+    "title": "Lo-Fi House Essentials | Late Night Trax",
+    "slug": "lo-fi-house-essentials-late-night-trax",
+    "duration": "02:22:30",
+    "releaseDate": "2023.07.02",
+    "mood": "deep",
+    "views": 5538,
+    "audioPath": "public/assets/mixes/audio/lo-fi-house-essentials-late-night-trax.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=1ltJN5PCHsw",
+    "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-essentials-late-night-trax",
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "artist": "Journeymann Trax",
+        "title": "Jade Tour (feat. D Tiffany)"
+      },
+      {
+        "timeSecs": 423,
+        "artist": "Jacopo Sb",
+        "title": "Lo-Fi Tapes 01"
+      },
+      {
+        "timeSecs": 836,
+        "artist": "Rodfæstet",
+        "title": "Never Shop in Londis"
+      },
+      {
+        "timeSecs": 1134,
+        "artist": "cbdj",
+        "title": "Faith in July"
+      },
+      {
+        "timeSecs": 1483,
+        "artist": "YXLR & midnight",
+        "title": "Promethium Reprise"
+      },
+      {
+        "timeSecs": 1751,
+        "artist": "Route 8",
+        "title": "I Can’t"
+      },
+      {
+        "timeSecs": 2189,
+        "artist": "DJ Different",
+        "title": "Cloud Dancin’"
+      },
+      {
+        "timeSecs": 2659,
+        "artist": "DJ Barbo$$a",
+        "title": "Make It"
+      },
+      {
+        "timeSecs": 3043,
+        "artist": "Lootbeg",
+        "title": "Orbital (feat. Bajazo)"
+      },
+      {
+        "timeSecs": 3300,
+        "artist": "Tom Jarmey",
+        "title": "Slow Rotations (1-800 Girls Remix)"
+      },
+      {
+        "timeSecs": 3667,
+        "artist": "DJ Hoshino",
+        "title": "She Told Me To Be Patient (Instrumental)"
+      },
+      {
+        "timeSecs": 4042,
+        "artist": "Nobxdyy",
+        "title": "Ctrl Z"
+      },
+      {
+        "timeSecs": 4324,
+        "artist": "DJacuzzi",
+        "title": "Running From You"
+      },
+      {
+        "timeSecs": 4526,
+        "artist": "박혜진 Park Hye Jin",
+        "title": "Like this"
+      },
+      {
+        "timeSecs": 4771,
+        "artist": "DJ Psychiatre",
+        "title": "Is That Even Possible?"
+      },
+      {
+        "timeSecs": 5127,
+        "artist": "DJ Houseplants & Jacopo Sb",
+        "title": "Tryna Hold On"
+      },
+      {
+        "timeSecs": 5470,
+        "artist": "Upper Class",
+        "title": "3am Gang Shit"
+      },
+      {
+        "timeSecs": 5803,
+        "artist": "Monolithic",
+        "title": "3Am (Resonance)"
+      },
+      {
+        "timeSecs": 6058,
+        "artist": "Otto Taimela",
+        "title": "Time Doesn’t Heal All Wounds"
+      },
+      {
+        "timeSecs": 6504,
+        "artist": "kanyalang!",
+        "title": "When You Do, What You’re Doing"
+      },
+      {
+        "timeSecs": 6949,
+        "artist": "Mr. Sosa",
+        "title": "Orion"
+      },
+      {
+        "timeSecs": 7226,
+        "artist": "SI-FI",
+        "title": "They Don’t Know"
+      },
+      {
+        "timeSecs": 7521,
+        "artist": "DJ Seinfeld",
+        "title": "Electrian"
+      },
+      {
+        "timeSecs": 7932,
+        "artist": "Ross from Friends",
+        "title": "Gettin’ It Done"
+      },
+      {
+        "timeSecs": 8238,
+        "artist": "DJ Club Sandwich",
+        "title": "Would’ve Loved U Forever"
+      }
+    ]
+  },
+  {
+    "id": "mix-060",
+    "title": "Lo-Fi House Mix | Unconventional Intermission",
+    "slug": "lo-fi-house-mix-unconventional-intermission",
+    "duration": "00:46:30",
+    "releaseDate": "2023.07.08",
+    "mood": "deep",
+    "views": 4675,
+    "audioPath": "public/assets/mixes/audio/lo-fi-house-mix-unconventional-intermission.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=gGbhpwAOZUk",
+    "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-mix-unconventional-intermission",
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "artist": "Patricia",
+        "title": "Melting"
+      },
+      {
+        "timeSecs": 365,
+        "artist": "DJ Different",
+        "title": "Jane Feel My Pain"
+      },
+      {
+        "timeSecs": 938,
+        "artist": "WARREN RAWW",
+        "title": "HUMBLE BEGINNINGS (BONUS TRAKK)"
+      },
+      {
+        "timeSecs": 1166,
+        "artist": "Baltra",
+        "title": "Fuck All Y’all Haters"
+      },
+      {
+        "timeSecs": 1431,
+        "artist": "wshdway",
+        "title": "sorry to awake you"
+      },
+      {
+        "timeSecs": 1503,
+        "artist": "MTRLV",
+        "title": "Whatever we go through"
+      },
+      {
+        "timeSecs": 1988,
+        "artist": "still dont work",
+        "title": "Msvdub119"
+      },
+      {
+        "timeSecs": 2238,
+        "artist": "MKS Sylvan",
+        "title": "Lauda"
+      },
+      {
+        "timeSecs": 2445,
+        "artist": "Interplanetary Criminal",
+        "title": "Get Money"
+      }
+    ]
+  },
+  {
+    "id": "mix-061",
+    "title": "Jungle/DnB Essentials | PlayStation DnB Trax",
+    "slug": "jungle-dnb-essentials-playstation-dnb-trax",
+    "duration": "01:54:07",
+    "releaseDate": "2023.08.08",
+    "mood": "dirty",
+    "views": 2335,
+    "audioPath": "public/assets/mixes/audio/jungle-dnb-essentials-playstation-dnb-trax.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=kfxz4Llikic",
+    "soundcloudUrl": "https://soundcloud.com/weebtrax/jungle-essentials-evocative-playstation-dnb-trax",
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "artist": "Baltra",
+        "title": "I’m Okay"
+      },
+      {
+        "timeSecs": 270,
+        "artist": "Florian Kupfer",
+        "title": "Lifetrax"
+      },
+      {
+        "timeSecs": 618,
+        "artist": "Sansibar",
+        "title": "Game Over"
+      },
+      {
+        "timeSecs": 999,
+        "artist": "Supreems",
+        "title": "Amen 2 Trance"
+      },
+      {
+        "timeSecs": 1312,
+        "artist": "Monolithic",
+        "title": "Mercury Vapor"
+      },
+      {
+        "timeSecs": 1610,
+        "artist": "Shadow Child",
+        "title": "Crystl"
+      },
+      {
+        "timeSecs": 1894,
+        "artist": "Fold",
+        "title": "Dreamscape (Kassem Mosse Remix)"
+      },
+      {
+        "timeSecs": 2168,
+        "artist": "No Moon",
+        "title": "Everything Has a Return"
+      },
+      {
+        "timeSecs": 2580,
+        "artist": "Jozef K",
+        "title": "Wrongs (feat. Jade Parker)"
+      },
+      {
+        "timeSecs": 2910,
+        "artist": "Marco Lazovic",
+        "title": "Violin Feelings"
+      },
+      {
+        "timeSecs": 3171,
+        "artist": "DJ Different",
+        "title": "Madrun"
+      },
+      {
+        "timeSecs": 3497,
+        "artist": "Joakim Hellgren",
+        "title": "Boy"
+      },
+      {
+        "timeSecs": 3753,
+        "artist": "asc",
+        "title": "Lose Ya"
+      },
+      {
+        "timeSecs": 3945,
+        "artist": "oooz",
+        "title": "Don’t Leave"
+      },
+      {
+        "timeSecs": 4110,
+        "artist": "Foxxy Dekay",
+        "title": "Atomic Ride"
+      },
+      {
+        "timeSecs": 4233,
+        "artist": "Luz1e",
+        "title": "4/5/20/18/15/9/20"
+      },
+      {
+        "timeSecs": 4545,
+        "artist": "Mr. Sosa",
+        "title": "London Ting (Break Yer Back Mix)"
+      },
+      {
+        "timeSecs": 4871,
+        "artist": "BAKGROUND & Sangam",
+        "title": "Intermission"
+      },
+      {
+        "timeSecs": 5078,
+        "artist": "DJ Kim’s Convenience Store",
+        "title": "Lets Learn Japanglish With Jungle Rhythm"
+      },
+      {
+        "timeSecs": 5282,
+        "artist": "Denham Audio",
+        "title": "Transcendence Feat. 7ip7o3"
+      },
+      {
+        "timeSecs": 5545,
+        "artist": "M4A4",
+        "title": "1995"
+      },
+      {
+        "timeSecs": 5922,
+        "artist": "Otto Taimela",
+        "title": "it’s a secret"
+      },
+      {
+        "timeSecs": 6109,
+        "artist": "kanyalang!",
+        "title": "Between Here and Now"
+      },
+      {
+        "timeSecs": 6387,
+        "artist": "Yung SmartRider",
+        "title": "Tree of Life"
+      },
+      {
+        "timeSecs": 6659,
+        "artist": "jinkasei",
+        "title": "Sil3nt"
+      }
+    ]
+  },
+  {
+    "id": "mix-062",
+    "title": "Lo-Fi House Essentials | When You're Falling In Love Trax",
+    "slug": "lo-fi-house-essentials-when-youre-falling-in-love-trax",
+    "duration": "02:20:13",
+    "releaseDate": "2024.01.03",
+    "mood": "nostalgic",
+    "views": 10053,
+    "audioPath": "public/assets/mixes/audio/lo-fi-house-essentials-when-you-re-falling-in-love-trax.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=_Isrjs4DLPE",
+    "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-essentials-when-youre-falling-in-love-trax",
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "artist": "cbdj",
+        "title": "Towards You"
+      },
+      {
+        "timeSecs": 365,
+        "artist": "Gloved Hands",
+        "title": "Say Things"
+      },
+      {
+        "timeSecs": 668,
+        "artist": "DJ Bigspin",
+        "title": "Come Over"
+      },
+      {
+        "timeSecs": 1015,
+        "title": "Rodfæstet – Missin’ Your Love"
+      },
+      {
+        "timeSecs": 1268,
+        "artist": "Mr. Sosa",
+        "title": "Weak"
+      },
+      {
+        "timeSecs": 1575,
+        "artist": "1989",
+        "title": "Foolish"
+      },
+      {
+        "timeSecs": 1931,
+        "artist": "Dustin Hoffman",
+        "title": "Ocean beach chill me with ur loving touch"
+      },
+      {
+        "timeSecs": 2253,
+        "artist": "DJ Different",
+        "title": "Without Her"
+      },
+      {
+        "timeSecs": 2655,
+        "artist": "kemt",
+        "title": "I will never let you go"
+      },
+      {
+        "timeSecs": 2994,
+        "artist": "Kanyalang",
+        "title": "I Can Luv U"
+      },
+      {
+        "timeSecs": 3393,
+        "artist": "DJ Houseplants",
+        "title": "Elissa Steamer"
+      },
+      {
+        "timeSecs": 3726,
+        "artist": "Jacopo Sb",
+        "title": "You can’t hide it"
+      },
+      {
+        "timeSecs": 4025,
+        "artist": "Baltra",
+        "title": "Untitled (A)"
+      },
+      {
+        "timeSecs": 4402,
+        "artist": "Nørus",
+        "title": "Untitled B"
+      },
+      {
+        "timeSecs": 4804,
+        "artist": "Mark Mass",
+        "title": "Back"
+      },
+      {
+        "timeSecs": 5042,
+        "artist": "POSER",
+        "title": "If U love me"
+      },
+      {
+        "timeSecs": 5338,
+        "artist": "DJ Seinfeld",
+        "title": "Tell Me One More Time"
+      },
+      {
+        "timeSecs": 5610,
+        "title": "RealSense -Make Me Float (RealSense Remix)"
+      },
+      {
+        "timeSecs": 5890,
+        "artist": "Jacksonifyer",
+        "title": "10/P4ss3d.Out.4T.4.P4rty"
+      },
+      {
+        "timeSecs": 6330,
+        "artist": "notnoize",
+        "title": "you’ll never be"
+      },
+      {
+        "timeSecs": 6555,
+        "artist": "Foamek",
+        "title": "From The Very Start"
+      },
+      {
+        "timeSecs": 6873,
+        "artist": "DJ Psychiatre",
+        "title": "And So Much More..."
+      },
+      {
+        "timeSecs": 7274,
+        "artist": "Veen & Liam Robertson",
+        "title": "Starting To Think (You’re the One)"
+      },
+      {
+        "timeSecs": 7609,
+        "artist": "Rimbaudian",
+        "title": "Drop It on Em"
+      },
+      {
+        "timeSecs": 8022,
+        "artist": "Kareem Ali",
+        "title": "Desire"
+      }
+    ]
+  },
+  {
+    "id": "mix-063",
+    "title": "Lo-Fi Ambient Mix | Nintendo Sound Waves",
+    "slug": "lo-fi-ambient-mix-nintendo-sound-waves",
+    "duration": "00:49:19",
+    "releaseDate": "2024.01.05",
+    "mood": "chill",
+    "views": 1273,
+    "audioPath": "public/assets/mixes/audio/lo-fi-ambient-mix-nintendo-sound-waves.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=N6cqvnPYtcQ",
+    "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-ambient-mix-nintendo-sound-waves",
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "artist": "Terekke",
+        "title": "Soft G"
+      },
+      {
+        "timeSecs": 205,
+        "artist": "nthng",
+        "title": "Only a Flash of Light"
+      },
+      {
+        "timeSecs": 745,
+        "artist": "Earth Trax",
+        "title": "The Great Blue Hole"
+      },
+      {
+        "timeSecs": 869,
+        "artist": "Scizzie",
+        "title": "Aquatic Ambience"
+      },
+      {
+        "timeSecs": 983,
+        "artist": "nthng",
+        "title": "Soft Sea"
+      },
+      {
+        "timeSecs": 1328,
+        "artist": "DJ LOSTBOI",
+        "title": "Wide Eyed"
+      },
+      {
+        "timeSecs": 1445,
+        "artist": "Otto Taimela",
+        "title": "Quiet Thunder"
+      },
+      {
+        "timeSecs": 1706,
+        "artist": "Earth Trax",
+        "title": "Porcelain"
+      },
+      {
+        "timeSecs": 1950,
+        "artist": "Tserg",
+        "title": "Incandescent Longing (Tape Hiss Remix)"
+      },
+      {
+        "timeSecs": 2254,
+        "artist": "No Moon",
+        "title": "Where Do We Go From Here?"
+      },
+      {
+        "timeSecs": 2530,
+        "artist": "Mr. Sosa",
+        "title": "Joy of Pain"
+      },
+      {
+        "timeSecs": 2807,
+        "artist": "Mori Jarriem",
+        "title": "Foawei (Keiju Remix)"
+      }
+    ]
+  },
+  {
+    "id": "mix-064",
+    "title": "Lo-Fi House Mix | You Possess A False Body And A Fake Soul. Do You Know Why?",
+    "slug": "lo-fi-house-mix-you-possess-a-false-body-and-a-fake-soul-do-you-know-why",
+    "duration": "00:47:24",
+    "releaseDate": "2024.03.02",
+    "mood": "deep",
+    "views": 3176,
+    "audioPath": "public/assets/mixes/audio/lo-fi-house-mix-you-possess-a-false-body-and-a-fake-soul-do-you-know-why.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=D_RtPmuD5hk",
+    "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-mix-auditory-cortex",
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "artist": "Jacksonifyer",
+        "title": "Restful Peace"
+      },
+      {
+        "timeSecs": 141,
+        "artist": "Crash Bandicoot Sample",
+        "title": "Dr. Neo Cortex (Subbed)"
+      },
+      {
+        "timeSecs": 222,
+        "artist": "Cofaxx",
+        "title": "From Memory, Pt. 1"
+      },
+      {
+        "timeSecs": 456,
+        "artist": "No Moon",
+        "title": "Everything Has a Return"
+      },
+      {
+        "timeSecs": 871,
+        "artist": "DJ Seinfeld",
+        "title": "Galazy"
+      },
+      {
+        "timeSecs": 1101,
+        "artist": "Baltra",
+        "title": "Sloow"
+      },
+      {
+        "timeSecs": 1332,
+        "artist": "Tom Vernon",
+        "title": "Route E52"
+      },
+      {
+        "timeSecs": 1608,
+        "artist": "GLANSLIN",
+        "title": "E39"
+      },
+      {
+        "timeSecs": 1900,
+        "artist": "Tissu",
+        "title": "Ground Loop"
+      },
+      {
+        "timeSecs": 2237,
+        "artist": "70’s Network",
+        "title": "Glocktight"
+      },
+      {
+        "timeSecs": 2590,
+        "artist": "Steven Be Calm",
+        "title": "White Leather (Bonus Track)"
+      }
+    ]
+  },
+  {
+    "id": "mix-065",
+    "title": "Lo-Fi House Essentials | Outer Space Trax",
+    "slug": "lo-fi-house-essentials-outer-space-trax",
+    "duration": "02:05:57",
+    "releaseDate": "2024.03.15",
+    "mood": "deep",
+    "views": 5753,
+    "audioPath": "public/assets/mixes/audio/lo-fi-house-essentials-outer-space-trax.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=fWe_Pifvacg",
+    "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-essentials-outer-space-trax",
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "artist": "70’s Network",
+        "title": "Invisibeauty"
+      },
+      {
+        "timeSecs": 450,
+        "artist": "Otto Taimela",
+        "title": "Shimmer"
+      },
+      {
+        "timeSecs": 735,
+        "artist": "DJ Hoshino",
+        "title": "Opening Up"
+      },
+      {
+        "timeSecs": 1180,
+        "artist": "Baltra",
+        "title": "Can’t Explain It (feat. Angela)"
+      },
+      {
+        "timeSecs": 1564,
+        "artist": "BAKGROUND",
+        "title": "Gotham 2 0 3 9"
+      },
+      {
+        "timeSecs": 1840,
+        "artist": "MTRLV",
+        "title": "Eyes Closed in the Club"
+      },
+      {
+        "timeSecs": 2347,
+        "artist": "DJ Different",
+        "title": "Das Boot"
+      },
+      {
+        "timeSecs": 2666,
+        "artist": "unknown",
+        "title": "Ecstasy Pills"
+      },
+      {
+        "timeSecs": 3083,
+        "artist": "Raär",
+        "title": "Sometimes I Hear Sirens"
+      },
+      {
+        "timeSecs": 3427,
+        "artist": "70’s Network",
+        "title": "Glocktight (DJ Different Remix)"
+      },
+      {
+        "timeSecs": 3822,
+        "artist": "Palmate",
+        "title": "Mittelweg"
+      },
+      {
+        "timeSecs": 4062,
+        "artist": "iok",
+        "title": "Real Things"
+      },
+      {
+        "timeSecs": 4465,
+        "artist": "AgonyOST & Sewerslvt",
+        "title": "Purple Hearts In Her Eyes (AgonyOST Remix)"
+      },
+      {
+        "timeSecs": 4755,
+        "artist": "DJ LOSTBOI",
+        "title": "Montenegro"
+      },
+      {
+        "timeSecs": 4988,
+        "artist": "Earth Trax",
+        "title": "The Great Blue Hole"
+      },
+      {
+        "timeSecs": 5118,
+        "artist": "Tissu",
+        "title": "4 #2"
+      },
+      {
+        "timeSecs": 5586,
+        "artist": "DJ Club Sandwich",
+        "title": "Would’ve Loved U Forever"
+      },
+      {
+        "timeSecs": 5898,
+        "artist": "Lomaji",
+        "title": "Dancing Eyes"
+      },
+      {
+        "timeSecs": 6039,
+        "artist": "Exodia",
+        "title": "Tokyo Drift"
+      },
+      {
+        "timeSecs": 6360,
+        "artist": "Upper Class",
+        "title": "Faster Than Life"
+      },
+      {
+        "timeSecs": 6627,
+        "artist": "Terekke",
+        "title": "220+G"
+      },
+      {
+        "timeSecs": 6769,
+        "artist": "Lootbeg",
+        "title": "Oblivion (Ambient Mix)"
+      },
+      {
+        "timeSecs": 7012,
+        "artist": "Passing Currents",
+        "title": "Undress"
+      },
+      {
+        "timeSecs": 7292,
+        "artist": "nthng",
+        "title": "Infinity"
+      }
+    ]
+  },
+  {
+    "id": "mix-066",
+    "title": "Lo-Fi Ambient Essentials | Out-of-Body Experience Trax",
+    "slug": "lo-fi-ambient-essentials-out-of-body-experience-trax",
+    "duration": "02:11:38",
+    "releaseDate": "2024.04.06",
+    "mood": "chill",
+    "views": 3076,
+    "audioPath": "public/assets/mixes/audio/lo-fi-ambient-essentials-out-of-body-experience-trax.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=p8Wn-pscT_o",
+    "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-ambient-essentials-out-of-body-trax",
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "artist": "AgonyOST",
+        "title": "Des Larmes Et Des Saints"
+      },
+      {
+        "timeSecs": 1295,
+        "artist": "nthng",
+        "title": "Atlantis"
+      },
+      {
+        "timeSecs": 1526,
+        "artist": "SWIM",
+        "title": "Beyond"
+      },
+      {
+        "timeSecs": 1596,
+        "artist": "Burial",
+        "title": "Endorphin"
+      },
+      {
+        "timeSecs": 1755,
+        "artist": "DJ LOSTBOI",
+        "title": "L.T.B."
+      },
+      {
+        "timeSecs": 1962,
+        "artist": "DJ Seinfeld & Teira",
+        "title": "U Already Know (Kiimi Remix)"
+      },
+      {
+        "timeSecs": 2228,
+        "artist": "Journeymann Trax",
+        "title": "Ice Sheets"
+      },
+      {
+        "timeSecs": 2672,
+        "artist": "BAKGROUND & Sangam",
+        "title": "Carousel"
+      },
+      {
+        "timeSecs": 2890,
+        "artist": "Shedbug",
+        "title": "337A"
+      },
+      {
+        "timeSecs": 3084,
+        "artist": "wshdway",
+        "title": "plastic"
+      },
+      {
+        "timeSecs": 3412,
+        "artist": "Jacksonifyer",
+        "title": "10/P4ss3d.Out.4T.4.P4rty"
+      },
+      {
+        "timeSecs": 3804,
+        "artist": "Lootbeg & Bajazo",
+        "title": "Garden Cosmos"
+      },
+      {
+        "timeSecs": 4051,
+        "artist": "No Moon",
+        "title": "Highland Spring"
+      },
+      {
+        "timeSecs": 4303,
+        "artist": "Jeigo",
+        "title": "Pearl Leaf"
+      },
+      {
+        "timeSecs": 4719,
+        "artist": "Armec",
+        "title": "Like Tears"
+      },
+      {
+        "timeSecs": 4891,
+        "artist": "Terekke",
+        "title": "Ambien"
+      },
+      {
+        "timeSecs": 4994,
+        "artist": "DJ LOSTBOI",
+        "title": "Puf 2 Lax"
+      },
+      {
+        "timeSecs": 5251,
+        "artist": "Otik",
+        "title": "Night Visions"
+      },
+      {
+        "timeSecs": 5539,
+        "artist": "Tom Jarmey",
+        "title": "Slow Rotations (1-800 Girls Remix)"
+      },
+      {
+        "timeSecs": 5879,
+        "artist": "Otto Taimela",
+        "title": "when Helsinki sleeps"
+      },
+      {
+        "timeSecs": 6284,
+        "artist": "Earth Trax",
+        "title": "Deprive Me of Air"
+      },
+      {
+        "timeSecs": 6681,
+        "artist": "DJ Psychiatre",
+        "title": "And So Much More..."
+      },
+      {
+        "timeSecs": 7082,
+        "artist": "Denham Audio",
+        "title": "Transcendence Feat. 7ip7o3"
+      },
+      {
+        "timeSecs": 7387,
+        "artist": "BAKGROUND",
+        "title": "Fantasies"
+      },
+      {
+        "timeSecs": 7718,
+        "artist": "Dusky",
+        "title": "Grape"
+      }
+    ]
+  },
+  {
+    "id": "mix-067",
+    "title": "Lo-Fi House Mix | Pull Up (To The Club Like Skrt Skrt)",
+    "slug": "lo-fi-house-mix-pull-up-to-the-club-like-skrt-skrt",
+    "duration": "00:34:29",
+    "releaseDate": "2024.04.30",
+    "mood": "dirty",
+    "views": 2786,
+    "audioPath": "public/assets/mixes/audio/lo-fi-house-mix-pull-up-to-the-club-like-skrt-skrt.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=5Vt6Lf-Zo5Y",
+    "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-mix-pull-up-to-the-club-like-skrt-skrt",
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "artist": "Mall Grab",
+        "title": "Liverpool Street in the Rain"
+      },
+      {
+        "timeSecs": 334,
+        "artist": "Edward White",
+        "title": "De Wallen"
+      },
+      {
+        "timeSecs": 556,
+        "artist": "CRUSH3d",
+        "title": "Slug"
+      },
+      {
+        "timeSecs": 755,
+        "artist": "Shedbug",
+        "title": "There’s Hope for You Yet"
+      },
+      {
+        "timeSecs": 1080,
+        "artist": "Yung SmartRider",
+        "title": "Stabba"
+      },
+      {
+        "timeSecs": 1282,
+        "artist": "Sketchy, benuebermensch, & MDMAXEL",
+        "title": "Creepin’ Up"
+      },
+      {
+        "timeSecs": 1513,
+        "artist": "Skin on skin",
+        "title": "Walk Up To Yo House"
+      },
+      {
+        "timeSecs": 1812,
+        "artist": "RITCHRD",
+        "title": "FEEL THE MUSIC"
+      }
+    ]
+  },
+  {
+    "id": "mix-068",
+    "title": "Lo-Fi House Essentials | Clubbing Withdrawal Symptoms Trax",
+    "slug": "lo-fi-house-essentials-clubbing-withdrawal-symptoms-trax",
+    "duration": "02:00:18",
+    "releaseDate": "2024.05.08",
+    "mood": "deep",
+    "views": 3251,
+    "audioPath": "public/assets/mixes/audio/lo-fi-house-essentials-clubbing-withdrawal-symptoms-trax.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=DTBPLvzi7p4",
+    "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-essentials-clubbing-withdrawal-symptoms-trax",
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "artist": "nthng",
+        "title": "Moving On"
+      },
+      {
+        "timeSecs": 383,
+        "artist": "Daze",
+        "title": "Death Whirl"
+      },
+      {
+        "timeSecs": 703,
+        "artist": "Interplanetary Criminal",
+        "title": "Work"
+      },
+      {
+        "timeSecs": 991,
+        "artist": "DJ Tired",
+        "title": "All I Want"
+      },
+      {
+        "timeSecs": 1368,
+        "artist": "DJ Dreamer",
+        "title": "Don’t Stop Dancing Girl"
+      },
+      {
+        "timeSecs": 1635,
+        "artist": "Nuwave",
+        "title": "One with the Father (VIP Remix)"
+      },
+      {
+        "timeSecs": 1920,
+        "artist": "DJ Sickfuck",
+        "title": "Wake the Fuck Up"
+      },
+      {
+        "timeSecs": 2198,
+        "artist": "slowkick",
+        "title": "Overclubbin’"
+      },
+      {
+        "timeSecs": 2415,
+        "artist": "wafula",
+        "title": "You Were Never Really Here"
+      },
+      {
+        "timeSecs": 2593,
+        "artist": "Jozef K",
+        "title": "Disintergrated"
+      },
+      {
+        "timeSecs": 2879,
+        "artist": "French Fries",
+        "title": "Change the Past"
+      },
+      {
+        "timeSecs": 3235,
+        "artist": "Ejeca",
+        "title": "BetterB"
+      },
+      {
+        "timeSecs": 3508,
+        "artist": "No_4mat",
+        "title": "Good Year"
+      },
+      {
+        "timeSecs": 3790,
+        "artist": "Tlim Shug",
+        "title": "Sma (Ny Mix)"
+      },
+      {
+        "timeSecs": 4045,
+        "artist": "Skin on Skin",
+        "title": "Ma Shootaz Got Shootaz"
+      },
+      {
+        "timeSecs": 4347,
+        "artist": "DJ M4A4",
+        "title": "Emo Party Haus Whip"
+      },
+      {
+        "timeSecs": 4748,
+        "artist": "DJ Swagger",
+        "title": "Glock & Gualla"
+      },
+      {
+        "timeSecs": 5050,
+        "artist": "Mr. Sosa",
+        "title": "Paradox"
+      },
+      {
+        "timeSecs": 5387,
+        "artist": "1800HaightStreet",
+        "title": "Flood"
+      },
+      {
+        "timeSecs": 5812,
+        "artist": "Baltra",
+        "title": "Breathe Deep"
+      },
+      {
+        "timeSecs": 6096,
+        "artist": "GLANSLIN",
+        "title": "Fucked Up"
+      },
+      {
+        "timeSecs": 6268,
+        "artist": "Sinceer",
+        "title": "Emp"
+      },
+      {
+        "timeSecs": 6512,
+        "artist": "Overmono",
+        "title": "BMW Track"
+      },
+      {
+        "timeSecs": 6910,
+        "artist": "Supreems",
+        "title": "Amex 2 Trance"
+      }
+    ]
+  },
+  {
+    "id": "mix-069",
+    "title": "Lo-Fi House Mix | Thinking Of You Makes My Heart Skip",
+    "slug": "lo-fi-house-mix-thinking-of-you-makes-my-heart-skip",
+    "duration": "00:50:59",
+    "releaseDate": "2024.05.25",
+    "mood": "nostalgic",
+    "views": 2867,
+    "audioPath": "public/assets/mixes/audio/lo-fi-house-mix-thinking-of-you-makes-my-heart-skip.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=LLeJsPF7-hA",
+    "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-mix-thinking-of-you-makes-my-heart-skip",
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "artist": "wshdway",
+        "title": "hidden"
+      },
+      {
+        "timeSecs": 234,
+        "artist": "DJ Seinfeld",
+        "title": "Tell Me One More Time (Mona Yim Remix)"
+      },
+      {
+        "timeSecs": 406,
+        "artist": "DJ Seinfeld",
+        "title": "Tell Me One More Time"
+      },
+      {
+        "timeSecs": 609,
+        "artist": "SWIM",
+        "title": "Beyond"
+      },
+      {
+        "timeSecs": 739,
+        "artist": "Pretty Girl",
+        "title": "Sun Phase"
+      },
+      {
+        "timeSecs": 1048,
+        "artist": "SWIM",
+        "title": "Say Less (Pretty Girl Remix)"
+      },
+      {
+        "timeSecs": 1309,
+        "artist": "DJ Different",
+        "title": "All Nite"
+      },
+      {
+        "timeSecs": 1703,
+        "artist": "jamesjamesjames",
+        "title": "Focus"
+      },
+      {
+        "timeSecs": 1911,
+        "artist": "Skin On Skin",
+        "title": "Memories of Before (jamesjamesjames Remix)"
+      },
+      {
+        "timeSecs": 2253,
+        "artist": "Djboeing",
+        "title": "I’ll Be Gone"
+      },
+      {
+        "timeSecs": 2402,
+        "artist": "Chesnokovskii",
+        "title": "Flickering Star (feat. Djboeing)"
+      },
+      {
+        "timeSecs": 2569,
+        "artist": "Jeigo",
+        "title": "Tell Me How It Feels"
+      },
+      {
+        "timeSecs": 2880,
+        "artist": "Laurence Guy",
+        "title": "Experience Health"
+      }
+    ]
+  },
+  {
+    "id": "mix-070",
+    "title": "Lo-Fi House Essentials | DJ'S ONLY Trax",
+    "slug": "lo-fi-house-essentials-djs-only-trax",
+    "duration": "01:53:17",
+    "releaseDate": "2024.06.17",
+    "mood": "deep",
+    "views": 2608,
+    "audioPath": "public/assets/mixes/audio/lo-fi-house-essentials-djs-only-trax.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=LQe9JlO9zoo",
+    "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-essentials-djs-only-trax",
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "artist": "DJ LOSTBOI",
+        "title": "Esprit SE"
+      },
+      {
+        "timeSecs": 272,
+        "artist": "DJ State",
+        "title": "Know You (Efe)"
+      },
+      {
+        "timeSecs": 338,
+        "artist": "DJ MC Klaus",
+        "title": "Out of the Sun"
+      },
+      {
+        "timeSecs": 559,
+        "artist": "DJ BOG",
+        "title": "Check Stub"
+      },
+      {
+        "timeSecs": 730,
+        "artist": "DJ Different",
+        "title": "Terra"
+      },
+      {
+        "timeSecs": 1022,
+        "artist": "DJ Barbo$$a",
+        "title": "Make It"
+      },
+      {
+        "timeSecs": 1397,
+        "artist": "DJ Houseplants",
+        "title": "Let Us Grow"
+      },
+      {
+        "timeSecs": 1711,
+        "artist": "dj ignorant",
+        "title": "Some Things Never Change"
+      },
+      {
+        "timeSecs": 2056,
+        "artist": "DJ Hoshino",
+        "title": "She Told Me To Be Patient (Instrumental)"
+      },
+      {
+        "timeSecs": 2415,
+        "artist": "DJ Maybe",
+        "title": "About Us"
+      },
+      {
+        "timeSecs": 2701,
+        "artist": "dj poolboi",
+        "title": "On My Mind (feat. DJ Sagol)"
+      },
+      {
+        "timeSecs": 3130,
+        "artist": "DJ Heure",
+        "title": "Sunny Jam"
+      },
+      {
+        "timeSecs": 3465,
+        "artist": "DJ Swagger & DJ Ædidias",
+        "title": "Track3"
+      },
+      {
+        "timeSecs": 3705,
+        "artist": "DJ Tired",
+        "title": "Ghetto Bump"
+      },
+      {
+        "timeSecs": 4035,
+        "artist": "DJ Windows XP",
+        "title": "I Cried Last Night"
+      },
+      {
+        "timeSecs": 4344,
+        "artist": "DJ Psychiatre",
+        "title": "To a L-141 Memory"
+      },
+      {
+        "timeSecs": 4657,
+        "artist": "DJ Planet Express",
+        "title": "Side x Side ft. Augustix"
+      },
+      {
+        "timeSecs": 4952,
+        "artist": "dj giveup & DJ Planet Express",
+        "title": "Late Nite"
+      },
+      {
+        "timeSecs": 5195,
+        "artist": "DJ Seinfeld",
+        "title": "Come Thru for U"
+      },
+      {
+        "timeSecs": 5533,
+        "artist": "DJ Cinéma Quartier Latin",
+        "title": "Nights Like This"
+      },
+      {
+        "timeSecs": 5878,
+        "artist": "Dj Windows 7",
+        "title": "Noche Bajo Estrellas"
+      },
+      {
+        "timeSecs": 6134,
+        "artist": "DJ Club Sandwich",
+        "title": "Sunshine"
+      },
+      {
+        "timeSecs": 6458,
+        "artist": "DJ Boring & Baltra",
+        "title": "I Know You Want To (Baltra Remix)"
+      }
+    ]
+  },
+  {
+    "id": "mix-071",
+    "title": "House Mix | SWIM (10 Feet Deep)",
+    "slug": "house-mix-swim-10-feet-deep",
+    "duration": "00:37:24",
+    "releaseDate": "2024.06.22",
+    "mood": "chill",
+    "views": 903,
+    "audioPath": "public/assets/mixes/audio/house-mix-swim-10-feet-deep.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=gk2V4Iwi02U",
+    "soundcloudUrl": "https://soundcloud.com/weebtrax/house-mix-swim-10-feet-deep",
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "artist": "SWIM",
+        "title": "Better Now"
+      },
+      {
+        "timeSecs": 116,
+        "artist": "SWIM",
+        "title": "No More Tears"
+      },
+      {
+        "timeSecs": 431,
+        "artist": "SWIM & CRUSH3d",
+        "title": "Love (CRUSH3d Remix)"
+      },
+      {
+        "timeSecs": 718,
+        "artist": "SWIM",
+        "title": "Beyond"
+      },
+      {
+        "timeSecs": 818,
+        "artist": "SWIM & CRUSH3d",
+        "title": "Miles Away"
+      },
+      {
+        "timeSecs": 1148,
+        "artist": "SWIM & CRUSH3d",
+        "title": "Miles Away (1-800 GIRLS Remix)"
+      },
+      {
+        "timeSecs": 1506,
+        "artist": "SWIM",
+        "title": "Inside"
+      },
+      {
+        "timeSecs": 1750,
+        "artist": "SWIM",
+        "title": "Years On Years"
+      },
+      {
+        "timeSecs": 1856,
+        "artist": "SWIM",
+        "title": "U Were Mine"
+      },
+      {
+        "timeSecs": 2068,
+        "artist": "SWIM",
+        "title": "Out There"
+      }
+    ]
+  },
+  {
+    "id": "mix-072",
+    "title": "Lo-Fi House & Jungle/DnB Mix | Don't Talk About Me Like I'm A Machine. I'm Not That",
+    "slug": "lo-fi-house-jungle-dnb-mix-dont-talk-about-me-like-im-a-machine-im-not-that",
+    "duration": "00:40:40",
+    "releaseDate": "2024.08.17",
+    "mood": "dirty",
+    "views": 1244,
+    "audioPath": "public/assets/mixes/audio/lo-fi-house-jungle-dnb-mix-dont-talk-about-me-like-i-m-a-machine-i-m-not-that.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=P09t3D7sdQY",
+    "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-junglednb-mix-dont-talk-about-me-like-im-a-machine-im-not-that",
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "title": "DJ Houseplants – The Morning (feat. Uchii)"
+      },
+      {
+        "timeSecs": 296,
+        "title": "dj poolboi – On My Mind (feat. DJ Sagol)"
+      },
+      {
+        "timeSecs": 671,
+        "title": "Monolithic – Baby Hold Me Close"
+      },
+      {
+        "timeSecs": 937,
+        "title": "Nuwave – One with the Father (VIP Remix)"
+      },
+      {
+        "timeSecs": 1190,
+        "title": "SLIM HUSTLA – Understand Da Game"
+      },
+      {
+        "timeSecs": 1446,
+        "title": "GLANSLIN – Secret World"
+      },
+      {
+        "timeSecs": 1758,
+        "title": "LOMAJI – Feelin You"
+      },
+      {
+        "timeSecs": 1950,
+        "title": "asc – Lose Ya"
+      },
+      {
+        "timeSecs": 2130,
+        "title": "LOMAJI – Urban Noise"
+      },
+      {
+        "timeSecs": 2333,
+        "title": "BAKGROUND – Credits"
+      }
+    ]
+  },
+  {
+    "id": "mix-073",
+    "title": "Lo-Fi House Mix | Virtual Reality",
+    "slug": "lo-fi-house-mix-virtual-reality",
+    "duration": "00:45:30",
+    "releaseDate": "2024.08.31",
+    "mood": "deep",
+    "views": 1223,
+    "audioPath": "public/assets/mixes/audio/lo-fi-house-mix-virtual-reality.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=cAiXN3eLvK0",
+    "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-mix-virtual-reality",
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "title": "Shedbug – 337A"
+      },
+      {
+        "timeSecs": 263,
+        "title": "Shedbug – Noti Crack"
+      },
+      {
+        "timeSecs": 616,
+        "title": "M4A4 – tenmillion"
+      },
+      {
+        "timeSecs": 938,
+        "title": "vgav – efficient penne"
+      },
+      {
+        "timeSecs": 1121,
+        "title": "vgav – eight years"
+      },
+      {
+        "timeSecs": 1482,
+        "title": "Passing Currents – Undress"
+      },
+      {
+        "timeSecs": 1744,
+        "title": "Patricia – Consumer Recreation Services"
+      },
+      {
+        "timeSecs": 2096,
+        "title": "wshdway – meant 2 be"
+      },
+      {
+        "timeSecs": 2342,
+        "title": "Baltra – Can’t Explain It (feat. Angela)"
+      }
+    ]
+  },
+  {
+    "id": "mix-074",
+    "title": "Lo-Fi House Essentials | End Of Summer 2024 Trax",
+    "slug": "lo-fi-house-essentials-end-of-summer-2024-trax",
+    "duration": "01:56:46",
+    "releaseDate": "2024.09.21",
+    "mood": "chill",
+    "views": 1552,
+    "audioPath": "public/assets/mixes/audio/lo-fi-house-essentials-end-of-summer-2024-trax.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=xVxLereRVBc",
+    "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-essentials-end-of-summer-2024-trax",
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "title": "Otto Taimela – “There Are Stars Above the Sea of Clouds”"
+      },
+      {
+        "timeSecs": 276,
+        "title": "DJ BOG – For the Chewin"
+      },
+      {
+        "timeSecs": 420,
+        "title": "Grant – Finite Elements"
+      },
+      {
+        "timeSecs": 796,
+        "title": "Holo – Try"
+      },
+      {
+        "timeSecs": 1129,
+        "title": "DJ Houseplants – Like You’re Gonna Stay"
+      },
+      {
+        "timeSecs": 1439,
+        "title": "DJ BORING – For Tahn"
+      },
+      {
+        "timeSecs": 1775,
+        "title": "Star Trash – Disconnect"
+      },
+      {
+        "timeSecs": 1917,
+        "title": "Shaolin Cowboy – Imma Be My Own Best Friend"
+      },
+      {
+        "timeSecs": 2204,
+        "title": "Sideluv & KTRNA – What You Want"
+      },
+      {
+        "timeSecs": 2404,
+        "title": "Jesse Bru – Please Ask"
+      },
+      {
+        "timeSecs": 2704,
+        "title": "HUMAN PART – TONE, TAN (FIT + READY)"
+      },
+      {
+        "timeSecs": 2897,
+        "artist": "MOM$",
+        "title": "Hold Me (Like This)"
+      },
+      {
+        "timeSecs": 3219,
+        "title": "Stvla – Outta Love"
+      },
+      {
+        "timeSecs": 3450,
+        "title": "Mall Grab – Love Reigns"
+      },
+      {
+        "timeSecs": 3725,
+        "title": "DJ Seinfeld – Walking With Ur Smile"
+      },
+      {
+        "timeSecs": 3946,
+        "title": "COMPUTER DATA – Alles"
+      },
+      {
+        "timeSecs": 4374,
+        "title": "Rimbaudian – Planted Casual"
+      },
+      {
+        "timeSecs": 4672,
+        "title": "M4A4 – Pretty girl (remix)"
+      },
+      {
+        "timeSecs": 4887,
+        "title": "Kornél Kovács – Pantalón"
+      },
+      {
+        "timeSecs": 5147,
+        "title": "Monolithic – You Won’t Even Call Me"
+      },
+      {
+        "timeSecs": 5483,
+        "title": "kemt – i need you (in my life)"
+      },
+      {
+        "timeSecs": 5868,
+        "title": "5ubaruu – Tired Eyes"
+      },
+      {
+        "timeSecs": 5996,
+        "title": "LZ* & TURUOISEDEATH – Limerence (Extended)"
+      },
+      {
+        "timeSecs": 6416,
+        "title": "disctr4k – Control"
+      },
+      {
+        "timeSecs": 6610,
+        "artist": "Baltra",
+        "title": "オメガ (Omega)"
+      }
+    ]
+  },
+  {
+    "id": "mix-075",
+    "title": "Lo-Fi House Mix | Ghetto Symphony Pt. 2",
+    "slug": "lo-fi-house-mix-ghetto-symphony-pt-2",
+    "duration": "00:56:45",
+    "releaseDate": "2024.10.28",
+    "mood": "deep",
+    "views": null,
+    "audioPath": "public/assets/mixes/audio/lo-fi-house-mix-ghetto-symphony-pt-2.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=Oo4d67fRz_Q",
+    "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-mix-ghetto-symphony-pt-2",
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "artist": "Delroy Edwards",
+        "title": "4 Club Use Only"
+      },
+      {
+        "timeSecs": 506,
+        "artist": "GLANSLIN",
+        "title": "Cloud 9 (feat. Al Noir)"
+      },
+      {
+        "timeSecs": 771,
+        "artist": "Good Luck",
+        "title": "Bitch I Will"
+      },
+      {
+        "timeSecs": 952,
+        "artist": "Tlim Shug",
+        "title": "Sma (Ny Mix)"
+      },
+      {
+        "timeSecs": 1207,
+        "artist": "benuebermensch",
+        "title": "Give a Fuck"
+      },
+      {
+        "timeSecs": 1417,
+        "artist": "Skin On Skin",
+        "title": "Multiply"
+      },
+      {
+        "timeSecs": 1762,
+        "artist": "Rimbaudian",
+        "title": "Hansa"
+      },
+      {
+        "timeSecs": 2068,
+        "artist": "DJ Boneyard",
+        "title": "Antipodean"
+      },
+      {
+        "timeSecs": 2488,
+        "artist": "Earth Trax",
+        "title": "Disintegration"
+      },
+      {
+        "timeSecs": 2788,
+        "artist": "Earth Trax",
+        "title": "Swamp"
+      },
+      {
+        "timeSecs": 3051,
+        "artist": "DJ Different",
+        "title": "Real"
+      }
+    ]
+  },
+  {
+    "id": "mix-076",
+    "title": "Jungle/DnB Essentials | Video Game Simulation Trax",
+    "slug": "jungle-dnb-essentials-video-game-simulation-trax",
+    "duration": "01:38:49",
+    "releaseDate": "2024.11.15",
+    "mood": "dirty",
+    "views": 1049,
+    "audioPath": "public/assets/mixes/audio/jungle-dnb-essentials-video-game-simulation-trax.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=7rzBRInrd-g",
+    "soundcloudUrl": "https://soundcloud.com/weebtrax/junglednb-essentials-video-game-simulation-trax",
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "title": "Voxkai – Paramnesia"
+      },
+      {
+        "timeSecs": 156,
+        "title": "Passing Currents – 2002"
+      },
+      {
+        "timeSecs": 322,
+        "title": "Yung Lain – Cyberia Texture"
+      },
+      {
+        "timeSecs": 443,
+        "title": "yion – Wired"
+      },
+      {
+        "timeSecs": 612,
+        "title": "LOMAJI – Data Drain"
+      },
+      {
+        "timeSecs": 761,
+        "title": "Trashiii – Idle Springs"
+      },
+      {
+        "timeSecs": 857,
+        "title": "Kanyalang! – Perfect Blue"
+      },
+      {
+        "timeSecs": 1159,
+        "title": "Marco Lazovic – Violin Feelings"
+      },
+      {
+        "timeSecs": 1453,
+        "title": "belac – In Your Head"
+      },
+      {
+        "timeSecs": 1629,
+        "title": "Buddy Broke – 987 (Kanyalang Remix)"
+      },
+      {
+        "timeSecs": 1872,
+        "title": "bleach.bath – Seeyoulaterspacecowboy"
+      },
+      {
+        "timeSecs": 2018,
+        "artist": "MOM$",
+        "title": "Module (Flossed Out Ryddym)"
+      },
+      {
+        "timeSecs": 2242,
+        "title": "Random Movement – Life Is Permanent"
+      },
+      {
+        "timeSecs": 2536,
+        "title": "Subjoi – Parsec"
+      },
+      {
+        "timeSecs": 2925,
+        "title": "Ray Keith – Phizical (Moody Mix)"
+      },
+      {
+        "timeSecs": 3250,
+        "title": "Bakground & Sangam – Intermission"
+      },
+      {
+        "timeSecs": 3445,
+        "title": "DJ Kim’s Convenience Store – Lets Learn Japanglish With Jungle Rhythm"
+      },
+      {
+        "timeSecs": 3631,
+        "title": "Special Request – Elysian Fields"
+      },
+      {
+        "timeSecs": 3957,
+        "title": "Yung SmartRider – Tree of Life"
+      },
+      {
+        "timeSecs": 4201,
+        "title": "Yung SmartRider – Shadow of Intent (feat. Kristof)"
+      },
+      {
+        "timeSecs": 4561,
+        "title": "M4A4 – 1995"
+      },
+      {
+        "timeSecs": 4937,
+        "title": "Otto Taimela – it’s a secret"
+      },
+      {
+        "timeSecs": 5125,
+        "title": "Sewerslvt – Mr. Kill Myself"
+      },
+      {
+        "timeSecs": 5576,
+        "title": "disctr4k – Substantial"
+      },
+      {
+        "timeSecs": 5757,
+        "title": "BAKGROUND – Game Over"
+      }
+    ]
+  },
+  {
+    "id": "mix-077",
+    "title": "Lo-Fi House Mix | To Obtain, Something Of Equal Value Must Be Lost",
+    "slug": "lo-fi-house-mix-to-obtain-something-of-equal-value-must-be-lost",
+    "duration": "00:50:04",
+    "releaseDate": "2024.11.23",
+    "mood": "deep",
+    "views": 909,
+    "audioPath": "public/assets/mixes/audio/lo-fi-house-mix-to-obtain-something-of-equal-value-must-be-lost.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=zi5SaXnu7qU",
+    "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-mix-to-obtain-something-of-equal-value-must-be-lost",
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "title": "DJ Houseplants – How It Used to Be (feat. Jacopo SB)"
+      },
+      {
+        "timeSecs": 276,
+        "title": "Tom Vernon – Late Nights"
+      },
+      {
+        "timeSecs": 445,
+        "title": "Bajazo – Autumn Fireflies"
+      },
+      {
+        "timeSecs": 691,
+        "title": "DJ Heure – Sunny Jam"
+      },
+      {
+        "timeSecs": 1013,
+        "title": "COMPUTER DATA – not you, me (front redux)"
+      },
+      {
+        "timeSecs": 1413,
+        "title": "Ross from Friends – There’s a Hole in My Heart"
+      },
+      {
+        "timeSecs": 1766,
+        "title": "Baltra – O’Neal"
+      },
+      {
+        "timeSecs": 2089,
+        "title": "Desired – Weird Japanese Girl"
+      },
+      {
+        "timeSecs": 2350,
+        "title": "disctr4k – Insomnia"
+      },
+      {
+        "timeSecs": 2733,
+        "title": "Nobxdyy – Delu~"
+      }
+    ]
+  },
+  {
+    "id": "mix-078",
+    "title": "Lo-Fi House Essentials | Sounds Like I'm High, Feels Like I'm Floating Trax",
+    "slug": "lo-fi-house-essentials-sounds-like-im-high-feels-like-im-floating-trax",
+    "duration": "02:13:29",
+    "releaseDate": "2024.12.01",
+    "mood": "deep",
+    "views": 3441,
+    "audioPath": "public/assets/mixes/audio/lo-fi-house-essentials-sounds-like-im-high-feels-like-im-floating-trax.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=Kzu7OhNKmgg",
+    "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-essentials-sounds",
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "title": "Baltra – Mariyah"
+      },
+      {
+        "timeSecs": 106,
+        "title": "Cripe – Forever (feat. Sexuritas)"
+      },
+      {
+        "timeSecs": 291,
+        "title": "Sexuritas – My Girl"
+      },
+      {
+        "timeSecs": 437,
+        "title": "Nobxdyy – In This Darkness (remix)"
+      },
+      {
+        "timeSecs": 650,
+        "title": "Clara La San – Let You Go (Astra G Remix)"
+      },
+      {
+        "timeSecs": 927,
+        "title": "notnoize – you’ll never be"
+      },
+      {
+        "timeSecs": 1180,
+        "title": "RealSense – Make Me Float (RealSense Remix)"
+      },
+      {
+        "timeSecs": 1458,
+        "title": "COMPUTER DATA – Selbstbesinnungen"
+      },
+      {
+        "timeSecs": 1690,
+        "title": "Cult Member – Hello Danny Boy"
+      },
+      {
+        "timeSecs": 1920,
+        "title": "GLANSLIN – Crying On the Dancefloor"
+      },
+      {
+        "timeSecs": 2192,
+        "title": "Jacopo Sb – Lo-Fi Tapes 02"
+      },
+      {
+        "timeSecs": 2612,
+        "title": "Jon Fay – 1271"
+      },
+      {
+        "timeSecs": 2976,
+        "title": "Otto Taimela – Suspense"
+      },
+      {
+        "timeSecs": 3544,
+        "title": "Burial – Endorphin"
+      },
+      {
+        "timeSecs": 3709,
+        "title": "TRP – Raindrop Shape"
+      },
+      {
+        "timeSecs": 4101,
+        "title": "Nobxdyy – Just U"
+      },
+      {
+        "timeSecs": 4749,
+        "title": "nthng – Moving On"
+      },
+      {
+        "timeSecs": 5069,
+        "title": "1-800 GIRLS – Sunscream"
+      },
+      {
+        "timeSecs": 5340,
+        "title": "Florian Kupfer – Feelin"
+      },
+      {
+        "timeSecs": 5734,
+        "title": "DJ Seinfeld – I Hope I Sleep Tonight"
+      },
+      {
+        "timeSecs": 5978,
+        "title": "Sideluv – Closer"
+      },
+      {
+        "timeSecs": 6159,
+        "title": "World Above – Someone New"
+      },
+      {
+        "timeSecs": 6446,
+        "title": "DJ Hoshino – She Told Me To Be Patient (Instrumental)"
+      },
+      {
+        "timeSecs": 6774,
+        "title": "Eva 00 – IRL Strats"
+      },
+      {
+        "timeSecs": 7211,
+        "title": "Trudge – True Stories Can’t Be Told"
+      },
+      {
+        "timeSecs": 7594,
+        "title": "No Moon – Is It Vibey Is It Yolo"
+      }
+    ]
+  },
+  {
+    "id": "mix-079",
+    "title": "Lo-Fi House Mix | RIP Toriyama Sensei",
+    "slug": "lo-fi-house-mix-rip-toriyama-sensei",
+    "duration": "00:43:03",
+    "releaseDate": "2024.12.07",
+    "mood": "nostalgic",
+    "views": 711,
+    "audioPath": "public/assets/mixes/audio/lo-fi-house-mix-rip-toriyama-sensei.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=1lAmvchYbDk",
+    "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-mix-rip-toriyama-sensei",
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "title": "Le Hutin – Dreamin’"
+      },
+      {
+        "timeSecs": 307,
+        "title": "belac – Feelin U"
+      },
+      {
+        "timeSecs": 407,
+        "title": "Sideluv & KTRNA – What You Want"
+      },
+      {
+        "timeSecs": 606,
+        "title": "Jesse Bru – Please Ask"
+      },
+      {
+        "timeSecs": 925,
+        "title": "Marc Brauner – Old School"
+      },
+      {
+        "timeSecs": 1217,
+        "title": "HÖR – Unbound"
+      },
+      {
+        "timeSecs": 1493,
+        "title": "HATT.D – One Question"
+      },
+      {
+        "timeSecs": 1799,
+        "title": "Subjoi – Like It Was"
+      },
+      {
+        "timeSecs": 2104,
+        "title": "Ricky Razu – Alive"
+      },
+      {
+        "timeSecs": 2363,
+        "artist": "SI-FI",
+        "title": "Remember"
+      }
+    ]
+  },
+  {
+    "id": "mix-080",
+    "title": "Lo-Fi House Mix | Is This What Heaven Sounds Like?",
+    "slug": "lo-fi-house-mix-is-this-what-heaven-sounds-like",
+    "duration": "00:42:15",
+    "releaseDate": "2024.12.14",
+    "mood": "deep",
+    "views": 1293,
+    "audioPath": "public/assets/mixes/audio/lo-fi-house-mix-is-this-what-heaven-sounds-like.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=sL3cNkE5gZQ",
+    "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-mix-is-this-what-heaven-sounds-like",
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "title": "DJ LOSTBOI – Don’t Worry (Child Mix)"
+      },
+      {
+        "timeSecs": 219,
+        "title": "Jacksonifyer – 10/P4ss3d.Out.4T.4P4rty"
+      },
+      {
+        "timeSecs": 578,
+        "title": "Tom Vernon – Lonely Weekend"
+      },
+      {
+        "timeSecs": 909,
+        "title": "Rimbaudian – Lost & Found"
+      },
+      {
+        "timeSecs": 1133,
+        "title": "willi6m – Must Be Love"
+      },
+      {
+        "timeSecs": 1373,
+        "title": "dipsmith – Elixir"
+      },
+      {
+        "timeSecs": 1718,
+        "title": "Rodfæstet – Want U Need U"
+      },
+      {
+        "timeSecs": 1943,
+        "title": "Sexuritas – Söderort Lovestory (feat. Fakelouiebag)"
+      },
+      {
+        "timeSecs": 2133,
+        "title": "Cult Member – Dream Member"
+      },
+      {
+        "timeSecs": 2320,
+        "title": "Ross from Friends – Gettin' It Done"
+      }
+    ]
+  },
+  {
+    "id": "mix-081",
+    "title": "Lo-Fi House Mix | Will You Miss Me?",
+    "slug": "lo-fi-house-mix-will-you-miss-me",
+    "duration": "00:41:38",
+    "releaseDate": "2024.12.21",
+    "mood": "nostalgic",
+    "views": 1133,
+    "audioPath": "public/assets/mixes/audio/lo-fi-house-mix-will-you-miss-me.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=UgCTBRPnPZY",
+    "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-mix-will-you-miss-me",
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "title": "Drake – Over My Dead Body"
+      },
+      {
+        "timeSecs": 283,
+        "title": "Rimbaudian – Drop It on Em"
+      },
+      {
+        "timeSecs": 634,
+        "title": "dj something – Stevie"
+      },
+      {
+        "timeSecs": 754,
+        "title": "dj something – Cuz Loving U Is"
+      },
+      {
+        "timeSecs": 955,
+        "title": "Cripe – DRIFT"
+      },
+      {
+        "timeSecs": 1077,
+        "title": "Sexuritas – I Just Wanna Be Wit U For a Minute"
+      },
+      {
+        "timeSecs": 1271,
+        "title": "Tshxlx Irl – Habitat (Good Luck Remix)"
+      },
+      {
+        "timeSecs": 1404,
+        "title": "Shaolin Cowboy – Imma Be My Own Best Friend"
+      },
+      {
+        "timeSecs": 1657,
+        "title": "Nobxdyy – Amn"
+      },
+      {
+        "timeSecs": 1866,
+        "title": "Paperkraft – Devi"
+      },
+      {
+        "timeSecs": 2283,
+        "title": "stvla – Leave U Like This"
+      }
+    ]
+  },
+  {
+    "id": "mix-082",
+    "title": "Lo-Fi House Essentials | Warm Weather, Return To Me Trax",
+    "slug": "lo-fi-house-essentials-warm-weather-return-to-me-trax",
+    "duration": "01:48:23",
+    "releaseDate": "2024.12.30",
+    "mood": "chill",
+    "views": 3165,
+    "audioPath": "public/assets/mixes/audio/lo-fi-house-essentials-warm-weather-return-to-me-trax.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=zxhd5e8QWps",
+    "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-essentials-warm",
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "title": "Rodfæstet – Halas"
+      },
+      {
+        "timeSecs": 341,
+        "title": "DJ BOG – Stranger"
+      },
+      {
+        "timeSecs": 490,
+        "title": "박혜진 Park Hye Jin – Abc"
+      },
+      {
+        "timeSecs": 725,
+        "title": "Royer – Healyrslfw Lee"
+      },
+      {
+        "timeSecs": 1045,
+        "title": "Shouse – Text Apology (feat. Martha) [Demuja Remix]"
+      },
+      {
+        "timeSecs": 1360,
+        "title": "DJ Houseplants – Unconditional"
+      },
+      {
+        "timeSecs": 1620,
+        "title": "Julodose – I Will Come Back For U"
+      },
+      {
+        "timeSecs": 1823,
+        "title": "Sessna – Crash (Far From Home)"
+      },
+      {
+        "timeSecs": 1992,
+        "title": "disctr4k – Understanding Nights (feat. DJ 2K3)"
+      },
+      {
+        "timeSecs": 2143,
+        "title": "Pépe – Lemon Fanta"
+      },
+      {
+        "timeSecs": 2569,
+        "title": "Cripe – Press Play"
+      },
+      {
+        "timeSecs": 2718,
+        "title": "dj something – conduit unheld"
+      },
+      {
+        "timeSecs": 2870,
+        "title": "Astra G – DON’T WANT YOUR LOVE"
+      },
+      {
+        "timeSecs": 3139,
+        "title": "NxWorries – Scared Money (Rodfæstet Edit)"
+      },
+      {
+        "timeSecs": 3394,
+        "title": "Maribou State – Wallflower (Ross from Friends Remix)"
+      },
+      {
+        "timeSecs": 3664,
+        "title": "kemt – I’m yours"
+      },
+      {
+        "timeSecs": 3992,
+        "title": "Alex R – Staying Early"
+      },
+      {
+        "timeSecs": 4403,
+        "title": "Downhill2k01 – So Mote It Be"
+      },
+      {
+        "timeSecs": 4581,
+        "title": "Cofaxx – Mosaic"
+      },
+      {
+        "timeSecs": 4752,
+        "title": "Sexuritas – I Just Wanna Be Wit U For a Minute"
+      },
+      {
+        "timeSecs": 4944,
+        "title": "Pretty Girl – Sun Phase"
+      },
+      {
+        "timeSecs": 5239,
+        "title": "Cult Member – Dream Member"
+      },
+      {
+        "timeSecs": 5485,
+        "title": "DJ Different – All Nite"
+      },
+      {
+        "timeSecs": 5898,
+        "title": "jamesjamesjames – Focus"
+      },
+      {
+        "timeSecs": 6146,
+        "title": "Skin On Skin – Memories of Before (jamesjamesjames Remix)"
+      }
+    ]
+  },
+  {
+    "id": "mix-083",
+    "title": "Lo-Fi House Mix | After Hours",
+    "slug": "lo-fi-house-mix-after-hours",
+    "duration": "00:52:22",
+    "releaseDate": "2025.01.11",
+    "mood": "deep",
+    "views": 1635,
+    "audioPath": "public/assets/mixes/audio/lo-fi-house-mix-after-hours.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=gg0D64ziBIA",
+    "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-mix-after-hours",
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "title": "Julodose – I"
+      },
+      {
+        "timeSecs": 60,
+        "title": "Delroy Edwards – Love Goes on and On"
+      },
+      {
+        "timeSecs": 446,
+        "title": "Baltra – Up 2 You"
+      },
+      {
+        "timeSecs": 697,
+        "title": "Patricia – Hulderhusan"
+      },
+      {
+        "timeSecs": 1009,
+        "title": "Sadboi – I’m Into U"
+      },
+      {
+        "timeSecs": 1262,
+        "title": "Earth Trax & Newborn Jr – Truth (Back Alley Mix)"
+      },
+      {
+        "timeSecs": 1602,
+        "title": "Austin Ato – Utal Viola"
+      },
+      {
+        "timeSecs": 1877,
+        "title": "Lake Haze – Sun Rising on Concrete Landscapes"
+      },
+      {
+        "timeSecs": 2055,
+        "title": "Cripe – Tomorrow 404"
+      },
+      {
+        "timeSecs": 2225,
+        "title": "DJ Ædidias – Drift"
+      },
+      {
+        "timeSecs": 2464,
+        "title": "Skin on skin – Ma Shootaz Got Shootaz"
+      },
+      {
+        "timeSecs": 2761,
+        "title": "DJ Hoshino – Radiant Inner Glow"
+      },
+      {
+        "timeSecs": 2962,
+        "title": "kanyalang! – Floating In Space"
+      }
+    ]
+  },
+  {
+    "id": "mix-084",
+    "title": "Lo-Fi House Mix | Everything Becomes Clear If You Listen To This First",
+    "slug": "lo-fi-house-mix-everything-becomes-clear-if-you-listen-to-this-first",
+    "duration": "00:32:01",
+    "releaseDate": "2025.01.19",
+    "mood": "deep",
+    "views": 1376,
+    "audioPath": "public/assets/mixes/audio/lo-fi-house-mix-everything-becomes-clear-if-you-listen-to-this-first.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=V-w3xfq19HY",
+    "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-mix-everything-becomes-clear-if-you-listen-to-this-first",
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "title": "stvla – Outta Love"
+      },
+      {
+        "timeSecs": 232,
+        "title": "Kareem Ali – Desire"
+      },
+      {
+        "timeSecs": 567,
+        "title": "SWIM – Love"
+      },
+      {
+        "timeSecs": 785,
+        "title": "Pretty Girl – Forever"
+      },
+      {
+        "timeSecs": 1030,
+        "title": "Baltra – Luv-N-Me (Extended Version)"
+      },
+      {
+        "timeSecs": 1236,
+        "title": "Subjoi – Something About You"
+      },
+      {
+        "timeSecs": 1413,
+        "title": "SiFi – One Day"
+      },
+      {
+        "timeSecs": 1702,
+        "artist": "DJ Seinfeld",
+        "title": "& Stella Explorer – She Loves Me"
+      }
+    ]
+  },
+  {
+    "id": "mix-085",
+    "title": "Lo-Fi House Mix | Everything Else Becomes Clear If You Listen To This Second",
+    "slug": "lo-fi-house-mix-everything-else-becomes-clear-if-you-listen-to-this-second",
+    "duration": "00:36:16",
+    "releaseDate": "2025.01.21",
+    "mood": "deep",
+    "views": 711,
+    "audioPath": "public/assets/mixes/audio/lo-fi-house-mix-everything-else-becomes-clear-if-you-listen-to-this-second.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=2JYacVX8XNQ",
+    "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-mix-everything-else-becomes-clear-if-you-listen-to-this-second",
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "artist": "Special Request",
+        "title": "Make It Real"
+      },
+      {
+        "timeSecs": 355,
+        "artist": "Special Request",
+        "title": "Ride VIP"
+      },
+      {
+        "timeSecs": 782,
+        "artist": "Supreems",
+        "title": "Amen 2 Trance"
+      },
+      {
+        "timeSecs": 1066,
+        "artist": "LOMAJI",
+        "title": "Data Drain"
+      },
+      {
+        "timeSecs": 1193,
+        "artist": "sansibar",
+        "title": "Ecco"
+      },
+      {
+        "timeSecs": 1392,
+        "artist": "Glimji & jamesjamesjames",
+        "title": "Rush"
+      },
+      {
+        "timeSecs": 1606,
+        "artist": "Willaris. K & jamesjamesjames",
+        "title": "Silversun"
+      },
+      {
+        "timeSecs": 1889,
+        "artist": "SWIM & Skin On Skin",
+        "title": "Love (Skin On Skin Remix)"
+      }
+    ]
+  },
+  {
+    "id": "mix-086",
+    "title": "Lo-Fi House Mix | Euphoric Sounds For Your Inner Youth",
+    "slug": "lo-fi-house-mix-euphoric-sounds-for-your-inner-youth",
+    "duration": "00:43:49",
+    "releaseDate": "2025.01.25",
+    "mood": "deep",
+    "views": 1356,
+    "audioPath": "public/assets/mixes/audio/lo-fi-house-mix-euphoric-sounds-for-your-inner-youth.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=ln_7W93hQUI",
+    "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-mix-euphoric-sounds-for-your-inner-youth",
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "artist": "Julodose",
+        "title": "I Will Come Back For U"
+      },
+      {
+        "timeSecs": 202,
+        "artist": "Julodose",
+        "title": "I Needed U"
+      },
+      {
+        "timeSecs": 358,
+        "artist": "dj poolboi & Dj Cinéma Quartier Latin",
+        "title": "Know Each Other So Well"
+      },
+      {
+        "timeSecs": 565,
+        "artist": "Vivra Verra",
+        "title": "Wake Up"
+      },
+      {
+        "timeSecs": 831,
+        "artist": "Kleinefrigo",
+        "title": "Addicted (Dj Cinéma Quartier Latin Remix)"
+      },
+      {
+        "timeSecs": 1159,
+        "artist": "J. Cause",
+        "title": "Morning Stroll"
+      },
+      {
+        "timeSecs": 1471,
+        "artist": "doubleA",
+        "title": "Aquatic Ambiance"
+      },
+      {
+        "timeSecs": 1830,
+        "artist": "Sideluv",
+        "title": "Closer"
+      },
+      {
+        "timeSecs": 1993,
+        "artist": "DJ Planet Express & Augustix",
+        "title": "Angel"
+      },
+      {
+        "timeSecs": 2390,
+        "artist": "nuage9",
+        "title": "On & On"
+      }
+    ]
+  },
+  {
+    "id": "mix-087",
+    "title": "Lo-Fi House Essentials | Secondhand High Comeup Trax",
+    "slug": "lo-fi-house-essentials-secondhand-high-comeup-trax",
+    "duration": "02:03:29",
+    "releaseDate": "2025.02.01",
+    "mood": "deep",
+    "views": 2045,
+    "audioPath": "public/assets/mixes/audio/lo-fi-house-essentials-secondhand-high-comeup-trax.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=wOhOVvg5r3U",
+    "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-essentials-secondhand-high-comeup-trax",
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "artist": "DJ LOSTBOI",
+        "title": "Puf 2 Lax"
+      },
+      {
+        "timeSecs": 258,
+        "artist": "dj something",
+        "title": "conduit unheld"
+      },
+      {
+        "timeSecs": 410,
+        "artist": "Baltra",
+        "title": "Flashback"
+      },
+      {
+        "timeSecs": 745,
+        "artist": "No Moon",
+        "title": "Time Heals (No Kick Version)"
+      },
+      {
+        "timeSecs": 987,
+        "artist": "Sexuritas",
+        "title": "Cheap Drug"
+      },
+      {
+        "timeSecs": 1191,
+        "artist": "Florian Kupfer",
+        "title": "Why"
+      },
+      {
+        "timeSecs": 1586,
+        "artist": "DJ Different",
+        "title": "Missionaries"
+      },
+      {
+        "timeSecs": 1850,
+        "artist": "Willrijk",
+        "title": "Melting Blues"
+      },
+      {
+        "timeSecs": 2106,
+        "artist": "DJ Hoshino",
+        "title": "I Thought You Knew"
+      },
+      {
+        "timeSecs": 2297,
+        "artist": "Royer",
+        "title": "Classe2 (Simpleversion)"
+      },
+      {
+        "timeSecs": 2644,
+        "artist": "Special Request",
+        "title": "No Other Way to Say It"
+      },
+      {
+        "timeSecs": 2964,
+        "artist": "Special Request",
+        "title": "Family Doggo"
+      },
+      {
+        "timeSecs": 3298,
+        "artist": "Otik",
+        "title": "Night Visions"
+      },
+      {
+        "timeSecs": 3526,
+        "artist": "Baltra",
+        "title": "Fantasy"
+      },
+      {
+        "timeSecs": 3894,
+        "artist": "DJ Barbo$$a",
+        "title": "Make It"
+      },
+      {
+        "timeSecs": 4243,
+        "artist": "Cult Member",
+        "title": "U Weren’t Here I Really Miss You"
+      },
+      {
+        "timeSecs": 4379,
+        "artist": "HUSHHH & Nobxdyy",
+        "title": "I’ll be fine"
+      },
+      {
+        "timeSecs": 4753,
+        "artist": "DJ LOSTBOI",
+        "title": "Wide Eyed"
+      },
+      {
+        "timeSecs": 4890,
+        "artist": "DJ Planet Express & Augustix",
+        "title": "Angel (Voyd Remix)"
+      },
+      {
+        "timeSecs": 5130,
+        "artist": "1-800 GIRLS",
+        "title": "Sunscream"
+      },
+      {
+        "timeSecs": 5407,
+        "artist": "Patricia",
+        "title": "Josephine"
+      },
+      {
+        "timeSecs": 5762,
+        "artist": "Patricia",
+        "title": "Waiting for Alexis"
+      },
+      {
+        "timeSecs": 6213,
+        "artist": "Tissu",
+        "title": "Up"
+      },
+      {
+        "timeSecs": 6639,
+        "artist": "Jaures",
+        "title": "Detitled"
+      },
+      {
+        "timeSecs": 6969,
+        "artist": "No Moon",
+        "title": "Is It Vibey Is It Yolo"
+      }
+    ]
+  },
+  {
+    "id": "mix-088",
+    "title": "Lo-Fi House Mix | Man's Best Friend",
+    "slug": "lo-fi-house-mix-mans-best-friend",
+    "duration": "00:43:09",
+    "releaseDate": "2025.02.18",
+    "mood": "nostalgic",
+    "views": 1064,
+    "audioPath": "public/assets/mixes/audio/lo-fi-house-mix-man-s-best-friend.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=QeORW0r_7jg",
+    "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-mix-mans-best-friend",
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "artist": "Otto Taimela",
+        "title": "“There Are Stars Above the Sea of Clouds”"
+      },
+      {
+        "timeSecs": 264,
+        "artist": "Shinichi Atobe",
+        "title": "The Red Line"
+      },
+      {
+        "timeSecs": 690,
+        "artist": "Shinichi Atobe",
+        "title": "Butterfly Effect"
+      },
+      {
+        "timeSecs": 1345,
+        "artist": "geneva & depth drop",
+        "title": "Walk Away"
+      },
+      {
+        "timeSecs": 1638,
+        "artist": "DJ Windows XP",
+        "title": "Maybe It Was Me"
+      },
+      {
+        "timeSecs": 1958,
+        "artist": "Sessna",
+        "title": "Crash (Far From Home)"
+      },
+      {
+        "timeSecs": 2110,
+        "artist": "Julodose",
+        "title": "Only U"
+      },
+      {
+        "timeSecs": 2354,
+        "artist": "DJ Club Sandwich",
+        "title": "Sunshine"
+      }
+    ]
+  },
+  {
+    "id": "mix-089",
+    "title": "Lo-Fi House Mix | This Is A Journey Into Sound",
+    "slug": "lo-fi-house-mix-this-is-a-journey-into-sound",
+    "duration": "01:04:23",
+    "releaseDate": "2025.03.08",
+    "mood": "deep",
+    "views": 1379,
+    "audioPath": "public/assets/mixes/audio/lo-fi-house-mix-this-is-a-journey-into-sound.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=yvWPp8UrmB8",
+    "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-mix-this-is-a-journey-into-sound",
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "artist": "Baltra",
+        "title": "Iso"
+      },
+      {
+        "timeSecs": 279,
+        "artist": "Rebecca & Fiona",
+        "title": "Letters (HNNY Remix)"
+      },
+      {
+        "timeSecs": 486,
+        "artist": "박혜진 Park Hye Jin",
+        "title": "If U Want It"
+      },
+      {
+        "timeSecs": 690,
+        "artist": "Mall Grab",
+        "title": "Drive"
+      },
+      {
+        "timeSecs": 958,
+        "artist": "Choopsie",
+        "title": "Tiles"
+      },
+      {
+        "timeSecs": 1147,
+        "artist": "Cody Currie",
+        "title": "Everybody Was Fucking but Me"
+      },
+      {
+        "timeSecs": 1445,
+        "artist": "Holo",
+        "title": "Juniper"
+      },
+      {
+        "timeSecs": 1650,
+        "artist": "Jeigo",
+        "title": "An Ode To Midnight"
+      },
+      {
+        "timeSecs": 2012,
+        "artist": "Fullempty",
+        "title": "Quiet Wrecks"
+      },
+      {
+        "timeSecs": 2296,
+        "artist": "Lootbeg & Bajazo",
+        "title": "Garden Cosmos"
+      },
+      {
+        "timeSecs": 2578,
+        "artist": "Adryiano",
+        "title": "Wanna Give U"
+      },
+      {
+        "timeSecs": 2860,
+        "artist": "willi6m",
+        "title": "Runnin Back To U"
+      },
+      {
+        "timeSecs": 3145,
+        "artist": "Grant",
+        "title": "Frame of Mind"
+      },
+      {
+        "timeSecs": 3487,
+        "artist": "Jacopo Sb",
+        "title": "Ollie"
+      }
+    ]
+  },
+  {
+    "id": "mix-090",
+    "title": "Lo-Fi House Essentials | Interstellar Travel Trax",
+    "slug": "lo-fi-house-essentials-interstellar-travel-trax",
+    "duration": "01:54:02",
+    "releaseDate": "2025.03.18",
+    "mood": "deep",
+    "views": 1652,
+    "audioPath": "public/assets/mixes/audio/lo-fi-house-essentials-interstellar-travel-trax.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=ImZkVLHa7vc",
+    "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-essentials",
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "artist": "- nthng",
+        "title": "A Souls Search"
+      },
+      {
+        "timeSecs": 467,
+        "artist": "DJ Different",
+        "title": "Fast Forward to the Outer Rim"
+      },
+      {
+        "timeSecs": 782,
+        "artist": "Jaures",
+        "title": "Silence (Before Death)"
+      },
+      {
+        "timeSecs": 1183,
+        "artist": "Jaures",
+        "title": "Silence (After Death)"
+      },
+      {
+        "timeSecs": 1569,
+        "artist": "Clocked Devices",
+        "title": "Slush"
+      },
+      {
+        "timeSecs": 1880,
+        "artist": "Ghoose",
+        "title": "Out of this Mind"
+      },
+      {
+        "timeSecs": 2112,
+        "artist": "Ghoose",
+        "title": "Diatoms"
+      },
+      {
+        "timeSecs": 2442,
+        "artist": "BAKGROUND",
+        "title": "010"
+      },
+      {
+        "timeSecs": 2551,
+        "artist": "Passing Currents",
+        "title": "2002"
+      },
+      {
+        "timeSecs": 2723,
+        "artist": "Otto Taimela",
+        "title": "Horizon Reset"
+      },
+      {
+        "timeSecs": 3046,
+        "artist": "Barker",
+        "title": "Paradise Engineering"
+      },
+      {
+        "timeSecs": 3268,
+        "artist": "Chesnokovskii",
+        "title": "Flickering (feat. Djboeing)"
+      },
+      {
+        "timeSecs": 3468,
+        "artist": "Cult Member",
+        "title": "three"
+      },
+      {
+        "timeSecs": 3529,
+        "artist": "Cult Member",
+        "title": "2080"
+      },
+      {
+        "timeSecs": 3735,
+        "artist": "70’s Network",
+        "title": "Rememba Me (Dub Rework)"
+      },
+      {
+        "timeSecs": 4058,
+        "artist": "Seb",
+        "title": "Andromeda"
+      },
+      {
+        "timeSecs": 4303,
+        "artist": "Tissu",
+        "title": "Unmanned Vehicle"
+      },
+      {
+        "timeSecs": 4546,
+        "artist": "Raw M.T.",
+        "title": "La Duna"
+      },
+      {
+        "timeSecs": 4913,
+        "artist": "Cult Member",
+        "title": "Steroid Dealer"
+      },
+      {
+        "timeSecs": 5217,
+        "artist": "Baltra",
+        "title": "Flashback"
+      },
+      {
+        "timeSecs": 5561,
+        "artist": "DJ LOSTBOI",
+        "title": "Don’t Worry (Child Mix)"
+      },
+      {
+        "timeSecs": 5747,
+        "artist": "Sexuritas",
+        "title": "Serial Experiments"
+      },
+      {
+        "timeSecs": 5906,
+        "artist": "MDMAXEL",
+        "title": "High On the Low"
+      },
+      {
+        "timeSecs": 6258,
+        "artist": "Earth Trax",
+        "title": "Porcelain"
+      },
+      {
+        "timeSecs": 6512,
+        "artist": "Tserg",
+        "title": "Incandescent Longing (Tape Hiss Remix)"
+      }
+    ]
+  },
+  {
+    "id": "mix-091",
+    "title": "Lo-Fi House Mix | Break Everything Into DnB",
+    "slug": "lo-fi-house-mix-break-everything-into-dnb",
+    "duration": "00:47:33",
+    "releaseDate": "2025.03.29",
+    "mood": "dirty",
+    "views": 1117,
+    "audioPath": "public/assets/mixes/audio/lo-fi-house-mix-break-everything-into-dnb.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=kQyCZASKCc0",
+    "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-mix-break-everything-into-dnb",
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "artist": "Downhill2k01",
+        "title": "So Mote It Be"
+      },
+      {
+        "timeSecs": 177,
+        "artist": "HUMAN PART",
+        "title": "TONE, TAN (FIT + READY)"
+      },
+      {
+        "timeSecs": 360,
+        "artist": "MOM$",
+        "title": "Hold Me (Like This)"
+      },
+      {
+        "timeSecs": 674,
+        "artist": "bleach.bath",
+        "title": "Seeyoulaterspacecowboy"
+      },
+      {
+        "timeSecs": 823,
+        "artist": "5ubaruu",
+        "title": "Tired Eyes"
+      },
+      {
+        "timeSecs": 922,
+        "artist": "boy 2000",
+        "title": "right away (DJ COR Remix)"
+      },
+      {
+        "timeSecs": 1053,
+        "artist": "boy 2000",
+        "title": "right away (Mello Uun Remix)"
+      },
+      {
+        "timeSecs": 1238,
+        "artist": "boy 2000",
+        "title": "Right Away"
+      },
+      {
+        "timeSecs": 1392,
+        "artist": "DJ Hoshino",
+        "title": "What You Got"
+      },
+      {
+        "timeSecs": 1568,
+        "artist": "Mr. Sosa",
+        "title": "Feelin’ Right"
+      },
+      {
+        "timeSecs": 1802,
+        "artist": "SWIM",
+        "title": "Nights (The Same)"
+      },
+      {
+        "timeSecs": 2037,
+        "artist": "Baltra",
+        "title": "Overdrive"
+      },
+      {
+        "timeSecs": 2213,
+        "artist": "Dusky",
+        "title": "Grape"
+      },
+      {
+        "timeSecs": 2374,
+        "artist": "DJ Club Sandwich",
+        "title": "Would’ve Loved U Forever"
+      },
+      {
+        "timeSecs": 2652,
+        "artist": "Nobxdyy",
+        "title": "Need It"
+      }
+    ]
+  },
+  {
+    "id": "mix-092",
+    "title": "Lo-Fi House Mix | Ethereal Composition",
+    "slug": "lo-fi-house-mix-ethereal-composition",
+    "duration": "01:00:53",
+    "releaseDate": "2025.08.23",
+    "mood": "nostalgic",
+    "views": 1398,
+    "audioPath": "public/assets/mixes/audio/lo-fi-house-mix-ethereal-composition.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=yFkJk4ytKOI",
+    "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-mix-ethereal-composition",
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "artist": "GAZZI",
+        "title": "The Way"
+      },
+      {
+        "timeSecs": 291,
+        "artist": "BAKGROUND",
+        "title": "Memory Card V"
+      },
+      {
+        "timeSecs": 461,
+        "artist": "Fullempty",
+        "title": "Blossom"
+      },
+      {
+        "timeSecs": 763,
+        "artist": "Cbdj",
+        "title": "Back 2 U"
+      },
+      {
+        "timeSecs": 1078,
+        "artist": "DJ Houseplants",
+        "title": "Like You’re Gonna Stay"
+      },
+      {
+        "timeSecs": 1330,
+        "artist": "Rodfæstet",
+        "title": "Missin’ Your Love"
+      },
+      {
+        "timeSecs": 1566,
+        "artist": "kemt",
+        "title": "Leave your eyes open"
+      },
+      {
+        "timeSecs": 1943,
+        "artist": "Holo",
+        "title": "Open Your Eyes"
+      },
+      {
+        "timeSecs": 2227,
+        "artist": "Rodfæstet",
+        "title": "You Got Me"
+      },
+      {
+        "timeSecs": 2447,
+        "artist": "edgebug",
+        "title": "For the Last Time"
+      },
+      {
+        "timeSecs": 2667,
+        "artist": "DJ Hoshino",
+        "title": "A Real Life"
+      },
+      {
+        "timeSecs": 3069,
+        "artist": "Jacopo Sb",
+        "title": "You can’t hide it"
+      },
+      {
+        "timeSecs": 3352,
+        "artist": "DJ Planet Express & Augustix",
+        "title": "Angel (Voyd Remix)"
+      }
+    ]
+  },
+  {
+    "id": "mix-093",
+    "title": "Jungle/DnB Mix | Music Is Meditation",
+    "slug": "jungle-dnb-mix-music-is-meditation",
+    "duration": "00:46:21",
+    "releaseDate": "2025.11.08",
+    "mood": "dirty",
+    "views": 1057,
+    "audioPath": "public/assets/mixes/audio/jungle-dnb-mix-music-is-meditation.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=zaMpe_r965E",
+    "soundcloudUrl": "https://soundcloud.com/weebtrax/junglednb-mix-music-is-meditation",
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "artist": "Sexuritas",
+        "title": "Im Da Shit"
+      },
+      {
+        "timeSecs": 108,
+        "artist": "Cripe",
+        "title": "Forever (feat. Sexuritas)"
+      },
+      {
+        "timeSecs": 297,
+        "artist": "dj something",
+        "title": "Intro"
+      },
+      {
+        "timeSecs": 513,
+        "artist": "Skin On Skin & X CLUB.",
+        "title": "Rise Up"
+      },
+      {
+        "timeSecs": 837,
+        "artist": "DJ Different",
+        "title": "Permission 2 Dance"
+      },
+      {
+        "timeSecs": 1021,
+        "artist": "Wayward",
+        "title": "Do We Die?"
+      },
+      {
+        "timeSecs": 1211,
+        "artist": "Tom Vernon",
+        "title": "Unfolding (Ambient Mix)"
+      },
+      {
+        "timeSecs": 1507,
+        "artist": "BAKGROUND",
+        "title": "Fantasies"
+      },
+      {
+        "timeSecs": 1816,
+        "artist": "Joakim Hellgren",
+        "title": "Boy"
+      },
+      {
+        "timeSecs": 2044,
+        "artist": "BAKGROUND & Sangam",
+        "title": "90s Living"
+      },
+      {
+        "timeSecs": 2244,
+        "artist": "Sexuritas",
+        "title": "love"
+      },
+      {
+        "timeSecs": 2330,
+        "artist": "bleach.bath",
+        "title": "Seeyoulaterspacecowboy"
+      },
+      {
+        "timeSecs": 2476,
+        "artist": "Voxkai",
+        "title": "Paramnesia"
+      },
+      {
+        "timeSecs": 2592,
+        "artist": "disctr4k",
+        "title": "Substantial"
+      }
+    ]
+  },
+  {
+    "id": "mix-094",
+    "title": "Lo-Fi House Mix | Cult Member's Kenopsia",
+    "slug": "lo-fi-house-mix-cult-members-kenopsia",
+    "duration": "00:40:59",
+    "releaseDate": "2026.04.04",
+    "mood": "nostalgic",
+    "views": 1644,
+    "audioPath": "public/assets/mixes/audio/lo-fi-house-mix-cult-member-s-kenopsia.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=DeNplFluftk",
+    "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-mix-cult-members",
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "artist": "Cult Member",
+        "title": "eight"
+      },
+      {
+        "timeSecs": 290,
+        "artist": "Cult Member",
+        "title": "Lazer Sky"
+      },
+      {
+        "timeSecs": 423,
+        "artist": "Cult Member",
+        "title": "Faygo"
+      },
+      {
+        "timeSecs": 559,
+        "artist": "Cult Member",
+        "title": "Give Me a Sign"
+      },
+      {
+        "timeSecs": 714,
+        "artist": "Cult Member",
+        "title": "Key West"
+      },
+      {
+        "timeSecs": 1084,
+        "artist": "Cult Member",
+        "title": "one"
+      },
+      {
+        "timeSecs": 1348,
+        "artist": "Cult Member",
+        "title": "Ariel Dub"
+      },
+      {
+        "timeSecs": 1502,
+        "artist": "Cult Member",
+        "title": "twelve (xc)"
+      },
+      {
+        "timeSecs": 1778,
+        "artist": "Cult Member",
+        "title": "Steroid Dealer"
+      },
+      {
+        "timeSecs": 1986,
+        "artist": "Cult Member",
+        "title": "Heartbeats"
+      },
+      {
+        "timeSecs": 2197,
+        "artist": "Cult Member",
+        "title": "Numbed"
+      },
+      {
+        "timeSecs": 2363,
+        "artist": "Cult Member",
+        "title": "Open Air Dipset"
+      }
+    ]
+  }
+]

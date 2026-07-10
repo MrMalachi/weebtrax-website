@@ -8,7 +8,7 @@
 | 2 | JSON metadata | ✅ Complete |
 | 3 | Website reads JSON | ✅ Complete |
 | 3.5 | Countdown page (pre-launch holding page) | ✅ Live — remove before full launch |
-| 4 | Create backend / API (FastAPI) | ⬜ Not started |
+| 4 | Create backend / API (FastAPI) | 🟨 In progress — `backend/` scaffolded, reads from JSON |
 | 5 | Move JSON metadata into PostgreSQL | ⬜ Not started |
 | 6 | Deploy with Railway | ⬜ Not started |
 | 7 | Move large media to storage bucket (Cloudflare R2) | ⬜ Not started |
@@ -201,6 +201,13 @@ FastAPI backend with endpoints:
 - `GET /api/scenes?tag=rainy`
 
 Can still read from JSON initially, then swap to PostgreSQL.
+
+### Progress (as of 2026-07-09)
+- `backend/main.py` — FastAPI app with CORS middleware, mounts `mixes` and `scenes` routers under `/api`
+- `backend/routers/mixes.py` — `GET /api/mixes` implemented; `GET /api/mixes/latest` has a bug (references undefined `sorted_mixes` instead of the `sorted(...)` result — needs fixing)
+- `backend/routers/scenes.py` — `GET /api/scenes` implemented with `page`, `limit`, `episode`, `mood` query params
+- `backend/data/{mixes,scenes}.json` — copies of the metadata JSON for the backend to read
+- Not yet done: `/api/mixes/latest` bug fix, `/api/scenes?tag=` filtering, PostgreSQL swap (Phase 5)
 
 ### Learning resources
 
