@@ -81,7 +81,6 @@ function TermPageBar({ page, total, onGoTo }) {
     letterSpacing: 1.5,
     padding: wide ? '9px 18px' : isMobile ? '14px 20px' : '6px 12px',
     textTransform: 'uppercase',
-    transition: 'all .12s',
     borderRadius: 0,
     whiteSpace: 'nowrap',
     WebkitTapHighlightColor: 'transparent'
