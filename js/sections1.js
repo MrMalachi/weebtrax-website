@@ -738,7 +738,8 @@ function SignalFeed({ scene, onClose, onPrev, onNext }) {
     const v = videoRef.current;
     if (!v) return;
     v.load();
-    setPlaying(false); setExpanded(false); setConnected(false);
+    // Preserve expanded (fullscreen) state across prev/next navigation
+    setPlaying(false); setConnected(false);
   }, [scene.id]);
 
   React.useEffect(() => {
