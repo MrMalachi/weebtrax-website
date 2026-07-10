@@ -1031,7 +1031,7 @@ function SignalFeed({ scene, onClose, onPrev, onNext }) {
               padding: narrow ? '12px 16px' : '5px 10px',
               cursor: onPrev ? 'pointer' : 'default', borderRadius: 0,
               textTransform: 'uppercase',
-              transition: 'border-color .12s, color .12s, opacity .12s',
+              transition: 'border-color .22s, color .22s, opacity .22s',
               WebkitTapHighlightColor: 'transparent', outline: 'none'
             }
           }, '\u2190'),
@@ -1068,7 +1068,7 @@ function SignalFeed({ scene, onClose, onPrev, onNext }) {
               padding: narrow ? '12px 16px' : '5px 10px',
               cursor: onNext ? 'pointer' : 'default', borderRadius: 0,
               textTransform: 'uppercase',
-              transition: 'border-color .12s, color .12s, opacity .12s',
+              transition: 'border-color .22s, color .22s, opacity .22s',
               WebkitTapHighlightColor: 'transparent', outline: 'none'
             }
           }, '\u2192')
