@@ -992,18 +992,22 @@ function SignalFeed({ scene, onClose, onPrev, onNext }) {
           }
         }, '\u00d7 CLOSE'),
         /*#__PURE__*/React.createElement("div", { style: { display: 'flex', alignItems: 'center', gap: 6 } },
-          onPrev && /*#__PURE__*/React.createElement("button", {
-            onClick: function() {
+          /*#__PURE__*/React.createElement("button", {
+            onClick: onPrev ? function() {
               setFlashBtn('prev'); setTimeout(function() { setFlashBtn(null); }, 200); onPrev();
-            }, title: 'Previous scene',
+            } : undefined,
+            title: 'Previous scene',
             style: {
               background: 'none',
-              border: '1px solid ' + (flashBtn === 'prev' ? 'var(--wt-accent)' : WT2.line2),
-              color: flashBtn === 'prev' ? 'var(--wt-accent)' : WT2.dim,
+              border: '1px solid ' + (flashBtn === 'prev' ? 'var(--wt-accent)' : onPrev ? WT2.line2 : WT2.line),
+              color: flashBtn === 'prev' ? 'var(--wt-accent)' : onPrev ? WT2.dim : WT2.faint,
               textShadow: flashBtn === 'prev' ? '0 0 6px var(--wt-accent)' : 'none',
+              opacity: onPrev || flashBtn === 'prev' ? 1 : 0.3,
               fontFamily: WT2.mono, fontSize: 9, letterSpacing: 1.5,
-              padding: narrow ? '12px 16px' : '5px 10px', cursor: 'pointer', borderRadius: 0,
-              textTransform: 'uppercase', transition: 'border-color .08s, color .08s',
+              padding: narrow ? '12px 16px' : '5px 10px',
+              cursor: onPrev ? 'pointer' : 'default', borderRadius: 0,
+              textTransform: 'uppercase',
+              transition: 'border-color .12s, color .12s, opacity .12s',
               WebkitTapHighlightColor: 'transparent', outline: 'none'
             }
           }, '\u2190'),
@@ -1025,18 +1029,22 @@ function SignalFeed({ scene, onClose, onPrev, onNext }) {
           /*#__PURE__*/React.createElement("span", { style: { fontSize: playing ? 7 : 12, lineHeight: 1, letterSpacing: 0 } }, playing ? '\u258e\u258e' : '\u25b8'),
           playing ? 'SUSPEND' : 'TRANSMIT'
           ),
-          onNext && /*#__PURE__*/React.createElement("button", {
-            onClick: function() {
+          /*#__PURE__*/React.createElement("button", {
+            onClick: onNext ? function() {
               setFlashBtn('next'); setTimeout(function() { setFlashBtn(null); }, 200); onNext();
-            }, title: 'Next scene',
+            } : undefined,
+            title: 'Next scene',
             style: {
               background: 'none',
-              border: '1px solid ' + (flashBtn === 'next' ? 'var(--wt-accent)' : WT2.line2),
-              color: flashBtn === 'next' ? 'var(--wt-accent)' : WT2.dim,
+              border: '1px solid ' + (flashBtn === 'next' ? 'var(--wt-accent)' : onNext ? WT2.line2 : WT2.line),
+              color: flashBtn === 'next' ? 'var(--wt-accent)' : onNext ? WT2.dim : WT2.faint,
               textShadow: flashBtn === 'next' ? '0 0 6px var(--wt-accent)' : 'none',
+              opacity: onNext || flashBtn === 'next' ? 1 : 0.3,
               fontFamily: WT2.mono, fontSize: 9, letterSpacing: 1.5,
-              padding: narrow ? '12px 16px' : '5px 10px', cursor: 'pointer', borderRadius: 0,
-              textTransform: 'uppercase', transition: 'border-color .08s, color .08s',
+              padding: narrow ? '12px 16px' : '5px 10px',
+              cursor: onNext ? 'pointer' : 'default', borderRadius: 0,
+              textTransform: 'uppercase',
+              transition: 'border-color .12s, color .12s, opacity .12s',
               WebkitTapHighlightColor: 'transparent', outline: 'none'
             }
           }, '\u2192')
