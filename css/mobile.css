@@ -96,6 +96,16 @@ main { margin-left: 0 !important; }
   pointer-events: none;
   background: linear-gradient(to right, transparent, #0a0b0e 88%);
 }
+.wt-ep-fade-hint-left {
+  display: block;
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 52px;
+  pointer-events: none;
+  background: linear-gradient(to left, transparent, #0a0b0e 88%);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
 
 /* Scene cards: compact + consistent height — hide desc, reduce padding */
 .wt-scene-card {

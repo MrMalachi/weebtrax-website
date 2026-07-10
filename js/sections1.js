@@ -1132,6 +1132,8 @@ function SceneGrid() {
   const [page, setPage] = React.useState(0);
   const [epFilter, setEpFilter] = React.useState(null);
   const touchXRef = React.useRef(null);
+  const epScrollRef = React.useRef(null);
+  const epFadeLeftRef = React.useRef(null);
   const winW = useWinW();
   const SCENES_PER_PAGE = 4;
   const SCENES = (window.__WT_SCENES || []).map(function(s) {
@@ -1157,7 +1159,14 @@ function SceneGrid() {
   const playerRef = React.useRef(null);
   React.useEffect(function() {
     if (selected && playerRef.current) {
-      playerRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      var el = playerRef.current;
+      if (window.innerWidth < 600) {
+        var rect = el.getBoundingClientRect();
+        var targetTop = window.innerHeight * 0.3;
+        window.scrollTo({ top: Math.max(0, window.scrollY + rect.top - targetTop), behavior: 'smooth' });
+      } else {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     }
   }, [selected]);
   function navScene(nextScene) {
@@ -1179,6 +1188,12 @@ function SceneGrid() {
   /*#__PURE__*/React.createElement("div", { className: 'wt-ep-scroll-wrap', style: { position: 'relative', marginBottom: 20 } },
   /*#__PURE__*/React.createElement("div", {
     className: 'wt-ep-scroll',
+    ref: epScrollRef,
+    onScroll: function() {
+      var el = epScrollRef.current;
+      var fadeL = epFadeLeftRef.current;
+      if (el && fadeL) fadeL.style.opacity = el.scrollLeft > 0 ? '1' : '0';
+    },
     style: { display: 'flex', alignItems: 'center', gap: 6, flexWrap: 'nowrap', overflowX: 'auto', paddingBottom: 4, paddingRight: 40 }
   }, /*#__PURE__*/React.createElement("span", {
     style: { fontFamily: WT2.mono, fontSize: winW >= 1200 ? 11 : 10, color: WT2.faint, letterSpacing: 1.5, marginRight: 2 }
@@ -1200,7 +1215,7 @@ function SceneGrid() {
         transition: 'all .12s'
       }
     }, isAll ? 'ALL' : 'EP ' + String(ep).padStart(2, '0'));
-  })), /*#__PURE__*/React.createElement("div", { className: 'wt-ep-fade-hint' })), /*#__PURE__*/React.createElement("div", {
+  })), /*#__PURE__*/React.createElement("div", { className: 'wt-ep-fade-hint-left', ref: epFadeLeftRef }), /*#__PURE__*/React.createElement("div", { className: 'wt-ep-fade-hint' })), /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'flex',
       justifyContent: 'flex-end',

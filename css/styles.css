@@ -1654,3 +1654,4 @@
 
 /* Episode scroll fade hint — hidden on desktop, shown via mobile.css */
 .wt-ep-fade-hint { display: none; }
+.wt-ep-fade-hint-left { display: none; }
