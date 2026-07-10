@@ -1004,17 +1004,33 @@ function SignalFeed({ scene, onClose, onPrev, onNext }) {
       /*#__PURE__*/React.createElement("div", {
         style: { display: 'flex', alignItems: 'center', justifyContent: narrow ? 'space-between' : 'flex-end', marginTop: narrow ? 5 : 7 }
       },
-        // Mobile-only close — thumb-reachable even when header is scrolled off screen
-        narrow && /*#__PURE__*/React.createElement("button", {
-          onClick: onClose,
-          style: {
-            background: 'none', border: '1px solid ' + WT2.line2, color: WT2.faint,
-            fontFamily: WT2.mono, fontSize: 9, letterSpacing: 1.5,
-            padding: '12px 14px', cursor: 'pointer', borderRadius: 0,
-            textTransform: 'uppercase', transition: 'all .12s',
-            WebkitTapHighlightColor: 'transparent'
-          }
-        }, '\u00d7 CLOSE'),
+        // Mobile bottom bar: [× close] [⊞ expand] — mirrors header buttons, inverted order
+        narrow && /*#__PURE__*/React.createElement("div", {
+          style: { display: 'flex', alignItems: 'center', gap: 6 }
+        },
+          /*#__PURE__*/React.createElement("button", {
+            onClick: onClose,
+            style: {
+              background: 'none', border: '1px solid ' + WT2.red, color: WT2.red,
+              fontFamily: WT2.mono, fontSize: 9, letterSpacing: 1.5,
+              padding: '12px 14px', cursor: 'pointer', borderRadius: 0,
+              textTransform: 'uppercase', transition: 'all .12s',
+              WebkitTapHighlightColor: 'transparent', outline: 'none'
+            }
+          }, '\u00d7'),
+          /*#__PURE__*/React.createElement("button", {
+            onClick: function() { setExpanded(function(e) { return !e; }); },
+            style: {
+              background: expanded ? 'rgba(143,191,159,0.1)' : 'none',
+              border: '1px solid var(--wt-accent)', color: 'var(--wt-accent)',
+              fontFamily: WT2.mono, fontSize: 9, letterSpacing: 1.5,
+              padding: '12px 14px', cursor: 'pointer', borderRadius: 0,
+              textTransform: 'uppercase', transition: 'all .12s',
+              textShadow: '0 0 8px var(--wt-accent)',
+              WebkitTapHighlightColor: 'transparent', outline: 'none'
+            }
+          }, expanded ? '\u229f' : '\u229e')
+        ),
         /*#__PURE__*/React.createElement("div", { style: { display: 'flex', alignItems: 'center', gap: 6 } },
           /*#__PURE__*/React.createElement("button", {
             onClick: onPrev ? function() {
