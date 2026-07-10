@@ -132,17 +132,6 @@
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-01_clip-12.jpg"
   },
   {
-    "id": "scene-013",
-    "name": "Lain's Bedroom",
-    "slug": "lain-s-bedroom",
-    "type": "BEDROOM STATIC",
-    "description": "Soft light pooling across an unmade bed, the room waiting in perfect silence.",
-    "episodeNumber": 1,
-    "mood": "chill",
-    "videoPath": "public/assets/scenes/videos/episode-01_clip-13.mp4",
-    "thumbnailPath": "public/assets/scenes/thumbnails/episode-01_clip-13.jpg"
-  },
-  {
     "id": "scene-014",
     "name": "Overexposed",
     "slug": "overexposed",
@@ -231,17 +220,6 @@
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-02_clip-03.jpg"
   },
   {
-    "id": "scene-022",
-    "name": "Hallway Exchange",
-    "slug": "hallway-exchange",
-    "type": "CORRIDOR SIGNAL",
-    "description": "Two figures in a school corridor, their conversation absorbed by ambient noise.",
-    "episodeNumber": 2,
-    "mood": "nostalgic",
-    "videoPath": "public/assets/scenes/videos/episode-02_clip-04.mp4",
-    "thumbnailPath": "public/assets/scenes/thumbnails/episode-02_clip-04.jpg"
-  },
-  {
     "id": "scene-023",
     "name": "Neon Bleed",
     "slug": "neon-bleed",
@@ -251,17 +229,6 @@
     "mood": "dirty",
     "videoPath": "public/assets/scenes/videos/episode-02_clip-05.mp4",
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-02_clip-05.jpg"
-  },
-  {
-    "id": "scene-024",
-    "name": "Bubble Signal",
-    "slug": "bubble-signal",
-    "type": "SOFT FRAGMENT",
-    "description": "A face emerging from a field of soft blue orbs, barely resolved.",
-    "episodeNumber": 2,
-    "mood": "chill",
-    "videoPath": "public/assets/scenes/videos/episode-02_clip-06.mp4",
-    "thumbnailPath": "public/assets/scenes/thumbnails/episode-02_clip-06.jpg"
   },
   {
     "id": "scene-025",
@@ -482,17 +449,6 @@
     "mood": "nostalgic",
     "videoPath": "public/assets/scenes/videos/episode-11_clip-01.mp4",
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-11_clip-01.jpg"
-  },
-  {
-    "id": "scene-045",
-    "name": "Grey Signal",
-    "slug": "grey-signal",
-    "type": "COLD STATIC",
-    "description": "Pale eyes shot through with grey, the emotion behind them impossible to read.",
-    "episodeNumber": 11,
-    "mood": "deep",
-    "videoPath": "public/assets/scenes/videos/episode-11_clip-02.mp4",
-    "thumbnailPath": "public/assets/scenes/thumbnails/episode-11_clip-02.jpg"
   },
   {
     "id": "scene-046",

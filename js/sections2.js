@@ -102,7 +102,8 @@ function TermPageBar({ page, total, onGoTo }) {
       justifyContent: 'center',
       gap: wide ? 7 : 5,
       marginTop: wide ? 36 : 28,
-      flexWrap: 'wrap'
+      flexWrap: 'nowrap',
+      overflowX: 'auto'
     }
   }, /*#__PURE__*/React.createElement("button", {
     onClick: isFirst ? undefined : () => onGoTo(page - 1),

@@ -1,0 +1,21 @@
+/* ---- WeebTrax mobile overrides (loaded only on max-width: 599px) ---- */
+
+:root {
+  color-scheme: dark;
+}
+
+html, body {
+  background-color: #0a0b0e !important;
+  touch-action: manipulation;
+}
+
+/* Scene grid: 2 columns on mobile */
+.wt-scene-grid {
+  grid-template-columns: repeat(2, 1fr) !important;
+}
+
+/* Disable kenburns — expensive scale+translate animation on mobile */
+.wt-kenburns {
+  animation: none !important;
+  transform: none !important;
+}

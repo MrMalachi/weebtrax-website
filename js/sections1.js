@@ -870,7 +870,7 @@ function SignalFeed({ scene, onClose, onPrev, onNext }) {
       onMouseLeave: function() { setHovVideo(false); }
     },
       /*#__PURE__*/React.createElement("video", {
-        ref: videoRef, src: scene.video, poster: scene.img,
+        ref: videoRef, src: scene.video + '?v=3', poster: scene.img,
         muted: true, playsInline: true, loop: true, preload: "auto",
         style: { width: '100%', height: '100%', display: 'block', objectFit: 'cover', background: '#000' }
       }),
@@ -1116,11 +1116,11 @@ function SceneCard({
   }, desc));
 }
 function SceneGrid() {
-  const SCENES_PER_PAGE = 4;
   const [selected, setSelected] = React.useState(null);
   const [page, setPage] = React.useState(0);
   const [epFilter, setEpFilter] = React.useState(null);
   const winW = useWinW();
+  const SCENES_PER_PAGE = winW < 600 ? 2 : 4;
   const SCENES = (window.__WT_SCENES || []).map(function(s) {
     return {
       id: s.id,
@@ -1202,13 +1202,7 @@ function SceneGrid() {
       textShadow: sel ? '0 0 8px var(--wt-accent)' : 'none'
     }
   }, sel ? 'SELECTED SIGNAL: ' + sel.name.toUpperCase() : 'SELECT A SIGNAL ↓')), /*#__PURE__*/React.createElement("div", {
-    style: {
-      display: 'grid',
-      gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
-      gap: 16,
-      minHeight: 300,
-      alignContent: 'start'
-    }
+    className: 'wt-scene-grid'
   }, visible.map(s => /*#__PURE__*/React.createElement(SceneCard, {
     key: s.id,
     name: s.name,
