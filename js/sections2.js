@@ -1020,6 +1020,7 @@ function Submissions() {
   const done2 = typed2.length >= OUT1.length;
   const typed3 = useTypewriter(OUT2, 34, done2);
   const [linkState, setLinkState] = React.useState('idle'); // 'idle' | 'copied' | 'failed'
+  const [tab, setTab] = React.useState('uplink');
 
   const FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSd8vnfi7fD64hfVc6HTVnUNob_e6AtCB8HPR6irs0ZmIkiduA/viewform?pli=1';
   function copyLink() {
@@ -1072,7 +1073,31 @@ function Submissions() {
     style: {
       marginBottom: 34
     }
-  }), /*#__PURE__*/React.createElement("div", {
+  }), narrow && /*#__PURE__*/React.createElement("div", {
+    style: { display: 'flex', marginBottom: 20, borderBottom: '1px solid ' + WT2.line }
+  }, ['uplink', 'specs'].map(function(t) {
+    var isActive = tab === t;
+    return /*#__PURE__*/React.createElement("button", {
+      key: t,
+      onClick: function() { setTab(t); },
+      style: {
+        flex: 1,
+        background: 'none',
+        border: 'none',
+        boxShadow: isActive ? 'inset 0 -2px 0 var(--wt-accent)' : 'none',
+        padding: '12px 0',
+        fontFamily: WT2.mono,
+        fontSize: 10,
+        letterSpacing: 2.5,
+        color: isActive ? 'var(--wt-accent)' : WT2.dim,
+        textTransform: 'uppercase',
+        cursor: 'pointer',
+        transition: 'color .15s, box-shadow .15s',
+        textShadow: isActive ? '0 0 8px var(--wt-accent)' : 'none',
+        WebkitTapHighlightColor: 'transparent'
+      }
+    }, t === 'uplink' ? '// UPLINK' : '// SPECS');
+  })), /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'grid',
       gridTemplateColumns: narrow ? '1fr' : '1.35fr 1fr',
@@ -1083,7 +1108,7 @@ function Submissions() {
     style: {
       border: `1px solid ${WT2.line2}`,
       background: WT2.sink,
-      display: 'flex',
+      display: narrow && tab !== 'uplink' ? 'none' : 'flex',
       flexDirection: 'column'
     }
   }, /*#__PURE__*/React.createElement("div", {
@@ -1190,7 +1215,7 @@ function Submissions() {
       background: WT2.panel,
       padding: '22px 24px',
       position: 'relative',
-      display: 'flex',
+      display: narrow && tab !== 'specs' ? 'none' : 'flex',
       flexDirection: 'column'
     }
   }, /*#__PURE__*/React.createElement(FrameTicks, {

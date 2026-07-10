@@ -1369,7 +1369,10 @@ function MobileNav() {
   function navScrollTo(i) {
     setActive(i);
     var el = document.getElementById(RAIL_SECTIONS[i]);
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
+    if (!el) return;
+    // Use absolute offsetTop rather than scrollIntoView — avoids iOS Safari
+    // address-bar viewport-height shifts that cause scrollIntoView to land low.
+    window.scrollTo({ top: el.offsetTop, behavior: 'smooth' });
   }
 
   return React.createElement('nav', {
