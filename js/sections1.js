@@ -248,7 +248,9 @@ function SeekBar({
 }) {
   const trackRef = React.useRef(null);
   const draggingRef = React.useRef(false);
+  const localFracRef = React.useRef(null);
   const [seeking, setSeeking] = React.useState(false);
+  const [localPct, setLocalPct] = React.useState(null);
   function getFraction(e) {
     const track = trackRef.current;
     if (!track) return 0;
@@ -258,18 +260,39 @@ function SeekBar({
   function onPointerDown(e) {
     e.currentTarget.setPointerCapture(e.pointerId);
     draggingRef.current = true;
+    const frac = getFraction(e);
+    localFracRef.current = frac;
+    setLocalPct(frac);
     setSeeking(true);
     if (onSeekStateChange) onSeekStateChange(true);
-    if (onSeek) onSeek(getFraction(e));
+    if (onSeek) onSeek(frac);
   }
   function onPointerMove(e) {
     if (!draggingRef.current) return;
-    if (onSeek) onSeek(getFraction(e));
+    // Update visual position only — no audio seek on every frame
+    const frac = getFraction(e);
+    localFracRef.current = frac;
+    setLocalPct(frac);
   }
-  function onPointerUp() {
+  function onPointerUp(e) {
+    if (!draggingRef.current) return;
+    const frac = getFraction(e);
     draggingRef.current = false;
+    localFracRef.current = null;
+    setLocalPct(null);
     setSeeking(false);
     if (onSeekStateChange) onSeekStateChange(false);
+    if (onSeek) onSeek(frac);
+  }
+  function onPointerCancel() {
+    if (!draggingRef.current) return;
+    const frac = localFracRef.current;
+    draggingRef.current = false;
+    localFracRef.current = null;
+    setLocalPct(null);
+    setSeeking(false);
+    if (onSeekStateChange) onSeekStateChange(false);
+    if (onSeek && frac !== null) onSeek(frac);
   }
   function onKeyDown(e) {
     if (!onSeek) return;
@@ -288,7 +311,8 @@ function SeekBar({
       onSeek(1);
     }
   }
-  const pct = (progress || 0) * 100;
+  // Display: localPct tracks pointer during drag; falls back to audio progress
+  const pct = (localPct !== null ? localPct : (progress || 0)) * 100;
   return /*#__PURE__*/ /* Outer div: large hit area (paddingTop/Bottom expand clickable zone) */React.createElement("div", {
     role: "slider",
     "aria-label": "Mix timeline",
@@ -299,7 +323,7 @@ function SeekBar({
     onPointerDown: onPointerDown,
     onPointerMove: onPointerMove,
     onPointerUp: onPointerUp,
-    onPointerCancel: onPointerUp,
+    onPointerCancel: onPointerCancel,
     onKeyDown: onKeyDown,
     style: {
       marginTop: mt,
