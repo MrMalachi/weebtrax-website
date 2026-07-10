@@ -709,10 +709,6 @@ function Hero({
 function SignalFeed({ scene, onClose, onPrev, onNext }) {
   const videoRef = React.useRef(null);
   const [playing, setPlaying] = React.useState(false);
-  const [elapsed, setElapsed] = React.useState(0);
-  const [duration, setDuration] = React.useState(0);
-  const [progress, setProgress] = React.useState(0);
-  const [seeking, setSeeking] = React.useState(false);
   const [expanded, setExpanded] = React.useState(false);
   const [hovVideo, setHovVideo] = React.useState(false);
   const [flashIcon, setFlashIcon] = React.useState(null);
@@ -733,29 +729,20 @@ function SignalFeed({ scene, onClose, onPrev, onNext }) {
     const v = videoRef.current;
     if (!v) return;
     v.load();
-    setPlaying(false); setElapsed(0); setProgress(0); setDuration(0);
-    setExpanded(false); setConnected(false);
+    setPlaying(false); setExpanded(false); setConnected(false);
   }, [scene.id]);
 
   React.useEffect(() => {
     const v = videoRef.current;
     if (!v) return;
-    function onTimeUpdate() {
-      if (v.duration && isFinite(v.duration)) {
-        setElapsed(Math.floor(v.currentTime));
-        setProgress(v.currentTime / v.duration);
-      }
-    }
-    function onLoadedMetadata() { if (isFinite(v.duration)) { setDuration(Math.floor(v.duration)); setConnected(true); } }
+    function onLoadedMetadata() { setConnected(true); }
     function onPlay() { setPlaying(true); }
     function onPause() { setPlaying(false); }
-    v.addEventListener('timeupdate', onTimeUpdate);
     v.addEventListener('loadedmetadata', onLoadedMetadata);
     v.addEventListener('play', onPlay);
     v.addEventListener('pause', onPause);
     return () => {
       v.pause();
-      v.removeEventListener('timeupdate', onTimeUpdate);
       v.removeEventListener('loadedmetadata', onLoadedMetadata);
       v.removeEventListener('play', onPlay);
       v.removeEventListener('pause', onPause);
@@ -770,13 +757,7 @@ function SignalFeed({ scene, onClose, onPrev, onNext }) {
     setFlashIcon(icon);
     setTimeout(function() { setFlashIcon(null); }, 550);
   }
-  function seekTo(frac) {
-    const v = videoRef.current;
-    if (v && isFinite(v.duration)) v.currentTime = frac * v.duration;
-  }
-  function fmtT(s) {
-    return String(Math.floor(s / 60)).padStart(2, '0') + ':' + String(Math.floor(s % 60)).padStart(2, '0');
-  }
+
 
   const wiredPath = 'WIRED://NODE.227/' + scene.name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
   const epLabel = scene.episode != null ? 'EP.' + String(scene.episode).padStart(2, '0') : '';
@@ -890,7 +871,7 @@ function SignalFeed({ scene, onClose, onPrev, onNext }) {
     },
       /*#__PURE__*/React.createElement("video", {
         ref: videoRef, src: scene.video, poster: scene.img,
-        muted: true, playsInline: true, loop: true, preload: "metadata",
+        muted: true, playsInline: true, loop: true, preload: "auto",
         style: { width: '100%', height: '100%', display: 'block', objectFit: 'cover', background: '#000' }
       }),
       // Heavy CRT scanlines
@@ -915,12 +896,12 @@ function SignalFeed({ scene, onClose, onPrev, onNext }) {
         /*#__PURE__*/React.createElement("div", null, 'NODE.227'),
         epLabel && /*#__PURE__*/React.createElement("div", null, epLabel)
       ),
-      // Bottom-right timestamp
+      // Bottom-right loop indicator
       /*#__PURE__*/React.createElement("div", { 'aria-hidden': true, style: {
         position: 'absolute', bottom: 22, right: 26,
         fontFamily: WT2.mono, fontSize: 8.5, letterSpacing: 1.5,
         color: 'rgba(143,191,159,0.6)', pointerEvents: 'none'
-      }}, fmtT(elapsed) + ' / ' + (duration ? fmtT(duration) : '--:--')),
+      }}, '∞ LOOP'),
       // Flash icon on click
       flashIcon && /*#__PURE__*/React.createElement("div", { 'aria-hidden': true, style: {
         position: 'absolute', inset: 0, display: 'flex',
@@ -983,17 +964,10 @@ function SignalFeed({ scene, onClose, onPrev, onNext }) {
           }
         }, scene.desc)
       ),
-      // Seekbar
-      /*#__PURE__*/React.createElement(SeekBar, {
-        progress: progress, onSeek: seekTo, height: 2, mt: 0, onSeekStateChange: setSeeking
-      }),
       // Bottom row
       /*#__PURE__*/React.createElement("div", {
-        style: { display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: narrow ? 5 : 7 }
+        style: { display: 'flex', alignItems: 'center', justifyContent: 'flex-end', marginTop: narrow ? 5 : 7 }
       },
-        /*#__PURE__*/React.createElement("span", {
-          style: { fontFamily: WT2.mono, fontSize: narrow ? 8.5 : 9, letterSpacing: 1, color: WT2.faint }
-        }, fmtT(elapsed) + ' · ' + (duration ? fmtT(duration) : '--:--') + (narrow ? '' : '  ·  ∞ LOOP')),
         /*#__PURE__*/React.createElement("div", { style: { display: 'flex', alignItems: 'center', gap: 6 } },
           onPrev && /*#__PURE__*/React.createElement("button", {
             onClick: onPrev, title: 'Previous scene',
