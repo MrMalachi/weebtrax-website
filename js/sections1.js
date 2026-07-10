@@ -23,6 +23,7 @@ function Rail() {
   const [active, setActive] = React.useState(0);
   const [hovNav, setHovNav] = React.useState(-1);
   const [hovWT, setHovWT] = React.useState(false);
+  const wtTimerRef = React.useRef(null);
   const winW = useWinW();
   const compact = winW < 560;
   const rW = compact ? RAIL_W_NARROW : RAIL_W;
@@ -80,7 +81,12 @@ function Rail() {
   }, /*#__PURE__*/React.createElement("div", {
     onMouseEnter: function() { setHovWT(true); },
     onMouseLeave: function() { setHovWT(false); },
-    onClick: function() { window.scrollTo({ top: 0, behavior: 'smooth' }); },
+    onClick: function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      setHovWT(true);
+      if (wtTimerRef.current) clearTimeout(wtTimerRef.current);
+      wtTimerRef.current = setTimeout(function() { setHovWT(false); }, 1500);
+    },
     style: {
       width: compact ? 28 : 42,
       height: compact ? 28 : 42,
@@ -521,6 +527,7 @@ function Hero({
       gap: 18
     }
   }, /*#__PURE__*/React.createElement("span", null, "\u2301 44.1kHz"), /*#__PURE__*/React.createElement("span", null, clock))), /*#__PURE__*/React.createElement("div", {
+    className: "wt-hero-text",
     style: {
       ...(narrow ? {
         position: 'relative',
@@ -535,6 +542,7 @@ function Hero({
       })
     }
   }, /*#__PURE__*/React.createElement("div", {
+    className: "wt-hero-module",
     style: {
       display: 'flex',
       alignItems: 'center',
@@ -565,6 +573,7 @@ function Hero({
       textTransform: 'uppercase'
     }
   }, "// HOME")), /*#__PURE__*/React.createElement("div", {
+    className: "wt-hero-tagline",
     style: {
       display: 'flex',
       alignItems: 'center',
@@ -597,6 +606,7 @@ function Hero({
       letterSpacing: 0.3
     }
   }, "Low-Fidelity House mixes", /*#__PURE__*/React.createElement("br", null), "from Cyberia Caf\xE9 & Club."), /*#__PURE__*/React.createElement("div", {
+    className: "wt-hero-cta",
     style: {
       display: 'flex',
       gap: 14,

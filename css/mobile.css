@@ -19,6 +19,27 @@ html, body {
 .wt-sechead-sub    { display: none !important; }
 .wt-sechead-title  { font-size: 28px !important; }
 
+/* Centre buttons and CTAs */
+.wt-hero-cta { justify-content: center !important; }
+.wt-btn { text-align: center; }
+
+/* Archive status bar: allow wrapping so sort doesn't fall off-screen */
+.wt-archive-statusbar {
+  white-space: normal !important;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Mood chips: scroll horizontally instead of wrapping to two rows */
+.wt-mood-chips {
+  flex-wrap: nowrap !important;
+  overflow-x: auto;
+  justify-content: flex-start !important;
+  padding-bottom: 4px;
+}
+
 /* Disable kenburns — expensive scale+translate animation on mobile */
 .wt-kenburns {
   animation: none !important;
@@ -27,3 +48,26 @@ html, body {
 
 /* Hide entire hero player card on mobile */
 .wt-hero-player { display: none !important; }
+
+/* Hide LO-FI HOUSE / transmitting tagline row on mobile */
+.wt-hero-tagline { display: none !important; }
+
+/* Hero section: replace 100vh void with something readable */
+#wt-index {
+  min-height: auto !important;
+  padding-top: 64px !important;
+  padding-bottom: 64px !important;
+  justify-content: flex-start !important;
+}
+
+/* Hero text block: manual spacing so MODULE sits tight above WeebTrax */
+.wt-hero-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding-top: 32px !important;
+}
+
+.wt-hero-module  { margin-bottom: 14px !important; padding-top: 32px; }   /* MODULE → WeebTrax */
+.wt-hero-text h1 { margin: 0 0 16px !important; }     /* WeebTrax → paragraph */
+.wt-hero-text p  { margin: 0 0 20px !important; }     /* paragraph → CTA */

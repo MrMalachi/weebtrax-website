@@ -634,6 +634,7 @@ function Transmissions({
     kicker: "ARCHIVE",
     title: "Latest Transmissions"
   }), /*#__PURE__*/React.createElement("div", {
+    className: "wt-archive-statusbar",
     style: { fontFamily: WT2.mono, fontSize: 11.5, color: WT2.dim, letterSpacing: 0.5, whiteSpace: 'nowrap', marginTop: 10 }
   }, /*#__PURE__*/React.createElement("span", {
     style: { color: WT2.faint }
@@ -647,6 +648,7 @@ function Transmissions({
   }, SORT_MODES[sortIdx].toLowerCase()), /*#__PURE__*/React.createElement("span", {
     style: { color: WT2.faint, marginLeft: 5 }
   }, "\u2195")))), /*#__PURE__*/React.createElement("div", {
+    className: "wt-mood-chips",
     style: { display: 'flex', justifyContent: 'flex-end', alignItems: 'center', gap: 5, flexWrap: 'wrap', marginBottom: 10 }
   }, /*#__PURE__*/React.createElement("span", {
     style: { fontFamily: WT2.mono, fontSize: 10, color: WT2.faint, letterSpacing: 1.5, marginRight: 2 }
