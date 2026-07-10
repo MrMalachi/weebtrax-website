@@ -721,6 +721,7 @@ function SignalFeed({ scene, onClose, onPrev, onNext }) {
   const [expanded, setExpanded] = React.useState(false);
   const [hovVideo, setHovVideo] = React.useState(false);
   const [flashIcon, setFlashIcon] = React.useState(null);
+  const [flashBtn, setFlashBtn] = React.useState(null);
   const [connected, setConnected] = React.useState(false);
   const winW = useWinW();
   const narrow = winW < 600;
@@ -991,13 +992,18 @@ function SignalFeed({ scene, onClose, onPrev, onNext }) {
         }, '\u00d7 CLOSE'),
         /*#__PURE__*/React.createElement("div", { style: { display: 'flex', alignItems: 'center', gap: 6 } },
           onPrev && /*#__PURE__*/React.createElement("button", {
-            onClick: onPrev, title: 'Previous scene',
+            onClick: function() {
+              setFlashBtn('prev'); setTimeout(function() { setFlashBtn(null); }, 200); onPrev();
+            }, title: 'Previous scene',
             style: {
-              background: 'none', border: '1px solid ' + WT2.line2, color: WT2.dim,
+              background: 'none',
+              border: '1px solid ' + (flashBtn === 'prev' ? 'var(--wt-accent)' : WT2.line2),
+              color: flashBtn === 'prev' ? 'var(--wt-accent)' : WT2.dim,
+              textShadow: flashBtn === 'prev' ? '0 0 6px var(--wt-accent)' : 'none',
               fontFamily: WT2.mono, fontSize: 9, letterSpacing: 1.5,
               padding: narrow ? '12px 16px' : '5px 10px', cursor: 'pointer', borderRadius: 0,
-              textTransform: 'uppercase', transition: 'all .12s',
-              WebkitTapHighlightColor: 'transparent'
+              textTransform: 'uppercase', transition: 'border-color .08s, color .08s',
+              WebkitTapHighlightColor: 'transparent', outline: 'none'
             }
           }, '\u2190'),
           /*#__PURE__*/React.createElement("button", {
@@ -1019,13 +1025,18 @@ function SignalFeed({ scene, onClose, onPrev, onNext }) {
           playing ? 'SUSPEND' : 'TRANSMIT'
           ),
           onNext && /*#__PURE__*/React.createElement("button", {
-            onClick: onNext, title: 'Next scene',
+            onClick: function() {
+              setFlashBtn('next'); setTimeout(function() { setFlashBtn(null); }, 200); onNext();
+            }, title: 'Next scene',
             style: {
-              background: 'none', border: '1px solid ' + WT2.line2, color: WT2.dim,
+              background: 'none',
+              border: '1px solid ' + (flashBtn === 'next' ? 'var(--wt-accent)' : WT2.line2),
+              color: flashBtn === 'next' ? 'var(--wt-accent)' : WT2.dim,
+              textShadow: flashBtn === 'next' ? '0 0 6px var(--wt-accent)' : 'none',
               fontFamily: WT2.mono, fontSize: 9, letterSpacing: 1.5,
               padding: narrow ? '12px 16px' : '5px 10px', cursor: 'pointer', borderRadius: 0,
-              textTransform: 'uppercase', transition: 'all .12s',
-              WebkitTapHighlightColor: 'transparent'
+              textTransform: 'uppercase', transition: 'border-color .08s, color .08s',
+              WebkitTapHighlightColor: 'transparent', outline: 'none'
             }
           }, '\u2192')
         )

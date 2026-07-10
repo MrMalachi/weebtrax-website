@@ -79,6 +79,7 @@ function Oscilloscope({
   color = WT2.green,
   lines = true,
   dense = 1,
+  strokeWidth = 2.0,
   style = {},
   playing = true,
   seeking = false
@@ -142,7 +143,7 @@ function Oscilloscope({
         x === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
       }
       ctx.strokeStyle = wtResolve(color);
-      ctx.lineWidth = 2.0;
+      ctx.lineWidth = strokeWidth;
       ctx.shadowColor = wtResolve(color);
       ctx.shadowBlur = isPlaying ? 9 : 3;
       ctx.stroke();
