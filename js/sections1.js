@@ -1264,7 +1264,6 @@ function SceneGrid() {
     total: totalPages,
     onGoTo: goPage
   }), sel ? /*#__PURE__*/React.createElement("div", { ref: playerRef }, /*#__PURE__*/React.createElement(SignalFeed, {
-    key: sel.id,
     scene: sel,
     onClose: function() {
       setSelected(null);
