@@ -498,7 +498,7 @@ function ActiveRow({
       color: WT2.ink,
       whiteSpace: mobile ? 'pre-line' : undefined
     }
-  }, mobile && t.title.includes('|') ? t.title.replace('|', '\n') : t.title), /*#__PURE__*/React.createElement("div", {
+  }, mobile && t.title.includes('|') ? t.title.replace('|', '|\n') : t.title), /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'flex',
       flexDirection: 'column',
