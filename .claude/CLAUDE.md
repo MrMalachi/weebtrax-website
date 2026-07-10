@@ -144,6 +144,11 @@ Generates: archive rows, scene cards, thumbnails, play buttons, YT/SC links, moo
 ### Footer / About
 - [ ] "About" section has placeholder branding text — add short bio, release schedule, social links context
 
+### Merch / Monetization
+- [ ] Set up merch store (Printful/Printify print-on-demand) — can launch as sole proprietor, doesn't require the LLC or 50k-subscriber label milestone
+- [ ] Add merch link/section to site nav or footer, matching Wired/Navi branding
+- [ ] Decision (2026-07-09): merch goes live *before* record-label formation — reinforces brand and tests revenue early; reassigning the store to the LLC later is low-friction
+
 ---
 
 ---
