@@ -865,7 +865,7 @@ function SignalFeed({ scene, onClose, onPrev, onNext }) {
           }
         }, wiredPath)
       ),
-      /*#__PURE__*/React.createElement("div", { style: { display: 'flex', alignItems: 'center', gap: narrow ? 6 : 8, flexShrink: 0 } },
+      /*#__PURE__*/React.createElement("div", { style: { display: narrow ? 'none' : 'flex', alignItems: 'center', gap: 8, flexShrink: 0 } },
         /*#__PURE__*/React.createElement("button", {
           onClick: function() { setExpanded(function(e) { return !e; }); },
           style: {
@@ -1012,7 +1012,7 @@ function SignalFeed({ scene, onClose, onPrev, onNext }) {
             style: {
               background: 'none', border: '1px solid ' + WT2.red, color: WT2.red,
               fontFamily: WT2.mono, fontSize: 9, letterSpacing: 1.5,
-              padding: '12px 14px', cursor: 'pointer', borderRadius: 0,
+              padding: '12px 12px', cursor: 'pointer', borderRadius: 0,
               textTransform: 'uppercase', transition: 'all .12s',
               WebkitTapHighlightColor: 'transparent', outline: 'none'
             }
@@ -1023,7 +1023,7 @@ function SignalFeed({ scene, onClose, onPrev, onNext }) {
               background: expanded ? 'rgba(143,191,159,0.1)' : 'none',
               border: '1px solid var(--wt-accent)', color: 'var(--wt-accent)',
               fontFamily: WT2.mono, fontSize: 9, letterSpacing: 1.5,
-              padding: '12px 14px', cursor: 'pointer', borderRadius: 0,
+              padding: '12px 12px', cursor: 'pointer', borderRadius: 0,
               textTransform: 'uppercase', transition: 'all .12s',
               textShadow: '0 0 8px var(--wt-accent)',
               WebkitTapHighlightColor: 'transparent', outline: 'none'
