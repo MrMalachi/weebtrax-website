@@ -70,22 +70,44 @@ main { margin-left: 0 !important; }
 /* Hide LO-FI HOUSE / transmitting tagline row on mobile */
 .wt-hero-tagline { display: none !important; }
 
-/* Hero portrait accent — right side of hero, mobile only */
-.wt-hero-portrait-mobile {
+/* About section portrait accent — top-right of the bio column, gazing toward the bio text on the left */
+.wt-about-bio-col { position: relative; }
+.wt-about-bio-text { max-width: 178px !important; }
+.wt-about-portrait-mobile {
   display: block !important;
   position: absolute;
-  top: 44px;
-  right: 18px;
-  width: 96px;
+  top: 0;
+  right: 0;
+  width: 84px;
   height: auto;
   z-index: 2;
   pointer-events: none;
   filter: drop-shadow(0 8px 18px rgba(0,0,0,0.55));
 }
 
+/* Short spoken line floating from her mouth, manga-caption style, no bubble */
+.wt-about-portrait-say {
+  display: block !important;
+  position: absolute;
+  top: 36px;
+  right: 90px;
+  z-index: 3;
+  font-family: 'IBM Plex Sans', system-ui, sans-serif;
+  font-weight: 800;
+  font-style: italic;
+  font-size: 21px;
+  letter-spacing: 0.5px;
+  color: #e2a5ac;
+  text-shadow: 0 2px 5px rgba(0,0,0,0.6), 0 0 12px rgba(226,165,172,0.35);
+  transform: rotate(-8deg);
+  white-space: nowrap;
+  pointer-events: none;
+}
+
 /* Hero section: fill down to just above the fixed bottom nav + broadcast bar (82px) so its bottom border lands at the nav panel instead of leaving a gap */
 #wt-index {
   min-height: calc(100vh - 96px) !important;
+  min-height: calc(100dvh - 96px) !important;
   padding-top: 64px !important;
   padding-bottom: 64px !important;
   justify-content: flex-start !important;

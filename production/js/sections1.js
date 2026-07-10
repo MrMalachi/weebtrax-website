@@ -552,12 +552,7 @@ function Hero({
       display: narrow && winW < 600 ? 'none' : 'flex',
       gap: 18
     }
-  }, /*#__PURE__*/React.createElement("span", null, "\u2301 44.1kHz"), /*#__PURE__*/React.createElement("span", null, clock))), /*#__PURE__*/React.createElement("img", {
-    className: "wt-hero-portrait-mobile",
-    src: "public/assets/images/hero-portrait-mobile.png",
-    alt: "",
-    "aria-hidden": true
-  }), /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("span", null, "\u2301 44.1kHz"), /*#__PURE__*/React.createElement("span", null, clock))), /*#__PURE__*/React.createElement("div", {
     className: "wt-hero-text",
     style: {
       ...(narrow ? {

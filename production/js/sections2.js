@@ -1518,13 +1518,24 @@ function Footer() {
       flexDirection: 'column',
       gap: 32
     }
-  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(Wordmark, {
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "wt-about-bio-col"
+  }, /*#__PURE__*/React.createElement("img", {
+    className: "wt-about-portrait-mobile",
+    src: "public/assets/images/about-portrait-mobile.png",
+    alt: "",
+    "aria-hidden": true
+  }), /*#__PURE__*/React.createElement("span", {
+    className: "wt-about-portrait-say",
+    "aria-hidden": true
+  }, "は？"), /*#__PURE__*/React.createElement(Wordmark, {
     size: 38,
     glitch: false,
     style: {
       display: 'block'
     }
   }), /*#__PURE__*/React.createElement("p", {
+    className: "wt-about-bio-text",
     style: {
       margin: '14px 0 20px',
       fontFamily: WT2.sans,
