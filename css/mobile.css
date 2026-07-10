@@ -14,8 +14,16 @@ html, body {
   grid-template-columns: repeat(2, 1fr) !important;
 }
 
+/* Section headers — strip down to title only */
+.wt-sechead-prefix { display: none !important; }
+.wt-sechead-sub    { display: none !important; }
+.wt-sechead-title  { font-size: 28px !important; }
+
 /* Disable kenburns — expensive scale+translate animation on mobile */
 .wt-kenburns {
   animation: none !important;
   transform: none !important;
 }
+
+/* Hide entire hero player card on mobile */
+.wt-hero-player { display: none !important; }

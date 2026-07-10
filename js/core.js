@@ -329,6 +329,7 @@ function SecHead({
   return /*#__PURE__*/React.createElement("div", {
     style: style
   }, /*#__PURE__*/React.createElement("div", {
+    className: "wt-sechead-prefix",
     style: {
       display: 'flex',
       alignItems: 'center',
@@ -359,6 +360,7 @@ function SecHead({
       textTransform: 'uppercase'
     }
   }, "// ", kicker)), /*#__PURE__*/React.createElement("h2", {
+    className: "wt-sechead-title",
     style: {
       margin: 0,
       fontFamily: WT2.display,
@@ -369,6 +371,7 @@ function SecHead({
       color: WT2.ink
     }
   }, title), sub && /*#__PURE__*/React.createElement("p", {
+    className: "wt-sechead-sub",
     style: {
       margin: '14px 0 0',
       fontFamily: WT2.mono,

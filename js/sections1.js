@@ -619,6 +619,7 @@ function Hero({
       });
     }
   }, "Submit Your Track"))), /*#__PURE__*/React.createElement("div", {
+    className: "wt-hero-player",
     style: {
       ...(narrow ? {
         position: 'relative',
@@ -661,13 +662,13 @@ function Hero({
       fontSize: 10,
       color: WT2.faint
     }
-  }, activeTxCode || 'TX-047')), /*#__PURE__*/React.createElement(Oscilloscope, {
+  }, activeTxCode || 'TX-047')), /*#__PURE__*/React.createElement("div", { className: "wt-hero-osc" }, /*#__PURE__*/React.createElement(Oscilloscope, {
     height: 80,
     color: "var(--wt-accent)",
     dense: 1.1,
     playing: playing,
     seeking: seeking
-  }), /*#__PURE__*/React.createElement("div", {
+  })), /*#__PURE__*/React.createElement("div", {
     style: {
       marginTop: 10
     }
