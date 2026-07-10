@@ -364,6 +364,7 @@ function ActiveRow({
   onPlayToggle,
   elapsed,
   narrow,
+  mobile,
   progress,
   onSeek,
   seeking,
@@ -390,7 +391,7 @@ function ActiveRow({
     style: {
       border: `1px solid ${WT2.line2}`,
       background: WT2.panel,
-      padding: narrow ? 18 : 24,
+      padding: mobile ? 12 : narrow ? 18 : 24,
       position: 'relative',
       display: narrow ? 'flex' : 'grid',
       flexDirection: narrow ? 'column' : undefined,
@@ -422,18 +423,18 @@ function ActiveRow({
       gap: 8
     }
   }, /*#__PURE__*/React.createElement(Oscilloscope, {
-    height: narrow ? 72 : 110,
+    height: mobile ? 44 : narrow ? 72 : 110,
     color: "var(--wt-accent)",
     dense: 1.1,
     playing: playing,
     seeking: seeking,
     style: { flex: 1, minWidth: 0 }
-  }), /*#__PURE__*/React.createElement(VolBarV, {
+  }), !mobile && /*#__PURE__*/React.createElement(VolBarV, {
     vol: vol,
     onVolChange: onVolChange,
     tone: "var(--wt-accent)",
     interactive: true,
-    oscHeight: narrow ? 72 : 110
+    oscHeight: mobile ? 44 : narrow ? 72 : 110
   })), /*#__PURE__*/React.createElement(SeekBar, {
     progress: progress,
     onSeek: onSeek,
@@ -564,6 +565,7 @@ function Transmissions({
   const ARCHIVE_PER_PAGE = winW < 600 ? 4 : 5;
   const narrow = winW < 900;
   const mid = winW >= 900 && winW < 1200;
+  const isMobile = winW < 600;
   const [hover, setHover] = React.useState(-1);
   const [sortIdx, setSortIdx] = React.useState(0);
   const [moodFilter, setMoodFilter] = React.useState(null);
@@ -689,6 +691,7 @@ function Transmissions({
     onPlayToggle: onPlayToggle,
     elapsed: elapsed,
     narrow: narrow,
+    mobile: isMobile,
     progress: progress,
     onSeek: onSeek,
     seeking: seeking,
@@ -704,7 +707,7 @@ function Transmissions({
   }, !narrow && /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'grid',
-      gridTemplateColumns: mid ? '40px 1fr 60px 80px 90px 120px' : '48px 1fr 68px 100px 108px 152px',
+      gridTemplateColumns: mid ? '40px 1fr 80px 90px 120px' : '48px 1fr 100px 108px 152px',
       alignItems: 'center',
       padding: '11px 18px',
       borderBottom: `1px solid ${WT2.line}`,
@@ -723,7 +726,7 @@ function Transmissions({
     style: {
       textAlign: 'left'
     }
-  }, "FILE"), /*#__PURE__*/React.createElement("span", {
+  }, "FILE"), !mid && /*#__PURE__*/React.createElement("span", {
     style: {
       textAlign: 'center'
     }
@@ -868,7 +871,7 @@ function Transmissions({
       "aria-label": `${isActive && playing ? 'Pause' : 'Play'} ${t.title}`,
       style: {
         display: 'grid',
-        gridTemplateColumns: mid ? '40px 1fr 60px 80px 90px 120px' : '48px 1fr 68px 100px 108px 152px',
+        gridTemplateColumns: mid ? '40px 1fr 80px 90px 120px' : '48px 1fr 100px 108px 152px',
         alignItems: 'center',
         padding: '15px 18px',
         borderBottom: i < filtered.length - 1 ? `1px solid ${WT2.line}` : 'none',
@@ -917,7 +920,7 @@ function Transmissions({
         textOverflow: 'ellipsis',
         whiteSpace: 'nowrap'
       }
-    }, t.file)), /*#__PURE__*/React.createElement("div", {
+    }, t.file)), !mid && /*#__PURE__*/React.createElement("div", {
       style: {
         display: 'flex',
         justifyContent: 'center'

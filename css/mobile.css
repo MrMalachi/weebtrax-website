@@ -43,11 +43,19 @@ main { margin-left: 0 !important; }
 .wt-archive-statusbar { white-space: normal !important; }
 .wt-statusbar-path { display: none !important; }
 
-/* Mood chips: centered, wrapping naturally */
+/* Mood chips: horizontal scroll strip — no wrapping, hidden scrollbar */
 .wt-mood-chips {
-  justify-content: center !important;
-  flex-wrap: wrap !important;
+  justify-content: flex-start !important;
+  flex-wrap: nowrap !important;
+  overflow-x: auto !important;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding-right: 16px !important;
 }
+.wt-mood-chips::-webkit-scrollbar { display: none; }
+/* Larger tap targets for mood chip buttons on mobile */
+.wt-mood-chips button { padding: 8px 12px !important; }
 .wt-mood-label { display: none !important; }
 
 /* Disable kenburns — expensive scale+translate animation on mobile */
