@@ -144,6 +144,21 @@ Generates: archive rows, scene cards, thumbnails, play buttons, YT/SC links, moo
 ### Footer / About
 - [ ] "About" section has placeholder branding text — add short bio, release schedule, social links context
 
+### Mobile (needs significant further work)
+
+Current mobile state is CSS overrides on top of the desktop layout — functional but not purpose-built. The biggest open item is **navigation**: the desktop rail (left-side scroll dots + WT logo) is invisible/unusable on mobile, leaving no way to jump between sections.
+
+Three options considered (2026-07-10):
+
+1. **Hamburger menu** — universal pattern, users expect it. Risk of feeling generic, but can be styled to match the Wired/Navi aesthetic: monospace label, accent glow on open, slide-in panel with IBM Plex Mono + scan-line treatment.
+2. **Fixed bottom nav bar** ⭐ *preferred* — 4 tabs pinned to the bottom (Home, Archive, Scenes, About). Thumb-friendly, sits naturally above the broadcast bar, and can be styled heavily enough to feel like part of the terminal aesthetic rather than a generic mobile component. Fewer taps than a hamburger to reach any section.
+3. **Enlarged rail dots** — make existing scroll-position dots bigger and tap-friendly. Most consistent with desktop, lowest effort, but no section labels so discoverability is poor.
+
+When resuming mobile work, treat it as a purpose-built redesign (new layout pass), not more CSS patches.
+
+- [ ] Implement fixed bottom nav bar for mobile (Home / Archive / Scenes / About tabs, styled to Wired aesthetic)
+- [ ] Revisit overall mobile layout as a first-class design pass, not overrides
+
 ### Merch / Monetization
 - [ ] Set up merch store (Printful/Printify print-on-demand) — can launch as sole proprietor, doesn't require the LLC or 50k-subscriber label milestone
 - [ ] Add merch link/section to site nav or footer, matching Wired/Navi branding

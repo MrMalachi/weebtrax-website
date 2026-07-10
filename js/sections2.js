@@ -95,15 +95,14 @@ function TermPageBar({ page, total, onGoTo }) {
     if (k > 0 && nums[k] - nums[k - 1] > 1) items.push('gap' + k);
     items.push(nums[k]);
   }
+  const isMobile = winW < 600;
   return /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
       gap: wide ? 7 : 5,
-      marginTop: wide ? 36 : 28,
-      flexWrap: 'nowrap',
-      overflowX: 'auto'
+      marginTop: wide ? 36 : 28
     }
   }, /*#__PURE__*/React.createElement("button", {
     onClick: isFirst ? undefined : () => onGoTo(page - 1),
@@ -119,7 +118,12 @@ function TermPageBar({ page, total, onGoTo }) {
       cursor: isFirst ? 'default' : 'pointer',
       marginRight: wide ? 10 : 6
     }
-  }, "← PREV"), items.map(function(item) {
+  }, "← PREV"),
+  isMobile
+    ? /*#__PURE__*/React.createElement("span", {
+        style: { fontFamily: WT2.mono, fontSize: 10, color: WT2.faint, letterSpacing: 1.5, padding: '0 8px' }
+      }, String(page + 1).padStart(2, '0') + ' / ' + String(total).padStart(2, '0'))
+    : items.map(function(item) {
     if (typeof item === 'string') {
       return /*#__PURE__*/React.createElement("span", {
         key: item,
@@ -487,9 +491,15 @@ function ActiveRow({
   }, t.title), /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'flex',
+      flexDirection: 'column',
+      gap: 10,
+      marginTop: 14
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
       alignItems: 'center',
       gap: 16,
-      marginTop: 14,
       flexWrap: 'wrap'
     }
   }, /*#__PURE__*/React.createElement(Btn, {
@@ -533,7 +543,7 @@ function ActiveRow({
       React.createElement("span", { style: { flexShrink: 0, minWidth: 44, fontFamily: WT2.mono, fontSize: 11, color: WT2.faint, opacity: 0.7 } }, ts),
       React.createElement("span", { style: { minWidth: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', fontFamily: WT2.mono, fontSize: 10, color: isCur ? 'var(--wt-accent)' : WT2.dim, fontSize: 11 } }, entry.artist ? entry.artist + ' \u2014 ' + entry.title : entry.title)
     );
-  }))))
+  })))))
 }
 function Transmissions({
   playing,
@@ -549,8 +559,8 @@ function Transmissions({
   vol,
   onVolChange
 }) {
-  const ARCHIVE_PER_PAGE = 5;
   const winW = useWinW();
+  const ARCHIVE_PER_PAGE = winW < 600 ? 4 : 5;
   const narrow = winW < 900;
   const mid = winW >= 900 && winW < 1200;
   const [hover, setHover] = React.useState(-1);
@@ -638,8 +648,10 @@ function Transmissions({
     className: "wt-archive-statusbar",
     style: { fontFamily: WT2.mono, fontSize: 11.5, color: WT2.dim, letterSpacing: 0.5, whiteSpace: 'nowrap', marginTop: 10 }
   }, /*#__PURE__*/React.createElement("span", {
+    className: "wt-statusbar-path",
     style: { color: WT2.faint }
   }, "~/weebtrax/"), /*#__PURE__*/React.createElement("span", {
+    className: "wt-statusbar-path",
     style: { color: 'var(--wt-accent)' }
   }, "transmissions/"), " \xA0 " + String(filtered.length).padStart(3, '0') + " files \xA0\xA0", /*#__PURE__*/React.createElement("span", {
     onClick: cycleSort,
@@ -652,6 +664,7 @@ function Transmissions({
     className: "wt-mood-chips",
     style: { display: 'flex', justifyContent: 'flex-end', alignItems: 'center', gap: 5, flexWrap: 'wrap', marginBottom: 10 }
   }, /*#__PURE__*/React.createElement("span", {
+    className: "wt-mood-label",
     style: { fontFamily: WT2.mono, fontSize: 10, color: WT2.faint, letterSpacing: 1.5, marginRight: 2 }
   }, "MOOD:"), ['all'].concat(MOODS).map(function(m) {
     const isAll = m === 'all';

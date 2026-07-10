@@ -17,8 +17,7 @@ body { padding-bottom: 56px !important; }
   grid-template-columns: repeat(2, 1fr) !important;
 }
 
-/* Section headers — strip down to title only */
-.wt-sechead-prefix { display: none !important; }
+/* Section headers — keep MODULE label, hide verbose subtitle, shrink title */
 .wt-sechead-sub    { display: none !important; }
 .wt-sechead-title  { font-size: 28px !important; }
 
@@ -26,25 +25,18 @@ body { padding-bottom: 56px !important; }
 .wt-hero-cta { justify-content: center !important; }
 .wt-btn { text-align: center; }
 
-/* Hide archive player oscilloscope on mobile — saves ~80px so full card fits in viewport */
-.wt-archive-osc-row { display: none !important; }
+/* Archive oscilloscope row visible on mobile — bottom padding (56px) keeps it above the broadcast bar */
 
-/* Archive status bar: allow wrapping so sort doesn't fall off-screen */
-.wt-archive-statusbar {
-  white-space: normal !important;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 4px;
-}
+/* Archive status bar: hide long path, keep file count + sort on one line */
+.wt-archive-statusbar { white-space: normal !important; }
+.wt-statusbar-path { display: none !important; }
 
-/* Mood chips: scroll horizontally instead of wrapping to two rows */
+/* Mood chips: centered, wrapping naturally */
 .wt-mood-chips {
-  flex-wrap: nowrap !important;
-  overflow-x: auto;
-  justify-content: flex-start !important;
-  padding-bottom: 4px;
+  justify-content: center !important;
+  flex-wrap: wrap !important;
 }
+.wt-mood-label { display: none !important; }
 
 /* Disable kenburns — expensive scale+translate animation on mobile */
 .wt-kenburns {
