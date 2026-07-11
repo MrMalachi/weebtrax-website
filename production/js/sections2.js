@@ -1,5 +1,32 @@
 // sections2.jsx — Transmissions, Submissions, CTA, Footer. Exports to window.
 
+// navigator.clipboard requires a secure context (HTTPS or localhost) — on a plain-HTTP local
+// network address (e.g. testing at http://192.168.x.x on a phone) it's undefined, so calling
+// .writeText on it throws synchronously before any Promise/catch runs, silently breaking the
+// button. Falls back to a hidden textarea + execCommand('copy'), which works over plain HTTP too.
+function copyToClipboard(text) {
+  if (navigator.clipboard && window.isSecureContext) {
+    return navigator.clipboard.writeText(text);
+  }
+  return new Promise((resolve, reject) => {
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.left = '-9999px';
+    document.body.appendChild(ta);
+    ta.focus();
+    ta.select();
+    try {
+      const ok = document.execCommand('copy');
+      document.body.removeChild(ta);
+      ok ? resolve() : reject(new Error('execCommand copy failed'));
+    } catch (err) {
+      document.body.removeChild(ta);
+      reject(err);
+    }
+  });
+}
+
 // typewriter that starts when scrolled into view
 function useTypewriter(text, speed = 55, start = true) {
   const [out, setOut] = React.useState('');
@@ -654,12 +681,7 @@ function Transmissions({
       position: 'relative',
       overflow: 'hidden'
     }
-  }, /*#__PURE__*/React.createElement("img", {
-    className: "wt-archive-char-mobile",
-    src: "public/assets/images/archive-char-mobile.png",
-    alt: "",
-    "aria-hidden": true
-  }), /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("div", {
     style: {
       position: 'relative',
       zIndex: 1
@@ -1040,7 +1062,7 @@ function Submissions() {
 
   const FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSd8vnfi7fD64hfVc6HTVnUNob_e6AtCB8HPR6irs0ZmIkiduA/viewform?pli=1';
   function copyLink() {
-    navigator.clipboard.writeText(FORM_URL).then(() => {
+    copyToClipboard(FORM_URL).then(() => {
       setLinkState('copied');
       setTimeout(() => setLinkState('idle'), 1800);
     }).catch(() => {
@@ -1248,7 +1270,7 @@ function Submissions() {
     onClick: copyLink,
     style: linkState === 'copied' ? {
       background: 'rgba(143,191,159,0.08)',
-      borderColor: WT2.green,
+      border: `1px solid ${WT2.green}`,
       color: WT2.green,
       textShadow: `0 0 10px ${WT2.green}`,
       boxShadow: `0 0 16px rgba(143,191,159,0.18), inset 0 0 12px rgba(143,191,159,0.06)`
@@ -1417,7 +1439,7 @@ function BusinessContact() {
     const emailTld = "com";
     // ────────────────────────────────────────────────────────────────
     const addr = `${emailUser}@${emailDomain}.${emailTld}`;
-    navigator.clipboard.writeText(addr).then(() => {
+    copyToClipboard(addr).then(() => {
       setState('copied');
       setTimeout(() => setState('idle'), 1800);
     }).catch(() => {

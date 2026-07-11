@@ -172,17 +172,19 @@ main { margin-left: 0 !important; }
    flow means it holds regardless of viewport width, unlike positioning beside the title, which
    would overlap the fixed-width text at common phone widths (~390px) since the title text's pixel
    width doesn't shrink just because the viewport does. */
-.wt-uplink-sechead-wrap {
-  margin-bottom: 100px !important;
-}
-
-/* Submissions ("Track Submissions") section portrait accent — sits in the reserved gap below the
-   title, gazing up at it; moved here from the About section. */
+/* Submissions ("Track Submissions") section portrait accent — same treatment as the Archive/Scenes
+   accents: right edge lines up with the right edge of the title (measured via Range on the title
+   text node — constant at x=306.32 at the 340-430px width range where it stays single-line), sitting
+   above it. Uses left (not right) so the fixed position holds as viewport width changes.
+   left is shifted +16px past the plain box-edge alignment (222 -> 238) because the source PNG has
+   ~106px of transparent padding on its right side (548px-wide canvas, visible content ends at
+   x=441) — without this offset the element's bounding box lines up with the title but the actual
+   visible character falls short of it by that same margin, scaled to the rendered width. */
 .wt-uplink-portrait-mobile {
   display: block !important;
   position: absolute;
-  top: 130px;
-  right: -8px;
+  top: 12px;
+  left: 238px;
   width: 84px;
   height: auto;
   z-index: 2;
@@ -194,13 +196,13 @@ main { margin-left: 0 !important; }
 .wt-uplink-portrait-say {
   display: block !important;
   position: absolute;
-  top: 126px;
-  right: 34px;
+  top: 8px;
+  left: 222px;
   z-index: 3;
   font-family: "MS Gothic", "ＭＳ ゴシック", "DFGGothic-W5", "DFG Gothic", "Hiragino Kaku Gothic StdN", "Noto Sans JP", sans-serif;
   font-weight: 700;
   font-style: normal;
-  font-size: 21px;
+  font-size: 12px;
   letter-spacing: -0.06em;
   color: #e2a5ac;
   text-shadow: 0 2px 5px rgba(0,0,0,0.6), 0 0 12px rgba(226,165,172,0.35);
@@ -209,23 +211,6 @@ main { margin-left: 0 !important; }
   pointer-events: none;
 }
 
-/* Archive section character accent — centered above the second "i" in the "Transmissions" title
-   (x=295 at the 390px reference width, measured via Range on the title text node), sitting in the
-   empty top-padding zone above "MODULE .01 // ARCHIVE" — horizontally clear of that prefix text
-   (which ends around x=162), so the two don't collide despite overlapping vertically. */
-.wt-archive-char-mobile {
-  display: block !important;
-  position: absolute;
-  top: 44px;
-  left: 273px;
-  width: 44px;
-  height: auto;
-  z-index: 1;
-  opacity: 0.5;
-  pointer-events: none;
-}
-
-/* Scenes section character accent — right of "MODULE .02 // SCENES" header row, same treatment as Archive */
 /* Right edge lines up with the right edge of "Select Transmission" (first line of the wrapped
    title, measured via Range on the title text node — constant at x=310.73 across the 340-430px
    width range where it wraps to "Select Transmission" / "Environment"). Uses left (not right) so
