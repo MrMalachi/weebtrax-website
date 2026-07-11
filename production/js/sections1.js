@@ -1495,7 +1495,7 @@ function MobileNav() {
     },
       React.createElement('span', {
         style: {
-          width: 5, height: 5, borderRadius: 3,
+          width: 6, height: 6, borderRadius: 3.5,
           background: isActive ? 'var(--wt-accent)' : WT2.faint,
           boxShadow: isActive ? '0 0 8px var(--wt-accent)' : 'none',
           transition: 'background .15s, box-shadow .15s',
@@ -1505,7 +1505,7 @@ function MobileNav() {
       React.createElement('span', {
         style: {
           fontFamily: WT2.mono,
-          fontSize: 8,
+          fontSize: 9,
           letterSpacing: 2,
           color: isActive ? 'var(--wt-accent)' : WT2.dim,
           textTransform: 'uppercase',
