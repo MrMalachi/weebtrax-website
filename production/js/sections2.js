@@ -1253,7 +1253,7 @@ function Submissions() {
       textShadow: `0 0 10px ${WT2.green}`,
       boxShadow: `0 0 16px rgba(143,191,159,0.18), inset 0 0 12px rgba(143,191,159,0.06)`
     } : {}
-  }, linkState === 'copied' ? '✓ LINK COPIED' : linkState === 'failed' ? 'COPY FAILED — TRY AGAIN' : '☉ COPY SUBMISSION LINK'))), /*#__PURE__*/React.createElement("div", {
+  }, linkState === 'copied' ? '✓ COPIED' : linkState === 'failed' ? 'COPY FAILED — TRY AGAIN' : '☉ COPY SUBMISSION LINK'))), /*#__PURE__*/React.createElement("div", {
     style: {
       border: `1px solid ${WT2.line}`,
       background: WT2.panel,
