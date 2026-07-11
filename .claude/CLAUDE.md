@@ -87,7 +87,7 @@ Generates: archive rows, scene cards, thumbnails, play buttons, YT/SC links, moo
 - Mood→accent color mapping: `chill→blue`, `nostalgic→purple`, `dirty→red`, `deep→green`
 - Serve with: `cd production && python3 -m http.server 3000` (site now lives under `production/`, not the repo root — serving from the wrong directory causes `/public/assets/metadata/*.json` 404s and a BOOT FAILURE screen)
 
-### Current features (as of 2026-07-10)
+### Current features (as of 2026-07-11)
 - **Archive**: 94 mixes, mood filter chips (right-aligned, above player), NEWEST/OLDEST/A-Z sort, 5-per-page pagination, active row player
 - **Archive status line**: shows filtered file count only (e.g. `094 files`), not a fraction
 - **Playback**: auto-advance to next track, keyboard shortcuts (Space/←/→), session restore via localStorage. Spacebar routes through `togglePlayRef` to avoid stale closure.
@@ -113,6 +113,13 @@ Generates: archive rows, scene cards, thumbnails, play buttons, YT/SC links, moo
 - **SignalFeed bottom bar**: red `×` close (left) + green `⊞/⊟` expand toggle (right) replace the old single close button
 - **PREV/NEXT + ← → buttons**: `wt-page-btn` class; CSS `:active` gives instant subtle press feedback (opacity 0.55, faint green bg); no JS state, no transition lag
 - **Kenburns** animation disabled; hero player card hidden; hero section auto-height
+- **HOME hero head + caption**: floating head fragment (`hero-head-mobile.png`, `.wt-hero-head-mobile`, 68px wide) + Japanese caption "私は私よ。" (`.wt-hero-head-say`, 12px — this is the reference size other section captions should match) sit above "MODULE .00 // HOME"; `.wt-hero-text` has extra top padding (56px) specifically to keep clearance from these floating elements, separate from the section's own padding
+- **Submit terminal replay**: the typewriter in the Submit section only plays once per page load on mobile (`useReplayOnHidden(onceOnly)` in `sections2.js`) instead of replaying every time the section scrolls back into view — replaying was regrowing the terminal box height and shoving About down. Desktop still replays on every revisit.
+- **Character accent images** (Scenes `.wt-scenes-char-mobile`, Submit portrait `.wt-uplink-portrait-mobile` — Archive's was removed entirely): both sit **above** their section's title, right-edge-aligned with the title text, positioned via `left` (not `right`) so the fixed px position holds regardless of viewport width — `right` is relative to the container's right edge, which moves with viewport width, while title text is left-anchored at a fixed padding offset so its right edge is constant in absolute px (as long as the title stays single-line; both titles wrap at width <~340-360px, which breaks this assumption — acceptable given real target devices are ≥360px). **Gotcha**: source PNGs can carry a lot of transparent padding — always check the alpha-channel content bounds (not just the `<img>` box) before computing an "edge-aligned" position, since the visible character can fall well short of the element's own bounding box.
+- **Button click feedback**: SUBMIT YOUR MUSIC and COPY SUBMISSION LINK (`sections2.js`, `Submissions()`) both flash green briefly on tap then revert. **Gotcha**: when overriding a style property in a conditional flash state that reverts to `{}`, always match the *same* CSS property form (shorthand vs longhand) the base component style uses — e.g. the base `Btn` style sets `border` (shorthand); overriding with `borderColor` (longhand) in the flash state left the border a broken default color after React removed the longhand key on revert, since clearing a longhand doesn't restore the shorthand's original value.
+- **Mobile `:hover` sticky-state bug**: `.wt-btn-ghost:hover` / `.wt-btn-primary:hover` / `.wt-flink:hover` in `styles.css` are wrapped in `@media (hover: hover)` — without this, tapping a button on a touch device enters `:hover` and never leaves it (no mouse to fire a "leave" event), so buttons got stuck looking hover-highlighted after every tap. Any new hover-only style added to this codebase should go inside that same media query.
+- **Clipboard copy over plain HTTP**: `navigator.clipboard` requires a secure context (HTTPS or `localhost`) — testing over a local network IP like `http://192.168.x.x` leaves it `undefined`, and calling `.writeText` on it throws *synchronously*, before any `.then/.catch` runs. Both copy buttons now go through a shared `copyToClipboard()` helper (top of `sections2.js`) that falls back to a hidden-textarea + `execCommand('copy')` when the modern API isn't available.
+- **About section** (mobile only): "// TRANSMISSION" blurb and the entire "// NAV" block (links + collapsible header) were removed — NAV duplicated the always-visible bottom nav bar. "// SOCIAL SIGNALS" stays visible (unique links, not shown elsewhere). `BUSINESS_INQUIRIES` button uses smaller padding/font on mobile than desktop.
 
 ### Checklist
 - [x] Unbundle app into plain separate JS/CSS files
@@ -170,6 +177,10 @@ Mobile has a working bottom nav bar and several archive/player polish passes. Co
 - [x] Seekbar visual-drag pattern (no stuck drag on touch)
 - [x] SignalFeed bottom bar: red × close + green ⊞/⊟ expand
 - [x] PREV/NEXT + ← → instant press feedback via CSS :active
+- [x] Submit terminal no longer regrows/replays every time the section scrolls back into view
+- [x] About section decluttered — removed redundant NAV block and TRANSMISSION blurb, shrunk oversized Business Inquiries button
+- [x] Fixed buttons getting stuck in a hover-highlighted state after tapping (sticky `:hover` on touch — scoped hover styles to `@media (hover: hover)`)
+- [x] Fixed clipboard copy silently failing when testing over plain HTTP / local network IP (added `execCommand` fallback)
 
 **Still to do:**
 
