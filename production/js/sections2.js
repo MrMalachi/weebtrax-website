@@ -1394,6 +1394,7 @@ function Cta() {
 function BusinessContact() {
   const [state, setState] = React.useState('idle'); // 'idle' | 'copied' | 'failed'
   const winW = useWinW();
+  const isMobile = winW < 600;
   function handleCopy() {
     // ── UPDATE BUSINESS EMAIL HERE ──────────────────────────────────
     const emailUser = "baakagaijin";
@@ -1440,9 +1441,9 @@ function BusinessContact() {
       background: active ? 'rgba(143,191,159,0.08)' : hov ? 'rgba(143,191,159,0.06)' : 'none',
       border: `1px solid ${active ? WT2.green : hov ? 'rgba(143,191,159,0.75)' : 'rgba(143,191,159,0.3)'}`,
       cursor: 'pointer',
-      padding: '9px 18px',
+      padding: isMobile ? '7px 12px' : '9px 18px',
       fontFamily: WT2.mono,
-      fontSize: 11,
+      fontSize: isMobile ? 9.5 : 11,
       letterSpacing: winW < 900 ? 1.2 : 2.5,
       textTransform: 'uppercase',
       color: active ? WT2.green : failed ? WT2.red : hov ? WT2.green : WT2.dim,
@@ -1450,8 +1451,8 @@ function BusinessContact() {
       boxShadow: active ? `0 0 16px rgba(143,191,159,0.18), inset 0 0 12px rgba(143,191,159,0.06)` : hov ? '0 0 12px rgba(143,191,159,0.15), inset 0 0 8px rgba(143,191,159,0.04)' : 'none',
       transition: 'color .18s, border-color .18s, box-shadow .18s, text-shadow .18s, background .18s',
       outline: 'none',
-      display: 'block',
-      whiteSpace: winW < 600 ? 'normal' : 'nowrap'
+      display: isMobile ? 'inline-block' : 'block',
+      whiteSpace: isMobile ? 'normal' : 'nowrap'
     }
   }, label));
 }
@@ -1487,7 +1488,7 @@ function Footer() {
     id: "wt-wired",
     style: {
       borderTop: `1px solid ${WT2.line}`,
-      padding: narrow ? '12px 24px 32px' : '40px 56px 40px',
+      padding: narrow ? '60px 24px 32px' : '40px 56px 40px',
       position: 'relative',
       overflow: 'hidden'
     }
@@ -1566,50 +1567,7 @@ function Footer() {
       maxWidth: 260,
       lineHeight: 1.5
     }
-  }, "Lo-Fi House sound + Anime aesthetic.", /*#__PURE__*/React.createElement("br", null), "New transmissions every Saturday.", /*#__PURE__*/React.createElement("br", null), "A future independent label from the Wired."), /*#__PURE__*/React.createElement("div", {
-    style: {
-      borderTop: `1px solid ${WT2.line}`,
-      paddingTop: 14
-    }
-  }, /*#__PURE__*/React.createElement("div", {
-    style: {
-      fontFamily: WT2.mono,
-      fontSize: 9.5,
-      color: WT2.faint,
-      letterSpacing: 2.5,
-      marginBottom: 7
-    }
-  }, "// TRANSMISSION"), /*#__PURE__*/React.createElement("div", {
-    style: {
-      fontFamily: WT2.mono,
-      fontSize: 11,
-      color: WT2.faint,
-      letterSpacing: 0.5,
-      lineHeight: 1.6
-    }
-  }, "WEEBTRAX \xB7 LOW-FIDELITY HOUSE MIXES", /*#__PURE__*/React.createElement("br", null), "FROM CLUB CYBERIA"))), /*#__PURE__*/React.createElement("div", null, colLabel('// NAV'), /*#__PURE__*/React.createElement("div", {
-    style: {
-      display: 'grid',
-      gridTemplateColumns: '1fr 1fr',
-      gap: '10px 20px'
-    }
-  }, NAV.map(([label, id]) => /*#__PURE__*/React.createElement("a", {
-    key: id,
-    href: `#${id}`,
-    onClick: e => {
-      e.preventDefault();
-      scrollTo(id);
-    },
-    className: "wt-flink",
-    style: {
-      fontFamily: WT2.mono,
-      fontSize: 12.5,
-      color: WT2.body,
-      textDecoration: 'none',
-      letterSpacing: 1.5,
-      cursor: 'pointer'
-    }
-  }, label)))), /*#__PURE__*/React.createElement("div", null, colLabel('// SOCIAL SIGNALS'), /*#__PURE__*/React.createElement("div", {
+  }, "Lo-Fi House sound + Anime aesthetic.", /*#__PURE__*/React.createElement("br", null), "New transmissions every Saturday.", /*#__PURE__*/React.createElement("br", null), "A future independent label from the Wired.")), /*#__PURE__*/React.createElement("div", null, colLabel('// SOCIAL SIGNALS'), /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'grid',
       gridTemplateColumns: '1fr 1fr',
