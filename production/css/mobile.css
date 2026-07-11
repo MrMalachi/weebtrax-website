@@ -112,11 +112,14 @@ main { margin-left: 0 !important; }
 /* Hide LO-FI HOUSE / transmitting tagline row on mobile */
 .wt-hero-tagline { display: none !important; }
 
-/* Floating head fragment — centered, sits within the corner-bracket frame (top:22, matching the bracket inset) instead of bleeding off-screen; leaves a tight but clear gap for the caption before MODULE .00 // HOME */
+/* Floating head fragment — centered, sits within the corner-bracket frame (bracket inset is 22px;
+   nudged down 12px past that so it clears the frame corner a bit more) instead of bleeding off-screen;
+   leaves a clear gap for the caption before MODULE .00 // HOME (~21px, verified against the actual
+   text glyph position, not just the container box top which includes extra padding). */
 .wt-hero-head-mobile {
   display: block !important;
   position: absolute;
-  top: 22px;
+  top: 34px;
   left: 50%;
   transform: translateX(-50%);
   width: 50px;
@@ -126,11 +129,11 @@ main { margin-left: 0 !important; }
   pointer-events: none;
 }
 
-/* Short spoken line below her head, manga-caption style, no bubble — matches the About section caption. No rotation here (unlike the About caption) since the vertical budget between the head and MODULE text is too tight to afford the extra bounding-box height a tilt adds. */
+/* Short spoken line below her head, manga-caption style, no bubble — matches the About section caption. No rotation here (unlike the About caption) since a tilt's extra bounding-box height would eat too far into the remaining gap before MODULE .00 // HOME. */
 .wt-hero-head-say {
   display: block !important;
   position: absolute;
-  top: 83px;
+  top: 95px;
   left: 50%;
   /* +6px compensates for a real-device (Safari) rendering offset measured from an actual screenshot — headless testing showed this centered exactly, but real Safari renders it ~6px left of the head's true center */
   transform: translateX(calc(-50% + 6px));
