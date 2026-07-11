@@ -1606,11 +1606,16 @@
   }
 
   /* ---- buttons ---- */
-  .wt-btn-ghost:hover { background: var(--wt-accent) !important; color: #0a0b0e !important; border-color: var(--wt-accent) !important; box-shadow: 0 0 18px rgba(143,191,159,0.25); }
-  .wt-btn-primary:hover { background: transparent !important; color: var(--wt-accent) !important; border-color: var(--wt-accent) !important; box-shadow: 0 0 18px rgba(143,191,159,0.15); }
+  /* hover: hover) excludes touch devices — without this, tapping a button on mobile enters the
+     :hover state and never leaves it (no mouse to trigger a "leave" event), so buttons get stuck
+     looking hover-highlighted after every tap. Desktop/mouse users are unaffected. */
+  @media (hover: hover) {
+    .wt-btn-ghost:hover { background: var(--wt-accent) !important; color: #0a0b0e !important; border-color: var(--wt-accent) !important; box-shadow: 0 0 18px rgba(143,191,159,0.25); }
+    .wt-btn-primary:hover { background: transparent !important; color: var(--wt-accent) !important; border-color: var(--wt-accent) !important; box-shadow: 0 0 18px rgba(143,191,159,0.15); }
+    .wt-flink:hover { color: var(--wt-accent) !important; }
+  }
   .wt-btn:active { transform: translateY(1px); }
   .wt-flink { transition: color .15s; position: relative; }
-  .wt-flink:hover { color: var(--wt-accent) !important; }
 
   /* ---- focus ---- */
   *:focus-visible {

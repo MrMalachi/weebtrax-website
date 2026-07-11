@@ -226,12 +226,18 @@ main { margin-left: 0 !important; }
 }
 
 /* Scenes section character accent — right of "MODULE .02 // SCENES" header row, same treatment as Archive */
+/* Right edge lines up with the right edge of "Select Transmission" (first line of the wrapped
+   title, measured via Range on the title text node — constant at x=310.73 across the 340-430px
+   width range where it wraps to "Select Transmission" / "Environment"). Uses left (not right) so
+   that fixed position holds as viewport width changes, same reasoning as the Archive accent.
+   Sized to match the Submit section portrait (84px); left is recomputed from the same right-edge
+   anchor (310.73 - 84 = 226.73) so enlarging doesn't shift it off that alignment. */
 .wt-scenes-char-mobile {
   display: block !important;
   position: absolute;
-  top: 44px;
-  right: 20px;
-  width: 44px;
+  top: 20px;
+  left: 227px;
+  width: 84px;
   height: auto;
   z-index: 1;
   opacity: 0.5;

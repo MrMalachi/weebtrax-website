@@ -1035,6 +1035,7 @@ function Submissions() {
   const done2 = typed2.length >= OUT1.length;
   const typed3 = useTypewriter(OUT2, 34, done2);
   const [linkState, setLinkState] = React.useState('idle'); // 'idle' | 'copied' | 'failed'
+  const [submitFlash, setSubmitFlash] = React.useState(false);
   const [tab, setTab] = React.useState('uplink');
 
   const FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSd8vnfi7fD64hfVc6HTVnUNob_e6AtCB8HPR6irs0ZmIkiduA/viewform?pli=1';
@@ -1235,9 +1236,23 @@ function Submissions() {
     }
   }, /*#__PURE__*/React.createElement(Btn, {
     kind: "primary",
-    onClick: () => window.open(FORM_URL, '_blank', 'noopener,noreferrer')
+    onClick: () => {
+      setSubmitFlash(true);
+      setTimeout(() => setSubmitFlash(false), 500);
+      window.open(FORM_URL, '_blank', 'noopener,noreferrer');
+    },
+    style: submitFlash ? {
+      boxShadow: `0 0 20px ${WT2.green}, 0 0 32px rgba(143,191,159,0.35)`
+    } : {}
   }, "\u25BA SUBMIT YOUR MUSIC \u2197"), /*#__PURE__*/React.createElement(Btn, {
-    onClick: copyLink
+    onClick: copyLink,
+    style: linkState === 'copied' ? {
+      background: 'rgba(143,191,159,0.08)',
+      borderColor: WT2.green,
+      color: WT2.green,
+      textShadow: `0 0 10px ${WT2.green}`,
+      boxShadow: `0 0 16px rgba(143,191,159,0.18), inset 0 0 12px rgba(143,191,159,0.06)`
+    } : {}
   }, linkState === 'copied' ? '✓ LINK COPIED' : linkState === 'failed' ? 'COPY FAILED — TRY AGAIN' : '☉ COPY SUBMISSION LINK'))), /*#__PURE__*/React.createElement("div", {
     style: {
       border: `1px solid ${WT2.line}`,
