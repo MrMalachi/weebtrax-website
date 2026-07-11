@@ -473,7 +473,20 @@ function Hero({
       justifyContent: narrow ? 'flex-end' : undefined,
       paddingBottom: narrow ? 52 : undefined
     }
-  }, winW >= 480 && /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("img", {
+    className: "wt-hero-head-mobile",
+    src: "public/assets/images/hero-head-mobile.png",
+    alt: "",
+    "aria-hidden": true
+  }), /*#__PURE__*/React.createElement("span", {
+    className: "wt-hero-head-say",
+    "aria-hidden": true
+  }, "私は私よ。"), /*#__PURE__*/React.createElement("img", {
+    className: "wt-hero-crowd-mobile",
+    src: "public/assets/images/hero-crowd-mobile.png",
+    alt: "",
+    "aria-hidden": true
+  }), winW >= 480 && /*#__PURE__*/React.createElement("div", {
     className: "wt-hero-visual",
     style: winW < 1120 ? {
       opacity: winW < 760 ? 0.35 : 0.55
@@ -533,13 +546,16 @@ function Hero({
       zIndex: 4
     }
   }, /*#__PURE__*/React.createElement("div", {
+    className: "wt-hero-status-text",
     style: {
       fontFamily: WT2.mono,
       fontSize: 11.5,
       color: WT2.body,
       letterSpacing: 0.5
     }
-  }, "wired://weebtrax/connect \xA0\u2014\xA0 status: ", /*#__PURE__*/React.createElement("span", {
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "wt-hero-status-path"
+  }, "wired://weebtrax/connect \xA0\u2014\xA0 "), "status: ", /*#__PURE__*/React.createElement("span", {
     style: {
       color: 'var(--wt-accent)'
     }

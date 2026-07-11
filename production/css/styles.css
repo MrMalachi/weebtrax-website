@@ -1656,6 +1656,11 @@
 .wt-about-portrait-mobile { display: none; }
 .wt-about-portrait-say { display: none; }
 
+/* Hero head/crowd accents — mobile only, hidden on desktop, shown via mobile.css */
+.wt-hero-head-mobile { display: none; }
+.wt-hero-crowd-mobile { display: none; }
+.wt-hero-head-say { display: none; }
+
 /* Episode scroll fade hint — hidden on desktop, shown via mobile.css */
 .wt-ep-fade-hint { display: none; }
 .wt-ep-fade-hint-left { display: none; }

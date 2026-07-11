@@ -18,6 +18,24 @@ body { padding-bottom: 96px !important; }
 /* Remove left margin since rail is hidden */
 main { margin-left: 0 !important; }
 
+/* Shrink status line slightly so the blinking cursor stays on the same line as ONLINE instead of wrapping.
+   font-smoothing added because the thin strokes in "status:" were nearly disappearing against the grain texture at this size. */
+.wt-hero-status-text {
+  font-size: 10.5px !important;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  margin-left: auto;
+}
+
+/* Drop the "wired://weebtrax/connect —" path prefix on mobile — it was extending across and blocking Lain's head; keep just "status: ONLINE" + cursor.
+   Uses width:0/overflow:hidden rather than display:none — display:none on the first inline child of this text run was
+   causing WebKit to mis-shape the following text, clipping the first couple characters of "status:". */
+.wt-hero-status-path {
+  display: inline-block !important;
+  width: 0 !important;
+  overflow: hidden !important;
+}
+
 /* Broadcast bar: full width on mobile (no rail offset) */
 .wt-broadcast-bar { left: 0 !important; }
 
@@ -70,6 +88,54 @@ main { margin-left: 0 !important; }
 /* Hide LO-FI HOUSE / transmitting tagline row on mobile */
 .wt-hero-tagline { display: none !important; }
 
+/* Floating head fragment — centered, sits within the corner-bracket frame (top:22, matching the bracket inset) instead of bleeding off-screen; leaves a tight but clear gap for the caption before MODULE .00 // HOME */
+.wt-hero-head-mobile {
+  display: block !important;
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 41px;
+  height: auto;
+  z-index: 1;
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+/* Short spoken line below her head, manga-caption style, no bubble — matches the About section caption. No rotation here (unlike the About caption) since the vertical budget between the head and MODULE text is too tight to afford the extra bounding-box height a tilt adds. */
+.wt-hero-head-say {
+  display: block !important;
+  position: absolute;
+  top: 78px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  font-family: "MS Gothic", "ＭＳ ゴシック", "DFGGothic-W5", "DFG Gothic", "Hiragino Kaku Gothic StdN", "Noto Sans JP", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 12px;
+  letter-spacing: -0.06em;
+  color: #e2a5ac;
+  text-shadow: 0 2px 5px rgba(0,0,0,0.6), 0 0 12px rgba(226,165,172,0.35);
+  line-height: 1;
+  white-space: nowrap;
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+/* Crowd fragment — full width, bottom edge matches the corner-bracket inset (22px), well clear of the SUBMIT button above it */
+.wt-hero-crowd-mobile {
+  display: block !important;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 22px;
+  width: 100%;
+  height: auto;
+  z-index: 1;
+  pointer-events: none;
+}
+
 /* About section portrait accent — top-right of the bio column, gazing toward the bio text on the left */
 .wt-about-bio-col { position: relative; }
 .wt-about-bio-text { max-width: 178px !important; }
@@ -92,11 +158,11 @@ main { margin-left: 0 !important; }
   top: 36px;
   right: 90px;
   z-index: 3;
-  font-family: 'IBM Plex Sans', system-ui, sans-serif;
-  font-weight: 800;
-  font-style: italic;
+  font-family: "MS Gothic", "ＭＳ ゴシック", "DFGGothic-W5", "DFG Gothic", "Hiragino Kaku Gothic StdN", "Noto Sans JP", sans-serif;
+  font-weight: 700;
+  font-style: normal;
   font-size: 21px;
-  letter-spacing: 0.5px;
+  letter-spacing: -0.06em;
   color: #e2a5ac;
   text-shadow: 0 2px 5px rgba(0,0,0,0.6), 0 0 12px rgba(226,165,172,0.35);
   transform: rotate(-8deg);
