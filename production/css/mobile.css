@@ -9,6 +9,9 @@ html, body {
   touch-action: manipulation;
 }
 
+/* Remove the bottom-left/bottom-right corner brackets from the HOME hero section on mobile (top brackets stay) */
+.wt-hero-bottom-bracket { display: none !important; }
+
 /* Push page content above the bottom nav (48px) + broadcast bar (34px) */
 body { padding-bottom: 96px !important; }
 
@@ -24,7 +27,25 @@ main { margin-left: 0 !important; }
   font-size: 10.5px !important;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  margin-left: auto;
+  /* Take it out of the flex row entirely and anchor directly to the row's own box (which is itself
+     position:absolute) at the bracket's exact corner point (top:22, right:22) instead of the row's
+     default top:32/right:36 — this is what actually tucks it into the bracket corner. */
+  position: absolute !important;
+  top: -19px !important;
+  right: -5px !important;
+  margin: 0 !important;
+}
+
+/* Blinking cursor next to "status: ONLINE" — default Cursor size (10x18) is sized for larger desktop
+   text; shrink to match the 10.5px mobile status font. Only usage of .wt-cursor in the codebase, safe to scope here. */
+.wt-cursor {
+  width: 6px !important;
+  height: 12px !important;
+  margin-left: 2px !important;
+  /* Nudge up off the text-bottom baseline — on real iOS Safari it renders slightly low
+     next to "ONLINE" even though headless testing shows it centered. */
+  position: relative;
+  top: -2px;
 }
 
 /* Drop the "wired://weebtrax/connect —" path prefix on mobile — it was extending across and blocking Lain's head; keep just "status: ONLINE" + cursor.
@@ -63,13 +84,16 @@ main { margin-left: 0 !important; }
 
 /* Mood chips: horizontal scroll strip — no wrapping, hidden scrollbar */
 .wt-mood-chips {
-  justify-content: flex-start !important;
+  /* space-between (not flex-start): when the chips fit without overflowing, this distributes the
+     small leftover space across the gaps so the last chip (DEEP) reaches the right edge the same
+     way the first chip (ALL) already reaches the left edge. Falls back to normal scrolling
+     behavior if chips ever overflow a narrower viewport, since there's no leftover space to distribute then. */
+  justify-content: space-between !important;
   flex-wrap: nowrap !important;
   overflow-x: auto !important;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
   -ms-overflow-style: none;
-  padding-right: 16px !important;
 }
 .wt-mood-chips::-webkit-scrollbar { display: none; }
 /* Larger tap targets for mood chip buttons on mobile */
@@ -106,7 +130,7 @@ main { margin-left: 0 !important; }
 .wt-hero-head-say {
   display: block !important;
   position: absolute;
-  top: 80px;
+  top: 83px;
   left: 50%;
   /* +6px compensates for a real-device (Safari) rendering offset measured from an actual screenshot — headless testing showed this centered exactly, but real Safari renders it ~6px left of the head's true center */
   transform: translateX(calc(-50% + 6px));
@@ -137,14 +161,22 @@ main { margin-left: 0 !important; }
   pointer-events: none;
 }
 
-/* About section portrait accent — top-right of the bio column, gazing toward the bio text on the left */
-.wt-about-bio-col { position: relative; }
-.wt-about-bio-text { max-width: 178px !important; }
-.wt-about-portrait-mobile {
+/* Reserve extra room below the "Track Submissions" title (in place of the default 34px SecHead
+   margin) so the portrait below has a dedicated gap to sit in — sizing this off the title's own
+   flow means it holds regardless of viewport width, unlike positioning beside the title, which
+   would overlap the fixed-width text at common phone widths (~390px) since the title text's pixel
+   width doesn't shrink just because the viewport does. */
+.wt-uplink-sechead-wrap {
+  margin-bottom: 100px !important;
+}
+
+/* Submissions ("Track Submissions") section portrait accent — sits in the reserved gap below the
+   title, gazing up at it; moved here from the About section. */
+.wt-uplink-portrait-mobile {
   display: block !important;
   position: absolute;
-  top: 45px;
-  right: 0;
+  top: 130px;
+  right: -8px;
   width: 84px;
   height: auto;
   z-index: 2;
@@ -152,13 +184,12 @@ main { margin-left: 0 !important; }
   filter: drop-shadow(0 8px 18px rgba(0,0,0,0.55));
 }
 
-/* Short spoken line directly above her head — centered on the portrait's own horizontal center (col_right - 42,
-   since the 84px-wide portrait spans col_right-84 to col_right), same -8deg tilt as before to match her head's angle */
-.wt-about-portrait-say {
+/* Short spoken line directly above her head, same -8deg tilt as before */
+.wt-uplink-portrait-say {
   display: block !important;
   position: absolute;
-  top: 0;
-  right: 42px;
+  top: 126px;
+  right: 34px;
   z-index: 3;
   font-family: "MS Gothic", "ＭＳ ゴシック", "DFGGothic-W5", "DFG Gothic", "Hiragino Kaku Gothic StdN", "Noto Sans JP", sans-serif;
   font-weight: 700;
@@ -169,6 +200,32 @@ main { margin-left: 0 !important; }
   text-shadow: 0 2px 5px rgba(0,0,0,0.6), 0 0 12px rgba(226,165,172,0.35);
   transform: translateX(50%) rotate(-8deg);
   white-space: nowrap;
+  pointer-events: none;
+}
+
+/* Archive section character accent — right of "MODULE .01 // ARCHIVE", roughly centered on that header row */
+.wt-archive-char-mobile {
+  display: block !important;
+  position: absolute;
+  top: 44px;
+  right: 20px;
+  width: 44px;
+  height: auto;
+  z-index: 1;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* Scenes section character accent — right of "MODULE .02 // SCENES" header row, same treatment as Archive */
+.wt-scenes-char-mobile {
+  display: block !important;
+  position: absolute;
+  top: 44px;
+  right: 20px;
+  width: 44px;
+  height: auto;
+  z-index: 1;
+  opacity: 0.5;
   pointer-events: none;
 }
 

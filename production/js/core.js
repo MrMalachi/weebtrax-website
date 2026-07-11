@@ -278,7 +278,8 @@ function FrameTicks({
   inset = 16,
   len = 22,
   color = WT2.line2,
-  z = 5
+  z = 5,
+  bottomClassName
 }) {
   const c = pos => ({
     position: 'absolute',
@@ -303,12 +304,14 @@ function FrameTicks({
       borderWidth: '1px 1px 0 0'
     })
   }), /*#__PURE__*/React.createElement("div", {
+    className: bottomClassName,
     style: c({
       bottom: inset,
       left: inset,
       borderWidth: '0 0 1px 1px'
     })
   }), /*#__PURE__*/React.createElement("div", {
+    className: bottomClassName,
     style: c({
       bottom: inset,
       right: inset,

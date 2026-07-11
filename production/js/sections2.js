@@ -45,21 +45,31 @@ function useInView(once = true) {
 }
 
 // fires true on entry, false only when the element is fully out of view (threshold: 0)
-// — used so a typing animation replays only after the section is 100% gone
-function useReplayOnHidden() {
+// — used so a typing animation replays only after the section is 100% gone.
+// Pass onceOnly=true to disable the replay entirely (seen latches true forever once hit) —
+// used on mobile, where the terminal box's re-typing animation regrows its height every time
+// the section scrolls back into view, shoving the About section down each time.
+function useReplayOnHidden(onceOnly = false) {
   const ref = React.useRef(null);
   const [seen, setSeen] = React.useState(false);
   React.useEffect(() => {
     const el = ref.current;
     if (!el) return;
     const io = new IntersectionObserver(([e]) => {
-      setSeen(e.isIntersecting);
+      if (onceOnly) {
+        if (e.isIntersecting) {
+          setSeen(true);
+          io.disconnect();
+        }
+      } else {
+        setSeen(e.isIntersecting);
+      }
     }, {
       threshold: 0
     });
     io.observe(el);
     return () => io.disconnect();
-  }, []);
+  }, [onceOnly]);
   return [ref, seen];
 }
 const MOOD_TONE = { chill: WT2.blue, nostalgic: WT2.purple, dirty: WT2.red, deep: WT2.green };
@@ -644,7 +654,12 @@ function Transmissions({
       position: 'relative',
       overflow: 'hidden'
     }
-  }, /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("img", {
+    className: "wt-archive-char-mobile",
+    src: "public/assets/images/archive-char-mobile.png",
+    alt: "",
+    "aria-hidden": true
+  }), /*#__PURE__*/React.createElement("div", {
     style: {
       position: 'relative',
       zIndex: 1
@@ -1010,7 +1025,8 @@ function UplinkMeter() {
 function Submissions() {
   const winW = useWinW();
   const narrow = winW < 900;
-  const [ref, seen] = useReplayOnHidden();
+  const isMobile = winW < 600;
+  const [ref, seen] = useReplayOnHidden(isMobile);
   const typed = useTypewriter('upload --track ./your_signal.wav', 48, seen);
   const done = typed.length >= 'upload --track ./your_signal.wav'.length;
   const OUT1 = '> receiving low-fidelity club signals · deep cuts · dub echoes · ambient transmissions';
@@ -1059,11 +1075,21 @@ function Submissions() {
       position: 'relative',
       overflow: 'hidden'
     }
-  }, /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("img", {
+    className: "wt-uplink-portrait-mobile",
+    src: "public/assets/images/about-portrait-mobile.png",
+    alt: "",
+    "aria-hidden": true
+  }), /*#__PURE__*/React.createElement("span", {
+    className: "wt-uplink-portrait-say",
+    "aria-hidden": true
+  }, "は？"), /*#__PURE__*/React.createElement("div", {
     style: {
       position: 'relative',
       zIndex: 1
     }
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "wt-uplink-sechead-wrap"
   }, /*#__PURE__*/React.createElement(SecHead, {
     idx: "03",
     kicker: "SUBMIT",
@@ -1072,7 +1098,7 @@ function Submissions() {
     style: {
       marginBottom: 34
     }
-  }), narrow && /*#__PURE__*/React.createElement("div", {
+  })), narrow && /*#__PURE__*/React.createElement("div", {
     style: { display: 'flex', marginBottom: 20, borderBottom: '1px solid ' + WT2.line }
   }, ['uplink', 'specs'].map(function(t) {
     var isActive = tab === t;
@@ -1158,7 +1184,11 @@ function Submissions() {
       lineHeight: 1.7,
       color: 'var(--wt-accent)',
       flex: 1,
-      minHeight: 150
+      /* Reserve the fully-typed final height upfront (measured ~307px) instead of the old 150px floor —
+         the typewriter effect used to reveal whole paragraph blocks at once (not just char-by-char),
+         so the box kept jumping taller in real time as it typed, shoving the buttons/rest of the page
+         down and making the final scroll position land wrong/cut off once it finished. */
+      minHeight: 310
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
@@ -1520,15 +1550,7 @@ function Footer() {
     }
   }, /*#__PURE__*/React.createElement("div", {
     className: "wt-about-bio-col"
-  }, /*#__PURE__*/React.createElement("img", {
-    className: "wt-about-portrait-mobile",
-    src: "public/assets/images/about-portrait-mobile.png",
-    alt: "",
-    "aria-hidden": true
-  }), /*#__PURE__*/React.createElement("span", {
-    className: "wt-about-portrait-say",
-    "aria-hidden": true
-  }, "は？"), /*#__PURE__*/React.createElement(Wordmark, {
+  }, /*#__PURE__*/React.createElement(Wordmark, {
     size: 38,
     glitch: false,
     style: {

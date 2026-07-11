@@ -1652,14 +1652,20 @@
 /* Mobile bottom nav — hidden on desktop, shown via mobile.css */
 .wt-mobile-nav { display: none; }
 
-/* About-section portrait accent — mobile only, hidden on desktop, shown via mobile.css */
-.wt-about-portrait-mobile { display: none; }
-.wt-about-portrait-say { display: none; }
+/* Submissions-section portrait accent — mobile only, hidden on desktop, shown via mobile.css */
+.wt-uplink-portrait-mobile { display: none; }
+.wt-uplink-portrait-say { display: none; }
 
 /* Hero head/crowd accents — mobile only, hidden on desktop, shown via mobile.css */
 .wt-hero-head-mobile { display: none; }
 .wt-hero-crowd-mobile { display: none; }
 .wt-hero-head-say { display: none; }
+
+/* Scenes section character accent — mobile only, hidden on desktop, shown via mobile.css */
+.wt-scenes-char-mobile { display: none; }
+
+/* Archive section character accent — mobile only, hidden on desktop, shown via mobile.css */
+.wt-archive-char-mobile { display: none; }
 
 /* Episode scroll fade hint — hidden on desktop, shown via mobile.css */
 .wt-ep-fade-hint { display: none; }

@@ -533,7 +533,8 @@ function Hero({
   }), /*#__PURE__*/React.createElement(FrameTicks, {
     inset: 22,
     len: 26,
-    color: WT2.line2
+    color: WT2.line2,
+    bottomClassName: "wt-hero-bottom-bracket"
   }), /*#__PURE__*/React.createElement("div", {
     style: {
       position: 'absolute',
@@ -1364,9 +1365,16 @@ function Features() {
     id: "wt-signal",
     style: {
       padding: narrow ? '52px 24px' : '72px 56px',
-      borderBottom: `1px solid ${WT2.line}`
+      borderBottom: `1px solid ${WT2.line}`,
+      position: 'relative',
+      overflow: 'hidden'
     }
-  }, /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("img", {
+    className: "wt-scenes-char-mobile",
+    src: "public/assets/images/scenes-char-mobile.png",
+    alt: "",
+    "aria-hidden": true
+  }), /*#__PURE__*/React.createElement("div", {
     style: {
       marginBottom: narrow ? 32 : 44
     }
