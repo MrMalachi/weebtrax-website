@@ -112,28 +112,31 @@ main { margin-left: 0 !important; }
 /* Hide LO-FI HOUSE / transmitting tagline row on mobile */
 .wt-hero-tagline { display: none !important; }
 
-/* Floating head fragment — centered, sits within the corner-bracket frame (bracket inset is 22px;
-   nudged down 12px past that so it clears the frame corner a bit more) instead of bleeding off-screen;
-   leaves a clear gap for the caption before MODULE .00 // HOME (~21px, verified against the actual
-   text glyph position, not just the container box top which includes extra padding). */
+/* Floating head fragment — centered, sits within the corner-bracket frame instead of bleeding
+   off-screen. The "MODULE .00 // HOME" text block below has its own generous top padding
+   (see .wt-hero-text), so this and the caption have room to sit higher/bigger independently. */
 .wt-hero-head-mobile {
   display: block !important;
   position: absolute;
-  top: 34px;
+  top: 24px;
   left: 50%;
   transform: translateX(-50%);
-  width: 50px;
+  width: 68px;
   height: auto;
   z-index: 1;
   opacity: 0.45;
   pointer-events: none;
 }
 
-/* Short spoken line below her head, manga-caption style, no bubble — matches the About section caption. No rotation here (unlike the About caption) since a tilt's extra bounding-box height would eat too far into the remaining gap before MODULE .00 // HOME. */
+/* Short spoken line below her head, manga-caption style, no bubble — matches the About section caption. No rotation here (unlike the About caption) since a tilt's extra bounding-box height would eat too far into the remaining gap before MODULE .00 // HOME.
+   top = head's top (24) + head's rendered height (75.47 at width:68) + the original 5.5px gap that
+   existed before the head was first enlarged — keeps the same visual distance from the head
+   regardless of the head's size/position. If the head's width changes again, recompute:
+   height = width * (55.5/50), then top = head's own top + height + 5.5. */
 .wt-hero-head-say {
   display: block !important;
   position: absolute;
-  top: 95px;
+  top: 105px;
   left: 50%;
   /* +6px compensates for a real-device (Safari) rendering offset measured from an actual screenshot — headless testing showed this centered exactly, but real Safari renders it ~6px left of the head's true center */
   transform: translateX(calc(-50% + 6px));
@@ -246,7 +249,9 @@ main { margin-left: 0 !important; }
   display: flex;
   flex-direction: column;
   gap: 0;
-  padding-top: 32px !important;
+  /* +24px over the original 32px — creates more breathing room below the floating head/caption,
+     which sit above this block and aren't part of it. */
+  padding-top: 56px !important;
 }
 
 .wt-hero-module  { margin-bottom: 14px !important; padding-top: 32px; }   /* MODULE → WeebTrax */
