@@ -173,13 +173,17 @@ main { margin-left: 0 !important; }
   z-index: 1;
   pointer-events: none;
 }
-/* Gradient overlay — fades crowd into the void background at the top */
+/* Gradient overlay — fades crowd into the void on all four edges */
 .wt-hero-crowd-overlay {
   display: block !important;
   position: absolute;
   left: 0; right: 0; bottom: 22px;
   height: 180px;
-  background: linear-gradient(to bottom, #0a0b0e 0%, transparent 55%);
+  background:
+    linear-gradient(to bottom, #0a0b0e 0%, transparent 40%),
+    linear-gradient(to top,    #0a0b0e 0%, transparent 40%),
+    linear-gradient(to right,  #0a0b0e 0%, transparent 30%),
+    linear-gradient(to left,   #0a0b0e 0%, transparent 30%);
   pointer-events: none;
   z-index: 2;
 }
