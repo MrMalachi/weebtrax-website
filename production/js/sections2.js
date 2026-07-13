@@ -1604,7 +1604,7 @@ function Footer() {
     style: {
       display: 'grid',
       gridTemplateColumns: '1fr 1fr',
-      gap: '10px 20px'
+      gap: '10px 10px'
     }
   }, SOCIALS.map(([label, url]) => /*#__PURE__*/React.createElement("a", {
     key: label,
