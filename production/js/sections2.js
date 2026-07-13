@@ -1115,7 +1115,7 @@ function Submissions() {
     title: "Track Submissions",
     sub: "Producers \u2014 transmit your signal into The Wired",
     style: {
-      marginBottom: 34
+      marginBottom: narrow ? 16 : 34
     }
   })), narrow && /*#__PURE__*/React.createElement("div", {
     style: { display: 'flex', marginBottom: 20, borderBottom: '1px solid ' + WT2.line }

@@ -219,7 +219,7 @@ main { margin-left: 0 !important; }
 .wt-scenes-char-mobile {
   display: block !important;
   position: absolute;
-  top: 20px;
+  top: 0px;
   left: 227px;
   width: 84px;
   height: auto;
