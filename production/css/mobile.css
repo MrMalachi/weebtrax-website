@@ -173,15 +173,13 @@ main { margin-left: 0 !important; }
   object-position: center;
   z-index: 1;
   pointer-events: none;
-  /* Left/right: linear fade. Top/bottom: radial ellipse so the bottom edge is a
-     curve rather than a straight horizontal line. */
   -webkit-mask-image:
-    linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%),
-    radial-gradient(ellipse 140% 80% at 50% 25%, black 55%, transparent 90%);
+    linear-gradient(to right,  transparent 0%, black 15%, black 85%, transparent 100%),
+    linear-gradient(to bottom, transparent 0%, black 22%, black 72%, transparent 100%);
   -webkit-mask-composite: source-in;
   mask-image:
-    linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%),
-    radial-gradient(ellipse 140% 80% at 50% 25%, black 55%, transparent 90%);
+    linear-gradient(to right,  transparent 0%, black 15%, black 85%, transparent 100%),
+    linear-gradient(to bottom, transparent 0%, black 22%, black 72%, transparent 100%);
   mask-composite: intersect;
 }
 /* Overlay div is no longer needed — mask handles the fade */
