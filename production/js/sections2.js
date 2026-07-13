@@ -570,6 +570,7 @@ function ActiveRow({
   }, "SOUNDCLOUD \u2197"),
     t.tracklist && t.tracklist.length > 0 && React.createElement("button", {
       onClick: function() { setTracklistOpen(function(o) { return !o; }); },
+      className: 'wt-tracklist-toggle',
       style: { display: 'flex', alignItems: 'center', gap: 4, background: 'none', border: 'none', cursor: 'pointer', padding: '0 4px', fontFamily: WT2.mono, fontSize: 9, letterSpacing: 2, color: WT2.faint, textTransform: 'uppercase', flexShrink: 0 }
     }, 'TRACK I.D.', React.createElement('span', { style: { color: 'var(--wt-accent)', fontSize: 8, marginLeft: 2 } }, tracklistOpen ? '\u25b2' : '\u25bc'))
   ), tracklistOpen && t.tracklist && t.tracklist.length > 0 && React.createElement("div", {
