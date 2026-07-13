@@ -1671,35 +1671,4 @@
 
 /* Episode scroll fade hint — hidden on desktop, shown via mobile.css */
 .wt-ep-fade-hint { display: none; }
-
-/* Watermark — centered in each section background */
-#wt-index,
-#wt-archive,
-#wt-signal,
-#wt-uplink,
-#wt-wired {
-  position: relative;
-}
-
-#wt-index::before,
-#wt-archive::before,
-#wt-signal::before,
-#wt-uplink::before,
-#wt-wired::before {
-  content: "WEEBTRAX.COM";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) rotate(-25deg);
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: clamp(24px, 6vw, 48px);
-  font-weight: 700;
-  letter-spacing: 0.15em;
-  color: rgba(143, 191, 159, 0.08);
-  pointer-events: none;
-  user-select: none;
-  -webkit-user-select: none;
-  white-space: nowrap;
-  z-index: 0;
-}
 .wt-ep-fade-hint-left { display: none; }
