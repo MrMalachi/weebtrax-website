@@ -1580,7 +1580,7 @@ function Footer() {
     style: {
       display: 'flex',
       flexDirection: 'column',
-      gap: 32
+      gap: 16
     }
   }, /*#__PURE__*/React.createElement("div", {
     className: "wt-about-bio-col"
