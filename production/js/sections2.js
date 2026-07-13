@@ -619,6 +619,7 @@ function Transmissions({
   const [hovLink, setHovLink] = React.useState(null);
   const moodScrollRef = React.useRef(null);
   const moodFadeLeftRef = React.useRef(null);
+  const moodFadeRightRef = React.useRef(null);
   const TX = getMixes();
   const activeTx = TX.find(t => t.id === activeTxId) || TX[0];
   const sorted = React.useMemo(() => {
@@ -701,7 +702,7 @@ function Transmissions({
   }, isMobile ? React.createElement(React.Fragment, null, React.createElement("span", null, String(filtered.length).padStart(3, '0') + " files"), React.createElement("span", { onClick: cycleSort, style: { cursor: 'pointer', userSelect: 'none' } }, "sort: ", React.createElement("span", { style: { color: 'var(--wt-accent)' } }, SORT_MODES[sortIdx].toLowerCase()), React.createElement("span", { style: { color: WT2.faint, marginLeft: 5 } }, "\u2195"))) : React.createElement(React.Fragment, null, React.createElement("span", { className: "wt-statusbar-path", style: { color: WT2.faint } }, "~/weebtrax/"), React.createElement("span", { className: "wt-statusbar-path", style: { color: 'var(--wt-accent)' } }, "transmissions/"), " \xA0 " + String(filtered.length).padStart(3, '0') + " files \xA0\xA0", React.createElement("span", { onClick: cycleSort, style: { cursor: 'pointer', userSelect: 'none' } }, "sort: ", React.createElement("span", { style: { color: 'var(--wt-accent)' } }, SORT_MODES[sortIdx].toLowerCase()), React.createElement("span", { style: { color: WT2.faint, marginLeft: 5 } }, "\u2195"))))) , /*#__PURE__*/React.createElement("div", { className: 'wt-mood-chips-wrap', style: { position: 'relative', marginBottom: 10 } }, /*#__PURE__*/React.createElement("div", {
     className: "wt-mood-chips",
     ref: moodScrollRef,
-    onScroll: function() { var el = moodScrollRef.current; var fadeL = moodFadeLeftRef.current; if (el && fadeL) fadeL.style.opacity = el.scrollLeft > 0 ? '1' : '0'; },
+    onScroll: function() { var el = moodScrollRef.current; var fadeL = moodFadeLeftRef.current; var fadeR = moodFadeRightRef.current; if (el && fadeL) fadeL.style.opacity = el.scrollLeft > 0 ? '1' : '0'; if (el && fadeR) fadeR.style.opacity = (el.scrollLeft + el.clientWidth >= el.scrollWidth - 1) ? '0' : '1'; },
     style: { display: 'flex', justifyContent: 'flex-end', alignItems: 'center', gap: 5, flexWrap: 'wrap', marginBottom: 0 }
   }, /*#__PURE__*/React.createElement("span", {
     className: "wt-mood-label",
@@ -722,7 +723,7 @@ function Transmissions({
         textTransform: 'uppercase', transition: 'all .12s'
       }
     }, m);
-  })), /*#__PURE__*/React.createElement("div", { className: 'wt-ep-fade-hint-left', ref: moodFadeLeftRef }), /*#__PURE__*/React.createElement("div", { className: 'wt-ep-fade-hint' })), /*#__PURE__*/React.createElement(ActiveRow, {
+  })), /*#__PURE__*/React.createElement("div", { className: 'wt-ep-fade-hint-left', ref: moodFadeLeftRef }), /*#__PURE__*/React.createElement("div", { className: 'wt-ep-fade-hint', ref: moodFadeRightRef })), /*#__PURE__*/React.createElement(ActiveRow, {
     t: activeTx,
     playing: playing,
     onPlayToggle: onPlayToggle,
