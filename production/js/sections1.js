@@ -9,6 +9,15 @@ function useWinW() {
   }, []);
   return w;
 }
+function useWinH() {
+  const [h, setH] = React.useState(typeof window !== 'undefined' ? window.innerHeight : 900);
+  React.useEffect(() => {
+    const handler = () => setH(window.innerHeight);
+    window.addEventListener('resize', handler);
+    return () => window.removeEventListener('resize', handler);
+  }, []);
+  return h;
+}
 function fmtTime(secs) {
   const h = Math.floor(secs / 3600);
   const m = Math.floor(secs % 3600 / 60);
@@ -767,7 +776,9 @@ function SignalFeed({ scene, onClose, onPrev, onNext }) {
   const [ctrlVisible, setCtrlVisible] = React.useState(true);
   const hideTimerRef = React.useRef(null);
   const winW = useWinW();
+  const winH = useWinH();
   const narrow = winW < 600;
+  const landscape = winH < 430 && winW > winH;
 
   // Inject flash-fade keyframe once
   React.useEffect(() => {
@@ -908,7 +919,7 @@ function SignalFeed({ scene, onClose, onPrev, onNext }) {
           }
         }, wiredPath)
       ),
-      /*#__PURE__*/React.createElement("div", { style: { display: narrow ? 'none' : 'flex', alignItems: 'center', gap: 8, flexShrink: 0 } },
+      /*#__PURE__*/React.createElement("div", { style: { display: (narrow || landscape) ? 'none' : 'flex', alignItems: 'center', gap: 8, flexShrink: 0 } },
         /*#__PURE__*/React.createElement("button", {
           onClick: function() { setExpanded(function(e) { return !e; }); },
           style: {
@@ -1046,10 +1057,10 @@ function SignalFeed({ scene, onClose, onPrev, onNext }) {
       ),
       // Bottom row
       /*#__PURE__*/React.createElement("div", {
-        style: { display: 'flex', alignItems: 'center', justifyContent: narrow ? 'space-between' : 'flex-end', marginTop: narrow ? 5 : 7 }
+        style: { display: 'flex', alignItems: 'center', justifyContent: (narrow || landscape) ? 'space-between' : 'flex-end', marginTop: narrow ? 5 : 7 }
       },
-        // Mobile bottom bar: [× close] [⊞ expand] — mirrors header buttons, inverted order
-        narrow && /*#__PURE__*/React.createElement("div", {
+        // Mobile/landscape bottom bar: [× close] [⊞ expand] — in landscape these replace the header buttons
+        (narrow || landscape) && /*#__PURE__*/React.createElement("div", {
           style: { display: 'flex', alignItems: 'center', gap: 6 }
         },
           /*#__PURE__*/React.createElement("button", {
@@ -1088,21 +1099,21 @@ function SignalFeed({ scene, onClose, onPrev, onNext }) {
               color: onPrev ? WT2.dim : WT2.faint,
               opacity: onPrev ? 1 : 0.3,
               fontFamily: WT2.mono, fontSize: 9, letterSpacing: 1.5,
-              padding: narrow ? '12px 16px' : '5px 10px',
+              padding: (narrow || landscape) ? '12px 16px' : '5px 10px',
               cursor: onPrev ? 'pointer' : 'default', borderRadius: 0,
               textTransform: 'uppercase', transition: 'none',
               WebkitTapHighlightColor: 'transparent', outline: 'none'
             }
           }, '\u2190'),
           /*#__PURE__*/React.createElement("button", {
-            className: narrow ? 'wt-sf-mobile-btn' : undefined,
+            className: (narrow || landscape) ? 'wt-sf-mobile-btn' : undefined,
             onClick: togglePlay,
             style: {
               background: playing ? 'none' : 'var(--wt-accent)',
               border: '1px solid var(--wt-accent)',
               color: playing ? 'var(--wt-accent)' : WT2.void,
               fontFamily: WT2.mono, fontSize: 9, letterSpacing: 2.5,
-              padding: narrow ? '12px 0' : '5px 0', width: narrow ? 90 : 110, textAlign: 'center',
+              padding: (narrow || landscape) ? '12px 0' : '5px 0', width: (narrow || landscape) ? 90 : 110, textAlign: 'center',
               cursor: 'pointer', borderRadius: 0, display: 'inline-flex',
               alignItems: 'center', justifyContent: 'center', gap: 6,
               textTransform: 'uppercase', transition: 'all .12s',
@@ -1123,7 +1134,7 @@ function SignalFeed({ scene, onClose, onPrev, onNext }) {
               color: onNext ? WT2.dim : WT2.faint,
               opacity: onNext ? 1 : 0.3,
               fontFamily: WT2.mono, fontSize: 9, letterSpacing: 1.5,
-              padding: narrow ? '12px 16px' : '5px 10px',
+              padding: (narrow || landscape) ? '12px 16px' : '5px 10px',
               cursor: onNext ? 'pointer' : 'default', borderRadius: 0,
               textTransform: 'uppercase', transition: 'none',
               WebkitTapHighlightColor: 'transparent', outline: 'none'
