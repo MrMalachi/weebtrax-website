@@ -173,16 +173,14 @@ main { margin-left: 0 !important; }
   object-position: center;
   z-index: 1;
   pointer-events: none;
-  /* Vertical: top fades into the void; bottom stays fully opaque right at the
-     section border line (96% ≈ where bottom:-8px meets the section's bottom:0),
-     then fades in the last 4% that sits below the border — hidden by overflow. */
+  /* Vertical: top fades into the void; bottom dissolves into the section border. */
   -webkit-mask-image:
     linear-gradient(to right,  transparent 0%, black 15%, black 85%, transparent 100%),
-    linear-gradient(to bottom, transparent 0%, black 25%, black 96%, transparent 100%);
+    linear-gradient(to bottom, transparent 0%, black 25%, black 76%, transparent 100%);
   -webkit-mask-composite: source-in;
   mask-image:
     linear-gradient(to right,  transparent 0%, black 15%, black 85%, transparent 100%),
-    linear-gradient(to bottom, transparent 0%, black 25%, black 96%, transparent 100%);
+    linear-gradient(to bottom, transparent 0%, black 25%, black 76%, transparent 100%);
   mask-composite: intersect;
 }
 /* Overlay div is no longer needed — mask handles the fade */
