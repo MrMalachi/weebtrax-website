@@ -495,6 +495,10 @@ function Hero({
     src: "public/assets/images/hero-crowd-mobile.png",
     alt: "",
     "aria-hidden": true
+  }), /*#__PURE__*/React.createElement("div", {
+    className: "wt-hero-crowd-overlay",
+    "aria-hidden": true,
+    style: { display: 'none' }
   }), winW >= 480 && /*#__PURE__*/React.createElement("div", {
     className: "wt-hero-visual",
     style: winW < 1120 ? {
@@ -1411,12 +1415,7 @@ function Features() {
       position: 'relative',
       overflow: 'hidden'
     }
-  }, /*#__PURE__*/React.createElement("img", {
-    className: "wt-scenes-char-mobile",
-    src: "public/assets/images/scenes-char-mobile.png",
-    alt: "",
-    "aria-hidden": true
-  }), /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("div", {
     style: {
       marginBottom: narrow ? 32 : 44
     }
