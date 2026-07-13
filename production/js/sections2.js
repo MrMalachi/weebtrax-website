@@ -569,6 +569,7 @@ function ActiveRow({
     onMouseLeave: () => setHovLink(null),
     style: hovLink === 'sc' ? extLinkHov : extLink
   }, "SOUNDCLOUD \u2197"),
+    t.tracklist && t.tracklist.length > 0 && React.createElement("div", { className: 'wt-tracklist-break', style: { display: 'none' } }),
     t.tracklist && t.tracklist.length > 0 && React.createElement("button", {
       onClick: function() { setTracklistOpen(function(o) { return !o; }); },
       className: 'wt-tracklist-toggle',
