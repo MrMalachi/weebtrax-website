@@ -182,23 +182,17 @@ main { margin-left: 0 !important; }
    visible character falls short of it by that same margin, scaled to the rendered width. */
 .wt-uplink-portrait-mobile {
   display: block !important;
-  position: absolute;
-  top: 12px;
-  left: 238px;
   width: 84px;
   height: auto;
-  z-index: 2;
   pointer-events: none;
   filter: drop-shadow(0 8px 18px rgba(0,0,0,0.55));
 }
 
-/* Short spoken line directly above her head, same -8deg tilt as before */
 .wt-uplink-portrait-say {
   display: block !important;
   position: absolute;
-  top: 8px;
-  left: 222px;
-  z-index: 3;
+  bottom: 100%;
+  left: 50%;
   font-family: "MS Gothic", "ＭＳ ゴシック", "DFGGothic-W5", "DFG Gothic", "Hiragino Kaku Gothic StdN", "Noto Sans JP", sans-serif;
   font-weight: 700;
   font-style: normal;
@@ -206,7 +200,7 @@ main { margin-left: 0 !important; }
   letter-spacing: -0.06em;
   color: #e2a5ac;
   text-shadow: 0 2px 5px rgba(0,0,0,0.6), 0 0 12px rgba(226,165,172,0.35);
-  transform: translateX(50%) rotate(-8deg);
+  transform: translateX(-30px) rotate(-8deg);
   white-space: nowrap;
   pointer-events: none;
 }

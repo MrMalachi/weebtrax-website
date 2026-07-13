@@ -1098,15 +1098,7 @@ function Submissions() {
       position: 'relative',
       overflow: 'hidden'
     }
-  }, /*#__PURE__*/React.createElement("img", {
-    className: "wt-uplink-portrait-mobile",
-    src: "public/assets/images/about-portrait-mobile.png",
-    alt: "",
-    "aria-hidden": true
-  }), /*#__PURE__*/React.createElement("span", {
-    className: "wt-uplink-portrait-say",
-    "aria-hidden": true
-  }, "は？"), /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("div", {
     style: {
       position: 'relative',
       zIndex: 1
@@ -1555,7 +1547,7 @@ function Footer() {
       display: 'flex',
       alignItems: 'center',
       gap: 10,
-      marginBottom: 36
+      marginBottom: 16
     }
   }, /*#__PURE__*/React.createElement("span", {
     style: {
@@ -1588,13 +1580,13 @@ function Footer() {
     }
   }, /*#__PURE__*/React.createElement("div", {
     className: "wt-about-bio-col"
-  }, /*#__PURE__*/React.createElement(Wordmark, {
+  }, /*#__PURE__*/React.createElement("div", { style: { position: 'relative' } }, /*#__PURE__*/React.createElement(Wordmark, {
     size: 38,
     glitch: false,
     style: {
       display: 'block'
     }
-  }), /*#__PURE__*/React.createElement("p", {
+  }), /*#__PURE__*/React.createElement("div", { style: { position: 'absolute', bottom: 0, right: 30 } }, /*#__PURE__*/React.createElement("img", { className: "wt-uplink-portrait-mobile", src: "public/assets/images/about-portrait-mobile.png", alt: "", "aria-hidden": true }), /*#__PURE__*/React.createElement("span", { className: "wt-uplink-portrait-say", "aria-hidden": true }, "は？"))), /*#__PURE__*/React.createElement("p", {
     className: "wt-about-bio-text",
     style: {
       margin: '14px 0 20px',
