@@ -159,14 +159,14 @@ main { margin-left: 0 !important; }
   pointer-events: none;
 }
 
-/* Crowd fragment — full width, bottom edge matches the corner-bracket inset (22px).
+/* Crowd fragment — full width, sits at the section border so figures appear to emerge from it.
    mask-image fades all four edges of the image so no hard rectangular outline is visible. */
 .wt-hero-crowd-mobile {
   display: block !important;
   position: absolute;
   left: 0;
   right: 0;
-  bottom: 22px;
+  bottom: -8px;
   width: 100%;
   height: 180px;
   object-fit: cover;
