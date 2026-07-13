@@ -1025,6 +1025,7 @@ function SignalFeed({ scene, onClose, onPrev, onNext }) {
           style: { display: 'flex', alignItems: 'center', gap: 6 }
         },
           /*#__PURE__*/React.createElement("button", {
+            className: 'wt-sf-mobile-btn',
             onClick: onClose,
             style: {
               background: 'none', border: '1px solid ' + WT2.red, color: WT2.red,
@@ -1035,6 +1036,7 @@ function SignalFeed({ scene, onClose, onPrev, onNext }) {
             }
           }, '\u00d7'),
           /*#__PURE__*/React.createElement("button", {
+            className: 'wt-sf-mobile-btn',
             onClick: function() { setExpanded(function(e) { return !e; }); },
             style: {
               background: expanded ? 'rgba(143,191,159,0.1)' : 'none',
@@ -1065,6 +1067,7 @@ function SignalFeed({ scene, onClose, onPrev, onNext }) {
             }
           }, '\u2190'),
           /*#__PURE__*/React.createElement("button", {
+            className: narrow ? 'wt-sf-mobile-btn' : undefined,
             onClick: togglePlay,
             style: {
               background: playing ? 'none' : 'var(--wt-accent)',
