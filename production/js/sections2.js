@@ -609,6 +609,7 @@ function Transmissions({
   const winW = useWinW();
   const ARCHIVE_PER_PAGE = winW < 600 ? 4 : 5;
   const narrow = winW < 900;
+  const tablet = winW >= 600 && winW < 900;
   const mid = winW >= 900 && winW < 1200;
   const isMobile = winW < 600;
   const [hover, setHover] = React.useState(-1);
@@ -740,10 +741,10 @@ function Transmissions({
       border: `1px solid ${WT2.line}`,
       overflowX: 'auto'
     }
-  }, !narrow && /*#__PURE__*/React.createElement("div", {
+  }, (!narrow || tablet) && /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'grid',
-      gridTemplateColumns: mid ? '40px 1fr 80px 90px 120px' : '48px 1fr 100px 108px 152px',
+      gridTemplateColumns: tablet ? '36px 1fr 96px' : mid ? '40px 1fr 80px 90px 120px' : '48px 1fr 100px 108px 152px',
       alignItems: 'center',
       padding: '11px 18px',
       borderBottom: `1px solid ${WT2.line}`,
@@ -762,15 +763,15 @@ function Transmissions({
     style: {
       textAlign: 'left'
     }
-  }, "FILE"), !mid && /*#__PURE__*/React.createElement("span", {
+  }, "FILE"), !(mid || tablet) && /*#__PURE__*/React.createElement("span", {
     style: {
       textAlign: 'center'
     }
-  }, "OUTPUT"), /*#__PURE__*/React.createElement("span", {
+  }, "OUTPUT"), !tablet && /*#__PURE__*/React.createElement("span", {
     style: {
       textAlign: 'center'
     }
-  }, "RUNTIME"), /*#__PURE__*/React.createElement("span", {
+  }, "RUNTIME"), !tablet && /*#__PURE__*/React.createElement("span", {
     style: {
       textAlign: 'center'
     }
@@ -782,7 +783,7 @@ function Transmissions({
     const isActive = t.id === activeTxId;
     const isHov = hover === i;
     const rowBg = isActive ? 'rgba(143,191,159,0.055)' : isHov ? WT2.fill : 'transparent';
-    return narrow ? /*#__PURE__*/React.createElement("div", {
+    return (narrow && !tablet) ? /*#__PURE__*/React.createElement("div", {
       key: t.id,
       onClick: () => handleRowClick(t.id),
       onMouseEnter: () => setHover(i),
@@ -907,7 +908,7 @@ function Transmissions({
       "aria-label": `${isActive && playing ? 'Pause' : 'Play'} ${t.title}`,
       style: {
         display: 'grid',
-        gridTemplateColumns: mid ? '40px 1fr 80px 90px 120px' : '48px 1fr 100px 108px 152px',
+        gridTemplateColumns: tablet ? '36px 1fr 96px' : mid ? '40px 1fr 80px 90px 120px' : '48px 1fr 100px 108px 152px',
         alignItems: 'center',
         padding: '15px 18px',
         borderBottom: i < filtered.length - 1 ? `1px solid ${WT2.line}` : 'none',
@@ -956,7 +957,7 @@ function Transmissions({
         textOverflow: 'ellipsis',
         whiteSpace: 'nowrap'
       }
-    }, t.file)), !mid && /*#__PURE__*/React.createElement("div", {
+    }, t.file)), !(mid || tablet) && /*#__PURE__*/React.createElement("div", {
       style: {
         display: 'flex',
         justifyContent: 'center'
@@ -966,14 +967,14 @@ function Transmissions({
       onVolChange: onVolChange,
       tone: isActive || isHov ? 'var(--wt-accent)' : WT2.line2,
       interactive: isActive
-    })), /*#__PURE__*/React.createElement("span", {
+    })), !tablet && /*#__PURE__*/React.createElement("span", {
       style: {
         fontFamily: WT2.mono,
         fontSize: 12,
         color: WT2.dim,
         textAlign: 'center'
       }
-    }, t.run), /*#__PURE__*/React.createElement("span", {
+    }, t.run), !tablet && /*#__PURE__*/React.createElement("span", {
       style: {
         fontFamily: WT2.mono,
         fontSize: 12,
