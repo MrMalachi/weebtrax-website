@@ -543,7 +543,6 @@ function ActiveRow({
       marginTop: 14
     }
   }, /*#__PURE__*/React.createElement("div", {
-    className: 'wt-active-controls',
     style: {
       display: 'flex',
       alignItems: 'center',
