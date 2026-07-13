@@ -109,8 +109,6 @@ main { margin-left: 0 !important; }
   min-height: 32px !important;
   padding: 4px 10px !important;
   font-size: 11px !important;
-  border: 1px solid rgba(143, 191, 159, 0.25) !important;
-  border-radius: 0 !important;
 }
 .wt-mood-label { display: none !important; }
 
