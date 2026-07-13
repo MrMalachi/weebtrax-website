@@ -764,6 +764,8 @@ function SignalFeed({ scene, onClose, onPrev, onNext }) {
   const [hovVideo, setHovVideo] = React.useState(false);
   const [flashIcon, setFlashIcon] = React.useState(null);
   const [connected, setConnected] = React.useState(false);
+  const [ctrlVisible, setCtrlVisible] = React.useState(true);
+  const hideTimerRef = React.useRef(null);
   const winW = useWinW();
   const narrow = winW < 600;
 
@@ -810,6 +812,12 @@ function SignalFeed({ scene, onClose, onPrev, onNext }) {
     setTimeout(function() { setFlashIcon(null); }, 550);
   }
 
+  function bumpControls() {
+    setCtrlVisible(true);
+    clearTimeout(hideTimerRef.current);
+    hideTimerRef.current = setTimeout(function() { setCtrlVisible(false); }, 3000);
+  }
+
 
   const wiredPath = 'WIRED://NODE.227/' + scene.name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
   const epLabel = scene.episode != null ? 'EP.' + String(scene.episode).padStart(2, '0') : '';
@@ -829,6 +837,21 @@ function SignalFeed({ scene, onClose, onPrev, onNext }) {
     };
   }, [expanded]);
 
+  // Auto-hide controls in fullscreen mobile — start timer on enter, clear on exit
+  React.useEffect(function() {
+    if (expanded && narrow) { bumpControls(); }
+    else { clearTimeout(hideTimerRef.current); setCtrlVisible(true); }
+    return function() { clearTimeout(hideTimerRef.current); };
+  }, [expanded, narrow]);
+
+  // When paused, always show controls so the play button is visible
+  React.useEffect(function() {
+    if (!playing && expanded && narrow) {
+      clearTimeout(hideTimerRef.current);
+      setCtrlVisible(true);
+    }
+  }, [playing, expanded, narrow]);
+
   const outerStyle = expanded ? {
     position: 'fixed', inset: 0, zIndex: 300,
     background: 'rgba(4,5,7,0.98)',
@@ -839,7 +862,8 @@ function SignalFeed({ scene, onClose, onPrev, onNext }) {
     maxWidth: narrow ? '100%' : 840
   };
 
-  return /*#__PURE__*/React.createElement("div", { style: outerStyle },
+  const ctrlFade = (expanded && narrow && !ctrlVisible);
+  return /*#__PURE__*/React.createElement("div", { style: outerStyle, onPointerDown: (expanded && narrow) ? bumpControls : undefined },
 
     // ── HEADER ────────────────────────────────────────────────────────────
     /*#__PURE__*/React.createElement("div", {
@@ -847,7 +871,9 @@ function SignalFeed({ scene, onClose, onPrev, onNext }) {
         display: 'flex', alignItems: 'center', justifyContent: 'space-between',
         padding: '7px 14px', background: WT2.sink,
         borderBottom: '1px solid ' + WT2.line,
-        width: '100%', boxSizing: 'border-box', gap: 10
+        width: '100%', boxSizing: 'border-box', gap: 10,
+        opacity: ctrlFade ? 0 : 1, transition: 'opacity 0.3s',
+        pointerEvents: ctrlFade ? 'none' : undefined
       }
     },
       /*#__PURE__*/React.createElement("div", { style: { display: 'flex', alignItems: 'center', gap: 10, minWidth: 0, flex: 1 } },
@@ -998,7 +1024,9 @@ function SignalFeed({ scene, onClose, onPrev, onNext }) {
       style: {
         width: '100%', boxSizing: 'border-box',
         background: WT2.sink, borderTop: '1px solid ' + WT2.line2,
-        padding: narrow ? '10px 12px 12px' : '14px 16px 16px'
+        padding: narrow ? '10px 12px 12px' : '14px 16px 16px',
+        opacity: ctrlFade ? 0 : 1, transition: 'opacity 0.3s',
+        pointerEvents: ctrlFade ? 'none' : undefined
       }
     },
       // Scene name + description
