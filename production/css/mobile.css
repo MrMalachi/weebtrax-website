@@ -104,7 +104,9 @@ main { margin-left: 0 !important; }
 .wt-flink          { min-height: 44px !important; display: flex !important; align-items: center !important; }
 .wt-sf-mobile-btn  { min-height: 44px !important; display: inline-flex !important; align-items: center !important; justify-content: center !important; }
 .wt-ep-scroll button { min-height: 44px !important; padding: 8px 14px !important; display: inline-flex !important; align-items: center !important; }
-/* TRACK I.D. toggle — slightly larger and bordered so it reads as a button */
+/* Stack controls as a column so TRACK I.D. always left-aligns with LISTEN */
+.wt-active-controls { flex-direction: column !important; align-items: flex-start !important; gap: 10px !important; }
+/* TRACK I.D. toggle */
 .wt-tracklist-toggle {
   min-height: 32px !important;
   padding: 4px 10px !important;
