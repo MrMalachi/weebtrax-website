@@ -171,12 +171,20 @@ Mobile has a working bottom nav bar and several archive/player polish passes. Co
 - [x] Fixed bottom nav bar (Home / Archive / Scenes / Submit / About), accent dot on active section
 - [x] Compact oscilloscope (60px, strokeWidth 2.5), VolBar hidden
 - [x] Mood chips horizontal scroll strip
+- [x] Right mood chip fade (`wt-ep-fade-hint`) now hides when scrolled to DEEP (moodFadeRightRef + onScroll check)
 - [x] Archive status bar: flex row (file count left, sort right)
+- [x] Archive table mid-width breakpoint — tablet (600–900px) gets 3-column layout
 - [x] Active player metadata line hidden
 - [x] Track title pipe `|` → line break (text after pipe moves to new line)
 - [x] Seekbar visual-drag pattern (no stuck drag on touch)
 - [x] SignalFeed bottom bar: red × close + green ⊞/⊟ expand
 - [x] PREV/NEXT + ← → instant press feedback via CSS :active
+- [x] Fullscreen video controls auto-hide after 3 seconds (tap to reveal); COLLAPSE/DISCONNECT move to bottom-left in landscape
+- [x] Scene card thumbnails enlarged via `aspect-ratio: 4/3 !important`
+- [x] Scene character accent image removed from DOM (file preserved at `public/assets/images/scenes-char-mobile.png` at 771×503px)
+- [x] Episode filter buttons (EP 01–13): 44px min-height touch target (`wt-ep-scroll button`)
+- [x] TRACK I.D. toggle: `wt-tracklist-toggle` class, larger font (11px), left-aligned with LISTEN via flex line-break div (`wt-tracklist-break`), position nudged up/left (`margin-top: -22px`, `margin-left: -8px`)
+- [x] Hero crowd image: 180px height, `object-fit: cover`, `mask-image` edge fade on all 4 sides, `bottom: -8px` so crowd emerges from section border, bottom dissolve starts at 55%
 - [x] Submit terminal no longer regrows/replays every time the section scrolls back into view
 - [x] About section decluttered — removed redundant NAV block and TRANSMISSION blurb, shrunk oversized Business Inquiries button
 - [x] Fixed buttons getting stuck in a hover-highlighted state after tapping (sticky `:hover` on touch — scoped hover styles to `@media (hover: hover)`)
@@ -185,21 +193,17 @@ Mobile has a working bottom nav bar and several archive/player polish passes. Co
 **Still to do:**
 
 *Archive*
-- [ ] Archive table mid-width breakpoint — 5-column layout is cramped on tablets (~600–900px)
 - [ ] Previous track button — auto-advance goes forward only, no way to go back
 - [ ] Shuffle mode — random track selection
-- [ ] Show tracklist in the active player card (data exists for 92/94 mixes)
 
 *Scenes / fullscreen*
-- [ ] Fullscreen video: header bar and control bar eat screen real estate on tall phones, leaving a large letterboxed area — consider auto-hiding controls after a few seconds (native video player behaviour)
-- [ ] Scene cards feel small on large mobile screens (thumbnail fixed height)
 - [ ] "SELECTED SIGNAL: ..." label above the scene grid doesn't serve much purpose on mobile since the player is right below it
 
 *Hero section*
-- [ ] After hiding the player card and tagline, the hero feels sparse on mobile — mostly just title and CTA button vs the richer desktop version
+- [ ] Hero feels sparse on mobile after hiding player card and tagline — crowd image partially addresses this but upper half is mostly empty
 
 *General*
-- [ ] Touch targets throughout are designed for hover (desktop) — most buttons are `padding: 5px 10px`, under Apple's 44px minimum recommended tap target
+- [ ] Remaining small touch targets: COLLAPSE/DISCONNECT buttons in video player (`6px 10px` padding), pagination page-number buttons (`5px 8px`)
 - [ ] No landscape orientation handling — rotated phone likely looks broken
 - [ ] Overall mobile layout is still CSS overrides on desktop structure — a first-class mobile layout pass would improve spacing, typography scale, and section rhythm
 
