@@ -1793,7 +1793,7 @@ function Footer() {
     }
   }, "\u2197")))))), /*#__PURE__*/React.createElement("div", {
     style: {
-      marginTop: 36,
+      marginTop: narrow ? 16 : 36,
       paddingTop: 20,
       borderTop: `1px solid ${WT2.line}`
     }
