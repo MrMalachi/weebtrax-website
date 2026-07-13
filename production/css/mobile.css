@@ -159,7 +159,8 @@ main { margin-left: 0 !important; }
   pointer-events: none;
 }
 
-/* Crowd fragment — full width, bottom edge matches the corner-bracket inset (22px), well clear of the SUBMIT button above it */
+/* Crowd fragment — full width, bottom edge matches the corner-bracket inset (22px).
+   mask-image fades all four edges of the image so no hard rectangular outline is visible. */
 .wt-hero-crowd-mobile {
   display: block !important;
   position: absolute;
@@ -172,21 +173,17 @@ main { margin-left: 0 !important; }
   object-position: center;
   z-index: 1;
   pointer-events: none;
+  -webkit-mask-image:
+    linear-gradient(to right,  transparent 0%, black 15%, black 85%, transparent 100%),
+    linear-gradient(to bottom, transparent 0%, black 22%, black 72%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-image:
+    linear-gradient(to right,  transparent 0%, black 15%, black 85%, transparent 100%),
+    linear-gradient(to bottom, transparent 0%, black 22%, black 72%, transparent 100%);
+  mask-composite: intersect;
 }
-/* Gradient overlay — fades crowd into the void on all four edges */
-.wt-hero-crowd-overlay {
-  display: block !important;
-  position: absolute;
-  left: 0; right: 0; bottom: 22px;
-  height: 180px;
-  background:
-    linear-gradient(to bottom, #0a0b0e 0%, transparent 40%),
-    linear-gradient(to top,    #0a0b0e 0%, transparent 40%),
-    linear-gradient(to right,  #0a0b0e 0%, transparent 30%),
-    linear-gradient(to left,   #0a0b0e 0%, transparent 30%);
-  pointer-events: none;
-  z-index: 2;
-}
+/* Overlay div is no longer needed — mask handles the fade */
+.wt-hero-crowd-overlay { display: none !important; }
 
 /* Reserve extra room below the "Track Submissions" title (in place of the default 34px SecHead
    margin) so the portrait below has a dedicated gap to sit in — sizing this off the title's own
@@ -337,7 +334,6 @@ main { margin-left: 0 !important; }
   .wt-hero-head-mobile { top: 6px !important; width: 44px !important; }
   .wt-hero-head-say { top: 55px !important; }
   .wt-hero-crowd-mobile { display: none !important; }
-  .wt-hero-crowd-overlay { display: none !important; }
 
   /* Compact section padding in landscape */
   #wt-archive { padding-top: 24px !important; padding-bottom: 24px !important; }

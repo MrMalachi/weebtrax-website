@@ -495,10 +495,6 @@ function Hero({
     src: "public/assets/images/hero-crowd-mobile.png",
     alt: "",
     "aria-hidden": true
-  }), /*#__PURE__*/React.createElement("div", {
-    className: "wt-hero-crowd-overlay",
-    "aria-hidden": true,
-    style: { display: 'none' }
   }), winW >= 480 && /*#__PURE__*/React.createElement("div", {
     className: "wt-hero-visual",
     style: winW < 1120 ? {
