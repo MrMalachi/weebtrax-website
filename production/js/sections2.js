@@ -1467,8 +1467,8 @@ function BusinessContact() {
     type: "button",
     "aria-label": "Copy business inquiry contact email",
     onClick: handleCopy,
-    onMouseEnter: () => setHov(true),
-    onMouseLeave: () => setHov(false),
+    onMouseEnter: isMobile ? undefined : () => setHov(true),
+    onMouseLeave: isMobile ? undefined : () => setHov(false),
     onFocus: () => setHov(true),
     onBlur: () => setHov(false),
     style: {
