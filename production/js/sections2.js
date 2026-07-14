@@ -1544,7 +1544,7 @@ function Footer() {
       color: WT2.faint,
       textTransform: 'uppercase'
     }
-  }, /*#__PURE__*/React.createElement("span", null, "ARCHIVE.SYS \xB7 NODE.227 \xB7 35.68N 139.69E"), /*#__PURE__*/React.createElement("span", {
+  }, /*#__PURE__*/React.createElement("span", null, "ARCHIVE.SYS", /*#__PURE__*/React.createElement("span", { className: 'wt-node-label' }, " \xB7 NODE.227"), " \xB7 35.68N 139.69E"), /*#__PURE__*/React.createElement("span", {
     style: { color: 'var(--wt-accent)', textShadow: '0 0 8px var(--wt-accent)' }
   }, "LET THERE BE HOUSE")), /*#__PURE__*/React.createElement("div", {
     style: {
@@ -1817,7 +1817,7 @@ function Footer() {
       flexWrap: 'wrap',
       gap: 10
     }
-  }, /*#__PURE__*/React.createElement("span", null, "\xA9 2026 WEEBTRAX \xB7 NODE.227"), /*#__PURE__*/React.createElement("span", null, "wired://weebtrax \u2014 present day, present time", /*#__PURE__*/React.createElement(Cursor, {
+  }, /*#__PURE__*/React.createElement("span", null, "\xA9 2026 WEEBTRAX", /*#__PURE__*/React.createElement("span", { className: 'wt-node-label' }, " \xB7 NODE.227")), /*#__PURE__*/React.createElement("span", null, /*#__PURE__*/React.createElement("span", { className: 'wt-wired-prefix' }, "wired://weebtrax — "), "present day, present time", /*#__PURE__*/React.createElement(Cursor, {
     w: 7,
     h: 12
   })))));

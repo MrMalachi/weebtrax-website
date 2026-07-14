@@ -57,6 +57,9 @@ main { margin-left: 0 !important; }
   overflow: hidden !important;
 }
 
+/* Hide NODE.227 and wired:// prefix in About footer on mobile */
+.wt-node-label, .wt-wired-prefix { display: none; }
+
 /* Broadcast bar: full width on mobile (no rail offset) */
 .wt-broadcast-bar { left: 0 !important; }
 .wt-broadcast-bar > div:first-child { padding-left: 8px !important; }
