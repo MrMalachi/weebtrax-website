@@ -87,13 +87,17 @@ Generates: archive rows, scene cards, thumbnails, play buttons, YT/SC links, moo
 - Mood→accent color mapping: `chill→blue`, `nostalgic→purple`, `dirty→red`, `deep→green`
 - Serve with: `cd production && python3 -m http.server 3000` (site now lives under `production/`, not the repo root — serving from the wrong directory causes `/public/assets/metadata/*.json` 404s and a BOOT FAILURE screen)
 
-### Current features (as of 2026-07-11)
+### Current features (as of 2026-07-14)
 - **Archive**: 94 mixes, mood filter chips (right-aligned, above player), NEWEST/OLDEST/A-Z sort, 5-per-page pagination, active row player
 - **Archive status line**: shows filtered file count only (e.g. `094 files`), not a fraction
 - **Playback**: auto-advance to next track, keyboard shortcuts (Space/←/→), session restore via localStorage. Spacebar routes through `togglePlayRef` to avoid stale closure.
 - **Audio fades**: 200ms fade-in via GainNode on all play paths; 15ms fade-out on pause to prevent click without causing position skip
 - **Waveform**: Web Audio API AnalyserNode (`window.__WT_ANALYSER`) drives both oscilloscopes reactively; `window.__WT_ANALYSER` set on first play
 - **Broadcast bar**: in `js/app.js` (`BroadcastBar` component, ~line 73) — NOT the `Ticker` component in `core.js` (that is dead/unused code). Separator is `·` (middle dot `\xB7`), rendered as a separate span at `fontSize: 15` inside a `loopedItems` array. Items and separators rendered as React elements (not a joined string) to allow independent sizing.
+- **Broadcast bar play/pause button**: always-visible toggle (`wt-broadcast-play-btn`), present before any track is played. Fixed width (`isMobile ? 22 : 28`). Icon uses per-state font-size in a `<span>` — `▐▐` at 8/11px (smaller glyph weight), `▶` at 13/17px (larger) — to visually balance the two glyphs. Elapsed time hidden on mobile to save space. WIRED ACTIVITY connection speed removed from mobile ticker.
+- **Lock screen / background audio (iOS)**: Media Session API registered in `app.js`. `play` action handler calls `ctx.resume()` then `audio.play()` if paused; `pause` cancels fade timer then calls `audio.pause()`; `seekTo/Forward/Backward` wired; metadata updated on track change; `playbackState` synced in `onPlay`/`onPause`. On `visibilitychange` hide, only the AudioContext is suspended — audio element is NOT paused — so the lock-screen play button can resume it.
+- **Mobile detection**: `useIsMobile()` hook defined in `sections1.js` uses `window.matchMedia(MOBILE_MQ)` where `MOBILE_MQ = '(max-width: 599px), (max-height: 430px) and (orientation: landscape)'` — exactly matches the `<link media>` on `mobile.css`. All JS mobile branches use this hook; `winW < 600` is replaced throughout. `<main>` marginLeft and BroadcastBar `left` use `isMobile ? 0 : railW` directly in JS rather than relying on CSS `!important` to override the inline style.
+- **Play/pause icon pattern**: all play/pause buttons wrap their icon in `React.createElement("span", { style: { fontSize: N, lineHeight: 1, marginRight: M } }, icon)` inside a `React.Fragment` with the label text. `playBtn` (archive rows, `sections2.js`) uses `display: inline-flex, alignItems: center` — no built-in gap, so `marginRight: 5` controls spacing. `Btn` component (`core.js`) already has `gap: 9` between flex children, so icon spans inside Btn use `marginRight: -4` to net ~5px visual gap. Hero CTA icon: `fontSize: 13, marginRight: -4`. Active player icon: `fontSize: playing?9:13, marginRight: -4`. Archive row icon: `fontSize: playing?8:12, marginRight: 5`.
 - **Scenes**: 48 scenes, episode filter (EP 01–13, no EP 09 footage), 6-per-page pagination; grid uses `repeat(auto-fill, minmax(300px, 1fr))` for responsive card sizing
 - **Scene player** (`SignalFeed`): Wired/Navi aesthetic — `WIRED://NODE.227` header, click-to-toggle video, flash icon, fullscreen mode (scroll-locked), mobile responsive (<600px); corner labels (`NODE.227`, `EP.XX`, timecode) offset `22/26px` from edges for breathing room from `FrameTicks` brackets; prev/next scene navigation with disabled state at boundaries; closing fullscreen does NOT trigger on prev/next (key prop removed from SignalFeed)
 - **Hero text bar**: repositioned to `top: 32, left/right: 36` to match video player corner offset ratio (`inset: 22` + 10/14px breathing room)
@@ -120,6 +124,10 @@ Generates: archive rows, scene cards, thumbnails, play buttons, YT/SC links, moo
 - **Mobile `:hover` sticky-state bug**: `.wt-btn-ghost:hover` / `.wt-btn-primary:hover` / `.wt-flink:hover` in `styles.css` are wrapped in `@media (hover: hover)` — without this, tapping a button on a touch device enters `:hover` and never leaves it (no mouse to fire a "leave" event), so buttons got stuck looking hover-highlighted after every tap. Any new hover-only style added to this codebase should go inside that same media query.
 - **Clipboard copy over plain HTTP**: `navigator.clipboard` requires a secure context (HTTPS or `localhost`) — testing over a local network IP like `http://192.168.x.x` leaves it `undefined`, and calling `.writeText` on it throws *synchronously*, before any `.then/.catch` runs. Both copy buttons now go through a shared `copyToClipboard()` helper (top of `sections2.js`) that falls back to a hidden-textarea + `execCommand('copy')` when the modern API isn't available.
 - **About section** (mobile only): "// TRANSMISSION" blurb and the entire "// NAV" block (links + collapsible header) were removed — NAV duplicated the always-visible bottom nav bar. "// SOCIAL SIGNALS" stays visible (unique links, not shown elsewhere). `BUSINESS_INQUIRIES` button uses smaller padding/font on mobile than desktop.
+- **Mobile margin/layout via JS not CSS**: `<main>` marginLeft and BroadcastBar `left` are set as `isMobile ? 0 : railW` in `app.js`. Do NOT rely solely on `main { margin-left: 0 !important }` in `mobile.css` to fix the inline style — if the CSS is stale-cached the layout breaks. Source of truth is the JS.
+- **React hooks rule — early returns**: never place a hook call after a conditional `return`. If a component has `if (condition) return null`, ALL `useState`/`useEffect`/`useRef`/custom hooks must be called before that line. Violating this causes "Rendered fewer hooks than expected" when the condition flips. Fixed in `TermPageBar` (sections2.js) — `useIsMobile()` was after the guard.
+- **Icon vertical alignment in buttons**: use `display: inline-flex; align-items: center` on the button element rather than `verticalAlign: middle` on the icon span. `verticalAlign` on an inline span aligns against the text baseline (unreliable for Unicode block chars like `▐▐`); flex `alignItems: center` is the correct tool.
+- **Btn gap + icon marginRight**: `Btn` (core.js) has `gap: 9` between flex children. Icon spans inside Btn use `marginRight: -4` so the net visual gap is ~5px. Buttons that do NOT use the Btn component (e.g. `playBtn` archive rows) have no built-in gap, so use `marginRight: 5` directly.
 
 ### Checklist
 - [x] Unbundle app into plain separate JS/CSS files
@@ -183,12 +191,17 @@ Mobile has a working bottom nav bar and several archive/player polish passes. Co
 - [x] Scene card thumbnails enlarged via `aspect-ratio: 4/3 !important`
 - [x] Scene character accent image removed from DOM (file preserved at `public/assets/images/scenes-char-mobile.png` at 771×503px)
 - [x] Episode filter buttons (EP 01–13): 44px min-height touch target (`wt-ep-scroll button`)
-- [x] TRACK I.D. toggle: `wt-tracklist-toggle` class, larger font (11px), left-aligned with LISTEN via flex line-break div (`wt-tracklist-break`), position nudged up/left (`margin-top: -22px`, `margin-left: -8px`)
+- [x] TRACK I.D. toggle: `wt-tracklist-toggle` class, font 9px, padding `3px 8px`, position nudged up/left (`margin-top: -26px`, `margin-left: -4px`), left-aligned with LISTEN via flex line-break div (`wt-tracklist-break`)
 - [x] Hero crowd image: 180px height, `object-fit: cover`, `mask-image` edge fade on all 4 sides, `bottom: -8px` so crowd emerges from section border, bottom dissolve starts at 55%
 - [x] Submit terminal no longer regrows/replays every time the section scrolls back into view
 - [x] About section decluttered — removed redundant NAV block and TRANSMISSION blurb, shrunk oversized Business Inquiries button
 - [x] Fixed buttons getting stuck in a hover-highlighted state after tapping (sticky `:hover` on touch — scoped hover styles to `@media (hover: hover)`)
 - [x] Fixed clipboard copy silently failing when testing over plain HTTP / local network IP (added `execCommand` fallback)
+- [x] Broadcast bar play/pause toggle — always visible before and during playback; elapsed time counter hidden on mobile; WIRED ACTIVITY / connection-speed item removed from mobile ticker; ON AIR nudged left via `padding-left: 8px` on broadcast bar inner div
+- [x] NODE.227 and `wired://weebtrax —` prefix removed from About section footer on mobile (`.wt-node-label, .wt-wired-prefix { display: none; }` in `mobile.css`); both remain on desktop
+- [x] Landscape orientation: `mobile.css` loaded via combined `media` attr (`max-width:599px, max-height:430px and orientation:landscape`); JS uses same query string in `useIsMobile()` so CSS and JS breakpoints always agree; compact nav/padding overrides in `@media (orientation: landscape)` block inside `mobile.css`
+- [x] Mobile horizontal overflow fixed — `<main>` and BroadcastBar use `isMobile ? 0 : railW` in JS (`app.js`) rather than relying on `main { margin-left: 0 !important }` CSS override; `mobile.css` also adds `overflow-x: hidden !important; max-width: 100%` to `html, body` and `main`
+- [x] React hooks error in Scenes section (`TermPageBar`) — `useIsMobile()` was called after `if (total <= 1) return null` early return; moved above the guard so hook count is always consistent
 
 **Still to do:**
 
@@ -204,7 +217,7 @@ Mobile has a working bottom nav bar and several archive/player polish passes. Co
 
 *General*
 - [ ] Remaining small touch targets: COLLAPSE/DISCONNECT buttons in video player (`6px 10px` padding), pagination page-number buttons (`5px 8px`)
-- [ ] No landscape orientation handling — rotated phone likely looks broken
+- [x] Landscape orientation — CSS + JS now use same media query; compact layout applied via `@media (orientation: landscape)` in `mobile.css`
 - [ ] Overall mobile layout is still CSS overrides on desktop structure — a first-class mobile layout pass would improve spacing, typography scale, and section rhythm
 
 ### Merch / Monetization
