@@ -266,15 +266,39 @@ function App() {
     };
   }, []);
 
-  // Resume AudioContext and reconcile play state when page becomes visible again
-  // (e.g. after phone screen lock — iOS suspends AudioContext on hide)
+  // Handle phone lock/unlock (visibilitychange).
+  // iOS suspends the AudioContext on hide but does NOT pause the <audio> element —
+  // its currentTime keeps advancing silently, which causes the timer to count while
+  // the phone is asleep and leaves the Web Audio graph out of sync on wake (the
+  // "vinyl skip" when pressing pause). Fix: explicitly pause on hide and resume on show.
   React.useEffect(() => {
+    let wasPlaying = false;
     function onVisibilityChange() {
-      if (document.visibilityState !== 'visible') return;
-      const ctx = audioCtxRef.current;
-      if (ctx && ctx.state === 'suspended') ctx.resume();
       const audio = audioRef.current;
-      if (audio) setPlaying(!audio.paused);
+      const ctx = audioCtxRef.current;
+      if (document.visibilityState === 'hidden') {
+        wasPlaying = audio ? !audio.paused : false;
+        if (fadeOutTimerRef.current) { clearTimeout(fadeOutTimerRef.current); fadeOutTimerRef.current = null; }
+        if (audio && !audio.paused) audio.pause();
+        if (ctx && ctx.state === 'running') ctx.suspend();
+      } else {
+        const doResume = () => {
+          if (!wasPlaying || !audio) { wasPlaying = false; return; }
+          wasPlaying = false;
+          const g = gainNodeRef.current;
+          const c = audioCtxRef.current;
+          if (g && c) {
+            const now = c.currentTime;
+            const targetVol = g.gain.value > 0 ? g.gain.value : 1;
+            g.gain.cancelScheduledValues(now);
+            g.gain.setValueAtTime(0, now);
+            g.gain.linearRampToValueAtTime(targetVol, now + 0.2);
+          }
+          audio.play().catch(() => {});
+        };
+        if (ctx && ctx.state === 'suspended') { ctx.resume().then(doResume).catch(doResume); }
+        else { doResume(); }
+      }
     }
     document.addEventListener('visibilitychange', onVisibilityChange);
     return () => document.removeEventListener('visibilitychange', onVisibilityChange);
