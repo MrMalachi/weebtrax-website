@@ -1613,6 +1613,7 @@
     .wt-btn-ghost:hover { background: var(--wt-accent) !important; color: #0a0b0e !important; border-color: var(--wt-accent) !important; box-shadow: 0 0 18px rgba(143,191,159,0.25); }
     .wt-btn-primary:hover { background: transparent !important; color: var(--wt-accent) !important; border-color: var(--wt-accent) !important; box-shadow: 0 0 18px rgba(143,191,159,0.15); }
     .wt-flink:hover { color: var(--wt-accent) !important; }
+    .wt-broadcast-play-btn:hover { opacity: 0.75; }
   }
   .wt-btn:active { transform: translateY(1px); }
   .wt-flink { transition: color .15s; position: relative; }

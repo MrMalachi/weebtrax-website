@@ -59,6 +59,10 @@ main { margin-left: 0 !important; }
 
 /* Broadcast bar: full width on mobile (no rail offset) */
 .wt-broadcast-bar { left: 0 !important; }
+.wt-broadcast-bar > div:first-child { padding-left: 8px !important; }
+
+/* Larger tap target for the play/pause button in the broadcast bar */
+.wt-broadcast-play-btn { padding: 0 4px !important; min-height: 34px; }
 
 /* Show bottom nav bar on mobile */
 .wt-mobile-nav { display: flex !important; }
@@ -108,11 +112,11 @@ main { margin-left: 0 !important; }
 .wt-tracklist-break { display: block !important; flex-basis: 100% !important; height: 0 !important; }
 /* TRACK I.D. toggle */
 .wt-tracklist-toggle {
-  min-height: 32px !important;
-  padding: 4px 10px !important;
-  font-size: 11px !important;
-  margin-top: -22px !important;
-  margin-left: -8px !important;
+  min-height: 28px !important;
+  padding: 3px 8px !important;
+  font-size: 9px !important;
+  margin-top: -26px !important;
+  margin-left: -4px !important;
 }
 .wt-mood-label { display: none !important; }
 

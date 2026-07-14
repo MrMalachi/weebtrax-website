@@ -70,7 +70,7 @@ function pingLabel(ms) {
   const bars = ms < 30 ? '▌▌▌▌▌' : ms < 80 ? '▌▌▌▌░' : ms < 150 ? '▌▌▌░░' : ms < 300 ? '▌▌░░░' : '▌░░░░';
   return 'WIRED ACTIVITY · ' + ms + 'ms ' + bars;
 }
-function BroadcastBar({ playing, activeTitle, currentTrack, elapsed, progress, railW, tickerItems }) {
+function BroadcastBar({ playing, activeTitle, currentTrack, elapsed, progress, railW, tickerItems, onPlayToggle, hasPlayed, winW }) {
   var tickerRef = React.useRef(null);
   var posRef = React.useRef(0);
   var rafRef = React.useRef(null);
@@ -157,11 +157,27 @@ function BroadcastBar({ playing, activeTitle, currentTrack, elapsed, progress, r
       /*#__PURE__*/React.createElement("span", { style: { fontSize: 10.5 } }, item),
       /*#__PURE__*/React.createElement("span", { "aria-hidden": true, style: { fontSize: 19, padding: '0 18px', opacity: 0.6 } }, '\xB7')
     );
-  }))), playing && /*#__PURE__*/React.createElement(React.Fragment, null,
+  }))), playing && winW >= 600 && /*#__PURE__*/React.createElement(React.Fragment, null,
     /*#__PURE__*/React.createElement("span", { style: { width: 1, height: 14, background: WT2.line2, flexShrink: 0 } }),
     /*#__PURE__*/React.createElement("span", {
       style: { fontFamily: WT2.mono, fontSize: 10, color: WT2.dim, flexShrink: 0, letterSpacing: 0.5, whiteSpace: 'nowrap' }
     }, fmtT(elapsed))
+  ), /*#__PURE__*/React.createElement(React.Fragment, null,
+    /*#__PURE__*/React.createElement("span", { style: { width: 1, height: 14, background: WT2.line2, flexShrink: 0 } }),
+    /*#__PURE__*/React.createElement("button", {
+      className: 'wt-broadcast-play-btn',
+      onClick: onPlayToggle,
+      'aria-label': playing ? 'Pause' : 'Play',
+      style: {
+        background: 'none', border: 'none', cursor: 'pointer', padding: '0 2px',
+        fontFamily: WT2.mono, color: 'var(--wt-accent)',
+        textShadow: playing ? '0 0 8px var(--wt-accent)' : 'none',
+        flexShrink: 0, lineHeight: 1, display: 'flex', alignItems: 'center',
+        justifyContent: 'center', width: winW < 600 ? 22 : 28
+      }
+    }, /*#__PURE__*/React.createElement("span", {
+      style: { fontSize: playing ? (winW < 600 ? 8 : 11) : (winW < 600 ? 13 : 17), display: 'block' }
+    }, playing ? '▐▐' : '▶'))
   )), playing && /*#__PURE__*/React.createElement("div", {
     style: { position: 'relative', height: 2, background: 'rgba(214,209,198,0.06)' }
   }, /*#__PURE__*/React.createElement("div", {
@@ -488,7 +504,10 @@ function App() {
     elapsed: elapsed,
     progress: displayProgress,
     railW: railW,
-    tickerItems: ['NEW TRANSMISSION EVERY SATURDAY', 'SUBMISSIONS OPEN', pingLabel(ping)]
+    tickerItems: winW < 600 ? ['NEW TRANSMISSION EVERY SATURDAY', 'SUBMISSIONS OPEN'] : ['NEW TRANSMISSION EVERY SATURDAY', 'SUBMISSIONS OPEN', pingLabel(ping)],
+    onPlayToggle: togglePlay,
+    hasPlayed: hasPlayed,
+    winW: winW
   }), /*#__PURE__*/React.createElement("main", {
     style: {
       marginLeft: railW,
