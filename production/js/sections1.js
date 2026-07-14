@@ -682,7 +682,7 @@ function Hero({
       const el = document.getElementById('wt-archive');
       if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
-  }, /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("span", { style: { fontSize: 16, lineHeight: 1, marginRight: -4 } }, "\u25B6"), "Listen to the Latest Mix")), /*#__PURE__*/React.createElement(Btn, {
+  }, /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("span", { style: { fontSize: 13, lineHeight: 1, marginRight: -4 } }, "\u25B6"), "Listen to the Latest Mix")), /*#__PURE__*/React.createElement(Btn, {
     onClick: () => {
       const el = document.getElementById('wt-uplink');
       if (el) el.scrollIntoView({
