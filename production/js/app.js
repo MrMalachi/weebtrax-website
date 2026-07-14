@@ -226,6 +226,7 @@ function App() {
   const loadTrackRef = React.useRef(null);
   const togglePlayRef = React.useRef(null);
   const fadeOutTimerRef = React.useRef(null);
+  const fadeOutAbortRef = React.useRef(null); // cancels pending async doSchedule in fadeOut
   const lastSaveRef = React.useRef(0);
   const [playing, setPlaying] = React.useState(false);
   const [elapsed, setElapsed] = React.useState(Math.floor(_session.currentTime || 0));
@@ -267,20 +268,28 @@ function App() {
   }, []);
 
   // Handle phone lock/unlock (visibilitychange).
-  // Only suspend/resume the AudioContext — do NOT pause the audio element so the
-  // track keeps its position and background audio continues uninterrupted.
-  // Lock-screen play/pause is handled by the Media Session API below.
+  // On hide: explicitly pause the audio element (stops timeupdate → timer freezes)
+  // and suspend the AudioContext. onPause fires naturally → setPlaying(false).
+  // On show: re-sync elapsed position, resume ctx if iOS suspended it.
   React.useEffect(() => {
     function onVisibilityChange() {
       const ctx = audioCtxRef.current;
+      const audio = audioRef.current;
       if (document.visibilityState === 'hidden') {
+        // Cancel any pending fade-out (timer + async doSchedule) to avoid stale callbacks after unlock
+        if (fadeOutAbortRef.current) { fadeOutAbortRef.current(); fadeOutAbortRef.current = null; }
         if (fadeOutTimerRef.current) { clearTimeout(fadeOutTimerRef.current); fadeOutTimerRef.current = null; }
+        if (audio && !audio.paused) audio.pause(); // fires onPause → setPlaying(false), freezes timeupdate
         if (ctx && ctx.state === 'running') ctx.suspend();
       } else {
-        const audio = audioRef.current;
-        const sync = () => { if (audio) setPlaying(!audio.paused); };
-        if (ctx && ctx.state === 'suspended') ctx.resume().then(sync).catch(sync);
-        else sync();
+        // Sync elapsed from actual audio position in case it drifted while page was hidden
+        if (audio) {
+          setElapsed(Math.floor(audio.currentTime));
+          if (audio.duration && isFinite(audio.duration))
+            setAudioProgress(Math.min(audio.currentTime / audio.duration, 1));
+          setPlaying(!audio.paused);
+        }
+        if (ctx && ctx.state === 'suspended') ctx.resume().catch(() => {});
       }
     }
     document.addEventListener('visibilitychange', onVisibilityChange);
@@ -300,6 +309,7 @@ function App() {
       else doPlay();
     };
     const msPause = () => {
+      if (fadeOutAbortRef.current) { fadeOutAbortRef.current(); fadeOutAbortRef.current = null; }
       if (fadeOutTimerRef.current) { clearTimeout(fadeOutTimerRef.current); fadeOutTimerRef.current = null; }
       const audio = audioRef.current;
       if (audio && !audio.paused) audio.pause();
@@ -445,7 +455,8 @@ function App() {
     const gain = gainNodeRef.current;
     const ctx = audioCtxRef.current;
     if (!gain || !ctx) return;
-    // Cancel any pending fadeout before fading back in
+    // Cancel any pending fade-out, including async doSchedule not yet fired
+    if (fadeOutAbortRef.current) { fadeOutAbortRef.current(); fadeOutAbortRef.current = null; }
     if (fadeOutTimerRef.current) { clearTimeout(fadeOutTimerRef.current); fadeOutTimerRef.current = null; }
     if (ctx.state === 'suspended') ctx.resume();
     const now = ctx.currentTime;
@@ -457,17 +468,22 @@ function App() {
     const gain = gainNodeRef.current;
     const ctx = audioCtxRef.current;
     if (!gain || !ctx) { onDone(); return; }
-    // Cancel any in-flight fadeout timer to prevent stacked fades
+    // Cancel any in-flight fadeout timer or pending async doSchedule
+    if (fadeOutAbortRef.current) { fadeOutAbortRef.current(); fadeOutAbortRef.current = null; }
     if (fadeOutTimerRef.current) { clearTimeout(fadeOutTimerRef.current); fadeOutTimerRef.current = null; }
+    let aborted = false;
+    fadeOutAbortRef.current = () => { aborted = true; };
     const doSchedule = () => {
+      if (aborted) return;
       const now = ctx.currentTime;
       gain.gain.cancelScheduledValues(now);
       gain.gain.setValueAtTime(gain.gain.value, now);
       gain.gain.linearRampToValueAtTime(0, now + FADE_OUT_SECS);
-      // +30ms buffer so the ramp always finishes before onDone fires,
-      // even if the AudioContext clock just resumed and is slightly behind wall time
+      // +30ms buffer so the ramp always finishes before onDone fires
       fadeOutTimerRef.current = setTimeout(() => {
         fadeOutTimerRef.current = null;
+        if (aborted) return;
+        fadeOutAbortRef.current = null;
         onDone();
         const t2 = audioCtxRef.current ? audioCtxRef.current.currentTime : 0;
         if (gainNodeRef.current) {
@@ -476,9 +492,9 @@ function App() {
         }
       }, FADE_OUT_SECS * 1000 + 30);
     };
-    // If the context is suspended (e.g. after phone unlock), resume it first so
-    // ctx.currentTime is live before we schedule the ramp
-    if (ctx.state === 'suspended') { ctx.resume().then(doSchedule).catch(() => onDone()); }
+    // If the context is suspended, resume it first so ctx.currentTime is live.
+    // The abort flag prevents doSchedule from running if fadeIn() fires before the promise resolves.
+    if (ctx.state === 'suspended') { ctx.resume().then(doSchedule).catch(() => { if (!aborted) onDone(); }); }
     else { doSchedule(); }
   }
   function ensureAnalyser() {
@@ -538,7 +554,8 @@ function App() {
         audio.load();
       }
       ensureAnalyser();
-      if (playing) { fadeOut(() => audio.pause()); } else { fadeIn(); audio.play().catch(() => {}); }
+      // Use audio.paused (ground truth) not React `playing` state (can be stale after lock/unlock)
+      if (!audio.paused) { fadeOut(() => audio.pause()); } else { fadeIn(); audio.play().catch(() => {}); }
     } else {
       if (!playing) setHasPlayed(true);
       setPlaying(p => !p);
