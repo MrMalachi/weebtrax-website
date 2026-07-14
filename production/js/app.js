@@ -225,6 +225,7 @@ function App() {
   const activeTxIdRef = React.useRef(_restoredId || TX[0].id);
   const loadTrackRef = React.useRef(null);
   const togglePlayRef = React.useRef(null);
+  const fadeOutTimerRef = React.useRef(null);
   const lastSaveRef = React.useRef(0);
   const [playing, setPlaying] = React.useState(false);
   const [elapsed, setElapsed] = React.useState(Math.floor(_session.currentTime || 0));
@@ -263,6 +264,20 @@ function App() {
       window.removeEventListener('beforeunload', onUnload);
       window.removeEventListener('pagehide', onUnload);
     };
+  }, []);
+
+  // Resume AudioContext and reconcile play state when page becomes visible again
+  // (e.g. after phone screen lock — iOS suspends AudioContext on hide)
+  React.useEffect(() => {
+    function onVisibilityChange() {
+      if (document.visibilityState !== 'visible') return;
+      const ctx = audioCtxRef.current;
+      if (ctx && ctx.state === 'suspended') ctx.resume();
+      const audio = audioRef.current;
+      if (audio) setPlaying(!audio.paused);
+    }
+    document.addEventListener('visibilitychange', onVisibilityChange);
+    return () => document.removeEventListener('visibilitychange', onVisibilityChange);
   }, []);
 
   // Wire real HTML audio events
@@ -377,6 +392,8 @@ function App() {
     const gain = gainNodeRef.current;
     const ctx = audioCtxRef.current;
     if (!gain || !ctx) return;
+    // Cancel any pending fadeout before fading back in
+    if (fadeOutTimerRef.current) { clearTimeout(fadeOutTimerRef.current); fadeOutTimerRef.current = null; }
     if (ctx.state === 'suspended') ctx.resume();
     const now = ctx.currentTime;
     gain.gain.cancelScheduledValues(now);
@@ -387,19 +404,29 @@ function App() {
     const gain = gainNodeRef.current;
     const ctx = audioCtxRef.current;
     if (!gain || !ctx) { onDone(); return; }
-    const now = ctx.currentTime;
-    const cur = gain.gain.value;
-    gain.gain.cancelScheduledValues(now);
-    gain.gain.setValueAtTime(cur, now);
-    gain.gain.linearRampToValueAtTime(0, now + FADE_OUT_SECS);
-    setTimeout(() => {
-      onDone();
-      const t2 = audioCtxRef.current ? audioCtxRef.current.currentTime : 0;
-      if (gainNodeRef.current) {
-        gainNodeRef.current.gain.cancelScheduledValues(t2);
-        gainNodeRef.current.gain.setValueAtTime(volume, t2);
-      }
-    }, FADE_OUT_SECS * 1000);
+    // Cancel any in-flight fadeout timer to prevent stacked fades
+    if (fadeOutTimerRef.current) { clearTimeout(fadeOutTimerRef.current); fadeOutTimerRef.current = null; }
+    const doSchedule = () => {
+      const now = ctx.currentTime;
+      gain.gain.cancelScheduledValues(now);
+      gain.gain.setValueAtTime(gain.gain.value, now);
+      gain.gain.linearRampToValueAtTime(0, now + FADE_OUT_SECS);
+      // +30ms buffer so the ramp always finishes before onDone fires,
+      // even if the AudioContext clock just resumed and is slightly behind wall time
+      fadeOutTimerRef.current = setTimeout(() => {
+        fadeOutTimerRef.current = null;
+        onDone();
+        const t2 = audioCtxRef.current ? audioCtxRef.current.currentTime : 0;
+        if (gainNodeRef.current) {
+          gainNodeRef.current.gain.cancelScheduledValues(t2);
+          gainNodeRef.current.gain.setValueAtTime(volume, t2);
+        }
+      }, FADE_OUT_SECS * 1000 + 30);
+    };
+    // If the context is suspended (e.g. after phone unlock), resume it first so
+    // ctx.currentTime is live before we schedule the ramp
+    if (ctx.state === 'suspended') { ctx.resume().then(doSchedule).catch(() => onDone()); }
+    else { doSchedule(); }
   }
   function ensureAnalyser() {
     if (analyserRef.current) {
