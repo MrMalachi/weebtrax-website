@@ -1431,6 +1431,7 @@ function Cta() {
 }
 function BusinessContact() {
   const [state, setState] = React.useState('idle'); // 'idle' | 'copied' | 'failed'
+  const winW = useWinW();
   const isMobile = useIsMobile();
   function handleCopy() {
     // ── UPDATE BUSINESS EMAIL HERE ──────────────────────────────────
