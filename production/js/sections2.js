@@ -106,11 +106,11 @@ const MOOD_TONE = { chill: WT2.blue, nostalgic: WT2.purple, dirty: WT2.red, deep
 function TermPageBar({ page, total, onGoTo }) {
   const [hov, setHov] = React.useState(null);
   const winW = useWinW();
+  const isMobile = useIsMobile();
   if (total <= 1) return null;
   const isFirst = page === 0;
   const isLast = page >= total - 1;
   const wide = winW >= 900;
-  const isMobile = useIsMobile();
   const navBtn = {
     background: 'none',
     fontFamily: WT2.mono,
