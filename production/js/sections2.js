@@ -554,7 +554,7 @@ function ActiveRow({
     kind: "primary",
     sm: true,
     onClick: onPlayToggle
-  }, playing ? '▐▐ Pause' : '▸ Listen'), t.youtubeUrl && t.youtubeUrl !== '#' && /*#__PURE__*/React.createElement("a", {
+  }, /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("span", { style: { fontSize: playing ? 9 : 13, lineHeight: 1 } }, playing ? '▐▐' : '▶'), playing ? ' Pause' : ' Listen')), t.youtubeUrl && t.youtubeUrl !== '#' && /*#__PURE__*/React.createElement("a", {
     href: t.youtubeUrl,
     target: "_blank",
     rel: "noopener noreferrer",
@@ -871,7 +871,7 @@ function Transmissions({
       },
       style: playBtn,
       "aria-label": `${isActive && playing ? 'Pause' : 'Play'} ${t.title}`
-    }, isActive && playing ? '▐▐ PAUSE' : '▶ PLAY'), t.youtubeUrl && t.youtubeUrl !== '#' && /*#__PURE__*/React.createElement("a", {
+    }, /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("span", { style: { fontSize: isActive && playing ? 8 : 12, lineHeight: 1 } }, isActive && playing ? '▐▐' : '▶'), isActive && playing ? ' PAUSE' : ' PLAY')), t.youtubeUrl && t.youtubeUrl !== '#' && /*#__PURE__*/React.createElement("a", {
       href: t.youtubeUrl,
       target: "_blank",
       rel: "noopener noreferrer",
@@ -999,7 +999,7 @@ function Transmissions({
       },
       style: playBtn,
       "aria-label": `${isActive && playing ? 'Pause' : 'Play'} ${t.title}`
-    }, isActive && playing ? '▐▐ PAUSE' : '▶ PLAY'), /*#__PURE__*/React.createElement("div", {
+    }, /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("span", { style: { fontSize: isActive && playing ? 8 : 12, lineHeight: 1 } }, isActive && playing ? '▐▐' : '▶'), isActive && playing ? ' PAUSE' : ' PLAY')), /*#__PURE__*/React.createElement("div", {
       style: {
         display: 'flex',
         gap: 10,
