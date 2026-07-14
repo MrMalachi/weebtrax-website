@@ -584,14 +584,14 @@ function App() {
     currentTrack: currentTrack,
     elapsed: elapsed,
     progress: displayProgress,
-    railW: railW,
+    railW: isMobile ? 0 : railW,
     tickerItems: isMobile ? ['NEW TRANSMISSION EVERY SATURDAY', 'SUBMISSIONS OPEN'] : ['NEW TRANSMISSION EVERY SATURDAY', 'SUBMISSIONS OPEN', pingLabel(ping)],
     onPlayToggle: togglePlay,
     hasPlayed: hasPlayed,
     isMobile: isMobile
   }), /*#__PURE__*/React.createElement("main", {
     style: {
-      marginLeft: railW,
+      marginLeft: isMobile ? 0 : railW,
       paddingBottom: 48
     }
   }, /*#__PURE__*/React.createElement(Hero, {

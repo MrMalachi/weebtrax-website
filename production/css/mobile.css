@@ -7,6 +7,12 @@
 html, body {
   background-color: #0a0b0e !important;
   touch-action: manipulation;
+  overflow-x: hidden !important;
+  max-width: 100% !important;
+}
+
+main {
+  overflow-x: hidden !important;
 }
 
 /* Remove the bottom-left/bottom-right corner brackets from the HOME hero section on mobile (top brackets stay) */
