@@ -554,7 +554,7 @@ function ActiveRow({
     kind: "primary",
     sm: true,
     onClick: onPlayToggle
-  }, /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("span", { style: { fontSize: playing ? 9 : 13, lineHeight: 1, marginRight: 5 } }, playing ? '▐▐' : '▶'), playing ? 'Pause' : 'Listen')), t.youtubeUrl && t.youtubeUrl !== '#' && /*#__PURE__*/React.createElement("a", {
+  }, /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("span", { style: { fontSize: playing ? 9 : 13, lineHeight: 1, marginRight: -4 } }, playing ? '▐▐' : '▶'), playing ? 'Pause' : 'Listen')), t.youtubeUrl && t.youtubeUrl !== '#' && /*#__PURE__*/React.createElement("a", {
     href: t.youtubeUrl,
     target: "_blank",
     rel: "noopener noreferrer",
