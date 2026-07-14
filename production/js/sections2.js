@@ -110,7 +110,7 @@ function TermPageBar({ page, total, onGoTo }) {
   const isFirst = page === 0;
   const isLast = page >= total - 1;
   const wide = winW >= 900;
-  const isMobile = winW < 600;
+  const isMobile = useIsMobile();
   const navBtn = {
     background: 'none',
     fontFamily: WT2.mono,
@@ -610,11 +610,11 @@ function Transmissions({
   onVolChange
 }) {
   const winW = useWinW();
-  const ARCHIVE_PER_PAGE = winW < 600 ? 4 : 5;
+  const isMobile = useIsMobile();
+  const ARCHIVE_PER_PAGE = isMobile ? 4 : 5;
   const narrow = winW < 900;
   const tablet = winW >= 600 && winW < 900;
   const mid = winW >= 900 && winW < 1200;
-  const isMobile = winW < 600;
   const [hover, setHover] = React.useState(-1);
   const [sortIdx, setSortIdx] = React.useState(0);
   const [moodFilter, setMoodFilter] = React.useState(null);
@@ -1056,7 +1056,7 @@ function UplinkMeter() {
 function Submissions() {
   const winW = useWinW();
   const narrow = winW < 900;
-  const isMobile = winW < 600;
+  const isMobile = useIsMobile();
   const [ref, seen] = useReplayOnHidden(isMobile);
   const typed = useTypewriter('upload --track ./your_signal.wav', 48, seen);
   const done = typed.length >= 'upload --track ./your_signal.wav'.length;
@@ -1431,8 +1431,7 @@ function Cta() {
 }
 function BusinessContact() {
   const [state, setState] = React.useState('idle'); // 'idle' | 'copied' | 'failed'
-  const winW = useWinW();
-  const isMobile = winW < 600;
+  const isMobile = useIsMobile();
   function handleCopy() {
     // ── UPDATE BUSINESS EMAIL HERE ──────────────────────────────────
     const emailUser = "baakagaijin";

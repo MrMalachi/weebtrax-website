@@ -18,6 +18,17 @@ function useWinH() {
   }, []);
   return h;
 }
+const MOBILE_MQ = '(max-width: 599px), (max-height: 430px) and (orientation: landscape)';
+function useIsMobile() {
+  const [mobile, setMobile] = React.useState(() => window.matchMedia(MOBILE_MQ).matches);
+  React.useEffect(() => {
+    const mql = window.matchMedia(MOBILE_MQ);
+    const handler = e => setMobile(e.matches);
+    mql.addEventListener('change', handler);
+    return () => mql.removeEventListener('change', handler);
+  }, []);
+  return mobile;
+}
 function fmtTime(secs) {
   const h = Math.floor(secs / 3600);
   const m = Math.floor(secs % 3600 / 60);
@@ -417,6 +428,7 @@ function Hero({
   const [clock, setClock] = React.useState('--:--:--');
   const winW = useWinW();
   const narrow = winW < 1120;
+  const isMobile = useIsMobile();
   const glitchingRef = React.useRef(false);
   const glitchTimer = React.useRef(null);
   const glitchT = React.useRef(0);
@@ -575,7 +587,7 @@ function Hero({
       fontSize: 11.5,
       color: WT2.dim,
       letterSpacing: 1,
-      display: narrow && winW < 600 ? 'none' : 'flex',
+      display: narrow && isMobile ? 'none' : 'flex',
       gap: 18
     }
   }, /*#__PURE__*/React.createElement("span", null, "\u2301 44.1kHz"), /*#__PURE__*/React.createElement("span", null, clock))), /*#__PURE__*/React.createElement("div", {
@@ -777,7 +789,7 @@ function SignalFeed({ scene, onClose, onPrev, onNext }) {
   const hideTimerRef = React.useRef(null);
   const winW = useWinW();
   const winH = useWinH();
-  const narrow = winW < 600;
+  const narrow = useIsMobile();
   const landscape = winH < 430 && winW > winH;
 
   // Inject flash-fade keyframe once
@@ -1287,7 +1299,7 @@ function SceneGrid() {
   React.useEffect(function() {
     if (selected && playerRef.current) {
       var el = playerRef.current;
-      if (window.innerWidth < 600) {
+      if (window.matchMedia(MOBILE_MQ).matches) {
         var rect = el.getBoundingClientRect();
         var targetTop = window.innerHeight * 0.3;
         window.scrollTo({ top: Math.max(0, window.scrollY + rect.top - targetTop), behavior: 'smooth' });
