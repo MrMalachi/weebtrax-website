@@ -267,42 +267,69 @@ function App() {
   }, []);
 
   // Handle phone lock/unlock (visibilitychange).
-  // iOS suspends the AudioContext on hide but does NOT pause the <audio> element —
-  // its currentTime keeps advancing silently, which causes the timer to count while
-  // the phone is asleep and leaves the Web Audio graph out of sync on wake (the
-  // "vinyl skip" when pressing pause). Fix: explicitly pause on hide and resume on show.
+  // Only suspend/resume the AudioContext — do NOT pause the audio element so the
+  // track keeps its position and background audio continues uninterrupted.
+  // Lock-screen play/pause is handled by the Media Session API below.
   React.useEffect(() => {
-    let wasPlaying = false;
     function onVisibilityChange() {
-      const audio = audioRef.current;
       const ctx = audioCtxRef.current;
       if (document.visibilityState === 'hidden') {
-        wasPlaying = audio ? !audio.paused : false;
         if (fadeOutTimerRef.current) { clearTimeout(fadeOutTimerRef.current); fadeOutTimerRef.current = null; }
-        if (audio && !audio.paused) audio.pause();
         if (ctx && ctx.state === 'running') ctx.suspend();
       } else {
-        const doResume = () => {
-          if (!wasPlaying || !audio) { wasPlaying = false; return; }
-          wasPlaying = false;
-          const g = gainNodeRef.current;
-          const c = audioCtxRef.current;
-          if (g && c) {
-            const now = c.currentTime;
-            const targetVol = g.gain.value > 0 ? g.gain.value : 1;
-            g.gain.cancelScheduledValues(now);
-            g.gain.setValueAtTime(0, now);
-            g.gain.linearRampToValueAtTime(targetVol, now + 0.2);
-          }
-          audio.play().catch(() => {});
-        };
-        if (ctx && ctx.state === 'suspended') { ctx.resume().then(doResume).catch(doResume); }
-        else { doResume(); }
+        const audio = audioRef.current;
+        const sync = () => { if (audio) setPlaying(!audio.paused); };
+        if (ctx && ctx.state === 'suspended') ctx.resume().then(sync).catch(sync);
+        else sync();
       }
     }
     document.addEventListener('visibilitychange', onVisibilityChange);
     return () => document.removeEventListener('visibilitychange', onVisibilityChange);
   }, []);
+
+  // Media Session API — wires lock-screen controls to our audio + AudioContext.
+  // The 'play' action handler is a user-gesture context on iOS 15+, which means
+  // ctx.resume() is allowed to succeed even while the page is hidden.
+  React.useEffect(() => {
+    if (!('mediaSession' in navigator)) return;
+    const msPlay = () => {
+      const audio = audioRef.current;
+      const ctx = audioCtxRef.current;
+      const doPlay = () => { if (audio && audio.paused) audio.play().catch(() => {}); };
+      if (ctx && ctx.state === 'suspended') ctx.resume().then(doPlay).catch(doPlay);
+      else doPlay();
+    };
+    const msPause = () => {
+      if (fadeOutTimerRef.current) { clearTimeout(fadeOutTimerRef.current); fadeOutTimerRef.current = null; }
+      const audio = audioRef.current;
+      if (audio && !audio.paused) audio.pause();
+    };
+    const msSeekTo = d => {
+      const audio = audioRef.current;
+      if (audio && isFinite(audio.duration) && d.seekTime != null)
+        audio.currentTime = Math.max(0, Math.min(d.seekTime, audio.duration));
+    };
+    const msSeekFwd = d => { const audio = audioRef.current; if (audio) audio.currentTime = Math.min(audio.currentTime + ((d && d.seekOffset) || 10), audio.duration || 0); };
+    const msSeekBwd = d => { const audio = audioRef.current; if (audio) audio.currentTime = Math.max(audio.currentTime - ((d && d.seekOffset) || 10), 0); };
+    navigator.mediaSession.setActionHandler('play', msPlay);
+    navigator.mediaSession.setActionHandler('pause', msPause);
+    try { navigator.mediaSession.setActionHandler('seekto', msSeekTo); } catch {}
+    navigator.mediaSession.setActionHandler('seekforward', msSeekFwd);
+    navigator.mediaSession.setActionHandler('seekbackward', msSeekBwd);
+    return () => ['play', 'pause', 'seekforward', 'seekbackward'].forEach(a => {
+      try { navigator.mediaSession.setActionHandler(a, null); } catch {}
+    });
+  }, []);
+
+  // Update Media Session metadata when the active track changes
+  React.useEffect(() => {
+    if (!('mediaSession' in navigator) || !window.MediaMetadata) return;
+    navigator.mediaSession.metadata = new window.MediaMetadata({
+      title: activeTx.title || 'WeebTrax',
+      artist: 'WeebTrax',
+      album: 'ARCHIVE.SYS'
+    });
+  }, [activeTxId]);
 
   // Wire real HTML audio events
   React.useEffect(() => {
@@ -333,9 +360,11 @@ function App() {
     function onPlay() {
       setPlaying(true);
       setHasPlayed(true);
+      if ('mediaSession' in navigator) navigator.mediaSession.playbackState = 'playing';
     }
     function onPause() {
       setPlaying(false);
+      if ('mediaSession' in navigator) navigator.mediaSession.playbackState = 'paused';
     }
     function onEnded() {
       setAudioProgress(1);
