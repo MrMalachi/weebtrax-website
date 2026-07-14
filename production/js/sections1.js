@@ -1514,7 +1514,6 @@ function MobileNav() {
       borderTop: '1px solid ' + WT2.line,
       backdropFilter: 'blur(8px)',
       WebkitBackdropFilter: 'blur(8px)',
-      display: 'flex',
       height: 48,
     }
   }, _nav.map(function(label, i) {
