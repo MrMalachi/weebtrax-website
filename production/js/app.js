@@ -216,7 +216,7 @@ function App() {
   const ping = usePing(18000);
   const winW = useWinW();
   const isMobile = useIsMobile();
-  const railW = winW < 560 ? RAIL_W_NARROW : RAIL_W;
+  const railW = winW < 900 ? RAIL_W_NARROW : RAIL_W;
   const audioRef = React.useRef(null);
   const audioCtxRef = React.useRef(null);
   const analyserRef = React.useRef(null);

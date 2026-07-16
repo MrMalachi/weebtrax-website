@@ -45,7 +45,7 @@ function Rail() {
   const [hovWT, setHovWT] = React.useState(false);
   const wtTimerRef = React.useRef(null);
   const winW = useWinW();
-  const compact = winW < 560;
+  const compact = winW < 900;
   const rW = compact ? RAIL_W_NARROW : RAIL_W;
   React.useEffect(() => {
     function onScroll() {

@@ -685,7 +685,7 @@ function Transmissions({
   return /*#__PURE__*/React.createElement("section", {
     id: "wt-archive",
     style: {
-      padding: narrow ? '60px 24px' : '90px 56px',
+      padding: winW < 1100 ? '60px 24px' : '90px 56px',
       borderBottom: `1px solid ${WT2.line}`,
       position: 'relative',
       overflow: 'hidden'
@@ -1057,7 +1057,7 @@ function UplinkMeter() {
 }
 function Submissions() {
   const winW = useWinW();
-  const narrow = winW < 900;
+  const narrow = winW < 1100;
   const isMobile = useIsMobile();
   const [ref, seen] = useReplayOnHidden(isMobile);
   const typed = useTypewriter('upload --track ./your_signal.wav', 48, seen);
@@ -1104,7 +1104,7 @@ function Submissions() {
     id: "wt-uplink",
     ref: ref,
     style: {
-      padding: narrow ? '60px 24px' : '90px 56px',
+      padding: winW < 1100 ? '60px 24px' : '90px 56px',
       borderBottom: `1px solid ${WT2.line}`,
       position: 'relative',
       overflow: 'hidden'
@@ -1498,7 +1498,7 @@ function BusinessContact() {
 }
 function Footer() {
   const winW = useWinW();
-  const narrow = winW < 600;
+  const narrow = winW < 900;
   const NAV = [['HOME', 'wt-index'], ['ARCHIVE', 'wt-archive'], ['SCENES', 'wt-signal'], ['SUBMIT', 'wt-uplink'], ['ABOUT', 'wt-wired']];
   const SOCIALS = [['YOUTUBE', 'https://www.youtube.com/@WeebTrax'], ['SOUNDCLOUD', 'https://soundcloud.com/weebtrax?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing'], ['INSTAGRAM', 'https://www.instagram.com/weeb_trax'], ['TIKTOK', 'https://www.tiktok.com/@weebtrax']];
   function scrollTo(id) {
