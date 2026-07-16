@@ -97,21 +97,13 @@ main { margin-left: 0 !important; }
 
 /* Mood chips: horizontal scroll strip — no wrapping, hidden scrollbar */
 .wt-mood-chips {
-  /* space-between (not flex-start): when the chips fit without overflowing, this distributes the
-     small leftover space across the gaps so the last chip (DEEP) reaches the right edge the same
-     way the first chip (ALL) already reaches the left edge. Falls back to normal scrolling
-     behavior if chips ever overflow a narrower viewport, since there's no leftover space to distribute then. */
-  justify-content: space-between !important;
+  justify-content: flex-start !important;
+  gap: 8px !important;
   flex-wrap: nowrap !important;
   overflow-x: auto !important;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
   -ms-overflow-style: none;
-  /* pan-x: iOS handles horizontal swipes here (chip strip scrolls); vertical swipes pass
-     through to the page instead of being captured by the overflow container. */
-  /* pan-x pan-y: horizontal swipes scroll the strip; vertical swipes pass through to
-     the page. pan-y is required so vertical scrolling still works when the chips don't
-     overflow (e.g. on wider narrow viewports where all chips fit). */
   touch-action: pan-x pan-y;
 }
 .wt-mood-chips::-webkit-scrollbar { display: none; }
@@ -264,22 +256,21 @@ main { margin-left: 0 !important; }
 #wt-index {
   min-height: calc(100vh - 96px) !important;
   min-height: calc(100dvh - 96px) !important;
-  padding-top: 64px !important;
+  padding-top: 0 !important;
   padding-bottom: 64px !important;
-  /* center (not flex-start): on tall devices like Pro Max, flex-start left a huge dead zone
-     between the CTA buttons and the crowd image at the bottom. Centering distributes the
-     space evenly above and below the text block. */
-  justify-content: center !important;
+  /* flex-start: puts dead space below the CTA buttons (before the crowd image) rather than
+     above the text block. Space below the CTAs reads as intentional breathing room;
+     space above MODULE.00 looked like a layout gap. On tall phones the crowd image anchors
+     the bottom regardless of how much space precedes it. */
+  justify-content: flex-start !important;
 }
 
-/* Hero text block: manual spacing so MODULE sits tight above WeebTrax */
+/* Hero text block: clears the floating head (ends ~120px from section top) + caption with breathing room */
 .wt-hero-text {
   display: flex;
   flex-direction: column;
   gap: 0;
-  /* +24px over the original 32px — creates more breathing room below the floating head/caption,
-     which sit above this block and aren't part of it. */
-  padding-top: 56px !important;
+  padding-top: 100px !important;
 }
 
 .wt-hero-module  { margin-bottom: 14px !important; padding-top: 32px; }   /* MODULE → WeebTrax */
