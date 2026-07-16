@@ -313,6 +313,9 @@ main { margin-left: 0 !important; }
   background: rgba(143, 191, 159, 0.1) !important;
 }
 
+/* Scenes: "SELECTED SIGNAL / SELECT A SIGNAL ↓" row — not useful on mobile since the player opens inline directly below the grid */
+.wt-signal-label-row { display: none !important; }
+
 /* Scene cards: compact + consistent height — hide desc, reduce padding */
 .wt-scene-card {
   padding: 10px !important;

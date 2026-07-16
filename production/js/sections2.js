@@ -685,7 +685,7 @@ function Transmissions({
   return /*#__PURE__*/React.createElement("section", {
     id: "wt-archive",
     style: {
-      padding: winW < 1100 ? '60px 24px' : '90px 56px',
+      padding: 'clamp(60px, calc(-75px + 15vw), 90px) clamp(24px, calc(-120px + 16vw), 56px)',
       borderBottom: `1px solid ${WT2.line}`,
       position: 'relative',
       overflow: 'hidden'
@@ -1104,7 +1104,7 @@ function Submissions() {
     id: "wt-uplink",
     ref: ref,
     style: {
-      padding: winW < 1100 ? '60px 24px' : '90px 56px',
+      padding: 'clamp(60px, calc(-75px + 15vw), 90px) clamp(24px, calc(-120px + 16vw), 56px)',
       borderBottom: `1px solid ${WT2.line}`,
       position: 'relative',
       overflow: 'hidden'

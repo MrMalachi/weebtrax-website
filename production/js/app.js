@@ -128,6 +128,7 @@ function BroadcastBar({ playing, activeTitle, currentTrack, elapsed, progress, r
       position: 'fixed', bottom: 0, left: railW, right: 0, zIndex: 150,
       background: WT2.sink,
       borderTop: '1px solid ' + WT2.line,
+      transition: 'left 0.2s ease',
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: { display: 'flex', alignItems: 'center', gap: 12, padding: '0 16px', height: 34 }
@@ -609,7 +610,8 @@ function App() {
   }), /*#__PURE__*/React.createElement("main", {
     style: {
       marginLeft: isMobile ? 0 : railW,
-      paddingBottom: 48
+      paddingBottom: 48,
+      transition: 'margin-left 0.2s ease'
     }
   }, /*#__PURE__*/React.createElement(Hero, {
     playing: playing,

@@ -1355,6 +1355,7 @@ function SceneGrid() {
       }
     }, isAll ? 'ALL' : 'EP ' + String(ep).padStart(2, '0'));
   })), /*#__PURE__*/React.createElement("div", { className: 'wt-ep-fade-hint-left', ref: epFadeLeftRef }), /*#__PURE__*/React.createElement("div", { className: 'wt-ep-fade-hint' })), /*#__PURE__*/React.createElement("div", {
+    className: 'wt-signal-label-row',
     style: {
       display: 'flex',
       justifyContent: 'flex-end',
@@ -1418,7 +1419,7 @@ function Features() {
   return /*#__PURE__*/React.createElement("section", {
     id: "wt-signal",
     style: {
-      padding: narrow ? '52px 24px' : '72px 56px',
+      padding: 'clamp(52px, calc(-38px + 10vw), 72px) clamp(24px, calc(-120px + 16vw), 56px)',
       borderBottom: `1px solid ${WT2.line}`,
       position: 'relative',
       overflow: 'hidden'
