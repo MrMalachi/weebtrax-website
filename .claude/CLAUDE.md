@@ -87,7 +87,7 @@ Generates: archive rows, scene cards, thumbnails, play buttons, YT/SC links, moo
 - Mood→accent color mapping: `chill→blue`, `nostalgic→purple`, `dirty→red`, `deep→green`
 - Serve with: `cd production && python3 -m http.server 3000` (site now lives under `production/`, not the repo root — serving from the wrong directory causes `/public/assets/metadata/*.json` 404s and a BOOT FAILURE screen)
 
-### Current features (as of 2026-07-14)
+### Current features (as of 2026-07-16)
 - **Archive**: 94 mixes, mood filter chips (right-aligned, above player), NEWEST/OLDEST/A-Z sort, 5-per-page pagination, active row player
 - **Archive status line**: shows filtered file count only (e.g. `094 files`), not a fraction
 - **Playback**: auto-advance to next track, keyboard shortcuts (Space/←/→), session restore via localStorage. Spacebar routes through `togglePlayRef` to avoid stale closure.
@@ -98,9 +98,18 @@ Generates: archive rows, scene cards, thumbnails, play buttons, YT/SC links, moo
 - **Lock screen controls (iOS)**: Media Session API registered in `app.js`. `play` action handler calls `ctx.resume()` then `audio.play()` if paused; `pause` cancels any pending fade then calls `audio.pause()`; `seekTo/Forward/Backward` wired; metadata updated on track change; `playbackState` synced in `onPlay`/`onPause`. On `visibilitychange` hide, the audio element IS explicitly paused (`audio.pause()`) so `onPause` fires → `setPlaying(false)` and `timeupdate` stops — prevents timer from advancing while phone is asleep. AudioContext is also suspended. On show, elapsed is re-synced from `audio.currentTime` and ctx is resumed.
 - **iOS audio race condition — `fadeOutAbortRef`**: `fadeOut()` handles a suspended AudioContext by calling `ctx.resume().then(doSchedule)` — `doSchedule` runs asynchronously. If `fadeIn()` fires before `doSchedule` resolves, the old code cancelled `fadeOutTimerRef` (the setTimeout) but the timer hadn't been set yet, so nothing was cancelled. `doSchedule` then ran anyway, driving gain to 0 and calling `audio.pause()` mid-play (the "vinyl scratch"). Fix: `fadeOutAbortRef` holds an abort closure set at the start of each `fadeOut` and checked by `doSchedule` before executing. `fadeIn()`, `msPause()`, and the `visibilitychange` hide handler all call `fadeOutAbortRef.current()` before doing their own work.
 - **`togglePlay` uses `audio.paused` not React state**: After a lock/unlock cycle, React `playing` state can be stale. `togglePlay` now reads `audio.paused` (ground truth on the DOM element) to decide whether to pause or play, avoiding stale-closure toggle inversions.
-- **Mobile detection**: `useIsMobile()` hook defined in `sections1.js` uses `window.matchMedia(MOBILE_MQ)` where `MOBILE_MQ = '(max-width: 599px), (max-height: 430px) and (orientation: landscape)'` — exactly matches the `<link media>` on `mobile.css`. All JS mobile branches use this hook; `winW < 600` is replaced throughout. `<main>` marginLeft and BroadcastBar `left` use `isMobile ? 0 : railW` directly in JS rather than relying on CSS `!important` to override the inline style.
+- **Mobile detection**: `useIsMobile()` hook defined in `sections1.js` uses `window.matchMedia(MOBILE_MQ)` where `MOBILE_MQ = '(max-width: 599px)'` — exactly matches the `<link media>` on `mobile.css`. All JS mobile branches use this hook. `<main>` marginLeft and BroadcastBar `left` use `isMobile ? 0 : railW` directly in JS rather than relying on CSS `!important` to override the inline style.
+- **Responsive design philosophy**: Breakpoints are **width-only** — no orientation or device detection. Landscape phones (wide viewport) get the desktop layout. This prevents split-brain states where CSS and JS disagree. `mobile.css` loads only at `≤599px`; everything above is desktop CSS.
+- **Responsive breakpoint system** (as of 2026-07-16):
+  - `<600px` — mobile: `mobile.css` loads, rail hidden, bottom nav shows, `isMobile=true`
+  - `600–899px` — compact desktop: rail `48px` (`compact = winW < 900`), tablet archive table (`36px 1fr 96px`), section padding `24px`, single-col footer, single-col submissions
+  - `900px+` — full desktop: rail `112px`, 5-col archive table (mid: `40px 1fr 80px 90px 120px`), 3-col footer
+  - `1100px+` — wide: section padding expands to `56px`, submissions goes 2-col, archive wide table (`48px 1fr 100px 108px 152px`)
+  - `1200px+` — large: episode filter buttons enlarge to `11px` font
+- **Rail compact threshold**: `compact = winW < 900` in `app.js`. The old `winW < 560` threshold was inside the mobile range where the rail is hidden by CSS, so it never fired at any visible desktop width. 900px means the compact (48px) rail is active from 600px to 899px.
+- **Hero visual**: Lain Ken Burns image renders at `winW >= 600`. Was `>= 480`, which caused a mixing zone (480–599px) where mobile CSS loaded but the desktop Lain image appeared simultaneously.
 - **Play/pause icon pattern**: all play/pause buttons wrap their icon in `React.createElement("span", { style: { fontSize: N, lineHeight: 1, marginRight: M } }, icon)` inside a `React.Fragment` with the label text. `playBtn` (archive rows, `sections2.js`) uses `display: inline-flex, alignItems: center` — no built-in gap, so `marginRight: 5` controls spacing. `Btn` component (`core.js`) already has `gap: 9` between flex children, so icon spans inside Btn use `marginRight: -4` to net ~5px visual gap. Hero CTA icon: `fontSize: 13, marginRight: -4`. Active player icon: `fontSize: playing?9:13, marginRight: -4`. Archive row icon: `fontSize: playing?8:12, marginRight: 5`.
-- **Scenes**: 48 scenes, episode filter (EP 01–13, no EP 09 footage), 6-per-page pagination; grid uses `repeat(auto-fill, minmax(300px, 1fr))` for responsive card sizing
+- **Scenes**: 48 scenes, episode filter (EP 01–13, no EP 09 footage), 6-per-page pagination; grid uses `repeat(2, 1fr)` (fixed 2-per-row at ≥600px) with `max-width: 1100px` on `.wt-scene-grid` so cards cap at ~542px each on large viewports. Mobile (≤599px) keeps 2-per-row via mobile.css `aspect-ratio: 4/3`.
 - **Scene player** (`SignalFeed`): Wired/Navi aesthetic — `WIRED://NODE.227` header, click-to-toggle video, flash icon, fullscreen mode (scroll-locked), mobile responsive (<600px); corner labels (`NODE.227`, `EP.XX`, timecode) offset `22/26px` from edges for breathing room from `FrameTicks` brackets; prev/next scene navigation with disabled state at boundaries; closing fullscreen does NOT trigger on prev/next (key prop removed from SignalFeed)
 - **Hero text bar**: repositioned to `top: 32, left/right: 36` to match video player corner offset ratio (`inset: 22` + 10/14px breathing room)
 - **Rail WT logo**: hover state — accent border glow, corner ticks expand 6→9px, WT text bloom, `// WEEBTRAX` label slides in to the right; click scrolls to top
@@ -112,7 +121,8 @@ Generates: archive rows, scene cards, thumbnails, play buttons, YT/SC links, moo
 #### Mobile-specific features (`css/mobile.css`, loaded only at ≤599px)
 - **Bottom nav bar** (`MobileNav` in `sections1.js`): fixed 5-tab bar — Home / Archive / Scenes / Submit / About; accent dot on active section; smooth scroll via `window.scrollTo({ top: el.offsetTop })`
 - **Oscilloscope**: compact height (60px vs 110px desktop), strokeWidth 2.5; VolBar hidden
-- **Mood chips**: horizontal scroll strip, no wrapping, hidden scrollbar, larger tap targets
+- **Mood chips**: horizontal scroll strip, no wrapping, hidden scrollbar, larger tap targets. `touch-action: pan-x pan-y` on `.wt-mood-chips` — `pan-y` is required (not just `pan-x`) so vertical page scroll still works when chips don't overflow horizontally at wider narrow viewports.
+- **Episode filter scroll**: `.wt-ep-scroll` also gets `touch-action: pan-x pan-y; -webkit-overflow-scrolling: touch` for the same reason.
 - **Archive status bar**: flex row — `094 files` pinned left, `sort: newest ↕` pinned right; path spans hidden
 - **Active player**: metadata line (`TX-id · slug · date`) hidden; track title splits on `|` with `pre-line` whitespace — text after pipe moves to new line, pipe stays
 - **Seekbar**: visual-drag pattern — local position state during drag, `audio.currentTime` only written on pointerdown + pointerup; `touchAction: 'none'` prevents browser scroll stealing
@@ -154,10 +164,10 @@ Generates: archive rows, scene cards, thumbnails, play buttons, YT/SC links, moo
 
 ### Scenes
 - [x] Prev/next scene navigation within the video player — ← → buttons with disabled state at boundaries; fullscreen stays open on nav
-- [ ] Scene card thumbnails are a fixed 100px height — feel small on large screens
+- [x] Scene card thumbnails — `repeat(2, 1fr)` fixed 2-per-row with `max-width: 1100px` on the grid; `aspect-ratio: 4/3` on cards
 
 ### Archive
-- [ ] Wide table layout (6 columns) is cramped on mid-size tablets — needs a responsive breakpoint between narrow and wide
+- [x] Wide table layout — tablet (600–899px) gets 3-col, mid (900–1199px) gets 5-col, wide (1200px+) gets 5-col with wider columns
 - [ ] Mood filter chips and sort control wrap awkwardly on some screen sizes
 
 ### Data gaps
@@ -201,11 +211,17 @@ Mobile has a working bottom nav bar and several archive/player polish passes. Co
 - [x] Fixed clipboard copy silently failing when testing over plain HTTP / local network IP (added `execCommand` fallback)
 - [x] Broadcast bar play/pause toggle — always visible before and during playback; elapsed time counter hidden on mobile; WIRED ACTIVITY / connection-speed item removed from mobile ticker; ON AIR nudged left via `padding-left: 8px` on broadcast bar inner div
 - [x] NODE.227 and `wired://weebtrax —` prefix removed from About section footer on mobile (`.wt-node-label, .wt-wired-prefix { display: none; }` in `mobile.css`); both remain on desktop
-- [x] Landscape orientation: `mobile.css` loaded via combined `media` attr (`max-width:599px, max-height:430px and orientation:landscape`); JS uses same query string in `useIsMobile()` so CSS and JS breakpoints always agree; compact nav/padding overrides in `@media (orientation: landscape)` block inside `mobile.css`
+- [x] Landscape orientation — **orientation detection removed entirely** (2026-07-16). `mobile.css` now loads only at `max-width: 599px` (no orientation clause). `MOBILE_MQ` in `sections1.js` matches. Landscape phones (wide viewport ~956px) use the desktop layout. Eliminates the split-brain state where CSS said "mobile" and JS saw a desktop-width viewport simultaneously. The old `@media (orientation: landscape)` compact-layout block in `mobile.css` is still present as a sub-query inside the `≤599px` load context, so narrow-and-landscape edge cases (small tablets) still get compact overrides.
 - [x] Mobile horizontal overflow fixed — `<main>` and BroadcastBar use `isMobile ? 0 : railW` in JS (`app.js`) rather than relying on `main { margin-left: 0 !important }` CSS override; `mobile.css` also adds `overflow-x: hidden !important; max-width: 100%` to `html, body` and `main`
 - [x] React hooks error in Scenes section (`TermPageBar`) — `useIsMobile()` was called after `if (total <= 1) return null` early return; moved above the guard so hook count is always consistent
 - [x] iOS timer drift — `visibilitychange` hide now calls `audio.pause()` explicitly; `onPause` fires → `setPlaying(false)` and `timeupdate` stops, so elapsed time freezes when phone is locked instead of silently advancing
 - [x] iOS vinyl scratch after lock/unlock — added `fadeOutAbortRef` abort flag; `doSchedule` (async, runs after `ctx.resume()` resolves) checks the flag before executing so a `fadeIn()` call can cancel it even before the timeout is set
+- [x] Width-based responsive design overhaul (2026-07-16) — removed all orientation/device detection; pure viewport-width breakpoints at 600 / 900 / 1100 / 1200px; rail compact threshold raised from `winW < 560` → `winW < 900` so compact rail (48px) actually activates at 600–899px; hero Lain image threshold raised from `winW >= 480` → `winW >= 600` to close the mixing zone
+- [x] Section padding expansion moved from 900px → 1100px so rail expansion (at 900px) and padding expansion don't both fire at once — only ~63px width swing at 900px instead of ~127px
+- [x] Footer single-col until 900px (was 720px — landscape phone viewport of ~956px wrongly triggered 3-col)
+- [x] Submit button icon changed from `►` + trailing `↗` to `▲` — `"▲ SUBMIT YOUR MUSIC"` in the Track Submissions section (`sections2.js`)
+- [x] Hero dead space fixed — `#wt-index` uses `justify-content: center` in `mobile.css` (was `flex-start`), closing the gap between CTA buttons and crowd image on tall phones like iPhone 16 Pro Max
+- [x] iOS touch scroll unblocking — mood chips and episode filter got `touch-action: pan-x pan-y` so vertical page scroll isn't captured when the container doesn't overflow horizontally
 
 **Still to do:**
 
