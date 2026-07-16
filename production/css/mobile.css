@@ -107,6 +107,9 @@ main { margin-left: 0 !important; }
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
   -ms-overflow-style: none;
+  /* pan-x: iOS handles horizontal swipes here (chip strip scrolls); vertical swipes pass
+     through to the page instead of being captured by the overflow container. */
+  touch-action: pan-x;
 }
 .wt-mood-chips::-webkit-scrollbar { display: none; }
 .wt-mood-chips-wrap { display: block; }
@@ -260,7 +263,10 @@ main { margin-left: 0 !important; }
   min-height: calc(100dvh - 96px) !important;
   padding-top: 64px !important;
   padding-bottom: 64px !important;
-  justify-content: flex-start !important;
+  /* center (not flex-start): on tall devices like Pro Max, flex-start left a huge dead zone
+     between the CTA buttons and the crowd image at the bottom. Centering distributes the
+     space evenly above and below the text block. */
+  justify-content: center !important;
 }
 
 /* Hero text block: manual spacing so MODULE sits tight above WeebTrax */

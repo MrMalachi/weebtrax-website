@@ -1269,7 +1269,7 @@ function Submissions() {
     style: submitFlash ? {
       boxShadow: `0 0 20px ${WT2.green}, 0 0 32px rgba(143,191,159,0.35)`
     } : {}
-  }, "\u25BA SUBMIT YOUR MUSIC \u2197"), /*#__PURE__*/React.createElement(Btn, {
+  }, "\u25B2 SUBMIT YOUR MUSIC"), /*#__PURE__*/React.createElement(Btn, {
     onClick: copyLink,
     style: linkState === 'copied' ? {
       background: 'rgba(143,191,159,0.08)',
