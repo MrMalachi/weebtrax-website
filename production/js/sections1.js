@@ -18,7 +18,7 @@ function useWinH() {
   }, []);
   return h;
 }
-const MOBILE_MQ = '(max-width: 599px), (max-height: 430px) and (orientation: landscape)';
+const MOBILE_MQ = '(max-width: 599px)';
 function useIsMobile() {
   const [mobile, setMobile] = React.useState(() => window.matchMedia(MOBILE_MQ).matches);
   React.useEffect(() => {
@@ -507,7 +507,7 @@ function Hero({
     src: "public/assets/images/hero-crowd-mobile.png",
     alt: "",
     "aria-hidden": true
-  }), winW >= 480 && /*#__PURE__*/React.createElement("div", {
+  }), winW >= 600 && /*#__PURE__*/React.createElement("div", {
     className: "wt-hero-visual",
     style: winW < 1120 ? {
       opacity: winW < 760 ? 0.35 : 0.55

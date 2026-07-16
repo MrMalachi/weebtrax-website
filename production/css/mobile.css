@@ -109,7 +109,10 @@ main { margin-left: 0 !important; }
   -ms-overflow-style: none;
   /* pan-x: iOS handles horizontal swipes here (chip strip scrolls); vertical swipes pass
      through to the page instead of being captured by the overflow container. */
-  touch-action: pan-x;
+  /* pan-x pan-y: horizontal swipes scroll the strip; vertical swipes pass through to
+     the page. pan-y is required so vertical scrolling still works when the chips don't
+     overflow (e.g. on wider narrow viewports where all chips fit). */
+  touch-action: pan-x pan-y;
 }
 .wt-mood-chips::-webkit-scrollbar { display: none; }
 .wt-mood-chips-wrap { display: block; }
@@ -287,6 +290,8 @@ main { margin-left: 0 !important; }
 .wt-ep-scroll {
   scrollbar-width: none;
   -ms-overflow-style: none;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-x pan-y;
 }
 .wt-ep-scroll::-webkit-scrollbar { display: none; }
 .wt-ep-fade-hint {
@@ -365,6 +370,10 @@ main { margin-left: 0 !important; }
   .wt-hero-head-mobile { top: 6px !important; width: 44px !important; }
   .wt-hero-head-say { top: 55px !important; }
   .wt-hero-crowd-mobile { display: none !important; }
+  /* Landscape winW is 800-950px, which passes the winW >= 480 JS check and renders
+     the Lain desktop visual even though mobile.css is loaded. Hide it so the hero
+     stays purely mobile in landscape. */
+  .wt-hero-visual { display: none !important; }
 
   /* Compact section padding in landscape */
   #wt-archive { padding-top: 24px !important; padding-bottom: 24px !important; }

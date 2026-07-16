@@ -1498,7 +1498,7 @@ function BusinessContact() {
 }
 function Footer() {
   const winW = useWinW();
-  const narrow = winW < 720;
+  const narrow = winW < 600;
   const NAV = [['HOME', 'wt-index'], ['ARCHIVE', 'wt-archive'], ['SCENES', 'wt-signal'], ['SUBMIT', 'wt-uplink'], ['ABOUT', 'wt-wired']];
   const SOCIALS = [['YOUTUBE', 'https://www.youtube.com/@WeebTrax'], ['SOUNDCLOUD', 'https://soundcloud.com/weebtrax?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing'], ['INSTAGRAM', 'https://www.instagram.com/weeb_trax'], ['TIKTOK', 'https://www.tiktok.com/@weebtrax']];
   function scrollTo(id) {
