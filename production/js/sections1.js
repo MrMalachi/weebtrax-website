@@ -576,13 +576,15 @@ function Hero({
   }, "ONLINE"), /*#__PURE__*/React.createElement(Cursor, null)), /*#__PURE__*/React.createElement("div", {
     style: {
       fontFamily: WT2.mono,
-      fontSize: 11.5,
-      color: WT2.dim,
+      fontSize: isMobile ? 10.5 : 11.5,
+      color: isMobile ? WT2.body : WT2.dim,
       letterSpacing: 1,
-      display: narrow && isMobile ? 'none' : 'flex',
+      display: 'flex',
       gap: 18
     }
-  }, /*#__PURE__*/React.createElement("span", null, "\u2301 44.1kHz"), /*#__PURE__*/React.createElement("span", null, clock))), /*#__PURE__*/React.createElement("div", {
+  }, !isMobile && /*#__PURE__*/React.createElement("span", null, "\u2301 44.1kHz"), /*#__PURE__*/React.createElement("span", {
+    style: isMobile ? { textShadow: '0 1px 6px rgba(0,0,0,0.95), 0 0 12px rgba(0,0,0,0.8)' } : {}
+  }, clock))), /*#__PURE__*/React.createElement("div", {
     className: "wt-hero-text",
     style: {
       ...(narrow ? {
