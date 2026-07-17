@@ -85,9 +85,9 @@ Generates: archive rows, scene cards, thumbnails, play buttons, YT/SC links, moo
 - `sections2.js` — `getMixes()` transforms `window.__WT_MIXES` entries; all 94 mixes render with mood filter, sort, and pagination
 - `sections1.js` — `SceneGrid` renders all 48 scenes with episode filter, scene player, and pagination
 - Mood→accent color mapping: `chill→blue`, `nostalgic→purple`, `dirty→red`, `deep→green`
-- Serve with: `cd production && python3 -m http.server 3000` (site now lives under `production/`, not the repo root — serving from the wrong directory causes `/public/assets/metadata/*.json` 404s and a BOOT FAILURE screen)
+- Serve with: `cd production && python3 serve.py` — use `serve.py`, NOT `python3 -m http.server 3000` (the built-in server crashes on dropped audio connections) and NOT `python3 -m serve.py` (module mode, wrong). `serve.py` uses `StableServer(ThreadingHTTPServer)` which silences `BrokenPipeError`/`ConnectionResetError` from Safari dropping audio streams mid-response, and installs `signal.SIG_IGN` for SIGTERM so zsh background-job management can't kill the process. Site must be served from `production/` — serving from the repo root causes `/public/assets/metadata/*.json` 404s and a BOOT FAILURE screen.
 
-### Current features (as of 2026-07-16)
+### Current features (as of 2026-07-17)
 - **Archive**: 94 mixes, mood filter chips (right-aligned, above player), NEWEST/OLDEST/A-Z sort, 5-per-page pagination, active row player
 - **Archive status line**: shows filtered file count only (e.g. `094 files`), not a fraction
 - **Playback**: auto-advance to next track, keyboard shortcuts (Space/←/→), session restore via localStorage. Spacebar routes through `togglePlayRef` to avoid stale closure.
@@ -108,7 +108,7 @@ Generates: archive rows, scene cards, thumbnails, play buttons, YT/SC links, moo
   - `1100px+` — wide: section padding reaches max (`56px`), submissions goes 2-col, archive wide table (`48px 1fr 100px 108px 152px`)
   - `1200px+` — large: episode filter buttons enlarge to `11px` font
 - **Rail compact threshold**: `compact = winW < 900` in `app.js`. The old `winW < 560` threshold was inside the mobile range where the rail is hidden by CSS, so it never fired at any visible desktop width. 900px means the compact (48px) rail is active from 600px to 899px.
-- **Hero visual**: Lain Ken Burns image renders at `winW >= 600`. Was `>= 480`, which caused a mixing zone (480–599px) where mobile CSS loaded but the desktop Lain image appeared simultaneously.
+- **Hero visual**: Lain Ken Burns image renders when `!isMobile` (not `winW >= 600`). Using `winW` (integer) vs CSS `max-width: 599px` could disagree by 1px at the boundary — `!isMobile` ties both to the same matchMedia signal so they can never fire simultaneously. At `winW < 1120`, opacity is `winW < 760 ? 0.35 : 0.55`.
 - **Play/pause icon pattern**: all play/pause buttons wrap their icon in `React.createElement("span", { style: { fontSize: N, lineHeight: 1, marginRight: M } }, icon)` inside a `React.Fragment` with the label text. `playBtn` (archive rows, `sections2.js`) uses `display: inline-flex, alignItems: center` — no built-in gap, so `marginRight: 5` controls spacing. `Btn` component (`core.js`) already has `gap: 9` between flex children, so icon spans inside Btn use `marginRight: -4` to net ~5px visual gap. Hero CTA icon: `fontSize: 13, marginRight: -4`. Active player icon: `fontSize: playing?9:13, marginRight: -4`. Archive row icon: `fontSize: playing?8:12, marginRight: 5`.
 - **Scenes**: 48 scenes, episode filter (EP 01–13, no EP 09 footage), 6-per-page pagination; grid uses `repeat(2, 1fr)` (fixed 2-per-row at ≥600px) with `max-width: 1100px` on `.wt-scene-grid` so cards cap at ~542px each on large viewports. Mobile (≤599px) keeps 2-per-row via mobile.css `aspect-ratio: 4/3`.
 - **Scene player** (`SignalFeed`): Wired/Navi aesthetic — `WIRED://NODE.227` header, click-to-toggle video, flash icon, fullscreen mode (scroll-locked), mobile responsive (<600px); corner labels (`NODE.227`, `EP.XX`, timecode) offset `22/26px` from edges for breathing room from `FrameTicks` brackets; prev/next scene navigation with disabled state at boundaries; closing fullscreen does NOT trigger on prev/next (key prop removed from SignalFeed)
@@ -226,6 +226,12 @@ Mobile has a working bottom nav bar and several archive/player polish passes. Co
 - [x] iOS touch scroll unblocking — mood chips and episode filter got `touch-action: pan-x pan-y` so vertical page scroll isn't captured when the container doesn't overflow horizontally
 - [x] Fluid section padding — Archive, Submit (`sections2.js`) and Scenes (`sections1.js`) padding now uses `clamp()` with `vw` units so padding scales smoothly from 900→1100px instead of snapping; `<main>` and BroadcastBar have `transition: margin-left/left 0.2s ease` to animate the rail width change
 - [x] "SELECTED SIGNAL ↓" label hidden on mobile — added `className: 'wt-signal-label-row'` to the wrapper div (`sections1.js`), hidden via `mobile.css`
+- [x] NODE.227 always visible on compact rail (2026-07-17) — pulse dot + NODE.227 label always rendered in rail footer; sizes scale down in compact mode (`compact ? 5 : 7`px dot, `compact ? 7 : 8.5`px font) instead of being replaced by dot-only
+- [x] Hero status bar / hero text overlap in narrow mode (2026-07-17) — `#wt-index` gets `paddingTop: 80` when `narrow` (`winW < 1120`) so hero text never collides with the absolute status bar at `top: 32`
+- [x] Hero bar status: ONLINE moved to left side on mobile (2026-07-17) — removed `position: absolute` override from mobile.css; element stays in natural flex-row; `margin-top: -12px` fine-tunes vertical alignment to match desktop bar level
+- [x] Clock on right side of mobile hero bar (2026-07-17) — right-side div always rendered (`display: 'flex'`); `⌁ 44.1kHz` hidden on mobile (`!isMobile &&`) to avoid crowding Lain's face; clock gets `textShadow: '0 1px 6px rgba(0,0,0,0.95), 0 0 12px rgba(0,0,0,0.8)'` on mobile so it reads against the dark image background; color raised to `WT2.body` on mobile
+- [x] Lain + mobile-head dual-image fix (2026-07-17) — Lain visual condition changed from `winW >= 600 &&` to `!isMobile &&`; eliminates 1px rounding boundary where CSS saw ≤599px (mobile head visible) while JS saw `winW=600` (Lain also rendered simultaneously)
+- [x] Hero CTA buttons stacked + centered on mobile (2026-07-17) — mobile.css `.wt-hero-cta` gets `flex-direction: column; align-items: center` so SUBMIT YOUR TRACK sits under LISTEN TO THE LATEST MIX; buttons keep natural content width (not stretched)
 
 **Still to do:**
 
