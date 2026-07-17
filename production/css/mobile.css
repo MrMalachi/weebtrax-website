@@ -79,8 +79,8 @@ main { margin-left: 0 !important; }
 .wt-sechead-sub    { display: none !important; }
 .wt-sechead-title  { font-size: 28px !important; }
 
-/* Centre buttons and CTAs */
-.wt-hero-cta { justify-content: center !important; }
+/* Stack CTA buttons vertically */
+.wt-hero-cta { flex-direction: column !important; align-items: stretch !important; }
 .wt-btn { text-align: center; }
 
 /* Archive oscilloscope row visible on mobile — bottom padding (56px) keeps it above the broadcast bar */

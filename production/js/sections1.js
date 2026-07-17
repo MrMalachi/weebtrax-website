@@ -499,7 +499,7 @@ function Hero({
     src: "public/assets/images/hero-crowd-mobile.png",
     alt: "",
     "aria-hidden": true
-  }), winW >= 600 && /*#__PURE__*/React.createElement("div", {
+  }), !isMobile && /*#__PURE__*/React.createElement("div", {
     className: "wt-hero-visual",
     style: winW < 1120 ? {
       opacity: winW < 760 ? 0.35 : 0.55
