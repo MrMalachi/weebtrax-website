@@ -3,9 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#0a0b0e">
+  <meta name="theme-color" content="#8fbf9f">
   <meta name="color-scheme" content="dark">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="WeebTrax">
   <title>WeebTrax — ARCHIVE.SYS</title>
+  <link rel="manifest" href="/manifest.json">
+  <link rel="icon" href="/public/assets/images/favicon-wt.svg" type="image/svg+xml">
+  <link rel="icon" href="/public/assets/images/favicon-wt.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/public/assets/images/apple-touch-icon-wt.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link rel="stylesheet" href="css/styles.css?v=45">
@@ -21,7 +29,14 @@
   <script src="js/tweaks-panel.js?v=41"></script>
   <script src="js/core.js?v=42"></script>
   <script src="js/sections1.js?v=69"></script>
-  <script src="js/sections2.js?v=80"></script>
-  <script src="js/app.js?v=49"></script>
+  <script src="js/sections2.js?v=81"></script>
+  <script src="js/app.js?v=51"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/sw.js').catch(function() {});
+      });
+    }
+  </script>
 </body>
 </html>

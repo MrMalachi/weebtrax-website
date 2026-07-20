@@ -228,7 +228,6 @@ function App() {
   const togglePlayRef = React.useRef(null);
   const fadeOutTimerRef = React.useRef(null);
   const fadeOutAbortRef = React.useRef(null); // cancels pending async doSchedule in fadeOut
-  const hideTimerRef = React.useRef(null); // debounces visibilitychange hidden — macOS zoom fires a brief hidden→visible
   const lastSaveRef = React.useRef(0);
   const [playing, setPlaying] = React.useState(false);
   const [elapsed, setElapsed] = React.useState(Math.floor(_session.currentTime || 0));
@@ -269,54 +268,50 @@ function App() {
     };
   }, []);
 
-  // Handle phone lock/unlock (visibilitychange).
-  // On hide: explicitly pause the audio element (stops timeupdate → timer freezes)
-  // and suspend the AudioContext. onPause fires naturally → setPlaying(false).
-  // On show: re-sync elapsed position, resume ctx if iOS suspended it.
+  // Visibility changes (tab switch, phone lock, browser minimize).
+  // NEVER pause audio on hide — background audio must keep playing through lock screens and tab switches.
+  // On show: sync React state from audio ground truth and resume AudioContext if iOS auto-suspended it.
   React.useEffect(() => {
     function onVisibilityChange() {
       const ctx = audioCtxRef.current;
       const audio = audioRef.current;
       if (document.visibilityState === 'hidden') {
-        // Cancel any in-flight fade-out callbacks so stale doSchedule can't fire after we return.
+        // Only cancel fade callbacks to prevent stale async doSchedule from firing.
         if (fadeOutAbortRef.current) { fadeOutAbortRef.current(); fadeOutAbortRef.current = null; }
         if (fadeOutTimerRef.current) { clearTimeout(fadeOutTimerRef.current); fadeOutTimerRef.current = null; }
-        // Silence immediately on both paths — AudioContext suspension stops output without
-        // touching audio.currentTime, so the timer stays accurate during brief transitions.
-        if (ctx && ctx.state === 'running') ctx.suspend();
-
-        const onMobile = window.matchMedia('(max-width: 599px)').matches;
-        if (onMobile) {
-          // Phone lock: pause the audio element right away so timeupdate stops and the
-          // timer freezes. iOS sometimes fires hidden→visible→hidden rapidly during lock;
-          // the debounce would let audio keep running silently across that cycle, causing
-          // timer drift and vinyl-scratch when the user presses pause after unlock.
-          if (audio && !audio.paused) audio.pause();
-        } else {
-          // Desktop: the macOS green zoom button fires a brief hidden→visible cycle
-          // (~200–300ms). We only pause the audio element if the page stays hidden for
-          // longer than that — AudioContext was already suspended above to silence output.
-          hideTimerRef.current = setTimeout(() => {
-            hideTimerRef.current = null;
-            if (document.visibilityState !== 'hidden') return;
-            if (audio && !audio.paused) audio.pause();
-          }, 350);
-        }
       } else {
-        // Cancel any pending desktop-pause timer (page returned before the 350ms fired).
-        if (hideTimerRef.current) { clearTimeout(hideTimerRef.current); hideTimerRef.current = null; }
-        // Sync elapsed from actual audio position in case it drifted while hidden.
+        // Sync elapsed + playing state from audio element (ground truth after returning from background).
         if (audio) {
           setElapsed(Math.floor(audio.currentTime));
           if (audio.duration && isFinite(audio.duration))
             setAudioProgress(Math.min(audio.currentTime / audio.duration, 1));
           setPlaying(!audio.paused);
         }
+        // iOS auto-suspends AudioContext when the page is hidden; resume so the Web Audio chain works.
         if (ctx && ctx.state === 'suspended') ctx.resume().catch(() => {});
       }
     }
     document.addEventListener('visibilitychange', onVisibilityChange);
     return () => document.removeEventListener('visibilitychange', onVisibilityChange);
+  }, []);
+
+  // BFCache restore — browser preserves page state on back/forward navigation.
+  // AudioContext may be suspended; sync state and resume.
+  React.useEffect(() => {
+    function onPageShow(e) {
+      if (!e.persisted) return;
+      const ctx = audioCtxRef.current;
+      const audio = audioRef.current;
+      if (audio) {
+        setElapsed(Math.floor(audio.currentTime));
+        if (audio.duration && isFinite(audio.duration))
+          setAudioProgress(Math.min(audio.currentTime / audio.duration, 1));
+        setPlaying(!audio.paused);
+      }
+      if (ctx && ctx.state === 'suspended') ctx.resume().catch(() => {});
+    }
+    window.addEventListener('pageshow', onPageShow);
+    return () => window.removeEventListener('pageshow', onPageShow);
   }, []);
 
   // Media Session API — wires lock-screen controls to our audio + AudioContext.
@@ -344,12 +339,24 @@ function App() {
     };
     const msSeekFwd = d => { const audio = audioRef.current; if (audio) audio.currentTime = Math.min(audio.currentTime + ((d && d.seekOffset) || 10), audio.duration || 0); };
     const msSeekBwd = d => { const audio = audioRef.current; if (audio) audio.currentTime = Math.max(audio.currentTime - ((d && d.seekOffset) || 10), 0); };
+    const msPrevTrack = () => {
+      const allMixes = getMixes();
+      const idx = allMixes.findIndex(m => m.id === activeTxIdRef.current);
+      if (idx > 0 && loadTrackRef.current) loadTrackRef.current(allMixes[idx - 1].id);
+    };
+    const msNextTrack = () => {
+      const allMixes = getMixes();
+      const idx = allMixes.findIndex(m => m.id === activeTxIdRef.current);
+      if (idx < allMixes.length - 1 && loadTrackRef.current) loadTrackRef.current(allMixes[idx + 1].id);
+    };
     navigator.mediaSession.setActionHandler('play', msPlay);
     navigator.mediaSession.setActionHandler('pause', msPause);
     try { navigator.mediaSession.setActionHandler('seekto', msSeekTo); } catch {}
     navigator.mediaSession.setActionHandler('seekforward', msSeekFwd);
     navigator.mediaSession.setActionHandler('seekbackward', msSeekBwd);
-    return () => ['play', 'pause', 'seekforward', 'seekbackward'].forEach(a => {
+    try { navigator.mediaSession.setActionHandler('previoustrack', msPrevTrack); } catch {}
+    try { navigator.mediaSession.setActionHandler('nexttrack', msNextTrack); } catch {}
+    return () => ['play', 'pause', 'seekforward', 'seekbackward', 'previoustrack', 'nexttrack'].forEach(a => {
       try { navigator.mediaSession.setActionHandler(a, null); } catch {}
     });
   }, []);
@@ -360,7 +367,12 @@ function App() {
     navigator.mediaSession.metadata = new window.MediaMetadata({
       title: activeTx.title || 'WeebTrax',
       artist: 'WeebTrax',
-      album: 'ARCHIVE.SYS'
+      album: 'WeebTrax Mix Archive',
+      artwork: [
+        { src: '/public/assets/images/apple-touch-icon-wt.png', sizes: '180x180', type: 'image/png' },
+        { src: '/public/assets/images/icon-192.png', sizes: '192x192', type: 'image/png' },
+        { src: '/public/assets/images/icon-512.png', sizes: '512x512', type: 'image/png' }
+      ]
     });
   }, [activeTxId]);
 

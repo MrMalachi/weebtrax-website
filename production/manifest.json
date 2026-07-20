@@ -1,0 +1,29 @@
+{
+  "name": "WeebTrax — ARCHIVE.SYS",
+  "short_name": "WeebTrax",
+  "description": "Curated underground electronic mixes from the digital underground",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0b0e",
+  "theme_color": "#8fbf9f",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "/public/assets/images/apple-touch-icon-wt.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/public/assets/images/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/public/assets/images/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
