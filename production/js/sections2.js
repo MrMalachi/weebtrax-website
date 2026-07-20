@@ -416,6 +416,15 @@ function ActiveRow({
 }) {
   const [hovLink, setHovLink] = React.useState(null);
   const [tracklistOpen, setTracklistOpen] = React.useState(false);
+  const winW = useWinW();
+  const oscH = mobile
+    ? Math.max(72, Math.min(88, Math.round(72 + (winW - 320) / 280 * 16)))
+    : narrow
+    ? Math.max(88, Math.min(108, Math.round(88 + (winW - 600) / 300 * 20)))
+    : Math.max(108, Math.min(124, Math.round(108 + (winW - 900) / 500 * 16)));
+  const oscColW = narrow
+    ? Math.max(200, Math.min(280, Math.round(200 + (winW - 600) / 300 * 80)))
+    : Math.max(280, Math.min(380, Math.round(280 + (winW - 900) / 500 * 100)));
   const extLink = {
     fontFamily: WT2.mono,
     fontSize: 10.5,
@@ -435,10 +444,10 @@ function ActiveRow({
       background: WT2.panel,
       padding: mobile ? 12 : narrow ? 18 : 24,
       position: 'relative',
-      display: narrow ? 'flex' : 'grid',
-      flexDirection: narrow ? 'column' : undefined,
-      gridTemplateColumns: narrow ? undefined : '280px 1fr',
-      gap: narrow ? 16 : 28,
+      display: mobile ? 'flex' : 'grid',
+      flexDirection: mobile ? 'column' : undefined,
+      gridTemplateColumns: mobile ? undefined : oscColW + 'px 1fr',
+      gap: mobile ? 16 : narrow ? 20 : 28,
       minWidth: 0,
       overflow: 'hidden'
     }
@@ -465,7 +474,7 @@ function ActiveRow({
       gap: 8
     }
   }, /*#__PURE__*/React.createElement(Oscilloscope, {
-    height: mobile ? 84 : narrow ? 72 : 110,
+    height: oscH,
     strokeWidth: mobile ? 2.5 : 2.0,
     color: "var(--wt-accent)",
     dense: 1.1,
@@ -477,7 +486,7 @@ function ActiveRow({
     onVolChange: onVolChange,
     tone: "var(--wt-accent)",
     interactive: true,
-    oscHeight: mobile ? 84 : narrow ? 72 : 110
+    oscHeight: oscH
   })), /*#__PURE__*/React.createElement(SeekBar, {
     progress: progress,
     onSeek: onSeek,
@@ -547,8 +556,8 @@ function ActiveRow({
     style: {
       display: 'flex',
       alignItems: 'center',
-      gap: 16,
-      flexWrap: 'wrap'
+      gap: 12,
+      flexWrap: mobile ? 'wrap' : 'nowrap'
     }
   }, /*#__PURE__*/React.createElement(Btn, {
     kind: "primary",
@@ -711,7 +720,7 @@ function Transmissions({
     style: { display: 'flex', justifyContent: 'flex-end', alignItems: 'center', gap: 5, flexWrap: 'wrap', marginBottom: 0 }
   }, /*#__PURE__*/React.createElement("span", {
     className: "wt-mood-label",
-    style: { fontFamily: WT2.mono, fontSize: 10, color: WT2.faint, letterSpacing: 1.5, marginRight: 2 }
+    style: { fontFamily: WT2.mono, fontSize: (!isMobile && !narrow) ? 'clamp(10px, calc(10px + (100vw - 900px) / 500), 11px)' : 10, color: WT2.faint, letterSpacing: 1.5, marginRight: 2 }
   }, "MOOD:"), ['all'].concat(MOODS).map(function(m) {
     const isAll = m === 'all';
     const active = isAll ? !moodFilter : moodFilter === m;
@@ -723,8 +732,11 @@ function Transmissions({
         background: active ? tone : 'none',
         border: '1px solid ' + (active ? tone : WT2.line),
         color: active ? WT2.void : isAll ? WT2.dim : tone,
-        fontFamily: WT2.mono, fontSize: 9.5, letterSpacing: 1.5,
-        padding: '3px 9px', cursor: 'pointer', borderRadius: 0,
+        fontFamily: WT2.mono,
+        fontSize: (!isMobile && !narrow) ? 'clamp(9.5px, calc(9.5px + 1.5 * (100vw - 900px) / 500), 11px)' : 9.5,
+        letterSpacing: 1.5,
+        padding: (!isMobile && !narrow) ? 'clamp(3px, calc(3px + (100vw - 900px) / 500), 4px) clamp(9px, calc(9px + 4 * (100vw - 900px) / 500), 13px)' : '3px 9px',
+        cursor: 'pointer', borderRadius: 0,
         textTransform: 'uppercase', transition: 'all .12s'
       }
     }, m);
@@ -750,7 +762,7 @@ function Transmissions({
   }, (!narrow || tablet) && /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'grid',
-      gridTemplateColumns: tablet ? '36px 1fr 96px' : mid ? '40px 1fr 80px 90px 120px' : '48px 1fr 100px 108px 152px',
+      gridTemplateColumns: tablet ? '36px 1fr 96px' : mid ? '40px 1fr 80px 90px 120px' : '48px 1fr 100px 108px 120px 120px',
       alignItems: 'center',
       padding: '11px 18px',
       borderBottom: `1px solid ${WT2.line}`,
@@ -914,7 +926,7 @@ function Transmissions({
       "aria-label": `${isActive && playing ? 'Pause' : 'Play'} ${t.title}`,
       style: {
         display: 'grid',
-        gridTemplateColumns: tablet ? '36px 1fr 96px' : mid ? '40px 1fr 80px 90px 120px' : '48px 1fr 100px 108px 152px',
+        gridTemplateColumns: tablet ? '36px 1fr 96px' : mid ? '40px 1fr 80px 90px 120px' : '48px 1fr 100px 108px 120px 120px',
         alignItems: 'center',
         padding: '15px 18px',
         borderBottom: i < filtered.length - 1 ? `1px solid ${WT2.line}` : 'none',

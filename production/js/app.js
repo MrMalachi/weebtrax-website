@@ -228,6 +228,7 @@ function App() {
   const togglePlayRef = React.useRef(null);
   const fadeOutTimerRef = React.useRef(null);
   const fadeOutAbortRef = React.useRef(null); // cancels pending async doSchedule in fadeOut
+  const hideTimerRef = React.useRef(null); // debounces visibilitychange hidden — macOS zoom fires a brief hidden→visible
   const lastSaveRef = React.useRef(0);
   const [playing, setPlaying] = React.useState(false);
   const [elapsed, setElapsed] = React.useState(Math.floor(_session.currentTime || 0));
@@ -277,13 +278,34 @@ function App() {
       const ctx = audioCtxRef.current;
       const audio = audioRef.current;
       if (document.visibilityState === 'hidden') {
-        // Cancel any pending fade-out (timer + async doSchedule) to avoid stale callbacks after unlock
+        // Cancel any in-flight fade-out callbacks so stale doSchedule can't fire after we return.
         if (fadeOutAbortRef.current) { fadeOutAbortRef.current(); fadeOutAbortRef.current = null; }
         if (fadeOutTimerRef.current) { clearTimeout(fadeOutTimerRef.current); fadeOutTimerRef.current = null; }
-        if (audio && !audio.paused) audio.pause(); // fires onPause → setPlaying(false), freezes timeupdate
+        // Silence immediately on both paths — AudioContext suspension stops output without
+        // touching audio.currentTime, so the timer stays accurate during brief transitions.
         if (ctx && ctx.state === 'running') ctx.suspend();
+
+        const onMobile = window.matchMedia('(max-width: 599px)').matches;
+        if (onMobile) {
+          // Phone lock: pause the audio element right away so timeupdate stops and the
+          // timer freezes. iOS sometimes fires hidden→visible→hidden rapidly during lock;
+          // the debounce would let audio keep running silently across that cycle, causing
+          // timer drift and vinyl-scratch when the user presses pause after unlock.
+          if (audio && !audio.paused) audio.pause();
+        } else {
+          // Desktop: the macOS green zoom button fires a brief hidden→visible cycle
+          // (~200–300ms). We only pause the audio element if the page stays hidden for
+          // longer than that — AudioContext was already suspended above to silence output.
+          hideTimerRef.current = setTimeout(() => {
+            hideTimerRef.current = null;
+            if (document.visibilityState !== 'hidden') return;
+            if (audio && !audio.paused) audio.pause();
+          }, 350);
+        }
       } else {
-        // Sync elapsed from actual audio position in case it drifted while page was hidden
+        // Cancel any pending desktop-pause timer (page returned before the 350ms fired).
+        if (hideTimerRef.current) { clearTimeout(hideTimerRef.current); hideTimerRef.current = null; }
+        // Sync elapsed from actual audio position in case it drifted while hidden.
         if (audio) {
           setElapsed(Math.floor(audio.currentTime));
           if (audio.duration && isFinite(audio.duration))
