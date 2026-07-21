@@ -893,7 +893,7 @@ function Transmissions({
       "aria-label": `Watch ${t.title} on YouTube (opens in new tab)`,
       onMouseEnter: () => setHovLink(`${t.id}-yt`),
       onMouseLeave: () => setHovLink(null),
-      style: hovLink === `${t.id}-yt` ? extLinkHov : extLink
+      style: hovLink === `${t.id}-yt` ? { ...extLinkHov, marginLeft: 8 } : { ...extLink, marginLeft: 8 }
     }, "YT \u2197"), t.soundcloudUrl && t.soundcloudUrl !== '#' && /*#__PURE__*/React.createElement("a", {
       href: t.soundcloudUrl,
       target: "_blank",

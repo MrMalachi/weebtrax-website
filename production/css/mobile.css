@@ -7,8 +7,10 @@
 html, body {
   background-color: #0a0b0e !important;
   touch-action: manipulation;
-  overflow-x: hidden !important;
   max-width: 100% !important;
+  /* overflow-x: hidden intentionally omitted — setting it on html/body applies to
+     the iOS Safari viewport and blocks horizontal touch-scroll in child containers
+     (mood chips, ep filter). Layout overflow is prevented by max-width and JS margins. */
 }
 
 main {
