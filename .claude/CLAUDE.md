@@ -87,7 +87,7 @@ Generates: archive rows, scene cards, thumbnails, play buttons, YT/SC links, moo
 - Mood→accent color mapping: `chill→blue`, `nostalgic→purple`, `dirty→red`, `deep→green`
 - Serve with: `cd production && python3 serve.py` — use `serve.py`, NOT `python3 -m http.server 3000` (the built-in server crashes on dropped audio connections) and NOT `python3 -m serve.py` (module mode, wrong). `serve.py` uses `StableServer(ThreadingHTTPServer)` which silences `BrokenPipeError`/`ConnectionResetError` from Safari dropping audio streams mid-response, and installs `signal.SIG_IGN` for SIGTERM so zsh background-job management can't kill the process. Site must be served from `production/` — serving from the repo root causes `/public/assets/metadata/*.json` 404s and a BOOT FAILURE screen.
 
-### Current features (as of 2026-07-20)
+### Current features (as of 2026-07-21)
 - **Archive**: 94 mixes, mood filter chips (right-aligned, above player), NEWEST/OLDEST/A-Z sort, 5-per-page pagination, active row player
 - **Archive status line**: shows filtered file count only (e.g. `094 files`), not a fraction
 - **Playback**: auto-advance to next track, keyboard shortcuts (Space/←/→), session restore via localStorage. Spacebar routes through `togglePlayRef` to avoid stale closure.
@@ -171,7 +171,7 @@ Generates: archive rows, scene cards, thumbnails, play buttons, YT/SC links, moo
 
 ### Archive
 - [x] Wide table layout — tablet (600–899px) gets 3-col, mid (900–1199px) gets 5-col, wide (1200px+) gets 5-col with wider columns
-- [ ] Mood filter chips and sort control wrap awkwardly on some screen sizes
+- [x] Mood filter chips and sort control wrap awkwardly on some screen sizes — fixed (2026-07-21): MOOD: label inline with chips, `flex: 0 0 auto` prevents squash, `overflow-x: auto` for scroll on tiny screens, `letter-spacing: 1px`; at 600–1099px TRACK I.D. drops below LISTEN via CSS `flex-basis: 100%` + `order: -1`; nowrap threshold raised to `winW < 1100`
 
 ### Data gaps
 - [ ] Ghetto Symphony Pt. 1 (`mix-046`) and Pt. 2 (`mix-075`) have no tracklist — add manually if descriptions available
@@ -206,7 +206,7 @@ Mobile has a working bottom nav bar and several archive/player polish passes. Co
 - [x] Scene card thumbnails enlarged via `aspect-ratio: 4/3 !important`
 - [x] Scene character accent image removed from DOM (file preserved at `public/assets/images/scenes-char-mobile.png` at 771×503px)
 - [x] Episode filter buttons (EP 01–13): 44px min-height touch target (`wt-ep-scroll button`)
-- [x] TRACK I.D. toggle: `wt-tracklist-toggle` class, font 9px, padding `3px 8px`, position nudged up/left (`margin-top: -26px`, `margin-left: -4px`), left-aligned with LISTEN via flex line-break div (`wt-tracklist-break`)
+- [x] TRACK I.D. toggle: `wt-tracklist-toggle` class, font 9px, padding `3px 8px`, position nudged up/left (`margin-top: -18px`, `margin-left: -4px`), left-aligned with LISTEN via flex line-break div (`wt-tracklist-break`); at 600–1099px: CSS `flex-basis: 100%` on LISTEN button forces it to its own row, `order: -1` on TRACK I.D. places it leftmost on the row below (directly under LISTEN)
 - [x] Hero crowd image: 180px height, `object-fit: cover`, `mask-image` edge fade on all 4 sides, `bottom: -8px` so crowd emerges from section border, bottom dissolve starts at 55%
 - [x] Submit terminal no longer regrows/replays every time the section scrolls back into view
 - [x] About section decluttered — removed redundant NAV block and TRANSMISSION blurb, shrunk oversized Business Inquiries button
@@ -237,8 +237,10 @@ Mobile has a working bottom nav bar and several archive/player polish passes. Co
 - [x] Archive ACTION column fix (2026-07-20) — wide table `gridTemplateColumns` had only 5 columns but rendered 6 items; ACTION badge was wrapping below the FILE name. Fixed by adding a 6th column: `'48px 1fr 100px 108px 120px 120px'`
 - [x] Oscilloscope smooth scaling (2026-07-20) — height and column width now computed in JS (`oscH`, `oscColW`) so they scale continuously: mobile 72→88px (320→600px), tablet 88→108px (600→900px), desktop 108→124px (900→1400px); column 200→280px (tablet), 280→380px (desktop). `VolBarV` receives numeric `oscHeight` (required for its `Math.floor(...)` arithmetic). Layout switches from `flex` to `grid` at `!mobile` (not `!narrow`) so the oscilloscope column shows at tablet widths.
 - [x] Mood chip fluid scaling (2026-07-20) — label and chips use `clamp()` CSS values at `>899px`: font 10→11px, padding 3→4px vertical / 9→13px horizontal; anchored right in the filter bar
-- [x] TRACK I.D. desktop nowrap (2026-07-20) — controls row gets `flexWrap: mobile ? 'wrap' : 'nowrap'` so TRACK I.D. stays on the same flex line as LISTEN on desktop at all widths; mobile still wraps (required for `wt-tracklist-break` flex-basis trick)
+- [x] TRACK I.D. desktop nowrap (2026-07-20/21) — controls row gets `flexWrap: (mobile || winW < 1100) ? 'wrap' : 'nowrap'` so TRACK I.D. stays on the same flex line as LISTEN only at ≥1100px; 600–1099px wraps (CSS `flex-basis`/`order` trick places TRACK I.D. directly below LISTEN); mobile also wraps
 - [x] Background audio / PWA upgrade (2026-07-20) — see features section above
+- [x] Mood chips mobile UX (2026-07-21) — MOOD: label rendered inline with chips as a non-shrinking flex item; chips use `flex: 0 0 auto` (never squash); `overflow-x: auto` + hidden scrollbar + `touch-action: pan-x pan-y`; `letter-spacing: 1px` (reduced from 1.5) so all 5 chips + label fit single-row at ≥375px without scrolling
+- [x] Archive row mobile date spacing (2026-07-21) — `marginLeft: 10` on the date span (`t.date`) in the mobile row flex container gives 18px total separation between run time and release date vs 8px between other items; makes them clearly distinct at a glance (`sections2.js` v83)
 
 **Still to do:**
 
