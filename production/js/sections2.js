@@ -913,7 +913,8 @@ function Transmissions({
       style: {
         fontFamily: WT2.mono,
         fontSize: 11,
-        color: WT2.faint
+        color: WT2.faint,
+        marginLeft: 10
       }
     }, t.date))) : /*#__PURE__*/React.createElement("div", {
       key: t.id,
