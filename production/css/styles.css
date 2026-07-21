@@ -1554,6 +1554,7 @@
     --wt-pink: #c47898;
   }
   * { box-sizing: border-box; }
+  html { overscroll-behavior-y: contain; }
   html, body { margin: 0; padding: 0; background: #0a0b0e; overflow-x: hidden; }
   body { -webkit-font-smoothing: antialiased; }
   ::selection { background: rgba(143,191,159,0.25); color: #e6e1d4; }
