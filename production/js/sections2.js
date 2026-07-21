@@ -557,7 +557,7 @@ function ActiveRow({
       display: 'flex',
       alignItems: 'center',
       gap: 12,
-      flexWrap: mobile ? 'wrap' : 'nowrap'
+      flexWrap: (mobile || winW < 1100) ? 'wrap' : 'nowrap'
     }
   }, /*#__PURE__*/React.createElement(Btn, {
     kind: "primary",
