@@ -12,7 +12,7 @@ html, body {
 }
 
 main {
-  overflow-x: hidden !important;
+  /* overflow-x kept off main so child scroll containers (mood chips, ep filter) work on iOS */
 }
 
 /* Remove the bottom-left/bottom-right corner brackets from the HOME hero section on mobile (top brackets stay) */

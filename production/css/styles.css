@@ -1689,3 +1689,8 @@
   .wt-active-controls .wt-btn-primary { flex-basis: 100%; }
   .wt-active-controls .wt-tracklist-toggle { order: -1; }
 }
+
+/* Hide path breadcrumb on compact desktop (landscape phones, tablets 600–899px) */
+@media (min-width: 600px) and (max-width: 899px) {
+  .wt-statusbar-path { display: none; }
+}

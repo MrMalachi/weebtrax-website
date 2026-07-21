@@ -907,14 +907,15 @@ function Transmissions({
       style: {
         fontFamily: WT2.mono,
         fontSize: 11,
-        color: WT2.dim
+        color: WT2.dim,
+        marginLeft: 'auto'
       }
     }, t.run), /*#__PURE__*/React.createElement("span", {
       style: {
         fontFamily: WT2.mono,
         fontSize: 11,
         color: WT2.faint,
-        marginLeft: 10
+        marginLeft: 8
       }
     }, t.date))) : /*#__PURE__*/React.createElement("div", {
       key: t.id,
