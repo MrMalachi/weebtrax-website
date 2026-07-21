@@ -1680,3 +1680,12 @@
 /* Episode scroll fade hint — hidden on desktop, shown via mobile.css */
 .wt-ep-fade-hint { display: none; }
 .wt-ep-fade-hint-left { display: none; }
+
+/* Active player controls: at compact widths (600–1099px) put LISTEN on its own row
+   so TRACK I.D. appears directly beneath it rather than trailing after SOUNDCLOUD.
+   order: -1 on the toggle pulls it to the leftmost position on the second row.
+   At ≥1100px the JS nowrap overrides this via inline style and all items stay on one row. */
+@media (min-width: 600px) and (max-width: 1099px) {
+  .wt-active-controls .wt-btn-primary { flex-basis: 100%; }
+  .wt-active-controls .wt-tracklist-toggle { order: -1; }
+}

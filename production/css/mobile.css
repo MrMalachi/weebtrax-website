@@ -89,10 +89,10 @@ main { margin-left: 0 !important; }
 .wt-archive-statusbar { white-space: normal !important; }
 .wt-statusbar-path { display: none !important; }
 
-/* Mood chips: MOOD label inline, buttons spread across full row */
+/* Mood chips: MOOD label inline, chips never squash, scroll on tiny screens */
 .wt-mood-chips {
-  justify-content: space-between !important;
-  gap: 0 !important;
+  justify-content: flex-start !important;
+  gap: 6px !important;
   flex-wrap: nowrap !important;
   overflow-x: auto !important;
   -webkit-overflow-scrolling: touch;
@@ -102,7 +102,7 @@ main { margin-left: 0 !important; }
 }
 .wt-mood-chips::-webkit-scrollbar { display: none; }
 .wt-mood-chips-wrap { display: block; }
-/* MOOD: label stays inline with the buttons (not its own row) */
+/* MOOD: label — inline in the same row as chips */
 .wt-mood-label {
   display: inline-flex !important;
   align-items: center !important;
@@ -110,11 +110,16 @@ main { margin-left: 0 !important; }
   flex-basis: auto !important;
   font-size: 9px !important;
   margin-bottom: 0 !important;
-  padding-right: 4px !important;
+}
+/* Chips: natural width (never squash), reduced letter-spacing so all 5 fit at ≥375px */
+.wt-mood-chips button {
+  flex: 0 0 auto !important;
+  min-height: 44px !important;
+  letter-spacing: 1px !important;
+  white-space: nowrap !important;
 }
 /* Touch targets — Apple HIG minimum 44px */
 .wt-page-btn       { min-height: 44px !important; display: inline-flex !important; align-items: center !important; justify-content: center !important; }
-.wt-mood-chips button { min-height: 44px !important; padding: 8px 6px !important; white-space: nowrap !important; }
 .wt-btn            { min-height: 44px !important; }
 .wt-flink          { min-height: 44px !important; display: flex !important; align-items: center !important; }
 .wt-sf-mobile-btn  { min-height: 44px !important; display: inline-flex !important; align-items: center !important; justify-content: center !important; }
