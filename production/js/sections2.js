@@ -717,7 +717,7 @@ function Transmissions({
     className: "wt-mood-chips",
     ref: moodScrollRef,
     onScroll: function() { var el = moodScrollRef.current; var fadeL = moodFadeLeftRef.current; var fadeR = moodFadeRightRef.current; if (el && fadeL) fadeL.style.opacity = el.scrollLeft > 0 ? '1' : '0'; if (el && fadeR) fadeR.style.opacity = (el.scrollLeft + el.clientWidth >= el.scrollWidth - 1) ? '0' : '1'; },
-    style: { display: 'flex', justifyContent: 'flex-end', alignItems: 'center', gap: 5, flexWrap: 'wrap', marginBottom: 0 }
+    style: { display: 'flex', justifyContent: isMobile ? 'flex-start' : 'flex-end', alignItems: 'center', gap: isMobile ? 6 : 5, flexWrap: isMobile ? 'nowrap' : 'wrap', overflowX: isMobile ? 'auto' : 'visible', marginBottom: 0, paddingRight: isMobile ? 40 : 0 }
   }, /*#__PURE__*/React.createElement("span", {
     className: "wt-mood-label",
     style: { fontFamily: WT2.mono, fontSize: (!isMobile && !narrow) ? 'clamp(10px, calc(10px + (100vw - 900px) / 500), 11px)' : 10, color: WT2.faint, letterSpacing: 1.5, marginRight: 2 }
