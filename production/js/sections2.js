@@ -438,7 +438,7 @@ function ActiveRow({
     color: 'var(--wt-accent)',
     textShadow: '0 0 8px var(--wt-accent)'
   };
-  return /*#__PURE__*/React.createElement("div", {
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
     style: {
       border: `1px solid ${WT2.line2}`,
       background: WT2.panel,
@@ -447,7 +447,8 @@ function ActiveRow({
       display: mobile ? 'flex' : 'grid',
       flexDirection: mobile ? 'column' : undefined,
       gridTemplateColumns: mobile ? undefined : oscColW + 'px 1fr',
-      gap: mobile ? 16 : narrow ? 20 : 28,
+      columnGap: narrow ? 20 : 28,
+      rowGap: mobile ? 16 : 12,
       minWidth: 0,
       overflow: 'hidden'
     }
@@ -466,34 +467,22 @@ function ActiveRow({
       flexDirection: 'column',
       gap: 5
     }
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "wt-archive-osc-row",
-    style: {
-      display: 'flex',
-      alignItems: 'stretch',
-      gap: 8
-    }
   }, /*#__PURE__*/React.createElement(Oscilloscope, {
     height: oscH,
-    strokeWidth: mobile ? 2.5 : 2.0,
+    strokeWidth: mobile ? 2.5 : 160 / oscH,
+    shadowBlur: mobile ? 9 : 720 / oscH,
     color: "var(--wt-accent)",
     dense: 1.1,
     playing: playing,
     seeking: seeking,
     style: { flex: 1, minWidth: 0 }
-  }), !mobile && /*#__PURE__*/React.createElement(VolBarV, {
-    vol: vol,
-    onVolChange: onVolChange,
-    tone: "var(--wt-accent)",
-    interactive: true,
-    oscHeight: oscH
-  })), /*#__PURE__*/React.createElement(SeekBar, {
+  }), mobile && /*#__PURE__*/React.createElement(SeekBar, {
     progress: progress,
     onSeek: onSeek,
     height: 3,
     mt: 0,
     onSeekStateChange: onSeekStateChange
-  }), /*#__PURE__*/React.createElement("div", {
+  }), mobile && /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'flex',
       justifyContent: 'space-between',
@@ -548,22 +537,23 @@ function ActiveRow({
     style: {
       display: 'flex',
       flexDirection: 'column',
-      gap: 10,
+      alignItems: 'flex-start',
+      gap: 8,
       marginTop: 14
-    }
-  }, /*#__PURE__*/React.createElement("div", {
-    className: 'wt-active-controls',
-    style: {
-      display: 'flex',
-      alignItems: 'center',
-      gap: 12,
-      flexWrap: (mobile || winW < 1100) ? 'wrap' : 'nowrap'
     }
   }, /*#__PURE__*/React.createElement(Btn, {
     kind: "primary",
     sm: true,
     onClick: onPlayToggle
-  }, /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("span", { style: { fontSize: playing ? 9 : 13, lineHeight: 1, marginRight: -4 } }, playing ? '▐▐' : '▶'), playing ? 'Pause' : 'Listen')), t.youtubeUrl && t.youtubeUrl !== '#' && /*#__PURE__*/React.createElement("a", {
+  }, /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("span", { style: { fontSize: playing ? 9 : 13, lineHeight: 1, marginRight: -4 } }, playing ? '▐▐' : '▶'), playing ? 'Pause' : 'Listen')), /*#__PURE__*/React.createElement("div", {
+    className: 'wt-active-controls',
+    style: {
+      display: 'flex',
+      alignItems: 'center',
+      gap: 12,
+      flexWrap: 'wrap'
+    }
+  }, t.youtubeUrl && t.youtubeUrl !== '#' && /*#__PURE__*/React.createElement("a", {
     href: t.youtubeUrl,
     target: "_blank",
     rel: "noopener noreferrer",
@@ -578,14 +568,54 @@ function ActiveRow({
     onMouseLeave: () => setHovLink(null),
     style: hovLink === 'sc' ? extLinkHov : extLink
   }, "SOUNDCLOUD \u2197"),
-    t.tracklist && t.tracklist.length > 0 && React.createElement("div", { className: 'wt-tracklist-break', style: { display: 'none' } }),
+    !mobile && /*#__PURE__*/React.createElement(VolBar, {
+      vol: vol,
+      onVolChange: onVolChange,
+      tone: "var(--wt-accent)",
+      interactive: true
+    }),
     t.tracklist && t.tracklist.length > 0 && React.createElement("button", {
       onClick: function() { setTracklistOpen(function(o) { return !o; }); },
       className: 'wt-tracklist-toggle',
       style: { display: 'flex', alignItems: 'center', gap: 4, background: 'none', border: 'none', cursor: 'pointer', padding: '0 4px', fontFamily: WT2.mono, fontSize: 9, letterSpacing: 2, color: WT2.faint, textTransform: 'uppercase', flexShrink: 0 }
     }, 'TRACK I.D.', React.createElement('span', { style: { color: 'var(--wt-accent)', fontSize: 8, marginLeft: 2 } }, tracklistOpen ? '\u25b2' : '\u25bc'))
-  ), tracklistOpen && t.tracklist && t.tracklist.length > 0 && React.createElement("div", {
-    style: { marginTop: 10, borderTop: '1px solid ' + WT2.line, maxHeight: 160, overflowY: 'auto', paddingBottom: 4 }
+  )
+  ))
+  , !mobile && /*#__PURE__*/React.createElement("div", {
+    style: {
+      gridColumn: '1 / -1',
+      display: 'flex',
+      flexDirection: 'column',
+      gap: 5
+    }
+  }, /*#__PURE__*/React.createElement(SeekBar, {
+    progress: progress,
+    onSeek: onSeek,
+    height: 3,
+    mt: 0,
+    onSeekStateChange: onSeekStateChange
+  }), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      marginTop: 0
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontFamily: WT2.mono,
+      fontSize: 10,
+      color: WT2.dim
+    }
+  }, fmtTime(elapsed)), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontFamily: WT2.mono,
+      fontSize: 10,
+      color: WT2.faint
+    }
+  }, t.run))))
+  , tracklistOpen && t.tracklist && t.tracklist.length > 0 && React.createElement("div", {
+    style: { borderLeft: '1px solid ' + WT2.line2, borderRight: '1px solid ' + WT2.line2, borderBottom: '1px solid ' + WT2.line2, maxHeight: 160, overflowY: 'auto', paddingBottom: 4, background: WT2.panel }
   }, t.tracklist.map(function(entry, i) {
     var isCur = elapsed >= entry.timeSecs && (i === t.tracklist.length - 1 || elapsed < t.tracklist[i + 1].timeSecs);
     var h = Math.floor(entry.timeSecs / 3600), m = Math.floor((entry.timeSecs % 3600) / 60), s = entry.timeSecs % 60;
@@ -600,10 +630,12 @@ function ActiveRow({
       style: { display: 'flex', gap: 8, padding: '2px 6px', marginBottom: 1, cursor: 'pointer', borderLeft: isCur ? '2px solid var(--wt-accent)' : '2px solid transparent', background: isCur ? 'rgba(143,191,159,0.05)' : 'none', transition: 'border-color .15s, background .15s' }
     },
       React.createElement("span", { style: { flexShrink: 0, minWidth: 44, fontFamily: WT2.mono, fontSize: 11, color: WT2.faint, opacity: 0.7 } }, ts),
-      React.createElement("span", { style: { minWidth: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', fontFamily: WT2.mono, fontSize: 10, color: isCur ? 'var(--wt-accent)' : WT2.dim, fontSize: 11 } }, entry.artist ? entry.artist + ' \u2014 ' + entry.title : entry.title)
+      React.createElement("span", { style: { minWidth: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', fontFamily: WT2.mono, fontSize: 11, color: isCur ? 'var(--wt-accent)' : WT2.dim } }, entry.artist ? entry.artist + ' \u2014 ' + entry.title : entry.title)
     );
-  })))))
+  }))
+  )
 }
+
 function Transmissions({
   playing,
   onPlayToggle,
@@ -1625,7 +1657,7 @@ function Footer() {
     style: {
       display: 'grid',
       gridTemplateColumns: '1fr 1fr',
-      gap: '4px 10px'
+      gap: '10px 20px'
     }
   }, SOCIALS.map(([label, url]) => /*#__PURE__*/React.createElement("a", {
     key: label,

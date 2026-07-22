@@ -80,6 +80,7 @@ function Oscilloscope({
   lines = true,
   dense = 1,
   strokeWidth = 2.0,
+  shadowBlur = 9,
   style = {},
   playing = true,
   seeking = false
@@ -88,12 +89,12 @@ function Oscilloscope({
   const wrap = React.useRef(null);
   const playingRef = React.useRef(playing);
   const seekingRef = React.useRef(seeking);
-  React.useEffect(() => {
-    playingRef.current = playing;
-  }, [playing]);
-  React.useEffect(() => {
-    seekingRef.current = seeking;
-  }, [seeking]);
+  const strokeWidthRef = React.useRef(strokeWidth);
+  const shadowBlurRef = React.useRef(shadowBlur);
+  React.useEffect(() => { playingRef.current = playing; }, [playing]);
+  React.useEffect(() => { seekingRef.current = seeking; }, [seeking]);
+  React.useEffect(() => { strokeWidthRef.current = strokeWidth; }, [strokeWidth]);
+  React.useEffect(() => { shadowBlurRef.current = shadowBlur; }, [shadowBlur]);
   React.useEffect(() => {
     const cv = ref.current;
     if (!cv) return;
@@ -143,9 +144,10 @@ function Oscilloscope({
         x === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
       }
       ctx.strokeStyle = wtResolve(color);
-      ctx.lineWidth = strokeWidth;
+      ctx.lineWidth = strokeWidthRef.current;
       ctx.shadowColor = wtResolve(color);
-      ctx.shadowBlur = isPlaying ? 9 : 3;
+      const sb = shadowBlurRef.current;
+      ctx.shadowBlur = isPlaying ? sb : Math.max(2, sb * 0.33);
       ctx.stroke();
       ctx.shadowBlur = 0;
       if (isPlaying && !reduce) t += 0.045;

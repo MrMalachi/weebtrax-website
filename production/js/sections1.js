@@ -228,7 +228,7 @@ function Rail() {
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
-      gap: compact ? 6 : 9
+      gap: 16
     }
   }, /*#__PURE__*/React.createElement("span", {
     className: "wt-pulse",
