@@ -223,7 +223,7 @@ function Rail() {
       transition: 'color .15s, text-shadow .15s',
       textShadow: i === active ? '0 0 10px var(--wt-accent)' : hovNav === i ? '0 0 6px rgba(230,225,212,0.25)' : 'none'
     }
-  }, t)))), /*#__PURE__*/React.createElement("div", {
+  }, t)))), !compact && /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'flex',
       flexDirection: 'column',
@@ -233,8 +233,8 @@ function Rail() {
   }, /*#__PURE__*/React.createElement("span", {
     className: "wt-pulse",
     style: {
-      width: compact ? 5 : 7,
-      height: compact ? 5 : 7,
+      width: 7,
+      height: 7,
       borderRadius: 5,
       background: 'var(--wt-accent)',
       boxShadow: '0 0 8px var(--wt-accent)'
@@ -242,8 +242,8 @@ function Rail() {
   }), /*#__PURE__*/React.createElement("span", {
     style: {
       fontFamily: WT2.mono,
-      fontSize: compact ? 7 : 8.5,
-      letterSpacing: compact ? 0.5 : 1,
+      fontSize: 8.5,
+      letterSpacing: 1,
       color: WT2.faint,
       writingMode: 'vertical-rl',
       transform: 'rotate(180deg)'

@@ -501,6 +501,31 @@ function ActiveRow({
       fontSize: 10,
       color: WT2.faint
     }
+  }, t.run)), !mobile && /*#__PURE__*/React.createElement(SeekBar, {
+    progress: progress,
+    onSeek: onSeek,
+    height: 3,
+    mt: 0,
+    onSeekStateChange: onSeekStateChange
+  }), !mobile && /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      marginTop: 0
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontFamily: WT2.mono,
+      fontSize: 10,
+      color: WT2.dim
+    }
+  }, fmtTime(elapsed)), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontFamily: WT2.mono,
+      fontSize: 10,
+      color: WT2.faint
+    }
   }, t.run))), /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'flex',
@@ -541,11 +566,7 @@ function ActiveRow({
       gap: 8,
       marginTop: 14
     }
-  }, /*#__PURE__*/React.createElement(Btn, {
-    kind: "primary",
-    sm: true,
-    onClick: onPlayToggle
-  }, /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("span", { style: { fontSize: playing ? 9 : 13, lineHeight: 1, marginRight: -4 } }, playing ? '▐▐' : '▶'), playing ? 'Pause' : 'Listen')), /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("div", {
     className: 'wt-active-controls',
     style: {
       display: 'flex',
@@ -553,7 +574,11 @@ function ActiveRow({
       gap: 12,
       flexWrap: 'wrap'
     }
-  }, t.youtubeUrl && t.youtubeUrl !== '#' && /*#__PURE__*/React.createElement("a", {
+  }, /*#__PURE__*/React.createElement(Btn, {
+    kind: "primary",
+    sm: true,
+    onClick: onPlayToggle
+  }, /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("span", { style: { fontSize: playing ? 9 : 13, lineHeight: 1, marginRight: -4 } }, playing ? '\u25ae\u25ae' : '\u25b6'), playing ? 'Pause' : 'Listen')), t.youtubeUrl && t.youtubeUrl !== '#' && /*#__PURE__*/React.createElement("a", {
     href: t.youtubeUrl,
     target: "_blank",
     rel: "noopener noreferrer",
@@ -568,52 +593,13 @@ function ActiveRow({
     onMouseLeave: () => setHovLink(null),
     style: hovLink === 'sc' ? extLinkHov : extLink
   }, "SOUNDCLOUD \u2197"),
-    !mobile && /*#__PURE__*/React.createElement(VolBar, {
-      vol: vol,
-      onVolChange: onVolChange,
-      tone: "var(--wt-accent)",
-      interactive: true
-    }),
+    ),
     t.tracklist && t.tracklist.length > 0 && React.createElement("button", {
       onClick: function() { setTracklistOpen(function(o) { return !o; }); },
       className: 'wt-tracklist-toggle',
-      style: { display: 'flex', alignItems: 'center', gap: 4, background: 'none', border: 'none', cursor: 'pointer', padding: '0 4px', fontFamily: WT2.mono, fontSize: 9, letterSpacing: 2, color: WT2.faint, textTransform: 'uppercase', flexShrink: 0 }
+      style: { display: 'flex', alignItems: 'center', gap: 4, background: 'none', border: 'none', cursor: 'pointer', padding: '0 4px', marginLeft: mobile ? -4 : 0, fontFamily: WT2.mono, fontSize: 9, letterSpacing: 2, color: WT2.faint, textTransform: 'uppercase', flexShrink: 0 }
     }, 'TRACK I.D.', React.createElement('span', { style: { color: 'var(--wt-accent)', fontSize: 8, marginLeft: 2 } }, tracklistOpen ? '\u25b2' : '\u25bc'))
-  )
-  ))
-  , !mobile && /*#__PURE__*/React.createElement("div", {
-    style: {
-      gridColumn: '1 / -1',
-      display: 'flex',
-      flexDirection: 'column',
-      gap: 5
-    }
-  }, /*#__PURE__*/React.createElement(SeekBar, {
-    progress: progress,
-    onSeek: onSeek,
-    height: 3,
-    mt: 0,
-    onSeekStateChange: onSeekStateChange
-  }), /*#__PURE__*/React.createElement("div", {
-    style: {
-      display: 'flex',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-      marginTop: 0
-    }
-  }, /*#__PURE__*/React.createElement("span", {
-    style: {
-      fontFamily: WT2.mono,
-      fontSize: 10,
-      color: WT2.dim
-    }
-  }, fmtTime(elapsed)), /*#__PURE__*/React.createElement("span", {
-    style: {
-      fontFamily: WT2.mono,
-      fontSize: 10,
-      color: WT2.faint
-    }
-  }, t.run))))
+  )))
   , tracklistOpen && t.tracklist && t.tracklist.length > 0 && React.createElement("div", {
     style: { borderLeft: '1px solid ' + WT2.line2, borderRight: '1px solid ' + WT2.line2, borderBottom: '1px solid ' + WT2.line2, maxHeight: 160, overflowY: 'auto', paddingBottom: 4, background: WT2.panel }
   }, t.tracklist.map(function(entry, i) {
@@ -744,8 +730,8 @@ function Transmissions({
     title: "Latest Transmissions"
   }), /*#__PURE__*/React.createElement("div", {
     className: "wt-archive-statusbar",
-    style: { fontFamily: WT2.mono, fontSize: 11.5, color: WT2.dim, letterSpacing: 0.5, whiteSpace: isMobile ? 'normal' : 'nowrap', marginTop: 10, display: isMobile ? 'flex' : undefined, justifyContent: isMobile ? 'space-between' : undefined, alignItems: isMobile ? 'center' : undefined }
-  }, isMobile ? React.createElement(React.Fragment, null, React.createElement("span", null, String(filtered.length).padStart(3, '0') + " files"), React.createElement("span", { onClick: cycleSort, style: { cursor: 'pointer', userSelect: 'none' } }, "sort: ", React.createElement("span", { style: { color: 'var(--wt-accent)' } }, SORT_MODES[sortIdx].toLowerCase()), React.createElement("span", { style: { color: WT2.faint, marginLeft: 5 } }, "\u2195"))) : React.createElement(React.Fragment, null, React.createElement("span", { className: "wt-statusbar-path", style: { color: WT2.faint } }, "~/weebtrax/"), React.createElement("span", { className: "wt-statusbar-path", style: { color: 'var(--wt-accent)' } }, "transmissions/"), " \xA0 " + String(filtered.length).padStart(3, '0') + " files \xA0\xA0", React.createElement("span", { onClick: cycleSort, style: { cursor: 'pointer', userSelect: 'none' } }, "sort: ", React.createElement("span", { style: { color: 'var(--wt-accent)' } }, SORT_MODES[sortIdx].toLowerCase()), React.createElement("span", { style: { color: WT2.faint, marginLeft: 5 } }, "\u2195"))))) , /*#__PURE__*/React.createElement("div", { className: 'wt-mood-chips-wrap', style: { position: 'relative', marginBottom: 10 } }, /*#__PURE__*/React.createElement("div", {
+    style: { fontFamily: WT2.mono, fontSize: 11.5, color: WT2.dim, letterSpacing: 0.5, whiteSpace: (isMobile || tablet) ? 'normal' : 'nowrap', marginTop: 10, display: (isMobile || tablet) ? 'flex' : undefined, justifyContent: (isMobile || tablet) ? 'space-between' : undefined, alignItems: (isMobile || tablet) ? 'center' : undefined }
+  }, (isMobile || tablet) ? React.createElement(React.Fragment, null, React.createElement("span", null, String(filtered.length).padStart(3, '0') + " files"), React.createElement("span", { onClick: cycleSort, style: { cursor: 'pointer', userSelect: 'none' } }, "sort: ", React.createElement("span", { style: { color: 'var(--wt-accent)' } }, SORT_MODES[sortIdx].toLowerCase()), React.createElement("span", { style: { color: WT2.faint, marginLeft: 5 } }, "\u2195"))) : React.createElement(React.Fragment, null, React.createElement("span", { className: "wt-statusbar-path", style: { color: WT2.faint } }, "~/weebtrax/"), React.createElement("span", { className: "wt-statusbar-path", style: { color: 'var(--wt-accent)' } }, "transmissions/"), " \xA0 " + String(filtered.length).padStart(3, '0') + " files \xA0\xA0", React.createElement("span", { onClick: cycleSort, style: { cursor: 'pointer', userSelect: 'none' } }, "sort: ", React.createElement("span", { style: { color: 'var(--wt-accent)' } }, SORT_MODES[sortIdx].toLowerCase()), React.createElement("span", { style: { color: WT2.faint, marginLeft: 5 } }, "\u2195"))))) , /*#__PURE__*/React.createElement("div", { className: 'wt-mood-chips-wrap', style: { position: 'relative', marginBottom: 10 } }, /*#__PURE__*/React.createElement("div", {
     className: "wt-mood-chips",
     ref: moodScrollRef,
     onScroll: function() { var el = moodScrollRef.current; var fadeL = moodFadeLeftRef.current; var fadeR = moodFadeRightRef.current; if (el && fadeL) fadeL.style.opacity = el.scrollLeft > 0 ? '1' : '0'; if (el && fadeR) fadeR.style.opacity = (el.scrollLeft + el.clientWidth >= el.scrollWidth - 1) ? '0' : '1'; },
@@ -1657,9 +1643,9 @@ function Footer() {
     style: {
       display: 'grid',
       gridTemplateColumns: '1fr 1fr',
-      gap: '10px 20px'
+      gap: winW < 600 ? '0 20px' : '10px 20px'
     }
-  }, SOCIALS.map(([label, url]) => /*#__PURE__*/React.createElement("a", {
+  }, SOCIALS.map(([label, url], i) => /*#__PURE__*/React.createElement("a", {
     key: label,
     href: url,
     target: "_blank",
@@ -1673,7 +1659,8 @@ function Footer() {
       letterSpacing: 1.5,
       display: 'flex',
       alignItems: 'center',
-      gap: 5
+      gap: 5,
+      marginTop: (winW < 600 && i >= 2) ? -12 : 0
     }
   }, label, /*#__PURE__*/React.createElement("span", {
     style: {
