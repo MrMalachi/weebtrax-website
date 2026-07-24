@@ -591,7 +591,36 @@ function ActiveRow({
   }, React.createElement("span", { style: { color: 'var(--wt-accent)', marginRight: 6, fontSize: 8 } }, '▸'),
     curTrack.artist ? curTrack.artist + ' — ' + curTrack.title : curTrack.title
   ),
-  (narrow && !mobile)
+  mobile
+    ? /*#__PURE__*/React.createElement("div", {
+        style: { display: 'flex', alignItems: 'flex-start', gap: 16, marginTop: 14 }
+      },
+      React.createElement("div", {
+        style: { display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6 }
+      },
+        /*#__PURE__*/React.createElement(Btn, { kind: "primary", sm: true, onClick: onPlayToggle }, /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("span", { style: { fontSize: playing ? 12 : 13, lineHeight: 1, marginRight: -4 } }, playing ? '\u25ae\u25ae' : '\u25b6'), playing ? 'Pause' : 'Listen')),
+        t.tracklist && t.tracklist.length > 0 && React.createElement("button", {
+          onClick: function() { setTracklistOpen(function(o) { return !o; }); },
+          className: 'wt-tracklist-toggle',
+          style: { display: 'flex', alignItems: 'center', gap: 4, background: 'none', border: 'none', cursor: 'pointer', padding: 0, marginTop: 0, fontFamily: WT2.mono, fontSize: 9, letterSpacing: 2, color: WT2.faint, textTransform: 'uppercase', flexShrink: 0 }
+        }, 'TRACK I.D.', React.createElement('span', { style: { color: 'var(--wt-accent)', fontSize: 8, marginLeft: 2 } }, tracklistOpen ? '\u25b2' : '\u25bc'))
+      ),
+      React.createElement("div", {
+        style: { display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: 8, paddingTop: 6 }
+      },
+        t.youtubeUrl && t.youtubeUrl !== '#' && /*#__PURE__*/React.createElement("a", {
+          href: t.youtubeUrl, target: "_blank", rel: "noopener noreferrer",
+          onMouseEnter: undefined, onMouseLeave: undefined,
+          style: extLink
+        }, "YOUTUBE \u2197"),
+        t.soundcloudUrl && t.soundcloudUrl !== '#' && /*#__PURE__*/React.createElement("a", {
+          href: t.soundcloudUrl, target: "_blank", rel: "noopener noreferrer",
+          onMouseEnter: undefined, onMouseLeave: undefined,
+          style: extLink
+        }, "SOUNDCLOUD \u2197")
+      )
+    )
+    : narrow
     ? /*#__PURE__*/React.createElement("div", {
         className: 'wt-active-controls',
         style: { display: 'flex', alignItems: 'flex-start', gap: 12, marginTop: 10 }
@@ -603,7 +632,7 @@ function ActiveRow({
         t.tracklist && t.tracklist.length > 0 && React.createElement("button", {
           onClick: function() { setTracklistOpen(function(o) { return !o; }); },
           className: 'wt-tracklist-toggle',
-          style: { display: 'flex', alignItems: 'center', gap: 4, background: 'none', border: 'none', cursor: 'pointer', padding: '0 4px', marginLeft: mobile ? -4 : 0, marginTop: 6, fontFamily: WT2.mono, fontSize: 9, letterSpacing: 2, color: WT2.faint, textTransform: 'uppercase', flexShrink: 0 }
+          style: { display: 'flex', alignItems: 'center', gap: 4, background: 'none', border: 'none', cursor: 'pointer', padding: '0 4px', marginLeft: 0, marginTop: 6, fontFamily: WT2.mono, fontSize: 9, letterSpacing: 2, color: WT2.faint, textTransform: 'uppercase', flexShrink: 0 }
         }, 'TRACK I.D.', React.createElement('span', { style: { color: 'var(--wt-accent)', fontSize: 8, marginLeft: 2 } }, tracklistOpen ? '\u25b2' : '\u25bc'))
       ),
       React.createElement("div", {
@@ -611,12 +640,12 @@ function ActiveRow({
       },
         t.youtubeUrl && t.youtubeUrl !== '#' && /*#__PURE__*/React.createElement("a", {
           href: t.youtubeUrl, target: "_blank", rel: "noopener noreferrer",
-          onMouseEnter: mobile ? undefined : () => setHovLink('yt'), onMouseLeave: mobile ? undefined : () => setHovLink(null),
+          onMouseEnter: () => setHovLink('yt'), onMouseLeave: () => setHovLink(null),
           style: hovLink === 'yt' ? extLinkHov : extLink
         }, "YOUTUBE \u2197"),
         t.soundcloudUrl && t.soundcloudUrl !== '#' && /*#__PURE__*/React.createElement("a", {
           href: t.soundcloudUrl, target: "_blank", rel: "noopener noreferrer",
-          onMouseEnter: mobile ? undefined : () => setHovLink('sc'), onMouseLeave: mobile ? undefined : () => setHovLink(null),
+          onMouseEnter: () => setHovLink('sc'), onMouseLeave: () => setHovLink(null),
           style: hovLink === 'sc' ? extLinkHov : extLink
         }, "SOUNDCLOUD \u2197")
       )
@@ -629,19 +658,19 @@ function ActiveRow({
       }, /*#__PURE__*/React.createElement(Btn, { kind: "primary", sm: true, onClick: onPlayToggle }, /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("span", { style: { fontSize: playing ? 12 : 13, lineHeight: 1, marginRight: -4 } }, playing ? '\u25ae\u25ae' : '\u25b6'), playing ? 'Pause' : 'Listen')),
         t.youtubeUrl && t.youtubeUrl !== '#' && /*#__PURE__*/React.createElement("a", {
           href: t.youtubeUrl, target: "_blank", rel: "noopener noreferrer",
-          onMouseEnter: mobile ? undefined : () => setHovLink('yt'), onMouseLeave: mobile ? undefined : () => setHovLink(null),
+          onMouseEnter: () => setHovLink('yt'), onMouseLeave: () => setHovLink(null),
           style: hovLink === 'yt' ? extLinkHov : extLink
         }, "YOUTUBE \u2197"),
         t.soundcloudUrl && t.soundcloudUrl !== '#' && /*#__PURE__*/React.createElement("a", {
           href: t.soundcloudUrl, target: "_blank", rel: "noopener noreferrer",
-          onMouseEnter: mobile ? undefined : () => setHovLink('sc'), onMouseLeave: mobile ? undefined : () => setHovLink(null),
+          onMouseEnter: () => setHovLink('sc'), onMouseLeave: () => setHovLink(null),
           style: hovLink === 'sc' ? extLinkHov : extLink
         }, "SOUNDCLOUD \u2197")
       ),
       t.tracklist && t.tracklist.length > 0 && React.createElement("button", {
         onClick: function() { setTracklistOpen(function(o) { return !o; }); },
         className: 'wt-tracklist-toggle',
-        style: { display: 'flex', alignItems: 'center', gap: 4, background: 'none', border: 'none', cursor: 'pointer', padding: '0 4px', marginLeft: mobile ? -4 : 0, marginTop: 6, fontFamily: WT2.mono, fontSize: 9, letterSpacing: 2, color: WT2.faint, textTransform: 'uppercase', flexShrink: 0 }
+        style: { display: 'flex', alignItems: 'center', gap: 4, background: 'none', border: 'none', cursor: 'pointer', padding: '0 4px', marginLeft: 0, marginTop: 6, fontFamily: WT2.mono, fontSize: 9, letterSpacing: 2, color: WT2.faint, textTransform: 'uppercase', flexShrink: 0 }
       }, 'TRACK I.D.', React.createElement('span', { style: { color: 'var(--wt-accent)', fontSize: 8, marginLeft: 2 } }, tracklistOpen ? '\u25b2' : '\u25bc'))
     )
 ))
