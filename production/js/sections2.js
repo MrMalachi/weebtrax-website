@@ -558,48 +558,61 @@ function ActiveRow({
       color: WT2.ink,
       whiteSpace: mobile ? 'pre-line' : undefined
     }
-  }, mobile && t.title.includes('|') ? t.title.replace('|', '|\n') : t.title), /*#__PURE__*/React.createElement("div", {
-    style: {
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'flex-start',
-      gap: 8,
-      marginTop: 14
-    }
-  }, /*#__PURE__*/React.createElement("div", {
-    className: 'wt-active-controls',
-    style: {
-      display: 'flex',
-      alignItems: 'center',
-      gap: 12,
-      flexWrap: 'wrap'
-    }
-  }, /*#__PURE__*/React.createElement(Btn, {
-    kind: "primary",
-    sm: true,
-    onClick: onPlayToggle
-  }, /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("span", { style: { fontSize: playing ? 9 : 13, lineHeight: 1, marginRight: -4 } }, playing ? '\u25ae\u25ae' : '\u25b6'), playing ? 'Pause' : 'Listen')), t.youtubeUrl && t.youtubeUrl !== '#' && /*#__PURE__*/React.createElement("a", {
-    href: t.youtubeUrl,
-    target: "_blank",
-    rel: "noopener noreferrer",
-    onMouseEnter: () => setHovLink('yt'),
-    onMouseLeave: () => setHovLink(null),
-    style: hovLink === 'yt' ? extLinkHov : extLink
-  }, "YOUTUBE \u2197"), t.soundcloudUrl && t.soundcloudUrl !== '#' && /*#__PURE__*/React.createElement("a", {
-    href: t.soundcloudUrl,
-    target: "_blank",
-    rel: "noopener noreferrer",
-    onMouseEnter: () => setHovLink('sc'),
-    onMouseLeave: () => setHovLink(null),
-    style: hovLink === 'sc' ? extLinkHov : extLink
-  }, "SOUNDCLOUD \u2197"),
-    ),
-    t.tracklist && t.tracklist.length > 0 && React.createElement("button", {
-      onClick: function() { setTracklistOpen(function(o) { return !o; }); },
-      className: 'wt-tracklist-toggle',
-      style: { display: 'flex', alignItems: 'center', gap: 4, background: 'none', border: 'none', cursor: 'pointer', padding: '0 4px', marginLeft: mobile ? -4 : 0, fontFamily: WT2.mono, fontSize: 9, letterSpacing: 2, color: WT2.faint, textTransform: 'uppercase', flexShrink: 0 }
-    }, 'TRACK I.D.', React.createElement('span', { style: { color: 'var(--wt-accent)', fontSize: 8, marginLeft: 2 } }, tracklistOpen ? '\u25b2' : '\u25bc'))
-  )))
+  }, mobile && t.title.includes('|') ? t.title.replace('|', '|\n') : t.title),
+  (narrow && !mobile)
+    ? /*#__PURE__*/React.createElement("div", {
+        className: 'wt-active-controls',
+        style: { display: 'flex', alignItems: 'flex-start', gap: 12, marginTop: 14 }
+      },
+      React.createElement("div", {
+        style: { display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: 8 }
+      },
+        /*#__PURE__*/React.createElement(Btn, { kind: "primary", sm: true, onClick: onPlayToggle }, /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("span", { style: { fontSize: playing ? 9 : 13, lineHeight: 1, marginRight: -4 } }, playing ? '\u25ae\u25ae' : '\u25b6'), playing ? 'Pause' : 'Listen')),
+        t.tracklist && t.tracklist.length > 0 && React.createElement("button", {
+          onClick: function() { setTracklistOpen(function(o) { return !o; }); },
+          className: 'wt-tracklist-toggle',
+          style: { display: 'flex', alignItems: 'center', gap: 4, background: 'none', border: 'none', cursor: 'pointer', padding: '0 4px', marginLeft: mobile ? -4 : 0, marginTop: 6, fontFamily: WT2.mono, fontSize: 9, letterSpacing: 2, color: WT2.faint, textTransform: 'uppercase', flexShrink: 0 }
+        }, 'TRACK I.D.', React.createElement('span', { style: { color: 'var(--wt-accent)', fontSize: 8, marginLeft: 2 } }, tracklistOpen ? '\u25b2' : '\u25bc'))
+      ),
+      React.createElement("div", {
+        style: { display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: 8, paddingTop: 6 }
+      },
+        t.youtubeUrl && t.youtubeUrl !== '#' && /*#__PURE__*/React.createElement("a", {
+          href: t.youtubeUrl, target: "_blank", rel: "noopener noreferrer",
+          onMouseEnter: mobile ? undefined : () => setHovLink('yt'), onMouseLeave: mobile ? undefined : () => setHovLink(null),
+          style: hovLink === 'yt' ? extLinkHov : extLink
+        }, "YOUTUBE \u2197"),
+        t.soundcloudUrl && t.soundcloudUrl !== '#' && /*#__PURE__*/React.createElement("a", {
+          href: t.soundcloudUrl, target: "_blank", rel: "noopener noreferrer",
+          onMouseEnter: mobile ? undefined : () => setHovLink('sc'), onMouseLeave: mobile ? undefined : () => setHovLink(null),
+          style: hovLink === 'sc' ? extLinkHov : extLink
+        }, "SOUNDCLOUD \u2197")
+      )
+    )
+    : /*#__PURE__*/React.createElement("div", {
+        style: { display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: 8, marginTop: 14 }
+      }, /*#__PURE__*/React.createElement("div", {
+        className: 'wt-active-controls',
+        style: { display: 'flex', alignItems: 'center', gap: 12, flexWrap: 'wrap' }
+      }, /*#__PURE__*/React.createElement(Btn, { kind: "primary", sm: true, onClick: onPlayToggle }, /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("span", { style: { fontSize: playing ? 9 : 13, lineHeight: 1, marginRight: -4 } }, playing ? '\u25ae\u25ae' : '\u25b6'), playing ? 'Pause' : 'Listen')),
+        t.youtubeUrl && t.youtubeUrl !== '#' && /*#__PURE__*/React.createElement("a", {
+          href: t.youtubeUrl, target: "_blank", rel: "noopener noreferrer",
+          onMouseEnter: mobile ? undefined : () => setHovLink('yt'), onMouseLeave: mobile ? undefined : () => setHovLink(null),
+          style: hovLink === 'yt' ? extLinkHov : extLink
+        }, "YOUTUBE \u2197"),
+        t.soundcloudUrl && t.soundcloudUrl !== '#' && /*#__PURE__*/React.createElement("a", {
+          href: t.soundcloudUrl, target: "_blank", rel: "noopener noreferrer",
+          onMouseEnter: mobile ? undefined : () => setHovLink('sc'), onMouseLeave: mobile ? undefined : () => setHovLink(null),
+          style: hovLink === 'sc' ? extLinkHov : extLink
+        }, "SOUNDCLOUD \u2197")
+      ),
+      t.tracklist && t.tracklist.length > 0 && React.createElement("button", {
+        onClick: function() { setTracklistOpen(function(o) { return !o; }); },
+        className: 'wt-tracklist-toggle',
+        style: { display: 'flex', alignItems: 'center', gap: 4, background: 'none', border: 'none', cursor: 'pointer', padding: '0 4px', marginLeft: mobile ? -4 : 0, marginTop: mobile ? 0 : 6, fontFamily: WT2.mono, fontSize: 9, letterSpacing: 2, color: WT2.faint, textTransform: 'uppercase', flexShrink: 0 }
+      }, 'TRACK I.D.', React.createElement('span', { style: { color: 'var(--wt-accent)', fontSize: 8, marginLeft: 2 } }, tracklistOpen ? '\u25b2' : '\u25bc'))
+    )
+))
   , tracklistOpen && t.tracklist && t.tracklist.length > 0 && React.createElement("div", {
     style: { borderLeft: '1px solid ' + WT2.line2, borderRight: '1px solid ' + WT2.line2, borderBottom: '1px solid ' + WT2.line2, maxHeight: 160, overflowY: 'auto', paddingBottom: 4, background: WT2.panel }
   }, t.tracklist.map(function(entry, i) {
@@ -909,8 +922,8 @@ function Transmissions({
       rel: "noopener noreferrer",
       onClick: e => e.stopPropagation(),
       "aria-label": `Watch ${t.title} on YouTube (opens in new tab)`,
-      onMouseEnter: () => setHovLink(`${t.id}-yt`),
-      onMouseLeave: () => setHovLink(null),
+      onMouseEnter: isMobile ? undefined : () => setHovLink(`${t.id}-yt`),
+      onMouseLeave: isMobile ? undefined : () => setHovLink(null),
       style: hovLink === `${t.id}-yt` ? { ...extLinkHov, marginLeft: 8 } : { ...extLink, marginLeft: 8 }
     }, "YT \u2197"), t.soundcloudUrl && t.soundcloudUrl !== '#' && /*#__PURE__*/React.createElement("a", {
       href: t.soundcloudUrl,
@@ -918,8 +931,8 @@ function Transmissions({
       rel: "noopener noreferrer",
       onClick: e => e.stopPropagation(),
       "aria-label": `Listen to ${t.title} on SoundCloud (opens in new tab)`,
-      onMouseEnter: () => setHovLink(`${t.id}-sc`),
-      onMouseLeave: () => setHovLink(null),
+      onMouseEnter: isMobile ? undefined : () => setHovLink(`${t.id}-sc`),
+      onMouseLeave: isMobile ? undefined : () => setHovLink(null),
       style: hovLink === `${t.id}-sc` ? extLinkHov : extLink
     }, "SC \u2197"), /*#__PURE__*/React.createElement("span", {
       style: {
@@ -1045,8 +1058,8 @@ function Transmissions({
       rel: "noopener noreferrer",
       onClick: e => e.stopPropagation(),
       "aria-label": `Watch ${t.title} on YouTube (opens in new tab)`,
-      onMouseEnter: () => setHovLink(`${t.id}-yt`),
-      onMouseLeave: () => setHovLink(null),
+      onMouseEnter: isMobile ? undefined : () => setHovLink(`${t.id}-yt`),
+      onMouseLeave: isMobile ? undefined : () => setHovLink(null),
       style: hovLink === `${t.id}-yt` ? extLinkHov : extLink
     }, "YT \u2197"), t.soundcloudUrl && t.soundcloudUrl !== '#' && /*#__PURE__*/React.createElement("a", {
       href: t.soundcloudUrl,
@@ -1054,8 +1067,8 @@ function Transmissions({
       rel: "noopener noreferrer",
       onClick: e => e.stopPropagation(),
       "aria-label": `Listen to ${t.title} on SoundCloud (opens in new tab)`,
-      onMouseEnter: () => setHovLink(`${t.id}-sc`),
-      onMouseLeave: () => setHovLink(null),
+      onMouseEnter: isMobile ? undefined : () => setHovLink(`${t.id}-sc`),
+      onMouseLeave: isMobile ? undefined : () => setHovLink(null),
       style: hovLink === `${t.id}-sc` ? extLinkHov : extLink
     }, "SC \u2197"))));
   })), /*#__PURE__*/React.createElement(TermPageBar, {
