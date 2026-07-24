@@ -426,6 +426,13 @@ function ActiveRow({
   const curTrack = t.tracklist && t.tracklist.length > 0
     ? (t.tracklist.slice().reverse().find(function(e) { return displayElapsed >= e.timeSecs; }) || null)
     : null;
+  const curTrackIdx = curTrack ? t.tracklist.indexOf(curTrack) : -1;
+  const tracklistPanelRef = React.useRef(null);
+  React.useEffect(function() {
+    if (!tracklistOpen || !tracklistPanelRef.current || curTrackIdx < 0) return;
+    var el = tracklistPanelRef.current.children[curTrackIdx];
+    if (el) el.scrollIntoView({ block: 'nearest', behavior: dragFrac !== null ? 'auto' : 'smooth' });
+  }, [curTrackIdx, tracklistOpen]);
   const oscH = mobile
     ? Math.max(72, Math.min(88, Math.round(72 + (winW - 320) / 280 * 16)))
     : narrow
@@ -639,16 +646,14 @@ function ActiveRow({
     )
 ))
   , tracklistOpen && t.tracklist && t.tracklist.length > 0 && React.createElement("div", {
-    style: { borderLeft: '1px solid ' + WT2.line2, borderRight: '1px solid ' + WT2.line2, borderBottom: '1px solid ' + WT2.line2, maxHeight: 160, overflowY: 'auto', paddingBottom: 4, background: WT2.panel }
-  }, t.tracklist.map(function(entry, i) {
-    var isCur = elapsed >= entry.timeSecs && (i === t.tracklist.length - 1 || elapsed < t.tracklist[i + 1].timeSecs);
+    style: { borderLeft: '1px solid ' + WT2.line2, borderRight: '1px solid ' + WT2.line2, borderBottom: '1px solid ' + WT2.line2, maxHeight: 160, overflowY: 'auto', paddingBottom: 4, background: WT2.panel },
+    ref: tracklistPanelRef }, t.tracklist.map(function(entry, i) {
+    var isCur = displayElapsed >= entry.timeSecs && (i === t.tracklist.length - 1 || displayElapsed < t.tracklist[i + 1].timeSecs);
     var h = Math.floor(entry.timeSecs / 3600), m = Math.floor((entry.timeSecs % 3600) / 60), s = entry.timeSecs % 60;
     var ts = h > 0 ? h + ':' + String(m).padStart(2, '0') + ':' + String(s).padStart(2, '0') : String(m).padStart(2, '0') + ':' + String(s).padStart(2, '0');
     return React.createElement("div", {
       key: i,
       onClick: function() {
-        var parts = (t.run || '00:00:00').split(':').map(Number);
-        var totalSecs = parts[0] * 3600 + parts[1] * 60 + parts[2];
         if (totalSecs > 0 && onSeek) onSeek((entry.timeSecs + 1) / totalSecs);
       },
       style: { display: 'flex', gap: 8, padding: '2px 6px', marginBottom: 1, cursor: 'pointer', borderLeft: isCur ? '2px solid var(--wt-accent)' : '2px solid transparent', background: isCur ? 'rgba(143,191,159,0.05)' : 'none', transition: 'border-color .15s, background .15s' }
