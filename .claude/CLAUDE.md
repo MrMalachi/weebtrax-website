@@ -172,7 +172,7 @@ Generates: archive rows, scene cards, thumbnails, play buttons, YT/SC links, moo
 - [x] Scene card thumbnails — `repeat(2, 1fr)` fixed 2-per-row with `max-width: 1100px` on the grid; `aspect-ratio: 4/3` on cards
 
 ### Archive
-- [x] Wide table layout — tablet (600–899px) gets 3-col, mid (900–1199px) gets 5-col, wide (1200px+) gets 5-col with wider columns; slug (`t.file`) font size is `tablet ? 9 : 10` so landscape-phone slugs don't appear oversized in the wide 1fr column
+- [x] Wide table layout — tablet (600–899px) gets 3-col, mid (900–1199px) gets 5-col, wide (1200px+) gets 5-col with wider columns; slug (`t.file`) font size is `tablet ? 9 : 12` — 9px at 600–899px so landscape-phone slugs don't appear oversized in the wide 1fr column, 12px at ≥900px
 - [x] Mood filter chips and sort control wrap awkwardly on some screen sizes — fixed (2026-07-21): MOOD: label inline with chips, `flex: 0 0 auto` prevents squash, `overflow-x: auto` for scroll on tiny screens, `letter-spacing: 1px`; at 600–1099px TRACK I.D. drops below LISTEN via CSS `flex-basis: 100%` + `order: -1`; nowrap threshold raised to `winW < 1100`
 
 ### Data gaps
