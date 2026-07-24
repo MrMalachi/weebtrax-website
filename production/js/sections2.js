@@ -567,7 +567,7 @@ function ActiveRow({
       React.createElement("div", {
         style: { display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: 8 }
       },
-        /*#__PURE__*/React.createElement(Btn, { kind: "primary", sm: true, onClick: onPlayToggle }, /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("span", { style: { fontSize: playing ? 9 : 13, lineHeight: 1, marginRight: -4 } }, playing ? '\u25ae\u25ae' : '\u25b6'), playing ? 'Pause' : 'Listen')),
+        /*#__PURE__*/React.createElement(Btn, { kind: "primary", sm: true, onClick: onPlayToggle }, /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("span", { style: { fontSize: playing ? 12 : 13, lineHeight: 1, marginRight: -4 } }, playing ? '\u25ae\u25ae' : '\u25b6'), playing ? 'Pause' : 'Listen')),
         t.tracklist && t.tracklist.length > 0 && React.createElement("button", {
           onClick: function() { setTracklistOpen(function(o) { return !o; }); },
           className: 'wt-tracklist-toggle',
@@ -594,7 +594,7 @@ function ActiveRow({
       }, /*#__PURE__*/React.createElement("div", {
         className: 'wt-active-controls',
         style: { display: 'flex', alignItems: 'center', gap: 12, flexWrap: 'wrap' }
-      }, /*#__PURE__*/React.createElement(Btn, { kind: "primary", sm: true, onClick: onPlayToggle }, /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("span", { style: { fontSize: playing ? 9 : 13, lineHeight: 1, marginRight: -4 } }, playing ? '\u25ae\u25ae' : '\u25b6'), playing ? 'Pause' : 'Listen')),
+      }, /*#__PURE__*/React.createElement(Btn, { kind: "primary", sm: true, onClick: onPlayToggle }, /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("span", { style: { fontSize: playing ? 12 : 13, lineHeight: 1, marginRight: -4 } }, playing ? '\u25ae\u25ae' : '\u25b6'), playing ? 'Pause' : 'Listen')),
         t.youtubeUrl && t.youtubeUrl !== '#' && /*#__PURE__*/React.createElement("a", {
           href: t.youtubeUrl, target: "_blank", rel: "noopener noreferrer",
           onMouseEnter: mobile ? undefined : () => setHovLink('yt'), onMouseLeave: mobile ? undefined : () => setHovLink(null),
@@ -1001,7 +1001,7 @@ function Transmissions({
       style: {
         display: 'block',
         fontFamily: WT2.mono,
-        fontSize: 10,
+        fontSize: tablet ? 9 : 10,
         color: WT2.faint,
         marginTop: 3,
         overflow: 'hidden',
