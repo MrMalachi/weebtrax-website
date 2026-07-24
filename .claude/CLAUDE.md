@@ -128,7 +128,7 @@ Generates: archive rows, scene cards, thumbnails, play buttons, YT/SC links, moo
 - **Episode filter scroll**: `.wt-ep-scroll` also gets `touch-action: pan-x pan-y; -webkit-overflow-scrolling: touch` for the same reason.
 - **Archive status bar**: flex row — `094 files` pinned left, `sort: newest ↕` pinned right; path spans hidden
 - **Active player**: metadata line (`TX-id · slug · date`) hidden; track title splits on `|` with `pre-line` whitespace — text after pipe moves to new line, pipe stays
-- **Seekbar**: visual-drag pattern — local position state during drag, `audio.currentTime` only written on pointerdown + pointerup; `touchAction: 'none'` prevents browser scroll stealing
+- **Seekbar**: visual-drag pattern — local position state during drag, `audio.currentTime` only written on pointerdown + pointerup; `touchAction: 'none'` prevents browser scroll stealing. `SeekBar` accepts an optional `onDragProgress(frac | null)` callback fired on every pointermove (and null on release) so consumers can show a live preview time without seeking audio. `ActiveRow` uses this via `dragFrac` state + `displayElapsed = dragFrac !== null ? Math.round(dragFrac * totalSecs) : elapsed` — both the clock and the `curTrack` line update in real time during scrub.
 - **SignalFeed bottom bar**: red `×` close (left) + green `⊞/⊟` expand toggle (right) replace the old single close button
 - **PREV/NEXT + ← → buttons**: `wt-page-btn` class; CSS `:active` gives instant subtle press feedback (opacity 0.55, faint green bg); no JS state, no transition lag
 - **Kenburns** animation disabled; hero player card hidden; hero section auto-height

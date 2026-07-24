@@ -416,9 +416,15 @@ function ActiveRow({
 }) {
   const [hovLink, setHovLink] = React.useState(null);
   const [tracklistOpen, setTracklistOpen] = React.useState(false);
+  const [dragFrac, setDragFrac] = React.useState(null);
   const winW = useWinW();
+  const totalSecs = React.useMemo(function() {
+    var p = (t.run || '00:00:00').split(':').map(Number);
+    return p[0] * 3600 + p[1] * 60 + p[2];
+  }, [t.run]);
+  const displayElapsed = dragFrac !== null ? Math.round(dragFrac * totalSecs) : elapsed;
   const curTrack = t.tracklist && t.tracklist.length > 0
-    ? (t.tracklist.slice().reverse().find(function(e) { return elapsed >= e.timeSecs; }) || null)
+    ? (t.tracklist.slice().reverse().find(function(e) { return displayElapsed >= e.timeSecs; }) || null)
     : null;
   const oscH = mobile
     ? Math.max(72, Math.min(88, Math.round(72 + (winW - 320) / 280 * 16)))
@@ -484,7 +490,8 @@ function ActiveRow({
     onSeek: onSeek,
     height: 3,
     mt: 0,
-    onSeekStateChange: onSeekStateChange
+    onSeekStateChange: onSeekStateChange,
+    onDragProgress: setDragFrac
   }), mobile && /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'flex',
@@ -498,7 +505,7 @@ function ActiveRow({
       fontSize: 10,
       color: WT2.dim
     }
-  }, fmtTime(elapsed)), /*#__PURE__*/React.createElement("span", {
+  }, fmtTime(displayElapsed)), /*#__PURE__*/React.createElement("span", {
     style: {
       fontFamily: WT2.mono,
       fontSize: 10,
@@ -509,7 +516,8 @@ function ActiveRow({
     onSeek: onSeek,
     height: 3,
     mt: 0,
-    onSeekStateChange: onSeekStateChange
+    onSeekStateChange: onSeekStateChange,
+    onDragProgress: setDragFrac
   }), !mobile && /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'flex',
@@ -523,7 +531,7 @@ function ActiveRow({
       fontSize: 10,
       color: WT2.dim
     }
-  }, fmtTime(elapsed)), /*#__PURE__*/React.createElement("span", {
+  }, fmtTime(displayElapsed)), /*#__PURE__*/React.createElement("span", {
     style: {
       fontFamily: WT2.mono,
       fontSize: 10,

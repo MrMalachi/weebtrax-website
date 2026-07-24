@@ -255,7 +255,8 @@ function SeekBar({
   onSeek,
   height = 6,
   mt = 9,
-  onSeekStateChange
+  onSeekStateChange,
+  onDragProgress
 }) {
   const trackRef = React.useRef(null);
   const draggingRef = React.useRef(false);
@@ -276,6 +277,7 @@ function SeekBar({
     setLocalPct(frac);
     setSeeking(true);
     if (onSeekStateChange) onSeekStateChange(true);
+    if (onDragProgress) onDragProgress(frac);
     if (onSeek) onSeek(frac);
   }
   function onPointerMove(e) {
@@ -284,6 +286,7 @@ function SeekBar({
     const frac = getFraction(e);
     localFracRef.current = frac;
     setLocalPct(frac);
+    if (onDragProgress) onDragProgress(frac);
   }
   function onPointerUp(e) {
     if (!draggingRef.current) return;
@@ -292,6 +295,7 @@ function SeekBar({
     localFracRef.current = null;
     setLocalPct(null);
     setSeeking(false);
+    if (onDragProgress) onDragProgress(null);
     if (onSeekStateChange) onSeekStateChange(false);
     if (onSeek) onSeek(frac);
   }
@@ -302,6 +306,7 @@ function SeekBar({
     localFracRef.current = null;
     setLocalPct(null);
     setSeeking(false);
+    if (onDragProgress) onDragProgress(null);
     if (onSeekStateChange) onSeekStateChange(false);
     if (onSeek && frac !== null) onSeek(frac);
   }
