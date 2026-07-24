@@ -165,14 +165,14 @@ Generates: archive rows, scene cards, thumbnails, play buttons, YT/SC links, moo
 ### Playback
 - [ ] Previous track button — auto-advance goes forward but no way to go back
 - [ ] Shuffle mode — random track selection
-- [ ] Show tracklist in the active player card (data exists for 92/94 mixes, currently only shown in ticker)
+- [x] Show tracklist in the active player card — `curTrack` derived in `ActiveRow` by scanning `t.tracklist` in reverse for the last entry where `elapsed >= e.timeSecs`; renders `▸ Artist — Title` line between the mix title and controls; `fontSize` scales `clamp(10px → 12px)` from 900→1400px on desktop, fixed 10px on mobile/compact; only renders when tracklist data exists (2 mixes without tracklists show nothing)
 
 ### Scenes
 - [x] Prev/next scene navigation within the video player — ← → buttons with disabled state at boundaries; fullscreen stays open on nav
 - [x] Scene card thumbnails — `repeat(2, 1fr)` fixed 2-per-row with `max-width: 1100px` on the grid; `aspect-ratio: 4/3` on cards
 
 ### Archive
-- [x] Wide table layout — tablet (600–899px) gets 3-col, mid (900–1199px) gets 5-col, wide (1200px+) gets 5-col with wider columns; slug (`t.file`) font size is `tablet ? 9 : 12` — 9px at 600–899px so landscape-phone slugs don't appear oversized in the wide 1fr column, 12px at ≥900px
+- [x] Wide table layout — tablet (600–899px) gets 3-col, mid (900–1199px) gets 5-col, wide (1200px+) gets 5-col with wider columns; slug (`t.file`) font size is `tablet ? 9 : 12` — 9px at 600–899px so landscape-phone slugs don't appear oversized in the wide 1fr column, 12px at ≥900px; title font size `(mid || tablet) ? 16 : 17` — bumps to 17px at ≥1200px to fill the wider 1fr column
 - [x] Mood filter chips and sort control wrap awkwardly on some screen sizes — fixed (2026-07-21): MOOD: label inline with chips, `flex: 0 0 auto` prevents squash, `overflow-x: auto` for scroll on tiny screens, `letter-spacing: 1px`; at 600–1099px TRACK I.D. drops below LISTEN via CSS `flex-basis: 100%` + `order: -1`; nowrap threshold raised to `winW < 1100`
 
 ### Data gaps
@@ -208,7 +208,7 @@ Mobile has a working bottom nav bar and several archive/player polish passes. Co
 - [x] Scene card thumbnails enlarged via `aspect-ratio: 4/3 !important`
 - [x] Scene character accent image removed from DOM (file preserved at `public/assets/images/scenes-char-mobile.png` at 771×503px)
 - [x] Episode filter buttons (EP 01–13): 44px min-height touch target (`wt-ep-scroll button`)
-- [x] TRACK I.D. toggle + ActiveRow layout refactor (2026-07-22) — `ActiveRow` returns a `React.Fragment` containing (1) the card div and (2) a tracklist sibling div rendered after the card. Card layout: CSS grid `oscColW px 1fr`; left col = oscilloscope + seekbar + elapsed/duration row (all widths); right col = status + title + controls column (`flexDirection: column, alignItems: flex-start, gap: 8`). Controls: `wt-active-controls` flex row (`alignItems: center`) contains LISTEN | YOUTUBE | SOUNDCLOUD; TRACK I.D. toggle is a sibling below with `marginLeft: mobile ? -4 : 0` to align its text with LISTEN. VolBar removed from player card entirely. No full-width seekbar row — seekbar lives under the waveform in the left column at all widths.
+- [x] TRACK I.D. toggle + ActiveRow layout refactor (2026-07-22) — `ActiveRow` returns a `React.Fragment` containing (1) the card div and (2) a tracklist sibling div rendered after the card. Card layout: CSS grid `oscColW px 1fr`; left col = oscilloscope + seekbar + elapsed/duration row (all widths); right col = status + title + `curTrack` line + controls column. Controls: at 600–899px (`narrow && !mobile`) a 2-col layout — LISTEN + TRACK I.D. left, YOUTUBE + SOUNDCLOUD right (`marginTop: 10` between title and controls); at all other widths a flex-column — LISTEN | YOUTUBE | SOUNDCLOUD row then TRACK I.D. below (`marginTop: 14`). TRACK I.D. toggle spacing: `marginTop: 6` in JS is the single source of truth at all widths; `mobile.css` keeps `min-height: 28px` for touch target only (no longer uses `padding: 3px 8px` for spacing). VolBar removed from player card entirely.
 - [x] Hero crowd image: 180px height, `object-fit: cover`, `mask-image` edge fade on all 4 sides, `bottom: -8px` so crowd emerges from section border, bottom dissolve starts at 55%
 - [x] Submit terminal no longer regrows/replays every time the section scrolls back into view
 - [x] About section decluttered — removed redundant NAV block and TRANSMISSION blurb, shrunk oversized Business Inquiries button

@@ -417,6 +417,9 @@ function ActiveRow({
   const [hovLink, setHovLink] = React.useState(null);
   const [tracklistOpen, setTracklistOpen] = React.useState(false);
   const winW = useWinW();
+  const curTrack = t.tracklist && t.tracklist.length > 0
+    ? (t.tracklist.slice().reverse().find(function(e) { return elapsed >= e.timeSecs; }) || null)
+    : null;
   const oscH = mobile
     ? Math.max(72, Math.min(88, Math.round(72 + (winW - 320) / 280 * 16)))
     : narrow
@@ -559,10 +562,24 @@ function ActiveRow({
       whiteSpace: mobile ? 'pre-line' : undefined
     }
   }, mobile && t.title.includes('|') ? t.title.replace('|', '|\n') : t.title),
+  curTrack && React.createElement("div", {
+    style: {
+      fontFamily: WT2.mono,
+      fontSize: (mobile || narrow) ? 10 : 'clamp(10px, calc(10px + 2 * (100vw - 900px) / 500), 12px)',
+      color: WT2.dim,
+      letterSpacing: 0.5,
+      marginBottom: 2,
+      overflow: 'hidden',
+      textOverflow: 'ellipsis',
+      whiteSpace: 'nowrap'
+    }
+  }, React.createElement("span", { style: { color: 'var(--wt-accent)', marginRight: 6, fontSize: 8 } }, '▸'),
+    curTrack.artist ? curTrack.artist + ' — ' + curTrack.title : curTrack.title
+  ),
   (narrow && !mobile)
     ? /*#__PURE__*/React.createElement("div", {
         className: 'wt-active-controls',
-        style: { display: 'flex', alignItems: 'flex-start', gap: 12, marginTop: 14 }
+        style: { display: 'flex', alignItems: 'flex-start', gap: 12, marginTop: 10 }
       },
       React.createElement("div", {
         style: { display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: 8 }
@@ -609,7 +626,7 @@ function ActiveRow({
       t.tracklist && t.tracklist.length > 0 && React.createElement("button", {
         onClick: function() { setTracklistOpen(function(o) { return !o; }); },
         className: 'wt-tracklist-toggle',
-        style: { display: 'flex', alignItems: 'center', gap: 4, background: 'none', border: 'none', cursor: 'pointer', padding: '0 4px', marginLeft: mobile ? -4 : 0, marginTop: mobile ? 0 : 6, fontFamily: WT2.mono, fontSize: 9, letterSpacing: 2, color: WT2.faint, textTransform: 'uppercase', flexShrink: 0 }
+        style: { display: 'flex', alignItems: 'center', gap: 4, background: 'none', border: 'none', cursor: 'pointer', padding: '0 4px', marginLeft: mobile ? -4 : 0, marginTop: 6, fontFamily: WT2.mono, fontSize: 9, letterSpacing: 2, color: WT2.faint, textTransform: 'uppercase', flexShrink: 0 }
       }, 'TRACK I.D.', React.createElement('span', { style: { color: 'var(--wt-accent)', fontSize: 8, marginLeft: 2 } }, tracklistOpen ? '\u25b2' : '\u25bc'))
     )
 ))
@@ -985,7 +1002,7 @@ function Transmissions({
       style: {
         fontFamily: WT2.display,
         fontWeight: 700,
-        fontSize: 16,
+        fontSize: (mid || tablet) ? 16 : 17,
         color: WT2.ink
       }
     }, t.title), isActive && playing && /*#__PURE__*/React.createElement("span", {
