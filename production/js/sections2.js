@@ -1001,7 +1001,7 @@ function Transmissions({
       style: {
         display: 'block',
         fontFamily: WT2.mono,
-        fontSize: tablet ? 9 : 10,
+        fontSize: tablet ? 9 : 12,
         color: WT2.faint,
         marginTop: 3,
         overflow: 'hidden',
