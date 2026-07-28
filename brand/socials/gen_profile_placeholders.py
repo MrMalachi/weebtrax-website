@@ -1,7 +1,9 @@
 """
 Generates profile-picture images at each platform's recommended upload
-dimensions: a transparent background, the WeebTrax mascot centered on top,
-and a dark gray circle showing the final circular crop zone.
+dimensions: a solid #0a0b0e background (matches the site's dark theme), the
+WeebTrax mascot centered on top, and a dark gray circle showing the final
+circular crop zone. A solid background avoids the alpha-flattening pass
+platforms apply to transparent uploads, which can soften edges.
 
 Run: cd brand/socials && python3 gen_profile_placeholders.py
 """
@@ -26,6 +28,8 @@ PLATFORMS = [
     {"name": "TikTok", "size": 720, "file": "tiktok_profile.png"},
     {"name": "YouTube", "size": 800, "file": "youtube_profile.png"},
 ]
+
+BG_COLOR = "#0a0b0e"
 
 CROP_CIRCLE_COLOR = "#4A4A4A"
 CROP_CIRCLE_MARGIN_RATIO = 0.05  # inset from the canvas edge
@@ -66,12 +70,12 @@ def draw_mascot(canvas, size, mascot):
 
 
 def make_profile_image(size, filename, mascot):
-    canvas = Image.new("RGBA", (size, size), (0, 0, 0, 0))
+    canvas = Image.new("RGBA", (size, size), BG_COLOR)
     draw_mascot(canvas, size, mascot)
     draw_crop_circle(canvas, size)
 
     out_path = os.path.join(OUTPUT_DIR, filename)
-    canvas.save(out_path, "PNG", optimize=True)
+    canvas.convert("RGB").save(out_path, "PNG", optimize=True)
     print(f"wrote {out_path} ({size}x{size})")
 
 
