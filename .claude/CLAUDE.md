@@ -430,16 +430,30 @@ Can still read from JSON initially, then swap to PostgreSQL.
 
 ### Learning resources
 
-Read these FastAPI docs sections in order before building:
+**Already learned**: First Steps, Path Parameters, Query Parameters, Request Body.
 
-1. [First Steps](https://fastapi.tiangolo.com/tutorial/first-steps/) — routes, JSON responses, auto docs
-2. [Path Parameters](https://fastapi.tiangolo.com/tutorial/path-parameters/) — e.g. `/api/mixes/{id}`
-3. [Query Parameters](https://fastapi.tiangolo.com/tutorial/query-parameters/) — e.g. `?page=1&mood=chill`
-4. [Response Model](https://fastapi.tiangolo.com/tutorial/response-model/) — shaping what the API returns
-5. [Bigger Applications](https://fastapi.tiangolo.com/tutorial/bigger-applications/) — splitting mixes/scenes into separate router files with `APIRouter`
-6. [SQL (Relational) Databases](https://fastapi.tiangolo.com/tutorial/sql-databases/) — SQLAlchemy setup (relevant for Phase 5)
+**Learn now, in this order** (bare essentials to ship the read-only Phase 4 API + Phase 5 Postgres swap + Phase 6 Railway deploy):
 
-Skip everything else until you hit a specific need — body/request data, security, background tasks, WebSockets are not required for v1.
+1. [Handling Errors](https://fastapi.tiangolo.com/tutorial/handling-errors/) — `HTTPException`; needed immediately to fix the `/api/mixes/latest` bug and return proper 404s for bad mix/scene IDs
+2. [Response Model](https://fastapi.tiangolo.com/tutorial/response-model/) — shaping what the API returns, catches field typos/shape drift
+3. [Path Operation Configuration](https://fastapi.tiangolo.com/tutorial/response-status-code/) (status codes) — quick, pairs with #1
+4. [Path & Query Validation](https://fastapi.tiangolo.com/tutorial/query-params-str-validations/) — small add-on to query params you already know (`Query(..., ge=1)` etc.)
+5. [SQL (Relational) Databases](https://fastapi.tiangolo.com/tutorial/sql-databases/) — SQLAlchemy setup, directly unblocks Phase 5 (Postgres) and Phase 6 (Railway)
+
+**Already effectively covered, skip the tutorial**:
+- CORS — already implemented in `backend/main.py`; skim the docs page to understand the existing code, don't treat as new material
+- Bigger Applications — already applied (`routers/mixes.py`, `routers/scenes.py` split via `APIRouter`)
+
+**Learn shortly after launch, first thing**:
+- Dependencies (`Depends`) — foundational once working with SQLAlchemy/Postgres (Phase 5), since the standard `db: Session = Depends(get_db)` pattern relies on it; not required to ship the read-only pre-launch API, but the next thing to pick up once live
+
+**Defer further** (only relevant once building the track submission backend, Phase 8 individual mix pages, or an admin/auth surface — none of which gate launch):
+- Body Fields, Multiple Body Parameters, Nested Models, Body Updates (PUT/PATCH) — no write endpoints exist yet; everything is `GET`
+- Forms, File Uploads — this *is* the submission-form work; don't front-load it
+- Security (OAuth2 + JWT) — no user accounts or protected routes planned pre-launch
+- Background Tasks — relevant later for the scheduled yt-dlp view-count refresh, not required for MVP
+- Middleware (beyond CORS) — nothing else on the roadmap needs it
+- Testing — good habit, but not blocking a solo-project MVP; revisit once Postgres lands
 
 ---
 
