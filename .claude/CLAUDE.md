@@ -14,6 +14,8 @@
 | 7 | Move large media to storage bucket (Cloudflare R2) | ⬜ Not started |
 | Pre-launch | Verification, Cloudflare config, launch procedure | ⬜ Not started |
 
+Post-launch work (not gating launch) lives in a separate [Post-Launch Roadmap](#post-launch-roadmap) section below, starting with Phase 8.
+
 ---
 
 ## Phase 1 — Local media organization
@@ -268,11 +270,6 @@ Mobile has a working bottom nav bar and several archive/player polish passes. Co
 - [ ] Overall mobile layout is still CSS overrides on desktop structure — a first-class mobile layout pass would improve spacing, typography scale, and section rhythm
 - [ ] **iOS Safari overscroll grey reveal** — when rubber-banding past the top or bottom of the page, iOS exposes a grey system canvas behind the `#0a0b0e` background. Current fix is `html { overscroll-behavior-y: contain; }` which prevents bounce-chaining but does not fully eliminate the reveal. Attempted fixes that failed: `color-scheme: dark` on `html`; `theme-color: #0a0b0e`; `body::before` pseudo-element pinned at `top: -50vh`; `min-height: 100svh` + negative `margin-top`; `body { position: fixed; overflow: hidden }` with `main` as scroll container (broke `window.scrollY` / `window.scrollTo()` / all JS scroll listeners). A correct fix requires either (a) moving scroll ownership entirely to `<main>` and rewriting all JS scroll APIs to target that element, or (b) a future iOS/Safari version respecting `html { background-color }` in the overscroll zone.
 
-### Merch / Monetization
-- [ ] Set up merch store (Printful/Printify print-on-demand) — can launch as sole proprietor, doesn't require the LLC or 50k-subscriber label milestone
-- [ ] Add merch link/section to site nav or footer, matching Wired/Navi branding
-- [ ] Decision (2026-07-09): merch goes live *before* record-label formation — reinforces brand and tests revenue early; reassigning the store to the LLC later is low-friction
-
 ---
 
 ---
@@ -465,6 +462,76 @@ JSON fields become table columns. DB stores metadata + file paths only (not file
 Move large files from repo to Cloudflare R2. DB paths change from `/assets/...` to `https://media.weebtrax.com/...`.
 
 ---
+
+# Post-Launch Roadmap
+
+Improvements planned for *after* the site is live. Not required before launch — do not let these block Phases 1–7 or the Pre-Launch Steps below.
+
+## Phase 8 — Individual Mix Pages (Hybrid Upload Model)
+
+**Status**: Planned, not yet built. Depends on Phase 4/5 (FastAPI backend + PostgreSQL) being in place.
+
+Each mix gets uploaded in two parallel forms that converge through the backend:
+
+```
+                  Upload Mix
+                      │
+             ┌────────┴────────┐
+             │                 │
+      YouTube Video      MP3/Audio File
+             │                 │
+             │          FastAPI Backend
+             │                 │
+             └─────────┬───────┘
+                       │
+                WeebTrax Website
+```
+
+The website becomes the primary place to listen (via the audio player), while YouTube is an optional companion for people who enjoy the visuals or want to comment/subscribe — not a replacement for either path.
+
+Planned per-mix page layout:
+```
+────────────────────────────
+Now Playing
+
+▶ Audio Player
+
+Title
+Length
+Tracklist
+
+────────────────────────────
+
+Watch the visual mix on YouTube
+
+[ Watch on YouTube ]
+```
+
+This extends the existing archive row/active-player pattern into a dedicated page per mix, still backed by the same `audioPath`/`youtubeUrl`/`tracklist` fields already in `mixes.json` (see Phase 2 schema above) — no new data model needed, just a new route/view once the FastAPI backend and per-mix pages exist.
+
+**Important**: the YouTube video is a `[ Watch on YouTube ]` link/button out to the YouTube page, not an embedded `<iframe>` player on the mix page. Audio playback stays native to WeebTrax; YouTube is only ever one click away, never auto-loaded.
+
+### FastAPI learning tie-in
+
+This phase doubles as the next stretch of backend learning past the read-only endpoints in Phase 4. As backend skills grow, build toward:
+
+- `GET /mixes`
+- `GET /mixes/{id}`
+- `POST /artists/submissions`
+- `GET /artists`
+- `POST /favorites`
+- `GET /history`
+- `POST /play`
+
+These move the API from static JSON reads (Phase 4) into real read/write endpoints — submissions, favorites, play history — which is also what Phase 5 (PostgreSQL) needs tables for.
+
+---
+
+## Phase 9 — Merch / Monetization
+
+- [ ] Set up merch store (Printful/Printify print-on-demand) — can launch as sole proprietor, doesn't require the LLC or 50k-subscriber label milestone
+- [ ] Add merch link/section to site nav or footer, matching Wired/Navi branding
+- [ ] Decision (2026-07-09): merch goes live *before* record-label formation — reinforces brand and tests revenue early; reassigning the store to the LLC later is low-friction
 
 ---
 
