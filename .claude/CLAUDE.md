@@ -541,7 +541,21 @@ These move the API from static JSON reads (Phase 4) into real read/write endpoin
 
 ---
 
-## Phase 9 — Merch / Monetization
+## Phase 9 — Light / Dark Mode
+
+**Status**: Planned, not started (added 2026-08-07). **Must ship before Phase 10 (Merch)** — do the theme work first so merch UI/branding is built against both themes from the start rather than retrofitted.
+
+Add a theme toggle so visitors can switch between the current dark "Wired/Navi" look and a light mode variant.
+
+**Architecture note for whoever builds this**: colors are currently NOT CSS variables — they're a plain JS object, `WT2` (defined in `js/core.js:5`), consumed via inline `style` props across every component (`js/core.js`, `js/sections1.js`, `js/sections2.js`, `js/app.js`). `css/styles.css` and `css/mobile.css` also have their own hardcoded hex/rgba colors independent of `WT2`. There is no existing token indirection layer, so this isn't a small CSS-variable swap — it requires either:
+- (a) converting `WT2` into a function of the active theme (e.g. `getWT2(theme)`) plus a React context/state for the current theme, threaded through every component that currently reads `WT2.*` directly, and mirroring the same light/dark split into the hardcoded colors in both CSS files, or
+- (b) migrating `WT2` values and the CSS hardcoded colors to real CSS custom properties (`--wt-ink`, `--wt-void`, etc.) scoped under a `[data-theme]`/`.light` root attribute, then updating call sites to reference `var(--wt-*)` instead of `WT2.*` — larger upfront refactor but avoids re-render/context plumbing.
+
+Scope also includes: persisting the choice (`localStorage`), a toggle control (rail or nav), deciding whether light mode needs its own accent/mood-tag palette (`chill/nostalgic/dirty/deep` colors currently tuned for a dark background), and auditing images/thumbnails that assume a dark surrounding (hero Ken Burns fades, video player chrome, scan-line/glow effects that may not read well on light backgrounds).
+
+---
+
+## Phase 10 — Merch / Monetization
 
 - [ ] Set up merch store (Printful/Printify print-on-demand) — can launch as sole proprietor, doesn't require the LLC or 50k-subscriber label milestone
 - [ ] Add merch link/section to site nav or footer, matching Wired/Navi branding
