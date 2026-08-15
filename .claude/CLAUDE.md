@@ -430,15 +430,14 @@ Can still read from JSON initially, then swap to PostgreSQL.
 
 ### Learning resources
 
-**Already learned**: First Steps, Path Parameters, Query Parameters, Request Body.
+**Already learned**: First Steps, Path Parameters, Query Parameters, Request Body, [Handling Errors](https://fastapi.tiangolo.com/tutorial/handling-errors/) — applied as `HTTPException` validation on `n`/`page`/`limit` in `backend/routers/mixes.py` and `scenes.py`, plus a `Mood` str Enum on the `mood` query param in `scenes.py` for automatic 422s.
 
 **Learn now, in this order** (bare essentials to ship the read-only Phase 4 API + Phase 5 Postgres swap + Phase 6 Railway deploy):
 
-1. [Handling Errors](https://fastapi.tiangolo.com/tutorial/handling-errors/) — `HTTPException`; needed immediately to fix the `/api/mixes/latest` bug and return proper 404s for bad mix/scene IDs
-2. [Response Model](https://fastapi.tiangolo.com/tutorial/response-model/) — shaping what the API returns, catches field typos/shape drift
-3. [Path Operation Configuration](https://fastapi.tiangolo.com/tutorial/response-status-code/) (status codes) — quick, pairs with #1
-4. [Path & Query Validation](https://fastapi.tiangolo.com/tutorial/query-params-str-validations/) — small add-on to query params you already know (`Query(..., ge=1)` etc.)
-5. [SQL (Relational) Databases](https://fastapi.tiangolo.com/tutorial/sql-databases/) — SQLAlchemy setup, directly unblocks Phase 5 (Postgres) and Phase 6 (Railway)
+1. [Response Model](https://fastapi.tiangolo.com/tutorial/response-model/) — shaping what the API returns, catches field typos/shape drift
+2. [Path Operation Configuration](https://fastapi.tiangolo.com/tutorial/response-status-code/) (status codes) — quick, pairs with Handling Errors
+3. [Path & Query Validation](https://fastapi.tiangolo.com/tutorial/query-params-str-validations/) — small add-on to query params you already know (`Query(..., ge=1)` etc.) — can simplify the manual `page < 1`/`limit < 1` checks already in place
+4. [SQL (Relational) Databases](https://fastapi.tiangolo.com/tutorial/sql-databases/) — SQLAlchemy setup, directly unblocks Phase 5 (Postgres) and Phase 6 (Railway)
 
 **Already effectively covered, skip the tutorial**:
 - CORS — already implemented in `backend/main.py`; skim the docs page to understand the existing code, don't treat as new material
