@@ -182,7 +182,7 @@ Generates: archive rows, scene cards, thumbnails, play buttons, YT/SC links, moo
 
 ### Data gaps
 - [x] ~~Ghetto Symphony Pt. 1 (`mix-046`) and Pt. 2 (`mix-075`) have no tracklist~~ — resolved, both now have full tracklists (10 and 11 entries)
-- [ ] `soundcloudUrl` is `null` for the 5 mixes added 2026-08-20 (`mix-095`–`mix-099`: Atmospheric Transmission, Longing For Your Love, Strange It's As If I've Known You For A Long Time, If You Aren't Remembered Then You Never Existed, Balance of Nature) — need to check whether these have SoundCloud posts and add the URLs if so
+- [x] `soundcloudUrl` filled in for all 5 mixes added 2026-08-20 (`mix-095`–`mix-099`) — all have live SoundCloud posts, added to both `production/public/assets/metadata/mixes.json` and `backend/data/mixes.json`. Note: SoundCloud auto-truncates long track titles into short permalinks (e.g. "If You Aren't Remembered, Then You Never Existed" → `/lo-fi-house-mix-if-you-arent`), so slugs don't always match the site's own `slug` field — verified each via the SoundCloud API (`api-v2.soundcloud.com/users/{id}/tracks`) matching on track duration, not by guessing slugified titles
 
 ### Performance
 - [x] `js/images.js` (314KB base64 image data in `window.WT_IMG`) is **not loaded** in `index.html` — images are served via direct file paths in JS (`public/assets/images/...`). The file is an orphan artifact and the synchronous-load concern is moot. No action needed.
