@@ -2149,39 +2149,48 @@
     "tracklist": [
       {
         "timeSecs": 0,
-        "title": "MTRLV – Without Your Light"
+        "artist": "MTRLV",
+        "title": "Without Your Light"
       },
       {
         "timeSecs": 515,
-        "title": "MTRLV – Distant Memories"
+        "artist": "MTRLV",
+        "title": "Distant Memories"
       },
       {
         "timeSecs": 811,
-        "title": "Coastdream – Untitled"
+        "artist": "Coastdream",
+        "title": "Untitled"
       },
       {
         "timeSecs": 1030,
-        "title": "DJ Different – Das Boot"
+        "artist": "DJ Different",
+        "title": "Das Boot"
       },
       {
         "timeSecs": 1310,
-        "title": "RAAR – Best Intention"
+        "artist": "RAAR",
+        "title": "Best Intention"
       },
       {
         "timeSecs": 1546,
-        "title": "Florian Kupfer – English Mercedes"
+        "artist": "Florian Kupfer",
+        "title": "English Mercedes"
       },
       {
         "timeSecs": 1843,
-        "title": "Fabio Monesi – Flanger City"
+        "artist": "Fabio Monesi",
+        "title": "Flanger City"
       },
       {
         "timeSecs": 2124,
-        "title": "Maniqin – Bump"
+        "artist": "Maniqin",
+        "title": "Bump"
       },
       {
         "timeSecs": 2529,
-        "title": "Jozef K – Disintergrated"
+        "artist": "Jozef K",
+        "title": "Disintergrated"
       }
     ]
   },
@@ -2204,39 +2213,48 @@
       },
       {
         "timeSecs": 254,
-        "title": "Cbdj – Towards You"
+        "artist": "Cbdj",
+        "title": "Towards You"
       },
       {
         "timeSecs": 539,
-        "title": "kemt – Next to You"
+        "artist": "kemt",
+        "title": "Next to You"
       },
       {
         "timeSecs": 832,
-        "title": "Bomat – Feels Like I’ve Seen You"
+        "artist": "Bomat",
+        "title": "Feels Like I’ve Seen You"
       },
       {
         "timeSecs": 1036,
-        "title": "Veen – U Crossed My Mind"
+        "artist": "Veen",
+        "title": "U Crossed My Mind"
       },
       {
         "timeSecs": 1319,
-        "title": "DJ Houseplants – Unconditional"
+        "artist": "DJ Houseplants",
+        "title": "Unconditional"
       },
       {
         "timeSecs": 1572,
-        "title": "Jacopo Sb – Rosalìa"
+        "artist": "Jacopo Sb",
+        "title": "Rosalìa"
       },
       {
         "timeSecs": 1823,
-        "title": "Folamour – Sunday Morning"
+        "artist": "Folamour",
+        "title": "Sunday Morning"
       },
       {
         "timeSecs": 2201,
-        "title": "Dj Windows 7 – Noche Bajo Estrellas"
+        "artist": "Dj Windows 7",
+        "title": "Noche Bajo Estrellas"
       },
       {
         "timeSecs": 2453,
-        "title": "Dos – Need U"
+        "artist": "Dos",
+        "title": "Need U"
       }
     ]
   },
@@ -2569,38 +2587,47 @@
     "tracklist": [
       {
         "timeSecs": 0,
+        "artist": "Upper Class",
         "title": "Faster Than Life"
       },
       {
         "timeSecs": 307,
+        "artist": "Upper Class",
         "title": "Milkshakes On the Fast Lane"
       },
       {
         "timeSecs": 492,
+        "artist": "Upper Class",
         "title": "Tunneling"
       },
       {
         "timeSecs": 747,
+        "artist": "Upper Class",
         "title": "Headin’ Nowhere Ever"
       },
       {
         "timeSecs": 942,
+        "artist": "Upper Class",
         "title": "Smoking Area"
       },
       {
         "timeSecs": 1152,
+        "artist": "Upper Class",
         "title": "Chasing Lights"
       },
       {
         "timeSecs": 1392,
+        "artist": "Upper Class",
         "title": "Onmyway2u"
       },
       {
         "timeSecs": 1565,
+        "artist": "Upper Class",
         "title": "Watching Life Fly By"
       },
       {
         "timeSecs": 1738,
+        "artist": "Upper Class",
         "title": "No Road Ahead"
       }
     ]
@@ -3965,7 +3992,8 @@
       },
       {
         "timeSecs": 1015,
-        "title": "Rodfæstet – Missin’ Your Love"
+        "artist": "Rodfæstet",
+        "title": "Missin’ Your Love"
       },
       {
         "timeSecs": 1268,
@@ -4034,7 +4062,8 @@
       },
       {
         "timeSecs": 5610,
-        "title": "RealSense -Make Me Float (RealSense Remix)"
+        "artist": "RealSense",
+        "title": "Make Me Float (RealSense Remix)"
       },
       {
         "timeSecs": 5890,
@@ -4220,7 +4249,7 @@
     "id": "mix-065",
     "title": "Lo-Fi House Essentials | Outer Space Trax",
     "slug": "lo-fi-house-essentials-outer-space-trax",
-    "duration": "02:05:57",
+    "duration": "02:09:11",
     "releaseDate": "2024.03.15",
     "mood": "deep",
     "views": 5753,
@@ -4230,7 +4259,7 @@
     "tracklist": [
       {
         "timeSecs": 0,
-        "artist": "70’s Network",
+        "artist": "70's Network",
         "title": "Invisibeauty"
       },
       {
@@ -4246,7 +4275,7 @@
       {
         "timeSecs": 1180,
         "artist": "Baltra",
-        "title": "Can’t Explain It (feat. Angela)"
+        "title": "Can't Explain It (feat. Angela)"
       },
       {
         "timeSecs": 1564,
@@ -4270,12 +4299,12 @@
       },
       {
         "timeSecs": 3083,
-        "artist": "Raär",
+        "artist": "Raar",
         "title": "Sometimes I Hear Sirens"
       },
       {
         "timeSecs": 3427,
-        "artist": "70’s Network",
+        "artist": "70's Network",
         "title": "Glocktight (DJ Different Remix)"
       },
       {
@@ -4311,7 +4340,7 @@
       {
         "timeSecs": 5586,
         "artist": "DJ Club Sandwich",
-        "title": "Would’ve Loved U Forever"
+        "title": "Would've Loved U Forever"
       },
       {
         "timeSecs": 5898,
@@ -4345,6 +4374,11 @@
       },
       {
         "timeSecs": 7292,
+        "artist": "Overmono",
+        "title": "Sugarushhh"
+      },
+      {
+        "timeSecs": 7473,
         "artist": "nthng",
         "title": "Infinity"
       }
@@ -4547,7 +4581,7 @@
     "id": "mix-068",
     "title": "Lo-Fi House Essentials | Clubbing Withdrawal Symptoms Trax",
     "slug": "lo-fi-house-essentials-clubbing-withdrawal-symptoms-trax",
-    "duration": "02:00:18",
+    "duration": "02:06:41",
     "releaseDate": "2024.05.08",
     "mood": "deep",
     "views": 3251,
@@ -4578,7 +4612,7 @@
       {
         "timeSecs": 1368,
         "artist": "DJ Dreamer",
-        "title": "Don’t Stop Dancing Girl"
+        "title": "Don't Stop Dancing Girl"
       },
       {
         "timeSecs": 1635,
@@ -4593,7 +4627,7 @@
       {
         "timeSecs": 2198,
         "artist": "slowkick",
-        "title": "Overclubbin’"
+        "title": "Overclubbin'"
       },
       {
         "timeSecs": 2415,
@@ -4631,47 +4665,52 @@
         "title": "Ma Shootaz Got Shootaz"
       },
       {
-        "timeSecs": 4347,
+        "timeSecs": 4375,
+        "artist": "Mall Grab",
+        "title": "I've Always Liked Grime"
+      },
+      {
+        "timeSecs": 4797,
         "artist": "DJ M4A4",
         "title": "Emo Party Haus Whip"
       },
       {
-        "timeSecs": 4748,
+        "timeSecs": 5132,
         "artist": "DJ Swagger",
         "title": "Glock & Gualla"
       },
       {
-        "timeSecs": 5050,
+        "timeSecs": 5404,
         "artist": "Mr. Sosa",
         "title": "Paradox"
       },
       {
-        "timeSecs": 5387,
+        "timeSecs": 5790,
         "artist": "1800HaightStreet",
         "title": "Flood"
       },
       {
-        "timeSecs": 5812,
+        "timeSecs": 6195,
         "artist": "Baltra",
         "title": "Breathe Deep"
       },
       {
-        "timeSecs": 6096,
+        "timeSecs": 6480,
         "artist": "GLANSLIN",
         "title": "Fucked Up"
       },
       {
-        "timeSecs": 6268,
+        "timeSecs": 6652,
         "artist": "Sinceer",
         "title": "Emp"
       },
       {
-        "timeSecs": 6512,
+        "timeSecs": 6895,
         "artist": "Overmono",
         "title": "BMW Track"
       },
       {
-        "timeSecs": 6910,
+        "timeSecs": 7279,
         "artist": "Supreems",
         "title": "Amex 2 Trance"
       }
@@ -4760,7 +4799,7 @@
     "id": "mix-070",
     "title": "Lo-Fi House Essentials | DJ'S ONLY Trax",
     "slug": "lo-fi-house-essentials-djs-only-trax",
-    "duration": "01:53:17",
+    "duration": "02:03:26",
     "releaseDate": "2024.06.17",
     "mood": "deep",
     "views": 2608,
@@ -4834,52 +4873,62 @@
         "title": "Track3"
       },
       {
-        "timeSecs": 3705,
+        "timeSecs": 3704,
+        "artist": "DJ Boneyard",
+        "title": "Original"
+      },
+      {
+        "timeSecs": 4048,
         "artist": "DJ Tired",
         "title": "Ghetto Bump"
       },
       {
-        "timeSecs": 4035,
+        "timeSecs": 4370,
         "artist": "DJ Windows XP",
         "title": "I Cried Last Night"
       },
       {
-        "timeSecs": 4344,
+        "timeSecs": 4678,
         "artist": "DJ Psychiatre",
         "title": "To a L-141 Memory"
       },
       {
-        "timeSecs": 4657,
+        "timeSecs": 4985,
         "artist": "DJ Planet Express",
         "title": "Side x Side ft. Augustix"
       },
       {
-        "timeSecs": 4952,
+        "timeSecs": 5287,
         "artist": "dj giveup & DJ Planet Express",
         "title": "Late Nite"
       },
       {
-        "timeSecs": 5195,
+        "timeSecs": 5531,
         "artist": "DJ Seinfeld",
         "title": "Come Thru for U"
       },
       {
-        "timeSecs": 5533,
+        "timeSecs": 5869,
         "artist": "DJ Cinéma Quartier Latin",
         "title": "Nights Like This"
       },
       {
-        "timeSecs": 5878,
+        "timeSecs": 6206,
         "artist": "Dj Windows 7",
         "title": "Noche Bajo Estrellas"
       },
       {
-        "timeSecs": 6134,
+        "timeSecs": 6469,
         "artist": "DJ Club Sandwich",
         "title": "Sunshine"
       },
       {
-        "timeSecs": 6458,
+        "timeSecs": 6793,
+        "artist": "DJ Bigspin",
+        "title": "Miracles"
+      },
+      {
+        "timeSecs": 7067,
         "artist": "DJ Boring & Baltra",
         "title": "I Know You Want To (Baltra Remix)"
       }
@@ -4963,43 +5012,53 @@
     "tracklist": [
       {
         "timeSecs": 0,
-        "title": "DJ Houseplants – The Morning (feat. Uchii)"
+        "artist": "DJ Houseplants",
+        "title": "The Morning (feat. Uchii)"
       },
       {
         "timeSecs": 296,
-        "title": "dj poolboi – On My Mind (feat. DJ Sagol)"
+        "artist": "dj poolboi",
+        "title": "On My Mind (feat. DJ Sagol)"
       },
       {
         "timeSecs": 671,
-        "title": "Monolithic – Baby Hold Me Close"
+        "artist": "Monolithic",
+        "title": "Baby Hold Me Close"
       },
       {
         "timeSecs": 937,
-        "title": "Nuwave – One with the Father (VIP Remix)"
+        "artist": "Nuwave",
+        "title": "One with the Father (VIP Remix)"
       },
       {
         "timeSecs": 1190,
-        "title": "SLIM HUSTLA – Understand Da Game"
+        "artist": "SLIM HUSTLA",
+        "title": "Understand Da Game"
       },
       {
         "timeSecs": 1446,
-        "title": "GLANSLIN – Secret World"
+        "artist": "GLANSLIN",
+        "title": "Secret World"
       },
       {
         "timeSecs": 1758,
-        "title": "LOMAJI – Feelin You"
+        "artist": "LOMAJI",
+        "title": "Feelin You"
       },
       {
         "timeSecs": 1950,
-        "title": "asc – Lose Ya"
+        "artist": "asc",
+        "title": "Lose Ya"
       },
       {
         "timeSecs": 2130,
-        "title": "LOMAJI – Urban Noise"
+        "artist": "LOMAJI",
+        "title": "Urban Noise"
       },
       {
         "timeSecs": 2333,
-        "title": "BAKGROUND – Credits"
+        "artist": "BAKGROUND",
+        "title": "Credits"
       }
     ]
   },
@@ -5017,39 +5076,48 @@
     "tracklist": [
       {
         "timeSecs": 0,
-        "title": "Shedbug – 337A"
+        "artist": "Shedbug",
+        "title": "337A"
       },
       {
         "timeSecs": 263,
-        "title": "Shedbug – Noti Crack"
+        "artist": "Shedbug",
+        "title": "Noti Crack"
       },
       {
         "timeSecs": 616,
-        "title": "M4A4 – tenmillion"
+        "artist": "M4A4",
+        "title": "tenmillion"
       },
       {
         "timeSecs": 938,
-        "title": "vgav – efficient penne"
+        "artist": "vgav",
+        "title": "efficient penne"
       },
       {
         "timeSecs": 1121,
-        "title": "vgav – eight years"
+        "artist": "vgav",
+        "title": "eight years"
       },
       {
         "timeSecs": 1482,
-        "title": "Passing Currents – Undress"
+        "artist": "Passing Currents",
+        "title": "Undress"
       },
       {
         "timeSecs": 1744,
-        "title": "Patricia – Consumer Recreation Services"
+        "artist": "Patricia",
+        "title": "Consumer Recreation Services"
       },
       {
         "timeSecs": 2096,
-        "title": "wshdway – meant 2 be"
+        "artist": "wshdway",
+        "title": "meant 2 be"
       },
       {
         "timeSecs": 2342,
-        "title": "Baltra – Can’t Explain It (feat. Angela)"
+        "artist": "Baltra",
+        "title": "Can’t Explain It (feat. Angela)"
       }
     ]
   },
@@ -5067,47 +5135,58 @@
     "tracklist": [
       {
         "timeSecs": 0,
-        "title": "Otto Taimela – “There Are Stars Above the Sea of Clouds”"
+        "artist": "Otto Taimela",
+        "title": "“There Are Stars Above the Sea of Clouds”"
       },
       {
         "timeSecs": 276,
-        "title": "DJ BOG – For the Chewin"
+        "artist": "DJ BOG",
+        "title": "For the Chewin"
       },
       {
         "timeSecs": 420,
-        "title": "Grant – Finite Elements"
+        "artist": "Grant",
+        "title": "Finite Elements"
       },
       {
         "timeSecs": 796,
-        "title": "Holo – Try"
+        "artist": "Holo",
+        "title": "Try"
       },
       {
         "timeSecs": 1129,
-        "title": "DJ Houseplants – Like You’re Gonna Stay"
+        "artist": "DJ Houseplants",
+        "title": "Like You’re Gonna Stay"
       },
       {
         "timeSecs": 1439,
-        "title": "DJ BORING – For Tahn"
+        "artist": "DJ BORING",
+        "title": "For Tahn"
       },
       {
         "timeSecs": 1775,
-        "title": "Star Trash – Disconnect"
+        "artist": "Star Trash",
+        "title": "Disconnect"
       },
       {
         "timeSecs": 1917,
-        "title": "Shaolin Cowboy – Imma Be My Own Best Friend"
+        "artist": "Shaolin Cowboy",
+        "title": "Imma Be My Own Best Friend"
       },
       {
         "timeSecs": 2204,
-        "title": "Sideluv & KTRNA – What You Want"
+        "artist": "Sideluv & KTRNA",
+        "title": "What You Want"
       },
       {
         "timeSecs": 2404,
-        "title": "Jesse Bru – Please Ask"
+        "artist": "Jesse Bru",
+        "title": "Please Ask"
       },
       {
         "timeSecs": 2704,
-        "title": "HUMAN PART – TONE, TAN (FIT + READY)"
+        "artist": "HUMAN PART",
+        "title": "TONE, TAN (FIT + READY)"
       },
       {
         "timeSecs": 2897,
@@ -5116,51 +5195,63 @@
       },
       {
         "timeSecs": 3219,
-        "title": "Stvla – Outta Love"
+        "artist": "Stvla",
+        "title": "Outta Love"
       },
       {
         "timeSecs": 3450,
-        "title": "Mall Grab – Love Reigns"
+        "artist": "Mall Grab",
+        "title": "Love Reigns"
       },
       {
         "timeSecs": 3725,
-        "title": "DJ Seinfeld – Walking With Ur Smile"
+        "artist": "DJ Seinfeld",
+        "title": "Walking With Ur Smile"
       },
       {
         "timeSecs": 3946,
-        "title": "COMPUTER DATA – Alles"
+        "artist": "COMPUTER DATA",
+        "title": "Alles"
       },
       {
         "timeSecs": 4374,
-        "title": "Rimbaudian – Planted Casual"
+        "artist": "Rimbaudian",
+        "title": "Planted Casual"
       },
       {
         "timeSecs": 4672,
-        "title": "M4A4 – Pretty girl (remix)"
+        "artist": "M4A4",
+        "title": "Pretty girl (remix)"
       },
       {
         "timeSecs": 4887,
-        "title": "Kornél Kovács – Pantalón"
+        "artist": "Kornél Kovács",
+        "title": "Pantalón"
       },
       {
         "timeSecs": 5147,
-        "title": "Monolithic – You Won’t Even Call Me"
+        "artist": "Monolithic",
+        "title": "You Won’t Even Call Me"
       },
       {
         "timeSecs": 5483,
-        "title": "kemt – i need you (in my life)"
+        "artist": "kemt",
+        "title": "i need you (in my life)"
       },
       {
         "timeSecs": 5868,
-        "title": "5ubaruu – Tired Eyes"
+        "artist": "5ubaruu",
+        "title": "Tired Eyes"
       },
       {
         "timeSecs": 5996,
-        "title": "LZ* & TURUOISEDEATH – Limerence (Extended)"
+        "artist": "LZ* & TURUOISEDEATH",
+        "title": "Limerence (Extended)"
       },
       {
         "timeSecs": 6416,
-        "title": "disctr4k – Control"
+        "artist": "disctr4k",
+        "title": "Control"
       },
       {
         "timeSecs": 6610,
@@ -5252,47 +5343,58 @@
     "tracklist": [
       {
         "timeSecs": 0,
-        "title": "Voxkai – Paramnesia"
+        "artist": "Voxkai",
+        "title": "Paramnesia"
       },
       {
         "timeSecs": 156,
-        "title": "Passing Currents – 2002"
+        "artist": "Passing Currents",
+        "title": "2002"
       },
       {
         "timeSecs": 322,
-        "title": "Yung Lain – Cyberia Texture"
+        "artist": "Yung Lain",
+        "title": "Cyberia Texture"
       },
       {
         "timeSecs": 443,
-        "title": "yion – Wired"
+        "artist": "yion",
+        "title": "Wired"
       },
       {
         "timeSecs": 612,
-        "title": "LOMAJI – Data Drain"
+        "artist": "LOMAJI",
+        "title": "Data Drain"
       },
       {
         "timeSecs": 761,
-        "title": "Trashiii – Idle Springs"
+        "artist": "Trashiii",
+        "title": "Idle Springs"
       },
       {
         "timeSecs": 857,
-        "title": "Kanyalang! – Perfect Blue"
+        "artist": "Kanyalang!",
+        "title": "Perfect Blue"
       },
       {
         "timeSecs": 1159,
-        "title": "Marco Lazovic – Violin Feelings"
+        "artist": "Marco Lazovic",
+        "title": "Violin Feelings"
       },
       {
         "timeSecs": 1453,
-        "title": "belac – In Your Head"
+        "artist": "belac",
+        "title": "In Your Head"
       },
       {
         "timeSecs": 1629,
-        "title": "Buddy Broke – 987 (Kanyalang Remix)"
+        "artist": "Buddy Broke",
+        "title": "987 (Kanyalang Remix)"
       },
       {
         "timeSecs": 1872,
-        "title": "bleach.bath – Seeyoulaterspacecowboy"
+        "artist": "bleach.bath",
+        "title": "Seeyoulaterspacecowboy"
       },
       {
         "timeSecs": 2018,
@@ -5301,55 +5403,68 @@
       },
       {
         "timeSecs": 2242,
-        "title": "Random Movement – Life Is Permanent"
+        "artist": "Random Movement",
+        "title": "Life Is Permanent"
       },
       {
         "timeSecs": 2536,
-        "title": "Subjoi – Parsec"
+        "artist": "Subjoi",
+        "title": "Parsec"
       },
       {
         "timeSecs": 2925,
-        "title": "Ray Keith – Phizical (Moody Mix)"
+        "artist": "Ray Keith",
+        "title": "Phizical (Moody Mix)"
       },
       {
         "timeSecs": 3250,
-        "title": "Bakground & Sangam – Intermission"
+        "artist": "Bakground & Sangam",
+        "title": "Intermission"
       },
       {
         "timeSecs": 3445,
-        "title": "DJ Kim’s Convenience Store – Lets Learn Japanglish With Jungle Rhythm"
+        "artist": "DJ Kim’s Convenience Store",
+        "title": "Lets Learn Japanglish With Jungle Rhythm"
       },
       {
         "timeSecs": 3631,
-        "title": "Special Request – Elysian Fields"
+        "artist": "Special Request",
+        "title": "Elysian Fields"
       },
       {
         "timeSecs": 3957,
-        "title": "Yung SmartRider – Tree of Life"
+        "artist": "Yung SmartRider",
+        "title": "Tree of Life"
       },
       {
         "timeSecs": 4201,
-        "title": "Yung SmartRider – Shadow of Intent (feat. Kristof)"
+        "artist": "Yung SmartRider",
+        "title": "Shadow of Intent (feat. Kristof)"
       },
       {
         "timeSecs": 4561,
-        "title": "M4A4 – 1995"
+        "artist": "M4A4",
+        "title": "1995"
       },
       {
         "timeSecs": 4937,
-        "title": "Otto Taimela – it’s a secret"
+        "artist": "Otto Taimela",
+        "title": "it’s a secret"
       },
       {
         "timeSecs": 5125,
-        "title": "Sewerslvt – Mr. Kill Myself"
+        "artist": "Sewerslvt",
+        "title": "Mr. Kill Myself"
       },
       {
         "timeSecs": 5576,
-        "title": "disctr4k – Substantial"
+        "artist": "disctr4k",
+        "title": "Substantial"
       },
       {
         "timeSecs": 5757,
-        "title": "BAKGROUND – Game Over"
+        "artist": "BAKGROUND",
+        "title": "Game Over"
       }
     ]
   },
@@ -5367,43 +5482,53 @@
     "tracklist": [
       {
         "timeSecs": 0,
-        "title": "DJ Houseplants – How It Used to Be (feat. Jacopo SB)"
+        "artist": "DJ Houseplants",
+        "title": "How It Used to Be (feat. Jacopo SB)"
       },
       {
         "timeSecs": 276,
-        "title": "Tom Vernon – Late Nights"
+        "artist": "Tom Vernon",
+        "title": "Late Nights"
       },
       {
         "timeSecs": 445,
-        "title": "Bajazo – Autumn Fireflies"
+        "artist": "Bajazo",
+        "title": "Autumn Fireflies"
       },
       {
         "timeSecs": 691,
-        "title": "DJ Heure – Sunny Jam"
+        "artist": "DJ Heure",
+        "title": "Sunny Jam"
       },
       {
         "timeSecs": 1013,
-        "title": "COMPUTER DATA – not you, me (front redux)"
+        "artist": "COMPUTER DATA",
+        "title": "not you, me (front redux)"
       },
       {
         "timeSecs": 1413,
-        "title": "Ross from Friends – There’s a Hole in My Heart"
+        "artist": "Ross from Friends",
+        "title": "There’s a Hole in My Heart"
       },
       {
         "timeSecs": 1766,
-        "title": "Baltra – O’Neal"
+        "artist": "Baltra",
+        "title": "O’Neal"
       },
       {
         "timeSecs": 2089,
-        "title": "Desired – Weird Japanese Girl"
+        "artist": "Desired",
+        "title": "Weird Japanese Girl"
       },
       {
         "timeSecs": 2350,
-        "title": "disctr4k – Insomnia"
+        "artist": "disctr4k",
+        "title": "Insomnia"
       },
       {
         "timeSecs": 2733,
-        "title": "Nobxdyy – Delu~"
+        "artist": "Nobxdyy",
+        "title": "Delu~"
       }
     ]
   },
@@ -5421,107 +5546,133 @@
     "tracklist": [
       {
         "timeSecs": 0,
-        "title": "Baltra – Mariyah"
+        "artist": "Baltra",
+        "title": "Mariyah"
       },
       {
         "timeSecs": 106,
-        "title": "Cripe – Forever (feat. Sexuritas)"
+        "artist": "Cripe",
+        "title": "Forever (feat. Sexuritas)"
       },
       {
         "timeSecs": 291,
-        "title": "Sexuritas – My Girl"
+        "artist": "Sexuritas",
+        "title": "My Girl"
       },
       {
         "timeSecs": 437,
-        "title": "Nobxdyy – In This Darkness (remix)"
+        "artist": "Nobxdyy",
+        "title": "In This Darkness (remix)"
       },
       {
         "timeSecs": 650,
-        "title": "Clara La San – Let You Go (Astra G Remix)"
+        "artist": "Clara La San",
+        "title": "Let You Go (Astra G Remix)"
       },
       {
         "timeSecs": 927,
-        "title": "notnoize – you’ll never be"
+        "artist": "notnoize",
+        "title": "you’ll never be"
       },
       {
         "timeSecs": 1180,
-        "title": "RealSense – Make Me Float (RealSense Remix)"
+        "artist": "RealSense",
+        "title": "Make Me Float (RealSense Remix)"
       },
       {
         "timeSecs": 1458,
-        "title": "COMPUTER DATA – Selbstbesinnungen"
+        "artist": "COMPUTER DATA",
+        "title": "Selbstbesinnungen"
       },
       {
         "timeSecs": 1690,
-        "title": "Cult Member – Hello Danny Boy"
+        "artist": "Cult Member",
+        "title": "Hello Danny Boy"
       },
       {
         "timeSecs": 1920,
-        "title": "GLANSLIN – Crying On the Dancefloor"
+        "artist": "GLANSLIN",
+        "title": "Crying On the Dancefloor"
       },
       {
         "timeSecs": 2192,
-        "title": "Jacopo Sb – Lo-Fi Tapes 02"
+        "artist": "Jacopo Sb",
+        "title": "Lo-Fi Tapes 02"
       },
       {
         "timeSecs": 2612,
-        "title": "Jon Fay – 1271"
+        "artist": "Jon Fay",
+        "title": "1271"
       },
       {
         "timeSecs": 2976,
-        "title": "Otto Taimela – Suspense"
+        "artist": "Otto Taimela",
+        "title": "Suspense"
       },
       {
         "timeSecs": 3544,
-        "title": "Burial – Endorphin"
+        "artist": "Burial",
+        "title": "Endorphin"
       },
       {
         "timeSecs": 3709,
-        "title": "TRP – Raindrop Shape"
+        "artist": "TRP",
+        "title": "Raindrop Shape"
       },
       {
         "timeSecs": 4101,
-        "title": "Nobxdyy – Just U"
+        "artist": "Nobxdyy",
+        "title": "Just U"
       },
       {
         "timeSecs": 4749,
-        "title": "nthng – Moving On"
+        "artist": "nthng",
+        "title": "Moving On"
       },
       {
         "timeSecs": 5069,
-        "title": "1-800 GIRLS – Sunscream"
+        "artist": "1-800 GIRLS",
+        "title": "Sunscream"
       },
       {
         "timeSecs": 5340,
-        "title": "Florian Kupfer – Feelin"
+        "artist": "Florian Kupfer",
+        "title": "Feelin"
       },
       {
         "timeSecs": 5734,
-        "title": "DJ Seinfeld – I Hope I Sleep Tonight"
+        "artist": "DJ Seinfeld",
+        "title": "I Hope I Sleep Tonight"
       },
       {
         "timeSecs": 5978,
-        "title": "Sideluv – Closer"
+        "artist": "Sideluv",
+        "title": "Closer"
       },
       {
         "timeSecs": 6159,
-        "title": "World Above – Someone New"
+        "artist": "World Above",
+        "title": "Someone New"
       },
       {
         "timeSecs": 6446,
-        "title": "DJ Hoshino – She Told Me To Be Patient (Instrumental)"
+        "artist": "DJ Hoshino",
+        "title": "She Told Me To Be Patient (Instrumental)"
       },
       {
         "timeSecs": 6774,
-        "title": "Eva 00 – IRL Strats"
+        "artist": "Eva 00",
+        "title": "IRL Strats"
       },
       {
         "timeSecs": 7211,
-        "title": "Trudge – True Stories Can’t Be Told"
+        "artist": "Trudge",
+        "title": "True Stories Can’t Be Told"
       },
       {
         "timeSecs": 7594,
-        "title": "No Moon – Is It Vibey Is It Yolo"
+        "artist": "No Moon",
+        "title": "Is It Vibey Is It Yolo"
       }
     ]
   },
@@ -5529,7 +5680,7 @@
     "id": "mix-079",
     "title": "Lo-Fi House Mix | RIP Toriyama Sensei",
     "slug": "lo-fi-house-mix-rip-toriyama-sensei",
-    "duration": "00:43:03",
+    "duration": "00:42:57",
     "releaseDate": "2024.12.07",
     "mood": "nostalgic",
     "views": 711,
@@ -5539,39 +5690,48 @@
     "tracklist": [
       {
         "timeSecs": 0,
-        "title": "Le Hutin – Dreamin’"
+        "artist": "Le Hutin",
+        "title": "Dreamin’"
       },
       {
         "timeSecs": 307,
-        "title": "belac – Feelin U"
+        "artist": "belac",
+        "title": "Feelin U"
       },
       {
         "timeSecs": 407,
-        "title": "Sideluv & KTRNA – What You Want"
+        "artist": "Sideluv & KTRNA",
+        "title": "What You Want"
       },
       {
         "timeSecs": 606,
-        "title": "Jesse Bru – Please Ask"
+        "artist": "Jesse Bru",
+        "title": "Please Ask"
       },
       {
         "timeSecs": 925,
-        "title": "Marc Brauner – Old School"
+        "artist": "Marc Brauner",
+        "title": "Old School"
       },
       {
         "timeSecs": 1217,
-        "title": "HÖR – Unbound"
+        "artist": "HÖR",
+        "title": "Unbound"
       },
       {
         "timeSecs": 1493,
-        "title": "HATT.D – One Question"
+        "artist": "HATT.D",
+        "title": "One Question"
       },
       {
         "timeSecs": 1799,
-        "title": "Subjoi – Like It Was"
+        "artist": "Subjoi",
+        "title": "Like It Was"
       },
       {
         "timeSecs": 2104,
-        "title": "Ricky Razu – Alive"
+        "artist": "Ricky Razu",
+        "title": "Alive"
       },
       {
         "timeSecs": 2363,
@@ -5594,43 +5754,53 @@
     "tracklist": [
       {
         "timeSecs": 0,
-        "title": "DJ LOSTBOI – Don’t Worry (Child Mix)"
+        "artist": "DJ LOSTBOI",
+        "title": "Don’t Worry (Child Mix)"
       },
       {
         "timeSecs": 219,
-        "title": "Jacksonifyer – 10/P4ss3d.Out.4T.4P4rty"
+        "artist": "Jacksonifyer",
+        "title": "10/P4ss3d.Out.4T.4P4rty"
       },
       {
         "timeSecs": 578,
-        "title": "Tom Vernon – Lonely Weekend"
+        "artist": "Tom Vernon",
+        "title": "Lonely Weekend"
       },
       {
         "timeSecs": 909,
-        "title": "Rimbaudian – Lost & Found"
+        "artist": "Rimbaudian",
+        "title": "Lost & Found"
       },
       {
         "timeSecs": 1133,
-        "title": "willi6m – Must Be Love"
+        "artist": "willi6m",
+        "title": "Must Be Love"
       },
       {
         "timeSecs": 1373,
-        "title": "dipsmith – Elixir"
+        "artist": "dipsmith",
+        "title": "Elixir"
       },
       {
         "timeSecs": 1718,
-        "title": "Rodfæstet – Want U Need U"
+        "artist": "Rodfæstet",
+        "title": "Want U Need U"
       },
       {
         "timeSecs": 1943,
-        "title": "Sexuritas – Söderort Lovestory (feat. Fakelouiebag)"
+        "artist": "Sexuritas",
+        "title": "Söderort Lovestory (feat. Fakelouiebag)"
       },
       {
         "timeSecs": 2133,
-        "title": "Cult Member – Dream Member"
+        "artist": "Cult Member",
+        "title": "Dream Member"
       },
       {
         "timeSecs": 2320,
-        "title": "Ross from Friends – Gettin' It Done"
+        "artist": "Ross from Friends",
+        "title": "Gettin' It Done"
       }
     ]
   },
@@ -5648,47 +5818,58 @@
     "tracklist": [
       {
         "timeSecs": 0,
-        "title": "Drake – Over My Dead Body"
+        "artist": "Drake",
+        "title": "Over My Dead Body"
       },
       {
         "timeSecs": 283,
-        "title": "Rimbaudian – Drop It on Em"
+        "artist": "Rimbaudian",
+        "title": "Drop It on Em"
       },
       {
         "timeSecs": 634,
-        "title": "dj something – Stevie"
+        "artist": "dj something",
+        "title": "Stevie"
       },
       {
         "timeSecs": 754,
-        "title": "dj something – Cuz Loving U Is"
+        "artist": "dj something",
+        "title": "Cuz Loving U Is"
       },
       {
         "timeSecs": 955,
-        "title": "Cripe – DRIFT"
+        "artist": "Cripe",
+        "title": "DRIFT"
       },
       {
         "timeSecs": 1077,
-        "title": "Sexuritas – I Just Wanna Be Wit U For a Minute"
+        "artist": "Sexuritas",
+        "title": "I Just Wanna Be Wit U For a Minute"
       },
       {
         "timeSecs": 1271,
-        "title": "Tshxlx Irl – Habitat (Good Luck Remix)"
+        "artist": "Tshxlx Irl",
+        "title": "Habitat (Good Luck Remix)"
       },
       {
         "timeSecs": 1404,
-        "title": "Shaolin Cowboy – Imma Be My Own Best Friend"
+        "artist": "Shaolin Cowboy",
+        "title": "Imma Be My Own Best Friend"
       },
       {
         "timeSecs": 1657,
-        "title": "Nobxdyy – Amn"
+        "artist": "Nobxdyy",
+        "title": "Amn"
       },
       {
         "timeSecs": 1866,
-        "title": "Paperkraft – Devi"
+        "artist": "Paperkraft",
+        "title": "Devi"
       },
       {
         "timeSecs": 2283,
-        "title": "stvla – Leave U Like This"
+        "artist": "stvla",
+        "title": "Leave U Like This"
       }
     ]
   },
@@ -5706,103 +5887,128 @@
     "tracklist": [
       {
         "timeSecs": 0,
-        "title": "Rodfæstet – Halas"
+        "artist": "Rodfæstet",
+        "title": "Halas"
       },
       {
         "timeSecs": 341,
-        "title": "DJ BOG – Stranger"
+        "artist": "DJ BOG",
+        "title": "Stranger"
       },
       {
         "timeSecs": 490,
-        "title": "박혜진 Park Hye Jin – Abc"
+        "artist": "박혜진 Park Hye Jin",
+        "title": "Abc"
       },
       {
         "timeSecs": 725,
-        "title": "Royer – Healyrslfw Lee"
+        "artist": "Royer",
+        "title": "Healyrslfw Lee"
       },
       {
         "timeSecs": 1045,
-        "title": "Shouse – Text Apology (feat. Martha) [Demuja Remix]"
+        "artist": "Shouse",
+        "title": "Text Apology (feat. Martha) [Demuja Remix]"
       },
       {
         "timeSecs": 1360,
-        "title": "DJ Houseplants – Unconditional"
+        "artist": "DJ Houseplants",
+        "title": "Unconditional"
       },
       {
         "timeSecs": 1620,
-        "title": "Julodose – I Will Come Back For U"
+        "artist": "Julodose",
+        "title": "I Will Come Back For U"
       },
       {
         "timeSecs": 1823,
-        "title": "Sessna – Crash (Far From Home)"
+        "artist": "Sessna",
+        "title": "Crash (Far From Home)"
       },
       {
         "timeSecs": 1992,
-        "title": "disctr4k – Understanding Nights (feat. DJ 2K3)"
+        "artist": "disctr4k",
+        "title": "Understanding Nights (feat. DJ 2K3)"
       },
       {
         "timeSecs": 2143,
-        "title": "Pépe – Lemon Fanta"
+        "artist": "Pépe",
+        "title": "Lemon Fanta"
       },
       {
         "timeSecs": 2569,
-        "title": "Cripe – Press Play"
+        "artist": "Cripe",
+        "title": "Press Play"
       },
       {
         "timeSecs": 2718,
-        "title": "dj something – conduit unheld"
+        "artist": "dj something",
+        "title": "conduit unheld"
       },
       {
         "timeSecs": 2870,
-        "title": "Astra G – DON’T WANT YOUR LOVE"
+        "artist": "Astra G",
+        "title": "DON’T WANT YOUR LOVE"
       },
       {
         "timeSecs": 3139,
-        "title": "NxWorries – Scared Money (Rodfæstet Edit)"
+        "artist": "NxWorries",
+        "title": "Scared Money (Rodfæstet Edit)"
       },
       {
         "timeSecs": 3394,
-        "title": "Maribou State – Wallflower (Ross from Friends Remix)"
+        "artist": "Maribou State",
+        "title": "Wallflower (Ross from Friends Remix)"
       },
       {
         "timeSecs": 3664,
-        "title": "kemt – I’m yours"
+        "artist": "kemt",
+        "title": "I’m yours"
       },
       {
         "timeSecs": 3992,
-        "title": "Alex R – Staying Early"
+        "artist": "Alex R",
+        "title": "Staying Early"
       },
       {
         "timeSecs": 4403,
-        "title": "Downhill2k01 – So Mote It Be"
+        "artist": "Downhill2k01",
+        "title": "So Mote It Be"
       },
       {
         "timeSecs": 4581,
-        "title": "Cofaxx – Mosaic"
+        "artist": "Cofaxx",
+        "title": "Mosaic"
       },
       {
         "timeSecs": 4752,
-        "title": "Sexuritas – I Just Wanna Be Wit U For a Minute"
+        "artist": "Sexuritas",
+        "title": "I Just Wanna Be Wit U For a Minute"
       },
       {
         "timeSecs": 4944,
-        "title": "Pretty Girl – Sun Phase"
+        "artist": "Pretty Girl",
+        "title": "Sun Phase"
       },
       {
         "timeSecs": 5239,
-        "title": "Cult Member – Dream Member"
+        "artist": "Cult Member",
+        "title": "Dream Member"
       },
       {
         "timeSecs": 5485,
-        "title": "DJ Different – All Nite"
+        "artist": "DJ Different",
+        "title": "All Nite"
       },
       {
         "timeSecs": 5898,
-        "title": "jamesjamesjames – Focus"
+        "artist": "jamesjamesjames",
+        "title": "Focus"
       },
       {
         "timeSecs": 6146,
-        "title": "Skin On Skin – Memories of Before (jamesjamesjames Remix)"
+        "artist": "Skin On Skin",
+        "title": "Memories of Before (jamesjamesjames Remix)"
       }
     ]
   },
@@ -5820,55 +6026,68 @@
     "tracklist": [
       {
         "timeSecs": 0,
-        "title": "Julodose – I"
+        "artist": "Julodose",
+        "title": "I"
       },
       {
         "timeSecs": 60,
-        "title": "Delroy Edwards – Love Goes on and On"
+        "artist": "Delroy Edwards",
+        "title": "Love Goes on and On"
       },
       {
         "timeSecs": 446,
-        "title": "Baltra – Up 2 You"
+        "artist": "Baltra",
+        "title": "Up 2 You"
       },
       {
         "timeSecs": 697,
-        "title": "Patricia – Hulderhusan"
+        "artist": "Patricia",
+        "title": "Hulderhusan"
       },
       {
         "timeSecs": 1009,
-        "title": "Sadboi – I’m Into U"
+        "artist": "Sadboi",
+        "title": "I’m Into U"
       },
       {
         "timeSecs": 1262,
-        "title": "Earth Trax & Newborn Jr – Truth (Back Alley Mix)"
+        "artist": "Earth Trax & Newborn Jr",
+        "title": "Truth (Back Alley Mix)"
       },
       {
         "timeSecs": 1602,
-        "title": "Austin Ato – Utal Viola"
+        "artist": "Austin Ato",
+        "title": "Utal Viola"
       },
       {
         "timeSecs": 1877,
-        "title": "Lake Haze – Sun Rising on Concrete Landscapes"
+        "artist": "Lake Haze",
+        "title": "Sun Rising on Concrete Landscapes"
       },
       {
         "timeSecs": 2055,
-        "title": "Cripe – Tomorrow 404"
+        "artist": "Cripe",
+        "title": "Tomorrow 404"
       },
       {
         "timeSecs": 2225,
-        "title": "DJ Ædidias – Drift"
+        "artist": "DJ Ædidias",
+        "title": "Drift"
       },
       {
         "timeSecs": 2464,
-        "title": "Skin on skin – Ma Shootaz Got Shootaz"
+        "artist": "Skin on skin",
+        "title": "Ma Shootaz Got Shootaz"
       },
       {
         "timeSecs": 2761,
-        "title": "DJ Hoshino – Radiant Inner Glow"
+        "artist": "DJ Hoshino",
+        "title": "Radiant Inner Glow"
       },
       {
         "timeSecs": 2962,
-        "title": "kanyalang! – Floating In Space"
+        "artist": "kanyalang!",
+        "title": "Floating In Space"
       }
     ]
   },
@@ -5886,31 +6105,38 @@
     "tracklist": [
       {
         "timeSecs": 0,
-        "title": "stvla – Outta Love"
+        "artist": "stvla",
+        "title": "Outta Love"
       },
       {
         "timeSecs": 232,
-        "title": "Kareem Ali – Desire"
+        "artist": "Kareem Ali",
+        "title": "Desire"
       },
       {
         "timeSecs": 567,
-        "title": "SWIM – Love"
+        "artist": "SWIM",
+        "title": "Love"
       },
       {
         "timeSecs": 785,
-        "title": "Pretty Girl – Forever"
+        "artist": "Pretty Girl",
+        "title": "Forever"
       },
       {
         "timeSecs": 1030,
-        "title": "Baltra – Luv-N-Me (Extended Version)"
+        "artist": "Baltra",
+        "title": "Luv-N-Me (Extended Version)"
       },
       {
         "timeSecs": 1236,
-        "title": "Subjoi – Something About You"
+        "artist": "Subjoi",
+        "title": "Something About You"
       },
       {
         "timeSecs": 1413,
-        "title": "SiFi – One Day"
+        "artist": "SiFi",
+        "title": "One Day"
       },
       {
         "timeSecs": 1702,
@@ -6776,6 +7002,356 @@
         "timeSecs": 2363,
         "artist": "Cult Member",
         "title": "Open Air Dipset"
+      }
+    ]
+  },
+  {
+    "id": "mix-095",
+    "title": "Lo-Fi House Mix | Atmospheric Transmission",
+    "slug": "lo-fi-house-mix-atmospheric-transmission",
+    "duration": "00:59:34",
+    "releaseDate": "2026.07.05",
+    "mood": "chill",
+    "views": 1626,
+    "audioPath": "public/assets/mixes/audio/lo-fi-house-mix-atmospheric-transmission.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=nxDUrmLmB5E",
+    "soundcloudUrl": null,
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "artist": "Route 8",
+        "title": "The Sunrise In Her Eyes"
+      },
+      {
+        "timeSecs": 348,
+        "artist": "kemt",
+        "title": "Terminal 21"
+      },
+      {
+        "timeSecs": 694,
+        "artist": "Baltra",
+        "title": "Rue des Sablons"
+      },
+      {
+        "timeSecs": 1007,
+        "artist": "Asok",
+        "title": "Interaction"
+      },
+      {
+        "timeSecs": 1317,
+        "artist": "Jaures",
+        "title": "Detitled"
+      },
+      {
+        "timeSecs": 1630,
+        "artist": "DJ Dreamer",
+        "title": "Don't Stop Dancing Girl"
+      },
+      {
+        "timeSecs": 1872,
+        "artist": "DJ Psychiatre",
+        "title": "Cruel Cruel World"
+      },
+      {
+        "timeSecs": 2224,
+        "artist": "DJ LOSTBOI",
+        "title": "Open World"
+      },
+      {
+        "timeSecs": 2434,
+        "artist": "Skee Mask",
+        "title": "Routine"
+      },
+      {
+        "timeSecs": 2700,
+        "artist": "Holo",
+        "title": "Spirits"
+      },
+      {
+        "timeSecs": 2981,
+        "artist": "Kask",
+        "title": "Kaamos"
+      },
+      {
+        "timeSecs": 3301,
+        "artist": "Kaikobad",
+        "title": "Turn Echo"
+      },
+      {
+        "timeSecs": 3371,
+        "artist": "Sinthmodelz",
+        "title": "Vienna"
+      }
+    ]
+  },
+  {
+    "id": "mix-096",
+    "title": "Lo-Fi House Mix | Longing For Your Love",
+    "slug": "lo-fi-house-mix-longing-for-your-love",
+    "duration": "00:36:25",
+    "releaseDate": "2026.07.18",
+    "mood": "nostalgic",
+    "views": 1173,
+    "audioPath": "public/assets/mixes/audio/lo-fi-house-mix-longing-for-your-love.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=rIwRG3hLpvY",
+    "soundcloudUrl": null,
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "artist": "*teeth",
+        "title": "Night Call (feat. timesgone)"
+      },
+      {
+        "timeSecs": 271,
+        "artist": "Kaikobad",
+        "title": "Freshwater"
+      },
+      {
+        "timeSecs": 465,
+        "artist": "Braga Circuit",
+        "title": "Byway"
+      },
+      {
+        "timeSecs": 795,
+        "artist": "B FROM E",
+        "title": "Kyo"
+      },
+      {
+        "timeSecs": 1203,
+        "artist": "Braga Circuit",
+        "title": "If U"
+      },
+      {
+        "timeSecs": 1412,
+        "artist": "Holo",
+        "title": "Astro"
+      },
+      {
+        "timeSecs": 1682,
+        "artist": "Klustone",
+        "title": "Each Night Is The Same"
+      },
+      {
+        "timeSecs": 1878,
+        "artist": "DJ Seinfeld",
+        "title": "U"
+      }
+    ]
+  },
+  {
+    "id": "mix-097",
+    "title": "Lo-Fi House Mix | Strange, It's As If I’ve Known You For A Long Time",
+    "slug": "lo-fi-house-mix-strange-its-as-if-ive-known-you-for-a-long-time",
+    "duration": "00:44:48",
+    "releaseDate": "2026.07.25",
+    "mood": "nostalgic",
+    "views": 809,
+    "audioPath": "public/assets/mixes/audio/lo-fi-house-mix-strange-its-as-if-ive-known-you-for-a-long-time.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=O2KdkuLCd38",
+    "soundcloudUrl": null,
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "artist": "DJ TR1N1TY",
+        "title": "Cassie"
+      },
+      {
+        "timeSecs": 286,
+        "artist": "Klustone",
+        "title": "Romance"
+      },
+      {
+        "timeSecs": 492,
+        "artist": "2XM",
+        "title": "Koru Lounge"
+      },
+      {
+        "timeSecs": 841,
+        "artist": "dj poolboi",
+        "title": "I Had It All"
+      },
+      {
+        "timeSecs": 1024,
+        "artist": "DJ Counselling",
+        "title": "Finding Pictures"
+      },
+      {
+        "timeSecs": 1285,
+        "artist": "Hotel Avra",
+        "title": "Sunset Roads"
+      },
+      {
+        "timeSecs": 1524,
+        "artist": "Rodfæstet",
+        "title": "Be True"
+      },
+      {
+        "timeSecs": 1762,
+        "artist": "kemt",
+        "title": "Take You There"
+      },
+      {
+        "timeSecs": 2063,
+        "artist": "Joaz",
+        "title": "Fallen"
+      },
+      {
+        "timeSecs": 2380,
+        "artist": "Hidden Spheres",
+        "title": "Upsn Down"
+      }
+    ]
+  },
+  {
+    "id": "mix-098",
+    "title": "Jungle/DnB Mix | If You Aren't Remembered, Then You Never Existed",
+    "slug": "jungle-dnb-mix-if-you-arent-remembered-then-you-never-existed",
+    "duration": "00:51:39",
+    "releaseDate": "2026.08.01",
+    "mood": "deep",
+    "views": 415,
+    "audioPath": "public/assets/mixes/audio/jungle-dnb-mix-if-you-arent-remembered-then-you-never-existed.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=6Dz2ZdrLgfc",
+    "soundcloudUrl": null,
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "artist": "Jounerymann Trax",
+        "title": "Ice Sheets"
+      },
+      {
+        "timeSecs": 458,
+        "artist": "Passing Currents",
+        "title": "2002"
+      },
+      {
+        "timeSecs": 626,
+        "artist": "Yung Lain",
+        "title": "Cyberia Texture"
+      },
+      {
+        "timeSecs": 750,
+        "artist": "yion",
+        "title": "Wired"
+      },
+      {
+        "timeSecs": 919,
+        "artist": "DJ Javascript",
+        "title": "'97 Energy"
+      },
+      {
+        "timeSecs": 1222,
+        "artist": "Sewerslvt",
+        "title": "Mr. Kill Myself"
+      },
+      {
+        "timeSecs": 1606,
+        "artist": "AgonyOST",
+        "title": "Light Stops Dripping Through the Stars (Sewerslvt Remix)"
+      },
+      {
+        "timeSecs": 1911,
+        "artist": "LOMAJI",
+        "title": "supposed to be"
+      },
+      {
+        "timeSecs": 2023,
+        "artist": "Otto Taimela",
+        "title": "sunflower"
+      },
+      {
+        "timeSecs": 2215,
+        "artist": "Passing Currents",
+        "title": "1992"
+      },
+      {
+        "timeSecs": 2289,
+        "artist": "HUMAN PART",
+        "title": "TRYING 2 HOLLA @ ME"
+      },
+      {
+        "timeSecs": 2413,
+        "artist": "MOM$",
+        "title": "Module (Flossed Out Ryddym)"
+      },
+      {
+        "timeSecs": 2593,
+        "artist": "bleach.bath",
+        "title": "Pink Drugs"
+      },
+      {
+        "timeSecs": 2684,
+        "artist": "Nedaj",
+        "title": "MatrixV2"
+      },
+      {
+        "timeSecs": 2844,
+        "artist": "hxly xo, bleach.bath & Veela",
+        "title": "Hear No Curse"
+      }
+    ]
+  },
+  {
+    "id": "mix-099",
+    "title": "Lo-Fi House Mix | Balance of Nature",
+    "slug": "lo-fi-house-mix-balance-of-nature",
+    "duration": "00:45:25",
+    "releaseDate": "2026.08.09",
+    "mood": "chill",
+    "views": 665,
+    "audioPath": "public/assets/mixes/audio/lo-fi-house-mix-balance-of-nature.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=bGIe06URliI",
+    "soundcloudUrl": null,
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "artist": "Tshxlx Irl",
+        "title": "Broken Ones"
+      },
+      {
+        "timeSecs": 225,
+        "artist": "Tlim Shug",
+        "title": "A2 Untitled"
+      },
+      {
+        "timeSecs": 504,
+        "artist": "Greg Perais",
+        "title": "Mind on Strike"
+      },
+      {
+        "timeSecs": 786,
+        "artist": "Grant",
+        "title": "Finite Elements"
+      },
+      {
+        "timeSecs": 1158,
+        "artist": "doubleA",
+        "title": "Under the Sun"
+      },
+      {
+        "timeSecs": 1472,
+        "artist": "Space Ghost",
+        "title": "Endless Light"
+      },
+      {
+        "timeSecs": 1739,
+        "artist": "Bruce Trail",
+        "title": "Over Falls"
+      },
+      {
+        "timeSecs": 1953,
+        "artist": "Space Ghost",
+        "title": "Sim City"
+      },
+      {
+        "timeSecs": 2160,
+        "artist": "xvohsome",
+        "title": "Tell Me What U Need"
+      },
+      {
+        "timeSecs": 2392,
+        "artist": "DJ Counselling",
+        "title": "Transcending"
       }
     ]
   }

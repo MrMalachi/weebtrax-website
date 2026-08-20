@@ -47,6 +47,9 @@ public/assets/
 - [x] Organize scene MP4 clips into `public/assets/scenes/videos/`
 - [x] Organize scene thumbnails into `public/assets/scenes/thumbnails/`
 
+### Known issue (2026-08-20)
+- [ ] **All 48 scene video clips are missing** from `production/public/assets/scenes/videos/` — lost when a root-level `public/` directory was deleted, not realizing `production/public/assets/mixes/audio` and `production/public/assets/scenes/videos` were symlinked directories pointing back into it. No Trash/Time Machine recovery was available. Mix audio (94 + 5 new) was separately recovered from the flash drive's `Mastered`/`Unmastered` folders; scene video source footage still needs to be re-copied from wherever the original episode clips live outside this repo. Thumbnails (`public/assets/scenes/thumbnails/`) and `scenes.json` metadata were unaffected.
+
 ---
 
 ## Phase 2 — JSON metadata
@@ -178,7 +181,8 @@ Generates: archive rows, scene cards, thumbnails, play buttons, YT/SC links, moo
 - [x] Mood filter chips and sort control wrap awkwardly on some screen sizes — fixed (2026-07-21): MOOD: label inline with chips, `flex: 0 0 auto` prevents squash, `overflow-x: auto` for scroll on tiny screens, `letter-spacing: 1px`; at 600–1099px TRACK I.D. drops below LISTEN via CSS `flex-basis: 100%` + `order: -1`; nowrap threshold raised to `winW < 1100`
 
 ### Data gaps
-- [ ] Ghetto Symphony Pt. 1 (`mix-046`) and Pt. 2 (`mix-075`) have no tracklist — add manually if descriptions available
+- [x] ~~Ghetto Symphony Pt. 1 (`mix-046`) and Pt. 2 (`mix-075`) have no tracklist~~ — resolved, both now have full tracklists (10 and 11 entries)
+- [ ] `soundcloudUrl` is `null` for the 5 mixes added 2026-08-20 (`mix-095`–`mix-099`: Atmospheric Transmission, Longing For Your Love, Strange It's As If I've Known You For A Long Time, If You Aren't Remembered Then You Never Existed, Balance of Nature) — need to check whether these have SoundCloud posts and add the URLs if so
 
 ### Performance
 - [x] `js/images.js` (314KB base64 image data in `window.WT_IMG`) is **not loaded** in `index.html` — images are served via direct file paths in JS (`public/assets/images/...`). The file is an orphan artifact and the synchronous-load concern is moot. No action needed.
@@ -427,6 +431,7 @@ Can still read from JSON initially, then swap to PostgreSQL.
 - `backend/routers/scenes.py` — `GET /api/scenes` implemented with `page`, `limit`, `episode`, `mood` query params
 - `backend/data/{mixes,scenes}.json` — copies of the metadata JSON for the backend to read
 - Not yet done: `/api/mixes/latest` bug fix, `/api/scenes?tag=` filtering, PostgreSQL swap (Phase 5)
+- Response Model exercise (2026-08-20): `mixes.py` done — `TrackEntry`/`Mix` Pydantic models added, `response_model=list[Mix]` wired on both `/mixes` and `/mixes/latest`, validated against real data (caught and fixed 206 tracklist entries missing `artist`, and a `views: null` case handled via `int | None`). `scenes.py` still needs the same treatment — different shape since `/scenes` returns a wrapper object (`total`/`page`/`limit`/`results`) rather than a bare list, so it needs a `Scene` model nested inside a paginated wrapper model instead of `list[Scene]` directly on the route.
 
 ### Learning resources
 
