@@ -49,6 +49,7 @@ public/assets/
 
 ### Known issue (2026-08-20)
 - [ ] **All 48 scene video clips are missing** from `production/public/assets/scenes/videos/` — lost when a root-level `public/` directory was deleted, not realizing `production/public/assets/mixes/audio` and `production/public/assets/scenes/videos` were symlinked directories pointing back into it. No Trash/Time Machine recovery was available. Mix audio (94 + 5 new) was separately recovered from the flash drive's `Mastered`/`Unmastered` folders; scene video source footage still needs to be re-copied from wherever the original episode clips live outside this repo. Thumbnails (`public/assets/scenes/thumbnails/`) and `scenes.json` metadata were unaffected.
+  - **Sequencing decision**: re-creating/re-copying these 48 clips is scheduled as a step *after* Phase 5 (PostgreSQL) is done, not before. Don't let this block Phase 5/6 work.
 
 ---
 
@@ -464,6 +465,8 @@ Can still read from JSON initially, then swap to PostgreSQL.
 ## Phase 5 — PostgreSQL
 
 JSON fields become table columns. DB stores metadata + file paths only (not files themselves).
+
+**After this phase**: re-create/re-copy the 48 missing scene video clips (see [Known issue, Phase 1](#known-issue-2026-08-20)) — source footage needs to be re-copied from wherever the original episode clips live outside this repo.
 
 ---
 
