@@ -77,6 +77,7 @@ Create:
 - `episodeNumber` drives the episode filter in the Scenes section
 - No `startTime`, `endTime`, `duration`, or `tags` — not needed on the frontend
 - No `plays` yet — scene popularity requires Phase 4/5 (PostgreSQL tracks selections)
+- **Note (2026-08-20)**: all 48 scenes currently come from Serial Experiments Lain only, and `episodeNumber` implicitly assumes a single show. Plans to add scenes from other anime are deferred to post-launch — see [Phase 11](#phase-11--multi-anime-scenes--scene-mood-filter).
 
 ---
 
@@ -176,6 +177,7 @@ Generates: archive rows, scene cards, thumbnails, play buttons, YT/SC links, moo
 ### Scenes
 - [x] Prev/next scene navigation within the video player — ← → buttons with disabled state at boundaries; fullscreen stays open on nav
 - [x] Scene card thumbnails — `repeat(2, 1fr)` fixed 2-per-row with `max-width: 1100px` on the grid; `aspect-ratio: 4/3` on cards
+- Mood filter chips for Scenes + multi-anime scene support — deferred to post-launch, see [Phase 11](#phase-11--multi-anime-scenes--scene-mood-filter)
 
 ### Archive
 - [x] Wide table layout — tablet (600–899px) gets 3-col, mid (900–1199px) gets 5-col, wide (1200px+) gets 5-col with wider columns; slug (`t.file`) font size is `tablet ? 9 : 12` — 9px at 600–899px so landscape-phone slugs don't appear oversized in the wide 1fr column, 12px at ≥900px; title font size `(mid || tablet) ? 16 : 17` — bumps to 17px at ≥1200px to fill the wider 1fr column
@@ -432,18 +434,14 @@ Can still read from JSON initially, then swap to PostgreSQL.
 - `backend/routers/scenes.py` — `GET /api/scenes` implemented with `page`, `limit`, `episode`, `mood` query params
 - `backend/data/{mixes,scenes}.json` — copies of the metadata JSON for the backend to read
 - Not yet done: `/api/mixes/latest` bug fix, `/api/scenes?tag=` filtering, PostgreSQL swap (Phase 5)
-- Response Model exercise (2026-08-20): `mixes.py` done — `TrackEntry`/`Mix` Pydantic models added, `response_model=list[Mix]` wired on both `/mixes` and `/mixes/latest`, validated against real data (caught and fixed 206 tracklist entries missing `artist`, and a `views: null` case handled via `int | None`). `scenes.py` still needs the same treatment — different shape since `/scenes` returns a wrapper object (`total`/`page`/`limit`/`results`) rather than a bare list, so it needs a `Scene` model nested inside a paginated wrapper model instead of `list[Scene]` directly on the route.
+- Response Model exercise (2026-08-20): done for both routers. `mixes.py` — `TrackEntry`/`Mix` Pydantic models added, `response_model=list[Mix]` wired on both `/mixes` and `/mixes/latest`, validated against real data (caught and fixed 206 tracklist entries missing `artist`, and a `views: null` case handled via `int | None`). `scenes.py` — `Scene` model (with `mood: Mood` reusing the existing enum) nested inside a `ScenePage` wrapper model (`total`/`page`/`limit`/`results`), `response_model=ScenePage` wired on `/scenes`; verified live via `TestClient` (bad mood value → 422, page/limit guards still fire, valid requests return the correct shape).
+- Path Operation Configuration + Path & Query Validation exercise (2026-08-25): done for both routers. `mixes.py` and `scenes.py` routes now carry `summary`, `status_code=status.HTTP_200_OK`, `response_description`, and `tags=["Mixes"]`/`tags=["Scenes"]`; docstrings added. Manual `if n < 1` / `if page < 1` / `if limit < 1` `HTTPException` blocks replaced with `Query(..., ge=1)` constraints on `limit`/`page` in both files (`mixes.py`'s `n` param also renamed to `limit`, confirmed unused by the frontend so non-breaking — frontend still fetches `mixes.json`/`scenes.json` directly, not the API). `scenes.py` keeps its unused `HTTPException` import intentionally. Still open: no `le=` upper bound on `limit`/`page`/`episode` yet in either file.
 
 ### Learning resources
 
-**Already learned**: First Steps, Path Parameters, Query Parameters, Request Body, [Handling Errors](https://fastapi.tiangolo.com/tutorial/handling-errors/) — applied as `HTTPException` validation on `n`/`page`/`limit` in `backend/routers/mixes.py` and `scenes.py`, plus a `Mood` str Enum on the `mood` query param in `scenes.py` for automatic 422s.
+**All required pre-Phase-5 lessons complete (2026-08-25)** — Path Operation Configuration, Path & Query Validation, and SQL (Relational) Databases are done. Cleared to start building the PostgreSQL schema/models for Phase 5.
 
-**Learn now, in this order** (bare essentials to ship the read-only Phase 4 API + Phase 5 Postgres swap + Phase 6 Railway deploy):
-
-1. [Response Model](https://fastapi.tiangolo.com/tutorial/response-model/) — shaping what the API returns, catches field typos/shape drift
-2. [Path Operation Configuration](https://fastapi.tiangolo.com/tutorial/response-status-code/) (status codes) — quick, pairs with Handling Errors
-3. [Path & Query Validation](https://fastapi.tiangolo.com/tutorial/query-params-str-validations/) — small add-on to query params you already know (`Query(..., ge=1)` etc.) — can simplify the manual `page < 1`/`limit < 1` checks already in place
-4. [SQL (Relational) Databases](https://fastapi.tiangolo.com/tutorial/sql-databases/) — SQLAlchemy setup, directly unblocks Phase 5 (Postgres) and Phase 6 (Railway)
+**Already learned**: First Steps, Path Parameters, Query Parameters, Request Body, [Handling Errors](https://fastapi.tiangolo.com/tutorial/handling-errors/), [Response Model](https://fastapi.tiangolo.com/tutorial/response-model/), [Path Operation Configuration](https://fastapi.tiangolo.com/tutorial/response-status-code/), [Path & Query Validation](https://fastapi.tiangolo.com/tutorial/query-params-str-validations/), [SQL (Relational) Databases](https://fastapi.tiangolo.com/tutorial/sql-databases/) — see Progress above for how each has been applied in `backend/routers/mixes.py` and `scenes.py`.
 
 **Already effectively covered, skip the tutorial**:
 - CORS — already implemented in `backend/main.py`; skim the docs page to understand the existing code, don't treat as new material
@@ -567,6 +565,19 @@ Scope also includes: persisting the choice (`localStorage`), a toggle control (r
 - [ ] Set up merch store (Printful/Printify print-on-demand) — can launch as sole proprietor, doesn't require the LLC or 50k-subscriber label milestone
 - [ ] Add merch link/section to site nav or footer, matching Wired/Navi branding
 - [ ] Decision (2026-07-09): merch goes live *before* record-label formation — reinforces brand and tests revenue early; reassigning the store to the LLC later is low-friction
+
+---
+
+## Phase 11 — Multi-Anime Scenes & Scene Mood Filter
+
+**Status**: Planned, not started (added 2026-08-20).
+
+All 48 Scenes clips currently come from a single show, Serial Experiments Lain (episodes 1–13). Plans are to expand the Scenes section with clips from other anime as well. This phase covers the schema and UI changes that unlocks.
+
+- [ ] **Add a show/series identifier to each scene** — `episodeNumber` alone can't disambiguate which show an episode number belongs to once multiple anime are present. Add a field (e.g. `series` or `animeTitle`) to each entry in `scenes.json` (both `production/public/assets/metadata/scenes.json` and `backend/data/scenes.json`).
+- [ ] **Update the episode filter UI** (`sections1.js`, `SceneGrid`) to filter/group by show first, then by episode within that show, instead of assuming episode numbers are globally unique.
+- [ ] **Add mood filter chips to Scenes**, mirroring the existing Archive mood-chip UI (`sections2.js`). The backend already supports this — `GET /api/scenes?mood=` and the `Mood` enum in `backend/routers/scenes.py` — and every scene already has a `mood` value in `scenes.json`, it's just unused on the frontend today. Mood becomes a more valuable cross-show browsing axis once episode number stops being unambiguous across shows.
+- [ ] Audit scene card `type` badges (e.g. "CLUB TERMINAL") and `description` prose style for whether they should stay Lain-specific or generalize across shows.
 
 ---
 
