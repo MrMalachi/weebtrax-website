@@ -36,3 +36,7 @@ tools/yt_meta/
 # Claude Code internals
 .claude/worktrees/
 .claude/conversation-history.md
+
+# Library Skills symlinks into .venv (machine-local, regenerable via `uvx library-skills`)
+.agents/skills/sqlmodel
+.claude/skills/sqlmodel
