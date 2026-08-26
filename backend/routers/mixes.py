@@ -27,22 +27,32 @@ class Mix(BaseModel):
     soundcloudUrl: str | None = None
     tracklist: list[TrackEntry]
 
-@router.get("/mixes", response_model=list[Mix])
+@router.get(
+    "/mixes",
+    summary="Get a list of all mixes.",
+    status_code=status.HTTP_200_OK,
+    response_description="A list of Mix objects",
+    response_model=list[Mix],
+    tags=["Mixes"],
+)
 def get_mixes():
+    """Retrieve a list of all available mixes."""
     return DATA
 
-@router.get("/mixes/latest", response_model=list[Mix])
-def get_latest(n: int = Query(default=5)):
-    if n < 1:
-        raise HTTPException(
-            status_code=status.HTTP_422_UNPROCESSABLE_CONTENT,
-            detail="The value 'n' must be greater than 0."
-        )
-
+@router.get(
+    "/mixes/latest",
+    summary="Get a list of most recent mixes.",
+    status_code=status.HTTP_200_OK,
+    response_description="A list of Mix objects.",
+    response_model=list[Mix],
+    tags=["Mixes"],
+)
+def get_latest(limit: int = Query(default=5, ge=1)):
+    """Retrieve the specified number of most recent Mix objects."""
     sorted_mixes = sorted(
         DATA,
         key=lambda mix: mix["releaseDate"],
         reverse=True
     )
 
-    return sorted_mixes[:n]
+    return sorted_mixes[:limit]
