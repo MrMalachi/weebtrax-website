@@ -439,9 +439,11 @@ Can still read from JSON initially, then swap to PostgreSQL.
 
 ### Learning resources
 
-**All required pre-Phase-5 lessons complete (2026-08-25)** — Path Operation Configuration, Path & Query Validation, and SQL (Relational) Databases are done. Cleared to start building the PostgreSQL schema/models for Phase 5.
+**Correction (2026-08-26)**: the 2026-08-25 note below claiming SQL (Relational) Databases was "done" was premature — actually still partway through learning PostgreSQL/SQL. Not yet cleared to start building the Phase 5 schema/models.
 
-**Already learned**: First Steps, Path Parameters, Query Parameters, Request Body, [Handling Errors](https://fastapi.tiangolo.com/tutorial/handling-errors/), [Response Model](https://fastapi.tiangolo.com/tutorial/response-model/), [Path Operation Configuration](https://fastapi.tiangolo.com/tutorial/response-status-code/), [Path & Query Validation](https://fastapi.tiangolo.com/tutorial/query-params-str-validations/), [SQL (Relational) Databases](https://fastapi.tiangolo.com/tutorial/sql-databases/) — see Progress above for how each has been applied in `backend/routers/mixes.py` and `scenes.py`.
+**Already learned**: First Steps, Path Parameters, Query Parameters, Request Body, [Handling Errors](https://fastapi.tiangolo.com/tutorial/handling-errors/), [Response Model](https://fastapi.tiangolo.com/tutorial/response-model/), [Path Operation Configuration](https://fastapi.tiangolo.com/tutorial/response-status-code/), [Path & Query Validation](https://fastapi.tiangolo.com/tutorial/query-params-str-validations/) — see Progress above for how each has been applied in `backend/routers/mixes.py` and `scenes.py`.
+
+**In progress**: [SQL (Relational) Databases](https://fastapi.tiangolo.com/tutorial/sql-databases/) — partway through as of 2026-08-26, not yet finished or applied to the codebase.
 
 **Already effectively covered, skip the tutorial**:
 - CORS — already implemented in `backend/main.py`; skim the docs page to understand the existing code, don't treat as new material

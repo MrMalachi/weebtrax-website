@@ -1,0 +1,19 @@
+[project]
+name = "weebtrax-website"
+version = "0.1.0"
+description = "FastAPI backend for managing music mixes, anime scenes, and track submissions for WeebTrax."
+readme = "README.md"
+authors = [
+    { name = "MrMalachi", email = "brownmnb11@yahoo.com" }
+]
+requires-python = ">=3.14"
+dependencies = [
+    "sqlmodel>=0.0.39",
+]
+
+[project.scripts]
+weebtrax-website = "weebtrax_website:main"
+
+[build-system]
+requires = ["uv_build>=0.12.6,<0.13.0"]
+build-backend = "uv_build"
