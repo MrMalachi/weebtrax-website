@@ -1,7 +1,12 @@
 from enum import Enum
 from fastapi import APIRouter, HTTPException, Query, status
+from pydantic import BaseModel
 import json
 import pathlib
+
+router = APIRouter()
+
+DATA = json.loads(pathlib.Path("backend/data/scenes.json").read_text())
 
 
 class Mood(str, Enum):
@@ -11,32 +16,43 @@ class Mood(str, Enum):
     deep = "deep"
 
 
-router = APIRouter()
+class Scene(BaseModel):
+    id: str
+    name: str
+    slug: str
+    type: str
+    description: str
+    episodeNumber: int
+    mood: Mood
+    videoPath: str
+    thumbnailPath: str
 
-DATA = json.loads(pathlib.Path("backend/data/scenes.json").read_text())
 
-@router.get("/scenes")
+class ScenePage(BaseModel):
+    total: int
+    page: int
+    limit: int
+    results: list[Scene]
+
+
+@router.get(
+    "/scenes",
+    summary="Get scenes with pagination and optional filters.",
+    status_code=status.HTTP_200_OK,
+    response_description="A paginated response containing Scene objects and "
+                         "pagination metadata.",
+    response_model=ScenePage,
+    tags=["Scenes"],
+)
 def get_scenes(
-
-        page: int = Query(default=1),
-        limit: int = Query(default=6),
-        episode: int = Query(None),
-        mood: Mood | None = Query(None)
+        page: int = Query(default=1, ge=1),
+        limit: int = Query(default=4, ge=1, le=50),
+        episode: int = Query(default=None, ge=1),
+        mood: Mood | None = Query(default=None)
 ):
+    """Retrieve paginated Scene objects with pagination metadata."""
 
     results = DATA
-
-    if page < 1:
-        raise HTTPException(
-            status_code=status.HTTP_422_UNPROCESSABLE_CONTENT,
-            detail="Page number must be greater than 0.",
-        )
-
-    if limit < 1:
-        raise HTTPException(
-            status_code=status.HTTP_422_UNPROCESSABLE_CONTENT,
-            detail="Limit number must be greater than 0."
-        )
 
     if episode is not None:
         results = [s for s in results if s["episodeNumber"] == episode]
