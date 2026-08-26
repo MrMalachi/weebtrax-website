@@ -18,6 +18,12 @@ Post-launch work (not gating launch) lives in a separate [Post-Launch Roadmap](#
 
 ---
 
+## Git conventions
+
+- Do **not** add a `Co-Authored-By: Claude` trailer to commit messages in this repo.
+
+---
+
 ## Phase 1 — Local media organization
 
 Target folder structure:
