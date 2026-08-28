@@ -1,6 +1,5 @@
 [
   {
-    "id": "scene-001",
     "name": "Ghost in the Static",
     "slug": "ghost-in-the-static",
     "type": "DEEP TRANSMISSION",
@@ -11,7 +10,6 @@
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-01_clip-01.jpg"
   },
   {
-    "id": "scene-002",
     "name": "Screen Reflection",
     "slug": "screen-reflection",
     "type": "CRT GHOST",
@@ -22,7 +20,6 @@
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-01_clip-02.jpg"
   },
   {
-    "id": "scene-003",
     "name": "Morning Dissolve",
     "slug": "morning-dissolve",
     "type": "GREY SIGNAL",
@@ -33,7 +30,6 @@
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-01_clip-03.jpg"
   },
   {
-    "id": "scene-004",
     "name": "Crowd Frequency",
     "slug": "crowd-frequency",
     "type": "MASS SIGNAL",
@@ -44,7 +40,6 @@
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-01_clip-04.jpg"
   },
   {
-    "id": "scene-005",
     "name": "Boot Sequence",
     "slug": "boot-sequence",
     "type": "SYSTEM INIT",
@@ -55,7 +50,6 @@
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-01_clip-05.jpg"
   },
   {
-    "id": "scene-006",
     "name": "Kanji Drift",
     "slug": "kanji-drift",
     "type": "DATA BLOOM",
@@ -66,7 +60,6 @@
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-01_clip-06.jpg"
   },
   {
-    "id": "scene-007",
     "name": "Wire Overhead",
     "slug": "wire-overhead",
     "type": "URBAN GRID",
@@ -77,7 +70,6 @@
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-01_clip-07.jpg"
   },
   {
-    "id": "scene-008",
     "name": "Wide Aperture",
     "slug": "wide-aperture",
     "type": "CLOSE SIGNAL",
@@ -88,7 +80,6 @@
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-01_clip-08.jpg"
   },
   {
-    "id": "scene-009",
     "name": "Signal Block",
     "slug": "signal-block",
     "type": "INTERRUPT",
@@ -99,7 +90,6 @@
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-01_clip-09.jpg"
   },
   {
-    "id": "scene-010",
     "name": "Identity Prompt",
     "slug": "identity-prompt",
     "type": "LOGIN TERMINAL",
@@ -110,7 +100,6 @@
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-01_clip-10.jpg"
   },
   {
-    "id": "scene-011",
     "name": "NAVI Interface",
     "slug": "navi-interface",
     "type": "NAVI GLOW",
@@ -121,7 +110,6 @@
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-01_clip-11.jpg"
   },
   {
-    "id": "scene-012",
     "name": "Deep Stare",
     "slug": "deep-stare",
     "type": "SHADOW FEED",
@@ -132,7 +120,6 @@
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-01_clip-12.jpg"
   },
   {
-    "id": "scene-013",
     "name": "Lain's Bedroom",
     "slug": "lain-s-bedroom",
     "type": "BEDROOM STATIC",
@@ -143,7 +130,6 @@
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-01_clip-13.jpg"
   },
   {
-    "id": "scene-014",
     "name": "Overexposed",
     "slug": "overexposed",
     "type": "RED SIGNAL",
@@ -154,7 +140,6 @@
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-01_clip-14.jpg"
   },
   {
-    "id": "scene-015",
     "name": "Red NAVI",
     "slug": "red-navi",
     "type": "HARDWARE GLOW",
@@ -165,7 +150,6 @@
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-01_clip-15.jpg"
   },
   {
-    "id": "scene-016",
     "name": "Night Session",
     "slug": "night-session",
     "type": "BEDROOM TERMINAL",
@@ -176,7 +160,6 @@
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-01_clip-16.jpg"
   },
   {
-    "id": "scene-017",
     "name": "Lain's Gaze",
     "slug": "lain-s-gaze",
     "type": "SOFT STATIC",
@@ -187,7 +170,6 @@
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-01_clip-17.jpg"
   },
   {
-    "id": "scene-018",
     "name": "Lamp in the Mist",
     "slug": "lamp-in-the-mist",
     "type": "SIGNAL DRIFT",
@@ -198,7 +180,6 @@
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-01_clip-18.jpg"
   },
   {
-    "id": "scene-019",
     "name": "Terminal Approach",
     "slug": "terminal-approach",
     "type": "NAVI ACCESS",
@@ -209,7 +190,6 @@
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-02_clip-01.jpg"
   },
   {
-    "id": "scene-020",
     "name": "Idle State",
     "slug": "idle-state",
     "type": "SCREENSAVER",
@@ -220,7 +200,6 @@
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-02_clip-02.jpg"
   },
   {
-    "id": "scene-021",
     "name": "Pastel Overflow",
     "slug": "pastel-overflow",
     "type": "DATA BLOOM",
@@ -231,7 +210,6 @@
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-02_clip-03.jpg"
   },
   {
-    "id": "scene-022",
     "name": "Hallway Exchange",
     "slug": "hallway-exchange",
     "type": "CORRIDOR SIGNAL",
@@ -242,7 +220,6 @@
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-02_clip-04.jpg"
   },
   {
-    "id": "scene-023",
     "name": "Neon Bleed",
     "slug": "neon-bleed",
     "type": "CITY STATIC",
@@ -253,7 +230,6 @@
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-02_clip-05.jpg"
   },
   {
-    "id": "scene-024",
     "name": "Bubble Signal",
     "slug": "bubble-signal",
     "type": "SOFT FRAGMENT",
@@ -264,7 +240,6 @@
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-02_clip-06.jpg"
   },
   {
-    "id": "scene-025",
     "name": "Cyberia Sign",
     "slug": "cyberia-sign",
     "type": "NEON PORTAL",
@@ -275,7 +250,6 @@
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-02_clip-07.jpg"
   },
   {
-    "id": "scene-026",
     "name": "Broadcast Flash",
     "slug": "broadcast-flash",
     "type": "SIGNAL BURST",
@@ -286,7 +260,6 @@
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-03_clip-01.jpg"
   },
   {
-    "id": "scene-027",
     "name": "Shelf Sentinels",
     "slug": "shelf-sentinels",
     "type": "BEDROOM STATIC",
@@ -297,7 +270,6 @@
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-03_clip-02.jpg"
   },
   {
-    "id": "scene-028",
     "name": "Signal Spiral",
     "slug": "signal-spiral",
     "type": "FEED CORRUPT",
@@ -308,7 +280,6 @@
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-03_clip-03.jpg"
   },
   {
-    "id": "scene-029",
     "name": "Foreign Signal",
     "slug": "foreign-signal",
     "type": "ALIEN FEED",
@@ -319,7 +290,6 @@
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-03_clip-04.jpg"
   },
   {
-    "id": "scene-030",
     "name": "Wired Pulse",
     "slug": "wired-pulse",
     "type": "DATA RINGS",
@@ -330,7 +300,6 @@
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-03_clip-05.jpg"
   },
   {
-    "id": "scene-031",
     "name": "Monitor Array",
     "slug": "monitor-array",
     "type": "COMMAND CENTER",
@@ -341,7 +310,6 @@
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-04_clip-01.jpg"
   },
   {
-    "id": "scene-032",
     "name": "Pale Stare",
     "slug": "pale-stare",
     "type": "DEEP STATIC",
@@ -352,7 +320,6 @@
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-04_clip-02.jpg"
   },
   {
-    "id": "scene-033",
     "name": "Night Broadcast",
     "slug": "night-broadcast",
     "type": "NIGHT SKY",
@@ -363,7 +330,6 @@
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-04_clip-03.jpg"
   },
   {
-    "id": "scene-034",
     "name": "Upward Gaze",
     "slug": "upward-gaze",
     "type": "PALE SIGNAL",
@@ -374,7 +340,6 @@
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-04_clip-04.jpg"
   },
   {
-    "id": "scene-035",
     "name": "Packed Train",
     "slug": "packed-train",
     "type": "COMMUTER GRID",
@@ -385,7 +350,6 @@
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-05_clip-01.jpg"
   },
   {
-    "id": "scene-036",
     "name": "Copland OS",
     "slug": "copland-os",
     "type": "SYSTEM BOOT",
@@ -396,7 +360,6 @@
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-05_clip-02.jpg"
   },
   {
-    "id": "scene-037",
     "name": "Scan Line Eyes",
     "slug": "scan-line-eyes",
     "type": "FEED ARTIFACT",
@@ -407,7 +370,6 @@
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-05_clip-03.jpg"
   },
   {
-    "id": "scene-038",
     "name": "Server Room",
     "slug": "server-room",
     "type": "MAINFRAME",
@@ -418,7 +380,6 @@
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-06_clip-01.jpg"
   },
   {
-    "id": "scene-039",
     "name": "Burnt Horizon",
     "slug": "burnt-horizon",
     "type": "DEAD SIGNAL",
@@ -429,7 +390,6 @@
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-06_clip-02.jpg"
   },
   {
-    "id": "scene-040",
     "name": "Iris Lock",
     "slug": "iris-lock",
     "type": "IRIS SCAN",
@@ -440,7 +400,6 @@
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-06_clip-03.jpg"
   },
   {
-    "id": "scene-041",
     "name": "Suburban Grid",
     "slug": "suburban-grid",
     "type": "GRID EXTERIOR",
@@ -451,7 +410,6 @@
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-07_clip-01.jpg"
   },
   {
-    "id": "scene-042",
     "name": "System Restart",
     "slug": "system-restart",
     "type": "BOOT SEQUENCE",
@@ -462,7 +420,6 @@
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-08_clip-01.jpg"
   },
   {
-    "id": "scene-043",
     "name": "Perception Glitch",
     "slug": "perception-glitch",
     "type": "VISUAL CORRUPT",
@@ -473,7 +430,6 @@
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-10_clip-01.jpg"
   },
   {
-    "id": "scene-044",
     "name": "Doorway Watch",
     "slug": "doorway-watch",
     "type": "LIMINAL FEED",
@@ -484,7 +440,6 @@
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-11_clip-01.jpg"
   },
   {
-    "id": "scene-045",
     "name": "Grey Signal",
     "slug": "grey-signal",
     "type": "COLD STATIC",
@@ -495,7 +450,6 @@
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-11_clip-02.jpg"
   },
   {
-    "id": "scene-046",
     "name": "Empty Tunnel",
     "slug": "empty-tunnel",
     "type": "CORRIDOR",
@@ -506,7 +460,6 @@
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-12_clip-01.jpg"
   },
   {
-    "id": "scene-047",
     "name": "Iron Skeleton",
     "slug": "iron-skeleton",
     "type": "MACHINE FEED",
@@ -517,7 +470,6 @@
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-13_clip-01.jpg"
   },
   {
-    "id": "scene-048",
     "name": "Neon Gate",
     "slug": "neon-gate",
     "type": "TRANSMISSION",
