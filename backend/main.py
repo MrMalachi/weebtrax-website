@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from routers import mixes, scenes
+from backend.routers import mixes, scenes
 
 
 app = FastAPI(title="WeebTrax API")

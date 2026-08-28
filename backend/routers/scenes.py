@@ -1,23 +1,18 @@
-from enum import Enum
-from fastapi import APIRouter, HTTPException, Query, status
-from pydantic import BaseModel
 import json
 import pathlib
+
+from fastapi import APIRouter, HTTPException, Query, status
+from pydantic import BaseModel
+from sqlmodel import Field, Session, SQLModel, create_engine
+
+from backend.models.enums import Mood
 
 router = APIRouter()
 
 DATA = json.loads(pathlib.Path("backend/data/scenes.json").read_text())
 
-
-class Mood(str, Enum):
-    chill = "chill"
-    nostalgic = "nostalgic"
-    dirty = "dirty"
-    deep = "deep"
-
-
-class Scene(BaseModel):
-    id: str
+class Scene(SQLModel, table=True):
+    id: int | None = Field(default=None, primary_key=True)
     name: str
     slug: str
     type: str

@@ -1,7 +1,11 @@
-from fastapi import APIRouter, HTTPException, status, Query
-from pydantic import BaseModel
 import json
 import pathlib
+
+from fastapi import APIRouter, status, Query
+from pydantic import BaseModel
+from sqlmodel import Field, Session, SQLModel, create_engine
+
+from backend.models.enums import Mood
 
 
 router = APIRouter()
@@ -14,13 +18,13 @@ class TrackEntry(BaseModel):
     title: str
 
 
-class Mix(BaseModel):
-    id: str
+class Mix(SQLModel, table=True):
+    id: int | None = Field(default=None, primary_key=True)
     title: str
     slug: str
     duration: str
     releaseDate: str
-    mood: str
+    mood: Mood
     views: int | None = None
     audioPath: str
     youtubeUrl: str
