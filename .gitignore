@@ -19,6 +19,7 @@ venv/
 .env
 __pycache__/
 *.pyc
+*.db
 
 # Large media / source videos
 *.mkv

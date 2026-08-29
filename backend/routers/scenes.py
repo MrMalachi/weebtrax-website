@@ -1,11 +1,12 @@
 import json
 import pathlib
 
-from fastapi import APIRouter, HTTPException, Query, status
+from fastapi import APIRouter, Query, status
 from pydantic import BaseModel
 from sqlmodel import Field, Session, SQLModel, create_engine
 
 from backend.models.enums import Mood
+
 
 router = APIRouter()
 
@@ -28,6 +29,35 @@ class ScenePage(BaseModel):
     page: int
     limit: int
     results: list[Scene]
+
+
+sqlite_url = "sqlite:///backend/data/scenes.db"
+connect_args = {"check_same_thread": False}
+engine = create_engine(sqlite_url, connect_args=connect_args)
+
+
+def create_tables_and_database():
+    SQLModel.metadata.create_all(engine)
+
+def add_sample_scenes():
+    with Session(engine) as session:
+        scenes = []
+
+        for entry in DATA:
+            scene = Scene(**entry)
+
+            session.add(scene)
+
+            scenes.append(scene)
+
+        session.commit()
+
+        for scene in scenes:
+            session.refresh(scene)
+
+def main():
+    create_tables_and_database()
+    add_sample_scenes()
 
 
 @router.get(
@@ -65,3 +95,7 @@ def get_scenes(
         "limit": limit,
         "results": results[start:end]
     }
+
+
+if __name__ == "__main__":
+    main()

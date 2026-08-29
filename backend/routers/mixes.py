@@ -29,7 +29,41 @@ class Mix(SQLModel, table=True):
     audioPath: str
     youtubeUrl: str
     soundcloudUrl: str | None = None
-    tracklist: list[TrackEntry]
+    # tracklist: list[TrackEntry] - moved out, needs its own Track table + Relationship
+
+
+sqlite_url = "sqlite:///backend/data/mixes.db"
+connect_args = {"check_same_thread": False}
+engine = create_engine(sqlite_url, connect_args=connect_args)
+
+
+def create_tables_and_database():
+    SQLModel.metadata.create_all(engine)
+
+def add_sample_mixes():
+    with Session(engine) as session:
+        mixes = []
+
+        for entry in DATA:
+            entry_copy = entry.copy()
+            entry_copy.pop("tracklist", None)
+
+            mix = Mix(**entry_copy)
+
+            session.add(mix)
+
+            mixes.append(mix)
+
+        session.commit()
+
+        for mix in mixes:
+            session.refresh(mix)
+
+def main():
+    create_tables_and_database()
+    add_sample_mixes()
+
+
 
 @router.get(
     "/mixes",
@@ -60,3 +94,7 @@ def get_latest(limit: int = Query(default=5, ge=1)):
     )
 
     return sorted_mixes[:limit]
+
+
+if __name__ == "__main__":
+    main()
