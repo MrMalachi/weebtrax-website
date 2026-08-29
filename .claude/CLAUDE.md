@@ -406,8 +406,10 @@ This was invisible before R2 because the audio was same-origin. Note the failure
 
 **Cloudflare caches responses from before the CORS policy existed**, and those cached copies have no header, so the fix looks like it isn't working. `cf-cache-status: HIT` + no `access-control-allow-origin` = stale cache, not a bad policy. Confirm by re-requesting with a `?cb=` cache-buster (a `MISS` will carry the header), then **Purge Everything** under Caching → Configuration.
 
-#### Still to do
-- `production/public/assets/metadata/{mixes,scenes}.json` still carry the old prefixed paths and the 9 wrong filenames. Nothing reads them now that the frontend uses the API, but they're stale and should be regenerated or deleted so they aren't trusted later. **Left in place deliberately — deleting them is the user's call.**
+#### Generator scripts still emit the OLD path format — read before regenerating
+`production/public/assets/metadata/{mixes,scenes}.json` were **deleted 2026-08-29** (stale: old `public/assets/` prefix plus the 9 wrong apostrophe filenames; nothing read them once the frontend moved to the API). `lain-clip-matches.json` was deliberately **kept** — it's 80 entries of curated mix→scene clip descriptions, useful for [Phase 11](#phase-11--multi-anime-scenes--scene-mood-filter), not a stale artifact.
+
+**The trap:** `tools/generate_mixes_json.py` and `tools/generate_scenes_json.py` still write paths in the pre-R2 format (`public/assets/scenes/thumbnails/…`, and mix `audioPath` built by a slugify rule that turns apostrophes into `-`). Both scripts only *write*, never read, so nothing broke when the files were deleted — but **running either and copying the result into `backend/data/` would reintroduce both bugs at once**. Fix the scripts to emit bare keys (`scenes/thumbnails/…`) and to derive `audioPath` from `slug` before trusting their output again.
 
 ---
 
