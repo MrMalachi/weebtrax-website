@@ -388,6 +388,17 @@ The deployed database held the old `public/assets/…` paths and had to be reset
 - `railway ssh` needs a registered key (`railway ssh keys add`) **and** a one-time interactive host-key acceptance. The host-key prompt cannot be answered from a non-TTY shell — it must be run in a real terminal window once; afterwards non-interactive `railway ssh <cmd>` works fine.
 - The Postgres service has **no public TCP proxy**, so `DATABASE_URL` is the internal `postgres.railway.internal` host and is unreachable from a laptop. Run database work *inside* the container via `railway ssh` rather than enabling public networking.
 
+#### Cross-origin audio: the silent-playback trap (2026-08-29)
+Moving media to R2 made audio **play silently** on the live site — timer ran, waveform moved, no sound. Two causes, and **both fixes are required; either alone still gives silence**:
+1. The player routes audio through the Web Audio graph (`ctx.createMediaElementSource(audio)` in `app.js`) so it can do GainNode volume and fades. Feeding a **cross-origin** media element into that graph without CORS marks it "tainted" and the graph outputs silence — deliberately, so sites can't read audio from other domains. Fixed with `crossOrigin: 'anonymous'` on the `<audio>` element. **Never remove that attribute** while media is on a different host.
+2. `media.weebtrax.com` must return `Access-Control-Allow-Origin`. Set via the bucket's **CORS Policy** in the R2 dashboard (the rclone token can't do this — it only reads/writes objects, not bucket config). The policy needs `AllowedHeaders: ["Range"]` and `ExposeHeaders: [Content-Length, Content-Range, Accept-Ranges]` or seeking breaks even once sound works.
+
+This was invisible before R2 because the audio was same-origin. Note the failure mode is *silence, not an error* — nothing appears in the console.
+
+**Ordering matters when fixing it:** deploy the `crossOrigin` attribute only *after* the bucket policy is live. With the attribute set but no CORS header, audio fails to load at all — worse than silent.
+
+**Cloudflare caches responses from before the CORS policy existed**, and those cached copies have no header, so the fix looks like it isn't working. `cf-cache-status: HIT` + no `access-control-allow-origin` = stale cache, not a bad policy. Confirm by re-requesting with a `?cb=` cache-buster (a `MISS` will carry the header), then **Purge Everything** under Caching → Configuration.
+
 #### Still to do
 - `production/public/assets/metadata/{mixes,scenes}.json` still carry the old prefixed paths and the 9 wrong filenames. Nothing reads them now that the frontend uses the API, but they're stale and should be regenerated or deleted so they aren't trusted later. **Left in place deliberately — deleting them is the user's call.**
 
