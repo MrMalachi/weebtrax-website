@@ -6,7 +6,7 @@
     "releaseDate": "2020-05-15",
     "mood": "nostalgic",
     "views": 1892,
-    "audioPath": "public/assets/mixes/audio/lo-fi-house-mix-retrospect.mp3",
+    "audioPath": "mixes/audio/lo-fi-house-mix-retrospect.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=1BuuAZeLtno",
     "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-music-retrospect-mix",
     "tracklist": [
@@ -59,7 +59,7 @@
     "releaseDate": "2020-07-17",
     "mood": "chill",
     "views": 13676,
-    "audioPath": "public/assets/mixes/audio/lo-fi-house-music-summer-sunset-mix.mp3",
+    "audioPath": "mixes/audio/lo-fi-house-music-summer-sunset-mix.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=1G56f7ziIQw",
     "soundcloudUrl": null,
     "tracklist": [
@@ -122,7 +122,7 @@
     "releaseDate": "2020-07-24",
     "mood": "chill",
     "views": 6370,
-    "audioPath": "public/assets/mixes/audio/lo-fi-house-music-summer-nights-mix.mp3",
+    "audioPath": "mixes/audio/lo-fi-house-music-summer-nights-mix.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=hFMOEoDpoTQ",
     "soundcloudUrl": null,
     "tracklist": [
@@ -185,7 +185,7 @@
     "releaseDate": "2020-07-31",
     "mood": "chill",
     "views": 3593,
-    "audioPath": "public/assets/mixes/audio/lo-fi-house-music-against-the-grain-mix.mp3",
+    "audioPath": "mixes/audio/lo-fi-house-music-against-the-grain-mix.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=3gA8fU5Fcaw",
     "soundcloudUrl": null,
     "tracklist": [
@@ -243,7 +243,7 @@
     "releaseDate": "2020-08-07",
     "mood": "nostalgic",
     "views": 3908,
-    "audioPath": "public/assets/mixes/audio/lo-fi-house-music-sentimental-sunsets-mix.mp3",
+    "audioPath": "mixes/audio/lo-fi-house-music-sentimental-sunsets-mix.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=GqmPdYAxIm0",
     "soundcloudUrl": null,
     "tracklist": [
@@ -306,7 +306,7 @@
     "releaseDate": "2020-08-14",
     "mood": "chill",
     "views": 8125,
-    "audioPath": "public/assets/mixes/audio/lo-fi-house-music-final-days-of-summer-mix.mp3",
+    "audioPath": "mixes/audio/lo-fi-house-music-final-days-of-summer-mix.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=0Ha8urdCt6c",
     "soundcloudUrl": null,
     "tracklist": [
@@ -359,7 +359,7 @@
     "releaseDate": "2020-08-21",
     "mood": "dirty",
     "views": 4224,
-    "audioPath": "public/assets/mixes/audio/lo-fi-house-music-back2back-mix.mp3",
+    "audioPath": "mixes/audio/lo-fi-house-music-back2back-mix.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=kV1L6XJalU8",
     "soundcloudUrl": null,
     "tracklist": [
@@ -412,7 +412,7 @@
     "releaseDate": "2020-08-28",
     "mood": "deep",
     "views": 29679,
-    "audioPath": "public/assets/mixes/audio/lo-fi-house-music-tokyo-midnight-drive-mix-wicked-city.mp3",
+    "audioPath": "mixes/audio/lo-fi-house-music-tokyo-midnight-drive-mix-wicked-city.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=W96EDPbkxjI",
     "soundcloudUrl": null,
     "tracklist": [
@@ -470,7 +470,7 @@
     "releaseDate": "2020-09-04",
     "mood": "dirty",
     "views": 8461,
-    "audioPath": "public/assets/mixes/audio/lo-fi-house-music-clipping-mix.mp3",
+    "audioPath": "mixes/audio/lo-fi-house-music-clipping-mix.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=D1Czc1M_DAo",
     "soundcloudUrl": null,
     "tracklist": [
@@ -528,7 +528,7 @@
     "releaseDate": "2020-09-18",
     "mood": "deep",
     "views": 7530,
-    "audioPath": "public/assets/mixes/audio/lo-fi-house-music-happy-endings-mix.mp3",
+    "audioPath": "mixes/audio/lo-fi-house-music-happy-endings-mix.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=DgGRQCoUozc",
     "soundcloudUrl": null,
     "tracklist": [
@@ -586,7 +586,7 @@
     "releaseDate": "2020-09-27",
     "mood": "deep",
     "views": 2709,
-    "audioPath": "public/assets/mixes/audio/lo-fi-house-music-haunting-mix.mp3",
+    "audioPath": "mixes/audio/lo-fi-house-music-haunting-mix.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=1Re1CYHR6A0",
     "soundcloudUrl": null,
     "tracklist": [
@@ -644,7 +644,7 @@
     "releaseDate": "2020-11-20",
     "mood": "deep",
     "views": 3782,
-    "audioPath": "public/assets/mixes/audio/lo-fi-house-music-typhoon-taif-mix.mp3",
+    "audioPath": "mixes/audio/lo-fi-house-music-typhoon-taif-mix.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=_fVTpIGZIfY",
     "soundcloudUrl": null,
     "tracklist": [
@@ -707,7 +707,7 @@
     "releaseDate": "2020-11-27",
     "mood": "deep",
     "views": 181953,
-    "audioPath": "public/assets/mixes/audio/lo-fi-house-music-clubbing-withdrawal-symptoms-mix.mp3",
+    "audioPath": "mixes/audio/lo-fi-house-music-clubbing-withdrawal-symptoms-mix.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=Ev5sCVzMspQ",
     "soundcloudUrl": null,
     "tracklist": [
@@ -770,7 +770,7 @@
     "releaseDate": "2020-12-04",
     "mood": "dirty",
     "views": 5029,
-    "audioPath": "public/assets/mixes/audio/lo-fi-house-music-f-ck-an-hour-long-mix.mp3",
+    "audioPath": "mixes/audio/lo-fi-house-music-f-ck-an-hour-long-mix.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=p-pLLBGca8A",
     "soundcloudUrl": null,
     "tracklist": [
@@ -828,7 +828,7 @@
     "releaseDate": "2020-12-11",
     "mood": "deep",
     "views": 19681,
-    "audioPath": "public/assets/mixes/audio/lo-fi-house-music-the-80s-were-a-vibe-mix.mp3",
+    "audioPath": "mixes/audio/lo-fi-house-music-the-80s-were-a-vibe-mix.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=6QEPBdVqTOg",
     "soundcloudUrl": null,
     "tracklist": [
@@ -891,7 +891,7 @@
     "releaseDate": "2020-12-18",
     "mood": "deep",
     "views": 9515,
-    "audioPath": "public/assets/mixes/audio/lo-fi-house-music-house-is-a-feeling-mix.mp3",
+    "audioPath": "mixes/audio/lo-fi-house-music-house-is-a-feeling-mix.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=eP4kSOyWEI8",
     "soundcloudUrl": null,
     "tracklist": [
@@ -954,7 +954,7 @@
     "releaseDate": "2021-01-15",
     "mood": "deep",
     "views": 2966,
-    "audioPath": "public/assets/mixes/audio/lo-fi-house-music-house-is-a-feeling-mix-alternative-ending.mp3",
+    "audioPath": "mixes/audio/lo-fi-house-music-house-is-a-feeling-mix-alternative-ending.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=dlA8EXV_9Qc",
     "soundcloudUrl": null,
     "tracklist": [
@@ -1017,7 +1017,7 @@
     "releaseDate": "2021-01-29",
     "mood": "deep",
     "views": 6594,
-    "audioPath": "public/assets/mixes/audio/lo-fi-house-music-4-nighttime-use-only-mix.mp3",
+    "audioPath": "mixes/audio/lo-fi-house-music-4-nighttime-use-only-mix.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=IKAtG6bHCMs",
     "soundcloudUrl": null,
     "tracklist": [
@@ -1080,7 +1080,7 @@
     "releaseDate": "2021-02-12",
     "mood": "nostalgic",
     "views": 3190,
-    "audioPath": "public/assets/mixes/audio/lo-fi-house-music-sad-boy-hours-mix-ode-to-e.mp3",
+    "audioPath": "mixes/audio/lo-fi-house-music-sad-boy-hours-mix-ode-to-e.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=PC0twDXW6mw",
     "soundcloudUrl": null,
     "tracklist": [
@@ -1143,7 +1143,7 @@
     "releaseDate": "2021-02-20",
     "mood": "deep",
     "views": 4221,
-    "audioPath": "public/assets/mixes/audio/lo-fi-house-music-100-subscribers-mix-goku-midnight-eye.mp3",
+    "audioPath": "mixes/audio/lo-fi-house-music-100-subscribers-mix-goku-midnight-eye.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=f-0P_A0TK0k",
     "soundcloudUrl": null,
     "tracklist": [
@@ -1206,7 +1206,7 @@
     "releaseDate": "2021-02-26",
     "mood": "deep",
     "views": 6992,
-    "audioPath": "public/assets/mixes/audio/lo-fi-house-music-dj-different-mix-visions-album.mp3",
+    "audioPath": "mixes/audio/lo-fi-house-music-dj-different-mix-visions-album.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=qVDWiSTlEg0",
     "soundcloudUrl": null,
     "tracklist": [
@@ -1264,7 +1264,7 @@
     "releaseDate": "2021-03-05",
     "mood": "dirty",
     "views": 40701,
-    "audioPath": "public/assets/mixes/audio/lo-fi-house-music-heartbreaks-breakbeat-mix-batman-beyond.mp3",
+    "audioPath": "mixes/audio/lo-fi-house-music-heartbreaks-breakbeat-mix-batman-beyond.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=DT2-17RLM9A",
     "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-music-breakups-breakbeat-mix-batman-beyond",
     "tracklist": [
@@ -1322,7 +1322,7 @@
     "releaseDate": "2021-03-12",
     "mood": "deep",
     "views": 12423,
-    "audioPath": "public/assets/mixes/audio/lo-fi-house-music-natural-high-mix.mp3",
+    "audioPath": "mixes/audio/lo-fi-house-music-natural-high-mix.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=gZAOQC6M-Vw",
     "soundcloudUrl": null,
     "tracklist": [
@@ -1435,7 +1435,7 @@
     "releaseDate": "2021-03-19",
     "mood": "nostalgic",
     "views": 6194,
-    "audioPath": "public/assets/mixes/audio/lo-fi-house-music-tears-of-nostalgic-joy-mix-cowboy-bebop.mp3",
+    "audioPath": "mixes/audio/lo-fi-house-music-tears-of-nostalgic-joy-mix-cowboy-bebop.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=0TZnP-6Q-6Q",
     "soundcloudUrl": null,
     "tracklist": [
@@ -1498,7 +1498,7 @@
     "releaseDate": "2021-04-09",
     "mood": "deep",
     "views": 4917,
-    "audioPath": "public/assets/mixes/audio/lo-fi-house-music-a-trip-you-won-t-forget-mix.mp3",
+    "audioPath": "mixes/audio/lo-fi-house-music-a-trip-you-wont-forget-mix.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=FJT2BXuaT88",
     "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-music-a-trip-you-wont-forget-mix",
     "tracklist": [
@@ -1556,7 +1556,7 @@
     "releaseDate": "2021-04-17",
     "mood": "deep",
     "views": 5404,
-    "audioPath": "public/assets/mixes/audio/lo-fi-house-music-a-dream-in-the-making-mix-ninja-scroll.mp3",
+    "audioPath": "mixes/audio/lo-fi-house-music-a-dream-in-the-making-mix-ninja-scroll.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=Oor-V-eEWLU",
     "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-music-a-dream-in-the-making-mix-ninja-scroll",
     "tracklist": [
@@ -1614,7 +1614,7 @@
     "releaseDate": "2021-05-07",
     "mood": "dirty",
     "views": 2666,
-    "audioPath": "public/assets/mixes/audio/lo-fi-house-breakbeat-music-golden-era-of-ova-mix-angel-cop.mp3",
+    "audioPath": "mixes/audio/lo-fi-house-breakbeat-music-golden-era-of-ova-mix-angel-cop.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=lKO8AE8Lma8",
     "soundcloudUrl": "https://soundcloud.com/weebtrax/golden-era-of-ova-mix-angel-cop",
     "tracklist": [
@@ -1672,7 +1672,7 @@
     "releaseDate": "2021-05-28",
     "mood": "nostalgic",
     "views": 7099,
-    "audioPath": "public/assets/mixes/audio/lo-fi-house-music-reminiscing-about-love-mix.mp3",
+    "audioPath": "mixes/audio/lo-fi-house-music-reminiscing-about-love-mix.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=BNQkjPU5lHI",
     "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-music-reminiscing-about-love-mix",
     "tracklist": [
@@ -1735,7 +1735,7 @@
     "releaseDate": "2021-11-06",
     "mood": "deep",
     "views": 3178,
-    "audioPath": "public/assets/mixes/audio/lo-fi-house-music-don-t-speak-just-listen-mix.mp3",
+    "audioPath": "mixes/audio/lo-fi-house-music-dont-speak-just-listen-mix.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=d8AqptCFXKw",
     "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-music-dont-speak-just-listen-mix",
     "tracklist": [
@@ -1798,7 +1798,7 @@
     "releaseDate": "2021-11-13",
     "mood": "deep",
     "views": 2238,
-    "audioPath": "public/assets/mixes/audio/lo-fi-house-music-a-dream-within-a-dream-mix-bubblegum-crisis.mp3",
+    "audioPath": "mixes/audio/lo-fi-house-music-a-dream-within-a-dream-mix-bubblegum-crisis.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=uKsgbOV9hQY",
     "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-music-a-dream-within-a-dream-mix-bubblegum-crisis",
     "tracklist": [
@@ -1851,7 +1851,7 @@
     "releaseDate": "2021-12-11",
     "mood": "deep",
     "views": 1562,
-    "audioPath": "public/assets/mixes/audio/lo-fi-house-music-stargazing-breakbeat-vibey-mix.mp3",
+    "audioPath": "mixes/audio/lo-fi-house-music-stargazing-breakbeat-vibey-mix.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=FkmrrqCjABo",
     "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-music-stargazing-breakbeat-vibey-mix",
     "tracklist": [
@@ -1919,7 +1919,7 @@
     "releaseDate": "2021-12-24",
     "mood": "deep",
     "views": 1402,
-    "audioPath": "public/assets/mixes/audio/lo-fi-house-music-stargazing-breakbeat-vibey-mix-alternative-ending.mp3",
+    "audioPath": "mixes/audio/lo-fi-house-music-stargazing-breakbeat-vibey-mix-alternative-ending.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=VitreIs46f0",
     "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-music-stargazing-breakbeat-vibey-mix-alternative-ending",
     "tracklist": [
@@ -1987,7 +1987,7 @@
     "releaseDate": "2022-01-30",
     "mood": "deep",
     "views": 5497,
-    "audioPath": "public/assets/mixes/audio/lo-fi-house-music-dystopian-future-mix-ghost-in-the-shell.mp3",
+    "audioPath": "mixes/audio/lo-fi-house-music-dystopian-future-mix-ghost-in-the-shell.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=fpyit-cgvxE",
     "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-music-dystopian-future-mix-ghost-in-the-shell",
     "tracklist": [
@@ -2050,7 +2050,7 @@
     "releaseDate": "2022-02-19",
     "mood": "deep",
     "views": 6107,
-    "audioPath": "public/assets/mixes/audio/lo-fi-house-music-transcendent-mix-trigun.mp3",
+    "audioPath": "mixes/audio/lo-fi-house-music-transcendent-mix-trigun.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=VIDVRWQYc_k",
     "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-music-transcendent-mix-trigun",
     "tracklist": [
@@ -2108,7 +2108,7 @@
     "releaseDate": "2022-05-29",
     "mood": "deep",
     "views": 1578,
-    "audioPath": "public/assets/mixes/audio/lo-fi-house-music-point-of-no-return-mix-broly-the-legendary-super-saiyan.mp3",
+    "audioPath": "mixes/audio/lo-fi-house-music-point-of-no-return-mix-broly-the-legendary-super-saiyan.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=z6Omt_0lv68",
     "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-music-point-of-no-return-mix-broly-the-legendary-super-saiyan-1",
     "tracklist": [
@@ -2166,7 +2166,7 @@
     "releaseDate": "2022-06-04",
     "mood": "nostalgic",
     "views": 3183,
-    "audioPath": "public/assets/mixes/audio/lo-fi-house-music-doomed-romance-mix-berserk.mp3",
+    "audioPath": "mixes/audio/lo-fi-house-music-doomed-romance-mix-berserk.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=JOHHJ5UeNNQ",
     "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-music-doomed-romance-mix-berserk",
     "tracklist": [
@@ -2229,7 +2229,7 @@
     "releaseDate": "2022-06-10",
     "mood": "deep",
     "views": 4638,
-    "audioPath": "public/assets/mixes/audio/lo-fi-house-music-zero-gravity-mix-bubblegum-crisis.mp3",
+    "audioPath": "mixes/audio/lo-fi-house-music-zero-gravity-mix-bubblegum-crisis.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=fTxG4KqoGm8",
     "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-music-zero-gravity-mix-bubblegum-crisis",
     "tracklist": [
@@ -2302,7 +2302,7 @@
     "releaseDate": "2022-06-17",
     "mood": "dirty",
     "views": 6217,
-    "audioPath": "public/assets/mixes/audio/lo-fi-breakbeat-music-shifting-gears-mix-initial-d.mp3",
+    "audioPath": "mixes/audio/lo-fi-breakbeat-music-shifting-gears-mix-initial-d.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=DSxEs-Xs2H0",
     "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-breakbeat-music-shifting-gears-mix-initial-d",
     "tracklist": [
@@ -2365,7 +2365,7 @@
     "releaseDate": "2022-08-15",
     "mood": "deep",
     "views": 1530,
-    "audioPath": "public/assets/mixes/audio/lo-fi-house-music-unfinished-business-mix-mobile-suit-gundam.mp3",
+    "audioPath": "mixes/audio/lo-fi-house-music-unfinished-business-mix-mobile-suit-gundam.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=18TFZ_VI2Us",
     "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-breakbeat-music-unfinished-business-mix",
     "tracklist": [
@@ -2413,7 +2413,7 @@
     "releaseDate": "2022-08-22",
     "mood": "nostalgic",
     "views": 5787,
-    "audioPath": "public/assets/mixes/audio/lo-fi-house-music-who-hurt-you-mix-whisper-of-the-heart.mp3",
+    "audioPath": "mixes/audio/lo-fi-house-music-who-hurt-you-mix-whisper-of-the-heart.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=2e82RN9sAKs",
     "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-music-who-hurt-you-mix-whisper-of-the-heart",
     "tracklist": [
@@ -2476,7 +2476,7 @@
     "releaseDate": "2022-08-30",
     "mood": "dirty",
     "views": 2093,
-    "audioPath": "public/assets/mixes/audio/lo-fi-house-breakbeat-music-lo-fi-laced-sounds-mix.mp3",
+    "audioPath": "mixes/audio/lo-fi-house-breakbeat-music-lo-fi-laced-sounds-mix.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=Nsq8xu1x1LQ",
     "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-breakbeat-music-lo-fi-laced-sounds-mix",
     "tracklist": [
@@ -2539,7 +2539,7 @@
     "releaseDate": "2022-09-24",
     "mood": "deep",
     "views": 2280,
-    "audioPath": "public/assets/mixes/audio/lo-fi-house-music-faster-than-life-mix.mp3",
+    "audioPath": "mixes/audio/lo-fi-house-music-faster-than-life-mix.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=DPzahNNpLcA",
     "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-music-faster-than-life-mix",
     "tracklist": [
@@ -2597,7 +2597,7 @@
     "releaseDate": "2022-10-04",
     "mood": "deep",
     "views": 1871,
-    "audioPath": "public/assets/mixes/audio/lo-fi-house-music-fake-the-funk-mix.mp3",
+    "audioPath": "mixes/audio/lo-fi-house-music-fake-the-funk-mix.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=g7CcHOrSkQY",
     "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-music-fake-the-funk-mix",
     "tracklist": [
@@ -2660,7 +2660,7 @@
     "releaseDate": "2022-10-16",
     "mood": "deep",
     "views": 2107,
-    "audioPath": "public/assets/mixes/audio/lo-fi-house-music-happiness-is-fleeting-mix.mp3",
+    "audioPath": "mixes/audio/lo-fi-house-music-happiness-is-fleeting-mix.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=xi0Nr-plL78",
     "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-music-happiness-is-fleeting-mix",
     "tracklist": [
@@ -2723,7 +2723,7 @@
     "releaseDate": "2022-10-29",
     "mood": "deep",
     "views": 4072,
-    "audioPath": "public/assets/mixes/audio/lo-fi-house-music-cyberpunk-mix.mp3",
+    "audioPath": "mixes/audio/lo-fi-house-music-cyberpunk-mix.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=NNdtYCFIL68",
     "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-music-cyberpunk-mix",
     "tracklist": [
@@ -2776,7 +2776,7 @@
     "releaseDate": "2022-11-28",
     "mood": "deep",
     "views": null,
-    "audioPath": "public/assets/mixes/audio/lo-fi-house-music-ghetto-symphony-mix.mp3",
+    "audioPath": "mixes/audio/lo-fi-house-music-ghetto-symphony-mix.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=b4emPgjo7lo",
     "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-music-ghetto-symphony-mix",
     "tracklist": [
@@ -2839,7 +2839,7 @@
     "releaseDate": "2022-12-10",
     "mood": "deep",
     "views": 2557,
-    "audioPath": "public/assets/mixes/audio/lo-fi-house-mix-love-is-contagious.mp3",
+    "audioPath": "mixes/audio/lo-fi-house-mix-love-is-contagious.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=HpS4py33S3c",
     "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-music-love-is-contagious-mix",
     "tracklist": [
@@ -2902,7 +2902,7 @@
     "releaseDate": "2023-01-20",
     "mood": "chill",
     "views": 1834,
-    "audioPath": "public/assets/mixes/audio/ambient-lo-fi-house-mix-mesmerizing-soundscapes.mp3",
+    "audioPath": "mixes/audio/ambient-lo-fi-house-mix-mesmerizing-soundscapes.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=AegqPllWwM4",
     "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-music-mesmerizing-soundscapes-mix",
     "tracklist": [
@@ -2955,7 +2955,7 @@
     "releaseDate": "2023-04-22",
     "mood": "nostalgic",
     "views": 3113,
-    "audioPath": "public/assets/mixes/audio/lo-fi-house-mix-i-love-you.mp3",
+    "audioPath": "mixes/audio/lo-fi-house-mix-i-love-you.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=6jpyV4CqEw0",
     "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi",
     "tracklist": [
@@ -3018,7 +3018,7 @@
     "releaseDate": "2023-05-06",
     "mood": "deep",
     "views": 2287,
-    "audioPath": "public/assets/mixes/audio/lo-fi-house-mix-otto-s-anticlimax-pt-1.mp3",
+    "audioPath": "mixes/audio/lo-fi-house-mix-ottos-anticlimax-pt-1.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=XbQgyHjEBqY",
     "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-mix-ottos-anticlimax-pt-1",
     "tracklist": [
@@ -3061,7 +3061,7 @@
     "releaseDate": "2023-05-13",
     "mood": "deep",
     "views": 1916,
-    "audioPath": "public/assets/mixes/audio/lo-fi-house-mix-otto-s-anticlimax-pt-2.mp3",
+    "audioPath": "mixes/audio/lo-fi-house-mix-ottos-anticlimax-pt-2.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=5fJ_uZY0SBo",
     "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-mix-ottos-anticlimax-pt-2",
     "tracklist": [
@@ -3099,7 +3099,7 @@
     "releaseDate": "2023-05-24",
     "mood": "chill",
     "views": 1758,
-    "audioPath": "public/assets/mixes/audio/lo-fi-house-mix-a-chill-summer-s-day.mp3",
+    "audioPath": "mixes/audio/lo-fi-house-mix-a-chill-summers-day.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=z2YcXPU9bQE",
     "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-mix-summer-unwind",
     "tracklist": [
@@ -3157,7 +3157,7 @@
     "releaseDate": "2023-05-28",
     "mood": "deep",
     "views": 2114,
-    "audioPath": "public/assets/mixes/audio/lo-fi-house-mix-spacious-void.mp3",
+    "audioPath": "mixes/audio/lo-fi-house-mix-spacious-void.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=UanA5kHIMNI",
     "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-mix-spacious-void",
     "tracklist": [
@@ -3205,7 +3205,7 @@
     "releaseDate": "2023-05-31",
     "mood": "chill",
     "views": 12777,
-    "audioPath": "public/assets/mixes/audio/lo-fi-house-essentials-summer-2023-trax.mp3",
+    "audioPath": "mixes/audio/lo-fi-house-essentials-summer-2023-trax.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=ji9HUjdbbfs",
     "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-essentials-summer-2023-trax",
     "tracklist": [
@@ -3343,7 +3343,7 @@
     "releaseDate": "2023-06-05",
     "mood": "chill",
     "views": 1481,
-    "audioPath": "public/assets/mixes/audio/lo-fi-house-mix-short-but-funky.mp3",
+    "audioPath": "mixes/audio/lo-fi-house-mix-short-but-funky.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=KLwFKmDaijQ",
     "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-mix-short-but-funky",
     "tracklist": [
@@ -3391,7 +3391,7 @@
     "releaseDate": "2023-06-13",
     "mood": "deep",
     "views": 2547,
-    "audioPath": "public/assets/mixes/audio/lo-fi-house-mix-untitled.mp3",
+    "audioPath": "mixes/audio/lo-fi-house-mix-untitled.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=j3bSodje_bI",
     "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-mix-untitled",
     "tracklist": [
@@ -3454,7 +3454,7 @@
     "releaseDate": "2023-06-17",
     "mood": "deep",
     "views": 2611,
-    "audioPath": "public/assets/mixes/audio/lo-fi-house-mix-cliffhanger.mp3",
+    "audioPath": "mixes/audio/lo-fi-house-mix-cliffhanger.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=zhFm4mc1k6Q",
     "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-mix-cliffhanger",
     "tracklist": [
@@ -3512,7 +3512,7 @@
     "releaseDate": "2023-06-26",
     "mood": "chill",
     "views": 2406,
-    "audioPath": "public/assets/mixes/audio/lo-fi-house-mix-summer-solstice.mp3",
+    "audioPath": "mixes/audio/lo-fi-house-mix-summer-solstice.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=i-9NooDHQMg",
     "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-mix-summer-solstice",
     "tracklist": [
@@ -3575,7 +3575,7 @@
     "releaseDate": "2023-07-02",
     "mood": "deep",
     "views": 5538,
-    "audioPath": "public/assets/mixes/audio/lo-fi-house-essentials-late-night-trax.mp3",
+    "audioPath": "mixes/audio/lo-fi-house-essentials-late-night-trax.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=1ltJN5PCHsw",
     "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-essentials-late-night-trax",
     "tracklist": [
@@ -3713,7 +3713,7 @@
     "releaseDate": "2023-07-08",
     "mood": "deep",
     "views": 4675,
-    "audioPath": "public/assets/mixes/audio/lo-fi-house-mix-unconventional-intermission.mp3",
+    "audioPath": "mixes/audio/lo-fi-house-mix-unconventional-intermission.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=gGbhpwAOZUk",
     "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-mix-unconventional-intermission",
     "tracklist": [
@@ -3771,7 +3771,7 @@
     "releaseDate": "2023-08-08",
     "mood": "dirty",
     "views": 2335,
-    "audioPath": "public/assets/mixes/audio/jungle-dnb-essentials-playstation-dnb-trax.mp3",
+    "audioPath": "mixes/audio/jungle-dnb-essentials-playstation-dnb-trax.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=kfxz4Llikic",
     "soundcloudUrl": "https://soundcloud.com/weebtrax/jungle-essentials-evocative-playstation-dnb-trax",
     "tracklist": [
@@ -3909,7 +3909,7 @@
     "releaseDate": "2024-01-03",
     "mood": "nostalgic",
     "views": 10053,
-    "audioPath": "public/assets/mixes/audio/lo-fi-house-essentials-when-you-re-falling-in-love-trax.mp3",
+    "audioPath": "mixes/audio/lo-fi-house-essentials-when-youre-falling-in-love-trax.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=_Isrjs4DLPE",
     "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-essentials-when-youre-falling-in-love-trax",
     "tracklist": [
@@ -4047,7 +4047,7 @@
     "releaseDate": "2024-01-05",
     "mood": "chill",
     "views": 1273,
-    "audioPath": "public/assets/mixes/audio/lo-fi-ambient-mix-nintendo-sound-waves.mp3",
+    "audioPath": "mixes/audio/lo-fi-ambient-mix-nintendo-sound-waves.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=N6cqvnPYtcQ",
     "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-ambient-mix-nintendo-sound-waves",
     "tracklist": [
@@ -4120,7 +4120,7 @@
     "releaseDate": "2024-03-02",
     "mood": "deep",
     "views": 3176,
-    "audioPath": "public/assets/mixes/audio/lo-fi-house-mix-you-possess-a-false-body-and-a-fake-soul-do-you-know-why.mp3",
+    "audioPath": "mixes/audio/lo-fi-house-mix-you-possess-a-false-body-and-a-fake-soul-do-you-know-why.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=D_RtPmuD5hk",
     "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-mix-auditory-cortex",
     "tracklist": [
@@ -4188,7 +4188,7 @@
     "releaseDate": "2024-03-15",
     "mood": "deep",
     "views": 5753,
-    "audioPath": "public/assets/mixes/audio/lo-fi-house-essentials-outer-space-trax.mp3",
+    "audioPath": "mixes/audio/lo-fi-house-essentials-outer-space-trax.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=fWe_Pifvacg",
     "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-essentials-outer-space-trax",
     "tracklist": [
@@ -4326,7 +4326,7 @@
     "releaseDate": "2024-04-06",
     "mood": "chill",
     "views": 3076,
-    "audioPath": "public/assets/mixes/audio/lo-fi-ambient-essentials-out-of-body-experience-trax.mp3",
+    "audioPath": "mixes/audio/lo-fi-ambient-essentials-out-of-body-experience-trax.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=p8Wn-pscT_o",
     "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-ambient-essentials-out-of-body-trax",
     "tracklist": [
@@ -4464,7 +4464,7 @@
     "releaseDate": "2024-04-30",
     "mood": "dirty",
     "views": 2786,
-    "audioPath": "public/assets/mixes/audio/lo-fi-house-mix-pull-up-to-the-club-like-skrt-skrt.mp3",
+    "audioPath": "mixes/audio/lo-fi-house-mix-pull-up-to-the-club-like-skrt-skrt.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=5Vt6Lf-Zo5Y",
     "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-mix-pull-up-to-the-club-like-skrt-skrt",
     "tracklist": [
@@ -4517,7 +4517,7 @@
     "releaseDate": "2024-05-08",
     "mood": "deep",
     "views": 3251,
-    "audioPath": "public/assets/mixes/audio/lo-fi-house-essentials-clubbing-withdrawal-symptoms-trax.mp3",
+    "audioPath": "mixes/audio/lo-fi-house-essentials-clubbing-withdrawal-symptoms-trax.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=DTBPLvzi7p4",
     "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-essentials-clubbing-withdrawal-symptoms-trax",
     "tracklist": [
@@ -4655,7 +4655,7 @@
     "releaseDate": "2024-05-25",
     "mood": "nostalgic",
     "views": 2867,
-    "audioPath": "public/assets/mixes/audio/lo-fi-house-mix-thinking-of-you-makes-my-heart-skip.mp3",
+    "audioPath": "mixes/audio/lo-fi-house-mix-thinking-of-you-makes-my-heart-skip.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=LLeJsPF7-hA",
     "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-mix-thinking-of-you-makes-my-heart-skip",
     "tracklist": [
@@ -4733,7 +4733,7 @@
     "releaseDate": "2024-06-17",
     "mood": "deep",
     "views": 2608,
-    "audioPath": "public/assets/mixes/audio/lo-fi-house-essentials-djs-only-trax.mp3",
+    "audioPath": "mixes/audio/lo-fi-house-essentials-djs-only-trax.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=LQe9JlO9zoo",
     "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-essentials-djs-only-trax",
     "tracklist": [
@@ -4871,7 +4871,7 @@
     "releaseDate": "2024-06-22",
     "mood": "chill",
     "views": 903,
-    "audioPath": "public/assets/mixes/audio/house-mix-swim-10-feet-deep.mp3",
+    "audioPath": "mixes/audio/house-mix-swim-10-feet-deep.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=gk2V4Iwi02U",
     "soundcloudUrl": "https://soundcloud.com/weebtrax/house-mix-swim-10-feet-deep",
     "tracklist": [
@@ -4934,7 +4934,7 @@
     "releaseDate": "2024-08-17",
     "mood": "dirty",
     "views": 1244,
-    "audioPath": "public/assets/mixes/audio/lo-fi-house-jungle-dnb-mix-dont-talk-about-me-like-i-m-a-machine-i-m-not-that.mp3",
+    "audioPath": "mixes/audio/lo-fi-house-jungle-dnb-mix-dont-talk-about-me-like-im-a-machine-im-not-that.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=P09t3D7sdQY",
     "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-junglednb-mix-dont-talk-about-me-like-im-a-machine-im-not-that",
     "tracklist": [
@@ -4997,7 +4997,7 @@
     "releaseDate": "2024-08-31",
     "mood": "deep",
     "views": 1223,
-    "audioPath": "public/assets/mixes/audio/lo-fi-house-mix-virtual-reality.mp3",
+    "audioPath": "mixes/audio/lo-fi-house-mix-virtual-reality.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=cAiXN3eLvK0",
     "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-mix-virtual-reality",
     "tracklist": [
@@ -5055,7 +5055,7 @@
     "releaseDate": "2024-09-21",
     "mood": "chill",
     "views": 1552,
-    "audioPath": "public/assets/mixes/audio/lo-fi-house-essentials-end-of-summer-2024-trax.mp3",
+    "audioPath": "mixes/audio/lo-fi-house-essentials-end-of-summer-2024-trax.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=xVxLereRVBc",
     "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-essentials-end-of-summer-2024-trax",
     "tracklist": [
@@ -5193,7 +5193,7 @@
     "releaseDate": "2024-10-28",
     "mood": "deep",
     "views": null,
-    "audioPath": "public/assets/mixes/audio/lo-fi-house-mix-ghetto-symphony-pt-2.mp3",
+    "audioPath": "mixes/audio/lo-fi-house-mix-ghetto-symphony-pt-2.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=Oo4d67fRz_Q",
     "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-mix-ghetto-symphony-pt-2",
     "tracklist": [
@@ -5261,7 +5261,7 @@
     "releaseDate": "2024-11-15",
     "mood": "dirty",
     "views": 1049,
-    "audioPath": "public/assets/mixes/audio/jungle-dnb-essentials-video-game-simulation-trax.mp3",
+    "audioPath": "mixes/audio/jungle-dnb-essentials-video-game-simulation-trax.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=7rzBRInrd-g",
     "soundcloudUrl": "https://soundcloud.com/weebtrax/junglednb-essentials-video-game-simulation-trax",
     "tracklist": [
@@ -5399,7 +5399,7 @@
     "releaseDate": "2024-11-23",
     "mood": "deep",
     "views": 909,
-    "audioPath": "public/assets/mixes/audio/lo-fi-house-mix-to-obtain-something-of-equal-value-must-be-lost.mp3",
+    "audioPath": "mixes/audio/lo-fi-house-mix-to-obtain-something-of-equal-value-must-be-lost.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=zi5SaXnu7qU",
     "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-mix-to-obtain-something-of-equal-value-must-be-lost",
     "tracklist": [
@@ -5462,7 +5462,7 @@
     "releaseDate": "2024-12-01",
     "mood": "deep",
     "views": 3441,
-    "audioPath": "public/assets/mixes/audio/lo-fi-house-essentials-sounds-like-im-high-feels-like-im-floating-trax.mp3",
+    "audioPath": "mixes/audio/lo-fi-house-essentials-sounds-like-im-high-feels-like-im-floating-trax.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=Kzu7OhNKmgg",
     "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-essentials-sounds",
     "tracklist": [
@@ -5605,7 +5605,7 @@
     "releaseDate": "2024-12-07",
     "mood": "nostalgic",
     "views": 711,
-    "audioPath": "public/assets/mixes/audio/lo-fi-house-mix-rip-toriyama-sensei.mp3",
+    "audioPath": "mixes/audio/lo-fi-house-mix-rip-toriyama-sensei.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=1lAmvchYbDk",
     "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-mix-rip-toriyama-sensei",
     "tracklist": [
@@ -5668,7 +5668,7 @@
     "releaseDate": "2024-12-14",
     "mood": "deep",
     "views": 1293,
-    "audioPath": "public/assets/mixes/audio/lo-fi-house-mix-is-this-what-heaven-sounds-like.mp3",
+    "audioPath": "mixes/audio/lo-fi-house-mix-is-this-what-heaven-sounds-like.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=sL3cNkE5gZQ",
     "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-mix-is-this-what-heaven-sounds-like",
     "tracklist": [
@@ -5731,7 +5731,7 @@
     "releaseDate": "2024-12-21",
     "mood": "nostalgic",
     "views": 1133,
-    "audioPath": "public/assets/mixes/audio/lo-fi-house-mix-will-you-miss-me.mp3",
+    "audioPath": "mixes/audio/lo-fi-house-mix-will-you-miss-me.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=UgCTBRPnPZY",
     "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-mix-will-you-miss-me",
     "tracklist": [
@@ -5799,7 +5799,7 @@
     "releaseDate": "2024-12-30",
     "mood": "chill",
     "views": 3165,
-    "audioPath": "public/assets/mixes/audio/lo-fi-house-essentials-warm-weather-return-to-me-trax.mp3",
+    "audioPath": "mixes/audio/lo-fi-house-essentials-warm-weather-return-to-me-trax.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=zxhd5e8QWps",
     "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-essentials-warm",
     "tracklist": [
@@ -5937,7 +5937,7 @@
     "releaseDate": "2025-01-11",
     "mood": "deep",
     "views": 1635,
-    "audioPath": "public/assets/mixes/audio/lo-fi-house-mix-after-hours.mp3",
+    "audioPath": "mixes/audio/lo-fi-house-mix-after-hours.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=gg0D64ziBIA",
     "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-mix-after-hours",
     "tracklist": [
@@ -6015,7 +6015,7 @@
     "releaseDate": "2025-01-19",
     "mood": "deep",
     "views": 1376,
-    "audioPath": "public/assets/mixes/audio/lo-fi-house-mix-everything-becomes-clear-if-you-listen-to-this-first.mp3",
+    "audioPath": "mixes/audio/lo-fi-house-mix-everything-becomes-clear-if-you-listen-to-this-first.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=V-w3xfq19HY",
     "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-mix-everything-becomes-clear-if-you-listen-to-this-first",
     "tracklist": [
@@ -6068,7 +6068,7 @@
     "releaseDate": "2025-01-21",
     "mood": "deep",
     "views": 711,
-    "audioPath": "public/assets/mixes/audio/lo-fi-house-mix-everything-else-becomes-clear-if-you-listen-to-this-second.mp3",
+    "audioPath": "mixes/audio/lo-fi-house-mix-everything-else-becomes-clear-if-you-listen-to-this-second.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=2JYacVX8XNQ",
     "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-mix-everything-else-becomes-clear-if-you-listen-to-this-second",
     "tracklist": [
@@ -6121,7 +6121,7 @@
     "releaseDate": "2025-01-25",
     "mood": "deep",
     "views": 1356,
-    "audioPath": "public/assets/mixes/audio/lo-fi-house-mix-euphoric-sounds-for-your-inner-youth.mp3",
+    "audioPath": "mixes/audio/lo-fi-house-mix-euphoric-sounds-for-your-inner-youth.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=ln_7W93hQUI",
     "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-mix-euphoric-sounds-for-your-inner-youth",
     "tracklist": [
@@ -6184,7 +6184,7 @@
     "releaseDate": "2025-02-01",
     "mood": "deep",
     "views": 2045,
-    "audioPath": "public/assets/mixes/audio/lo-fi-house-essentials-secondhand-high-comeup-trax.mp3",
+    "audioPath": "mixes/audio/lo-fi-house-essentials-secondhand-high-comeup-trax.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=wOhOVvg5r3U",
     "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-essentials-secondhand-high-comeup-trax",
     "tracklist": [
@@ -6322,7 +6322,7 @@
     "releaseDate": "2025-02-18",
     "mood": "nostalgic",
     "views": 1064,
-    "audioPath": "public/assets/mixes/audio/lo-fi-house-mix-man-s-best-friend.mp3",
+    "audioPath": "mixes/audio/lo-fi-house-mix-mans-best-friend.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=QeORW0r_7jg",
     "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-mix-mans-best-friend",
     "tracklist": [
@@ -6375,7 +6375,7 @@
     "releaseDate": "2025-03-08",
     "mood": "deep",
     "views": 1379,
-    "audioPath": "public/assets/mixes/audio/lo-fi-house-mix-this-is-a-journey-into-sound.mp3",
+    "audioPath": "mixes/audio/lo-fi-house-mix-this-is-a-journey-into-sound.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=yvWPp8UrmB8",
     "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-mix-this-is-a-journey-into-sound",
     "tracklist": [
@@ -6458,7 +6458,7 @@
     "releaseDate": "2025-03-18",
     "mood": "deep",
     "views": 1652,
-    "audioPath": "public/assets/mixes/audio/lo-fi-house-essentials-interstellar-travel-trax.mp3",
+    "audioPath": "mixes/audio/lo-fi-house-essentials-interstellar-travel-trax.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=ImZkVLHa7vc",
     "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-essentials",
     "tracklist": [
@@ -6596,7 +6596,7 @@
     "releaseDate": "2025-03-29",
     "mood": "dirty",
     "views": 1117,
-    "audioPath": "public/assets/mixes/audio/lo-fi-house-mix-break-everything-into-dnb.mp3",
+    "audioPath": "mixes/audio/lo-fi-house-mix-break-everything-into-dnb.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=kQyCZASKCc0",
     "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-mix-break-everything-into-dnb",
     "tracklist": [
@@ -6684,7 +6684,7 @@
     "releaseDate": "2025-08-23",
     "mood": "nostalgic",
     "views": 1398,
-    "audioPath": "public/assets/mixes/audio/lo-fi-house-mix-ethereal-composition.mp3",
+    "audioPath": "mixes/audio/lo-fi-house-mix-ethereal-composition.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=yFkJk4ytKOI",
     "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-mix-ethereal-composition",
     "tracklist": [
@@ -6762,7 +6762,7 @@
     "releaseDate": "2025-11-08",
     "mood": "dirty",
     "views": 1057,
-    "audioPath": "public/assets/mixes/audio/jungle-dnb-mix-music-is-meditation.mp3",
+    "audioPath": "mixes/audio/jungle-dnb-mix-music-is-meditation.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=zaMpe_r965E",
     "soundcloudUrl": "https://soundcloud.com/weebtrax/junglednb-mix-music-is-meditation",
     "tracklist": [
@@ -6845,7 +6845,7 @@
     "releaseDate": "2026-04-04",
     "mood": "nostalgic",
     "views": 1644,
-    "audioPath": "public/assets/mixes/audio/lo-fi-house-mix-cult-member-s-kenopsia.mp3",
+    "audioPath": "mixes/audio/lo-fi-house-mix-cult-members-kenopsia.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=DeNplFluftk",
     "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-mix-cult-members",
     "tracklist": [
@@ -6918,7 +6918,7 @@
     "releaseDate": "2026-07-05",
     "mood": "chill",
     "views": 1626,
-    "audioPath": "public/assets/mixes/audio/lo-fi-house-mix-atmospheric-transmission.mp3",
+    "audioPath": "mixes/audio/lo-fi-house-mix-atmospheric-transmission.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=nxDUrmLmB5E",
     "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-mix-atmospheric",
     "tracklist": [
@@ -6996,7 +6996,7 @@
     "releaseDate": "2026-07-18",
     "mood": "nostalgic",
     "views": 1173,
-    "audioPath": "public/assets/mixes/audio/lo-fi-house-mix-longing-for-your-love.mp3",
+    "audioPath": "mixes/audio/lo-fi-house-mix-longing-for-your-love.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=rIwRG3hLpvY",
     "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-mix-longing-for",
     "tracklist": [
@@ -7049,7 +7049,7 @@
     "releaseDate": "2026-07-25",
     "mood": "nostalgic",
     "views": 809,
-    "audioPath": "public/assets/mixes/audio/lo-fi-house-mix-strange-its-as-if-ive-known-you-for-a-long-time.mp3",
+    "audioPath": "mixes/audio/lo-fi-house-mix-strange-its-as-if-ive-known-you-for-a-long-time.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=O2KdkuLCd38",
     "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-mix-strange-its-as",
     "tracklist": [
@@ -7112,7 +7112,7 @@
     "releaseDate": "2026-08-01",
     "mood": "deep",
     "views": 415,
-    "audioPath": "public/assets/mixes/audio/jungle-dnb-mix-if-you-arent-remembered-then-you-never-existed.mp3",
+    "audioPath": "mixes/audio/jungle-dnb-mix-if-you-arent-remembered-then-you-never-existed.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=6Dz2ZdrLgfc",
     "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-mix-if-you-arent",
     "tracklist": [
@@ -7200,7 +7200,7 @@
     "releaseDate": "2026-08-09",
     "mood": "chill",
     "views": 665,
-    "audioPath": "public/assets/mixes/audio/lo-fi-house-mix-balance-of-nature.mp3",
+    "audioPath": "mixes/audio/lo-fi-house-mix-balance-of-nature.mp3",
     "youtubeUrl": "https://www.youtube.com/watch?v=bGIe06URliI",
     "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-mix-balance-of-nature",
     "tracklist": [

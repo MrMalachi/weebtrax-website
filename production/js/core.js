@@ -2,6 +2,17 @@ function _extends() { return _extends = Object.assign ? Object.assign.bind() : f
 // core.jsx — WeebTrax ARCHIVE.SYS hi-fi comp · design tokens + atoms.
 // Exports to window. Loaded before sections.jsx and app.jsx.
 
+// Where the mp3s, scene clips and thumbnails are served from. The database
+// stores bare keys ('mixes/audio/foo.mp3') rather than full URLs, so the host
+// can change without re-seeding every row. Served locally from public/assets
+// during development and from R2 (media.weebtrax.com) everywhere else.
+// Set window.WT_MEDIA_BASE before this file loads to override.
+var WT_MEDIA_BASE = window.WT_MEDIA_BASE || (
+  /^(localhost|127\.0\.0\.1|\[::1\])$/.test(window.location.hostname)
+    ? '/public/assets'
+    : 'https://media.weebtrax.com'
+);
+
 const WT2 = {
   // surfaces — faded near-black, cool-neutral with the faintest blue
   void: '#0a0b0e',

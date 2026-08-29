@@ -1283,8 +1283,8 @@ function SceneGrid() {
       name: s.name,
       tag: s.type,
       desc: s.description,
-      img: '/' + s.thumbnailPath + '?v=2',
-      video: '/' + s.videoPath,
+      img: WT_MEDIA_BASE + '/' + s.thumbnailPath + '?v=2',
+      video: WT_MEDIA_BASE + '/' + s.videoPath,
       episode: s.episodeNumber,
     };
   });

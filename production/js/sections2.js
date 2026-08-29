@@ -218,7 +218,7 @@ function getMixes() {
       id: m.id,
       title: m.title,
       file: m.slug,
-      audioSrc: '/' + m.audioPath,
+      audioSrc: WT_MEDIA_BASE + '/' + m.audioPath,
       youtubeUrl: m.youtubeUrl,
       soundcloudUrl: m.soundcloudUrl || null,
       desc: '',
