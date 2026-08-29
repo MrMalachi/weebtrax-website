@@ -406,10 +406,21 @@ This was invisible before R2 because the audio was same-origin. Note the failure
 
 **Cloudflare caches responses from before the CORS policy existed**, and those cached copies have no header, so the fix looks like it isn't working. `cf-cache-status: HIT` + no `access-control-allow-origin` = stale cache, not a bad policy. Confirm by re-requesting with a `?cb=` cache-buster (a `MISS` will carry the header), then **Purge Everything** under Caching → Configuration.
 
-#### Generator scripts still emit the OLD path format — read before regenerating
-`production/public/assets/metadata/{mixes,scenes}.json` were **deleted 2026-08-29** (stale: old `public/assets/` prefix plus the 9 wrong apostrophe filenames; nothing read them once the frontend moved to the API). `lain-clip-matches.json` was deliberately **kept** — it's 80 entries of curated mix→scene clip descriptions, useful for [Phase 11](#phase-11--multi-anime-scenes--scene-mood-filter), not a stale artifact.
+#### Generator scripts — fixed 2026-08-29, and what they can/can't rebuild
+`production/public/assets/metadata/{mixes,scenes}.json` were **deleted 2026-08-29** (unused once the frontend moved to the API, and carrying the old `public/assets/` prefix). `lain-clip-matches.json` was deliberately **kept** — 80 entries of curated mix→scene clip descriptions, useful for [Phase 11](#phase-11--multi-anime-scenes--scene-mood-filter).
 
-**The trap:** `tools/generate_mixes_json.py` and `tools/generate_scenes_json.py` still write paths in the pre-R2 format (`public/assets/scenes/thumbnails/…`, and mix `audioPath` built by a slugify rule that turns apostrophes into `-`). Both scripts only *write*, never read, so nothing broke when the files were deleted — but **running either and copying the result into `backend/data/` would reintroduce both bugs at once**. Fix the scripts to emit bare keys (`scenes/thumbnails/…`) and to derive `audioPath` from `slug` before trusting their output again.
+Both generators now write to **`backend/data/`** (the real seed source, resolved relative to the script rather than the cwd), emit **bare R2 keys** (`mixes/audio/…`, `scenes/videos/…`), and **omit `id`** so the database assigns its own primary key.
+
+**Correction to an earlier note in this file:** the apostrophe bug was *not* in `slugify` — that function already strips apostrophes correctly (it produces `ottos-anticlimax`). It was fixed at some point after the data was last generated, and the data simply never regenerated. The generator was never going to reintroduce it.
+
+**`generate_scenes_json.py` is a faithful regenerator** — verified byte-identical to the committed `scenes.json`. Safe to re-run.
+
+**`generate_mixes_json.py` is a bootstrap script, not a regenerator.** It cannot rebuild everything in `mixes.json`, and re-running it naively destroyed three things at once:
+- **tracklists** (~1200 entries, pulled separately from YouTube descriptions — the script never emitted them at all)
+- **the 5 newest mixes** (added by hand 2026-08-20; its hardcoded YouTube list doesn't include them)
+- **date format** (it emitted `2020.05.15`; the DB needs `2020-05-15` for `date.fromisoformat`)
+
+It now carries `tracklist` and hand-matched `soundcloudUrl` over from the existing file by slug, emits dashed dates, and **aborts without writing** if any mix in the existing file is missing from its run, printing which ones. Verified: re-running is now a no-op that reproduces the committed file byte-for-byte. Treat the abort as a real signal — it means the script's hardcoded inputs are behind the data.
 
 ---
 

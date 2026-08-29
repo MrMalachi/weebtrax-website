@@ -95,9 +95,10 @@ def fmt_duration(seconds):
     return f"{h:02d}:{m:02d}:{s:02d}"
 
 def fmt_date(yyyymmdd):
+    # Dashes, not dots: the database parses this with date.fromisoformat().
     if not yyyymmdd:
         return None
-    return f"{yyyymmdd[:4]}.{yyyymmdd[4:6]}.{yyyymmdd[6:]}"
+    return f"{yyyymmdd[:4]}-{yyyymmdd[4:6]}-{yyyymmdd[6:]}"
 
 # Upload dates keyed by YouTube video ID (YYYYMMDD)
 DATES = {
@@ -379,21 +380,62 @@ for i, (yt_id, yt_title, duration) in enumerate(YT_sorted, 1):
     mood = infer_mood(yt_title, tags)
 
     mixes.append({
-        "id": f"mix-{i:03d}",
+        # No "id" here on purpose: the database assigns its own integer primary
+        # key, and the frontend derives the displayed "mix-001" code from it.
         "title": yt_title,
         "slug": slug,
         "duration": fmt_duration(duration),
         "releaseDate": fmt_date(DATES.get(yt_id)),
         "mood": mood,
         "views": VIEWS.get(yt_id),
-        "audioPath": f"public/assets/mixes/audio/{slug}.mp3",
+        # Bare object key, no leading "public/assets/". Media lives on R2 and
+        # the host is prepended at render time by WT_MEDIA_BASE, so anything
+        # stored here must match the key in the bucket exactly.
+        "audioPath": f"mixes/audio/{slug}.mp3",
         "youtubeUrl": f"https://www.youtube.com/watch?v={yt_id}",
         "soundcloudUrl": sc_url,
     })
 
-out = "public/assets/metadata/mixes.json"
+# Written to backend/data/, which is what seeds the database. Resolved from this
+# file's location so it does not depend on the directory the script is run from.
+out = os.path.join(os.path.dirname(__file__), os.pardir, "backend", "data", "mixes.json")
+out = os.path.normpath(out)
+
+# This script does NOT reproduce everything in mixes.json. Tracklists were pulled
+# separately from YouTube descriptions and some soundcloudUrls were matched by
+# hand; neither can be rebuilt from the inputs here. Writing the freshly-built
+# list straight out would silently destroy all of it (~1200 tracklist entries).
+# So: carry those fields over from the existing file, matching on slug.
+preserved = 0
+if os.path.exists(out):
+    with open(out) as f:
+        existing = {m["slug"]: m for m in json.load(f)}
+    for mix in mixes:
+        prev = existing.get(mix["slug"])
+        if not prev:
+            continue
+        if prev.get("tracklist"):
+            mix["tracklist"] = prev["tracklist"]
+            preserved += len(prev["tracklist"])
+        # Keep a hand-matched SoundCloud URL when this run didn't find one.
+        if not mix.get("soundcloudUrl") and prev.get("soundcloudUrl"):
+            mix["soundcloudUrl"] = prev["soundcloudUrl"]
+
+    dropped = set(existing) - {m["slug"] for m in mixes}
+    if dropped:
+        print(f"\nWARNING: {len(dropped)} mix(es) in the existing file are not in "
+              f"this run and will be LOST:")
+        for slug in sorted(dropped):
+            print(f"  - {slug}")
+        print("Nothing has been written. Re-run only if that is intended "
+              "(delete the existing file first).")
+        raise SystemExit(1)
+
 with open(out, "w") as f:
     json.dump(mixes, f, indent=2, ensure_ascii=False)
+    f.write("\n")
+if preserved:
+    print(f"Preserved {preserved} tracklist entries from the existing file.")
 
 print(f"Wrote {len(mixes)} mixes to {out}")
 if unmatched_yt:

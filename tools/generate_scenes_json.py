@@ -1,4 +1,4 @@
-import json, re
+import json, os, re
 
 def slugify(s):
     s = s.lower()
@@ -350,19 +350,27 @@ scenes = []
 for i, (old_slug, name, scene_type, description, mood) in enumerate(SCENES, 1):
     new_slug = RENAME_MAP[old_slug]
     scenes.append({
-        "id": f"scene-{i:03d}",
+        # No "id" here on purpose: the database assigns its own integer primary
+        # key, and the frontend derives the displayed "scene-001" code from it.
         "name": name,
         "slug": slugify(name),
         "type": scene_type,
         "description": description,
         "episodeNumber": ep_num(old_slug),
         "mood": mood,
-        "videoPath": f"public/assets/scenes/videos/{new_slug}.mp4",
-        "thumbnailPath": f"public/assets/scenes/thumbnails/{new_slug}.jpg",
+        # Bare object keys, no leading "public/assets/". Media lives on R2 and
+        # the host is prepended at render time by WT_MEDIA_BASE, so these must
+        # match the keys in the bucket exactly.
+        "videoPath": f"scenes/videos/{new_slug}.mp4",
+        "thumbnailPath": f"scenes/thumbnails/{new_slug}.jpg",
     })
 
-out = "public/assets/metadata/scenes.json"
+# Written to backend/data/, which is what seeds the database. Resolved from this
+# file's location so it does not depend on the directory the script is run from.
+out = os.path.join(os.path.dirname(__file__), os.pardir, "backend", "data", "scenes.json")
+out = os.path.normpath(out)
 with open(out, "w") as f:
     json.dump(scenes, f, indent=2, ensure_ascii=False)
+    f.write("\n")
 
 print(f"Wrote {len(scenes)} scenes to {out}")
