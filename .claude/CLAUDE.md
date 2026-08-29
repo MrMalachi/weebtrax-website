@@ -15,7 +15,7 @@ loaded into every session automatically.
 | 4 | Create backend / API (FastAPI) | 🟨 In progress — models/routers/seeding split into separate files, backed by a real database, frontend now wired to it |
 | 5 | Move JSON metadata into PostgreSQL | 🟨 In progress — local Postgres running, schema + seeding done, frontend wired to the API; not yet on Railway |
 | 6 | Deploy with Railway | ⬜ Not started |
-| 7 | Move large media to storage bucket (Cloudflare R2) | ⬜ Not started |
+| 7 | Move large media to storage bucket (Cloudflare R2) | ⬜ Not started — **hard launch blocker**, media is gitignored so Pages would ship a site with every mix/scene 404ing |
 | Pre-launch | Verification, Cloudflare config, launch procedure | ⬜ Not started |
 
 Post-launch work (not gating launch) lives in a separate [Post-Launch Roadmap](#post-launch-roadmap) section below, starting with Phase 8.
@@ -326,11 +326,25 @@ JSON fields become table columns. DB stores metadata + file paths only (not file
 - Backend/API → Railway
 - Database → PostgreSQL on Railway
 
+### Prep done (2026-08-29), before any Railway account existed
+- `railway.json` — NIXPACKS builder, start command binds `$PORT` (`uvicorn backend.main:app --host 0.0.0.0 --port $PORT`), healthcheck on `/health`
+- `backend/main.py` — added a `GET /health` liveness endpoint for that healthcheck; CORS `allow_origins` now reads the `ALLOWED_ORIGINS` env var (comma-separated), falling back to localhost:3000 for local dev, instead of the old wide-open `["*"]`. Set `ALLOWED_ORIGINS=https://weebtrax.com` on Railway.
+- CORS `allow_methods` was `["GET"]` only, which silently blocked `PATCH /api/mixes/{mix_id}/views` from any browser — now `["GET", "PATCH"]`.
+- `production/js/app.js` — `WT_API_BASE` no longer hardcodes localhost; it picks `http://localhost:8000/api` when the page is served from localhost/127.0.0.1 and `https://api.weebtrax.com/api` otherwise. Override with `window.WT_API_BASE` before the script loads. **The `api.weebtrax.com` subdomain still has to be pointed at the Railway service** — until then production falls back to a host that doesn't resolve.
+
 ---
 
-## Phase 7 — Media storage bucket (if needed)
+## Phase 7 — Media storage bucket (REQUIRED for launch, not optional)
 
-Move large files from repo to Cloudflare R2. DB paths change from `/assets/...` to `https://media.weebtrax.com/...`.
+Move large files out of the repo to Cloudflare R2. DB paths change from `/assets/...` to `https://media.weebtrax.com/...`.
+
+**This is a hard launch blocker** — it was previously written as "if needed", which was wrong. Two independent reasons (verified 2026-08-29):
+1. `.gitignore` excludes `*.mp3` and `*.mp4`, and Cloudflare Pages deploys from git — so flipping the build output to `production/` today ships a site where **every mix and scene 404s**. The media has never been in the repo.
+2. Even un-ignoring them wouldn't work: **103 files exceed Cloudflare Pages' 25 MiB per-file limit** (largest single mp3 is 226 MB).
+
+Current media footprint: **8.3 GB total** — 7.9 GB audio (99 mp3), 379 MB scene video (44 mp4), 2.7 MB thumbnails, 23 MB images. R2's free tier is 10 GB with **zero egress fees**, so this costs $0/mo at current size and stays cheap past it (~$0.015/GB/mo).
+
+**Post-launch optimization, deliberately NOT done pre-launch:** 20 of the 99 mp3s are constant 320 kbps (the rest are already ~172–184 kbps VBR). Re-encoding just those 20 to ~192 kbps would save roughly 1.8 GB and speed up first-play for users. Skipped because 8.3 GB already fits the free tier and re-encoding is lossy-on-lossy — not worth delaying launch.
 
 ---
 

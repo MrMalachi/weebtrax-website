@@ -699,7 +699,14 @@ function App() {
     onChange: v => setTweak('motion', v)
   })));
 }
-var WT_API_BASE = 'http://localhost:8000/api';
+// Served from localhost/127.0.0.1 during local dev, from weebtrax.com in production.
+// Set window.WT_API_BASE before this script loads to override (e.g. to test against
+// the deployed API from a local page).
+var WT_API_BASE = window.WT_API_BASE || (
+  /^(localhost|127\.0\.0\.1|\[::1\])$/.test(window.location.hostname)
+    ? 'http://localhost:8000/api'
+    : 'https://api.weebtrax.com/api'
+);
 
 function wtMapMix(m) {
   return {
