@@ -2,9 +2,8 @@ from datetime import date
 import json
 import pathlib
 
-from fastapi import APIRouter, status, Query
-from pydantic import BaseModel
-from sqlmodel import Field, Session, SQLModel, create_engine, select
+from fastapi import APIRouter, HTTPException, status, Query
+from sqlmodel import Field, Relationship, Session, SQLModel, create_engine, select
 
 from backend.models.enums import Mood
 
@@ -13,10 +12,13 @@ router = APIRouter()
 
 DATA = json.loads(pathlib.Path("backend/data/mixes.json").read_text())
 
-class TrackEntry(BaseModel):
+class Track(SQLModel, table=True):
+    id: int | None = Field(default=None, primary_key=True)
+    mix_id: int = Field(foreign_key="mix.id")
     timeSecs: int
     artist: str
     title: str
+    mix: "Mix" = Relationship(back_populates="tracks")
 
 
 class Mix(SQLModel, table=True):
@@ -30,7 +32,7 @@ class Mix(SQLModel, table=True):
     audioPath: str
     youtubeUrl: str
     soundcloudUrl: str | None = None
-    # tracklist: list[TrackEntry] - moved out, needs its own Track table + Relationship
+    tracks: list["Track"] = Relationship(back_populates="mix")
 
 
 sqlite_url = "sqlite:///backend/data/mixes.db"
@@ -47,11 +49,18 @@ def add_sample_mixes():
 
         for entry in DATA:
             entry_copy = entry.copy()
-            entry_copy.pop("tracklist", None)
+            tracks = entry_copy.pop("tracklist", [])
 
             mix = Mix(**entry_copy)
 
             session.add(mix)
+            session.commit()
+            session.refresh(mix)
+
+            for track_entry in tracks:
+                track = Track(mix_id=mix.id, **track_entry)
+
+                session.add(track)
 
             mixes.append(mix)
 
@@ -100,6 +109,26 @@ def get_latest(limit: int = Query(default=5, ge=1)):
         ).all()
 
         return mixes
+
+@router.get(
+    "/mixes/{mix_id}",
+    summary="Get a single mix with its tracklist.",
+    status_code=status.HTTP_200_OK,
+    response_model=Mix,
+    tags=["Mixes"],
+)
+def get_mix(mix_id: int):
+    """Retrieve a single Mix object and its tracks."""
+    with Session(engine) as session:
+        mix = session.get(Mix, mix_id)
+
+        if mix is None:
+            raise HTTPException(
+                status_code=status.HTTP_404_NOT_FOUND,
+                detail="Mix not found."
+            )
+
+        return mix
 
 if __name__ == "__main__":
     main()
