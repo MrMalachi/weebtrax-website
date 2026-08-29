@@ -6,17 +6,24 @@ loaded into every session automatically.
 
 ## Phases
 
+> **WeebTrax launched 2026-08-29.** `weebtrax.com` serves the real site (Cloudflare Pages,
+> build output `production/`), backed by `api.weebtrax.com` (FastAPI + Postgres on Railway)
+> and `media.weebtrax.com` (8.3 GB of audio/video on Cloudflare R2). Audio playback verified
+> in a browser. Run `python3 tools/preflight_check.py` before any deploy that touches the
+> frontend, API or media — it exits non-zero if any part of the live stack is broken.
+
+
 | # | Phase | Status |
 |---|-------|--------|
 | 1 | Local media organization | ✅ Complete |
 | 2 | JSON metadata | ✅ Complete |
 | 3 | Website reads JSON | ✅ Complete |
-| 3.5 | Countdown page (pre-launch holding page) | ✅ Live |
-| 4 | Create backend / API (FastAPI) | 🟨 In progress — models/routers/seeding split into separate files, backed by a real database, frontend now wired to it |
+| 3.5 | Countdown page (pre-launch holding page) | ✅ Retired at launch — `countdown/` still in the repo, no longer deployed |
+| 4 | Create backend / API (FastAPI) | ✅ Complete — live at `api.weebtrax.com`, frontend reads from it |
 | 5 | Move JSON metadata into PostgreSQL | ✅ Complete — running on Railway Postgres, schema + seeding verified live |
 | 6 | Deploy with Railway | ✅ Complete — backend + Postgres live, `api.weebtrax.com` serving with valid SSL |
-| 7 | Move large media to storage bucket (Cloudflare R2) | ⬜ Not started — **hard launch blocker**, media is gitignored so Pages would ship a site with every mix/scene 404ing |
-| Pre-launch | Verification, Cloudflare config, launch procedure | ⬜ Not started |
+| 7 | Move large media to storage bucket (Cloudflare R2) | ✅ Complete — 187 files on R2, served via `media.weebtrax.com` |
+| Pre-launch | Verification, Cloudflare config, launch procedure | ✅ Done — Pages output switched to `production/`, site live and verified |
 
 Post-launch work (not gating launch) lives in a separate [Post-Launch Roadmap](#post-launch-roadmap) section below, starting with Phase 8.
 
