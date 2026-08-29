@@ -14,7 +14,7 @@ loaded into every session automatically.
 | 3.5 | Countdown page (pre-launch holding page) | ✅ Live |
 | 4 | Create backend / API (FastAPI) | 🟨 In progress — models/routers/seeding split into separate files, backed by a real database, frontend now wired to it |
 | 5 | Move JSON metadata into PostgreSQL | ✅ Complete — running on Railway Postgres, schema + seeding verified live |
-| 6 | Deploy with Railway | 🟨 In progress — backend + Postgres live on Railway and verified; `api.weebtrax.com` DNS still to point at it |
+| 6 | Deploy with Railway | ✅ Complete — backend + Postgres live, `api.weebtrax.com` serving with valid SSL |
 | 7 | Move large media to storage bucket (Cloudflare R2) | ⬜ Not started — **hard launch blocker**, media is gitignored so Pages would ship a site with every mix/scene 404ing |
 | Pre-launch | Verification, Cloudflare config, launch procedure | ⬜ Not started |
 
@@ -329,7 +329,9 @@ JSON fields become table columns. DB stores metadata + file paths only (not file
 ### Status (2026-08-29) — backend + Postgres are LIVE on Railway ✅
 - Project `shimmering-laughter`, service `weebtrax-website`, plus a `Postgres` service. Public URL: `https://weebtrax-website-production.up.railway.app`
 - Verified working: `/health` → ok, `/api/mixes` → 99 mixes with tracklists, `/api/scenes` → 44 scenes, CORS allows `weebtrax.com` and blocks other origins. Schema creation + seeding run automatically on boot.
-- **Still to do for Phase 6**: point `api.weebtrax.com` at this service (the frontend's `WT_API_BASE` already expects that hostname in production — until the DNS exists, a deployed frontend would call a host that doesn't resolve). Then Phase 7's media move, which is the real launch blocker.
+- **`api.weebtrax.com` is live (2026-08-29)** ✅ — added via `railway domain api.weebtrax.com --service weebtrax-website`, which returns both DNS records to create. Two records in Cloudflare: `CNAME api → d3bpoznd.up.railway.app` and `TXT _railway-verify.api → railway-verify=…` (ownership; Railway drops it from the list once verified). Verified: `/health` 200 with a valid cert, `/api/mixes` 99, `/api/scenes` 44, CORS returns `access-control-allow-origin: https://weebtrax.com` and sends no such header for other origins.
+- **The CNAME must be "DNS only" (grey cloud) — the opposite of `media.weebtrax.com`.** R2 *requires* the orange cloud; Railway issues its own Let's Encrypt cert and needs to see the real request to validate ownership. With the orange cloud on and SSL mode "Flexible" you get an infinite redirect loop. Switching to proxied later requires SSL/TLS mode **Full (strict)**, and buys little for an API.
+- Certificate issuance took ~4 minutes. During that window `https://api.weebtrax.com` returns nothing at all (curl exit code 000, not an HTTP error) — that's normal, not a misconfiguration. `railway domain status <id>` shows `Certificate status: …ISSUING` until it completes.
 
 #### Deploy debugging — two stacked failures, both non-obvious
 Worth reading before touching deploy config again; each cost a full deploy cycle.
@@ -551,6 +553,13 @@ countdown/
 - [ ] Confirm the countdown page includes `<meta name="robots" content="noindex, nofollow">`
 - [ ] Confirm no production pages are indexed — check `site:weebtrax.com`
 - [ ] Remove any outdated indexed pages if necessary
+
+### Email DNS (flagged by Cloudflare 2026-08-29, not launch-blocking)
+
+`weebtrax.com` has no MX, SPF or DMARC records. Two separate issues:
+- **No MX** — mail to `anything@weebtrax.com` bounces. Irrelevant today (the site references no email address at all), but blocks any future `contact@weebtrax.com` for the About section's Business Inquiries item.
+- **No SPF/DMARC** — anyone can forge mail claiming to be from `@weebtrax.com`, and receiving servers can't tell. This damages the domain's reputation and is worth fixing even though the domain sends no mail. Two TXT records cover it: `@` → `v=spf1 -all` and `_dmarc` → `v=DMARC1; p=reject; rua=mailto:<a mailbox you read>`.
+- **Caveat**: those records forbid *all* sending from the domain. If a newsletter/Mailchimp/contact-form sender is added later, they must be updated to authorise it or the mail will be rejected.
 
 ---
 
