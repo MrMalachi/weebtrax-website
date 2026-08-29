@@ -1,9 +1,9 @@
 import json
 import pathlib
 
-from fastapi import APIRouter, Query, status
+from fastapi import APIRouter, HTTPException, Query, status
 from pydantic import BaseModel
-from sqlmodel import Field, Session, SQLModel, create_engine
+from sqlmodel import Field, Session, SQLModel, create_engine, select
 
 from backend.models.enums import Mood
 
@@ -11,6 +11,7 @@ from backend.models.enums import Mood
 router = APIRouter()
 
 DATA = json.loads(pathlib.Path("backend/data/scenes.json").read_text())
+
 
 class Scene(SQLModel, table=True):
     id: int | None = Field(default=None, primary_key=True)
@@ -77,25 +78,40 @@ def get_scenes(
 ):
     """Retrieve paginated Scene objects with pagination metadata."""
 
-    results = DATA
+    with Session(engine) as session:
+        statement = select(Scene)
 
-    if episode is not None:
-        results = [s for s in results if s["episodeNumber"] == episode]
+        if episode is not None:
+            statement = statement.where(Scene.episodeNumber == episode)
 
-    if mood is not None:
-        results = [s for s in results if s["mood"] == mood]
+        if mood is not None:
+            statement = statement.where(Scene.mood == mood)
 
-    total = len(results)
-    start = (page - 1) * limit
-    end = start + limit
+        total = len(session.exec(statement).all())
 
-    return {
-        "total": total,
-        "page": page,
-        "limit": limit,
-        "results": results[start:end]
-    }
+        statement = statement.offset((page - 1) * limit).limit(limit)
 
+        results = session.exec(statement).all()
+
+        return {
+            "total": total,
+            "page": page,
+            "limit": limit,
+            "results": results
+        }
+
+@router.get("/scenes/{scene_id}", response_model=Scene)
+def get_scene(scene_id: int):
+    with Session(engine) as session:
+        scene = session.get(Scene, scene_id)
+
+        if scene is None:
+            raise HTTPException(
+                status_code=404,
+                detail="Scene not found."
+            )
+
+        return scene
 
 if __name__ == "__main__":
     main()

@@ -1,9 +1,10 @@
+from datetime import date
 import json
 import pathlib
 
 from fastapi import APIRouter, status, Query
 from pydantic import BaseModel
-from sqlmodel import Field, Session, SQLModel, create_engine
+from sqlmodel import Field, Session, SQLModel, create_engine, select
 
 from backend.models.enums import Mood
 
@@ -23,7 +24,7 @@ class Mix(SQLModel, table=True):
     title: str
     slug: str
     duration: str
-    releaseDate: str
+    releaseDate: date
     mood: Mood
     views: int | None = None
     audioPath: str
@@ -75,7 +76,11 @@ def main():
 )
 def get_mixes():
     """Retrieve a list of all available mixes."""
-    return DATA
+    with Session(engine) as session:
+        mixes = session.exec(select(Mix)).all()
+
+        return mixes
+
 
 @router.get(
     "/mixes/latest",
@@ -87,14 +92,14 @@ def get_mixes():
 )
 def get_latest(limit: int = Query(default=5, ge=1)):
     """Retrieve the specified number of most recent Mix objects."""
-    sorted_mixes = sorted(
-        DATA,
-        key=lambda mix: mix["releaseDate"],
-        reverse=True
-    )
+    with Session(engine) as session:
+        mixes = session.exec(
+            select(Mix)
+            .order_by(Mix.releaseDate.desc())
+            .limit(limit)
+        ).all()
 
-    return sorted_mixes[:limit]
-
+        return mixes
 
 if __name__ == "__main__":
     main()
