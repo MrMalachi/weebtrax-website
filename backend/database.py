@@ -1,11 +1,14 @@
 """Shared database engine and session dependency for all routers."""
 
+import os
+
 from sqlmodel import Session, SQLModel, create_engine
 
 
-sqlite_url = "sqlite:///backend/data/weebtrax.db"
-connect_args = {"check_same_thread": False}
-engine = create_engine(sqlite_url, connect_args=connect_args)
+DATABASE_URL = os.environ.get(
+    "DATABASE_URL", "postgresql+psycopg://localhost:5432/weebtrax"
+)
+engine = create_engine(DATABASE_URL)
 
 
 def get_db():

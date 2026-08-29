@@ -12,8 +12,8 @@ loaded into every session automatically.
 | 2 | JSON metadata | ✅ Complete |
 | 3 | Website reads JSON | ✅ Complete |
 | 3.5 | Countdown page (pre-launch holding page) | ✅ Live |
-| 4 | Create backend / API (FastAPI) | 🟨 In progress — `backend/` scaffolded, reads from JSON |
-| 5 | Move JSON metadata into PostgreSQL | ⬜ Not started |
+| 4 | Create backend / API (FastAPI) | 🟨 In progress — models/routers/seeding split into separate files, backed by a real database |
+| 5 | Move JSON metadata into PostgreSQL | 🟨 In progress — local Postgres running, schema + seeding done; not yet on Railway, frontend not yet wired to it |
 | 6 | Deploy with Railway | ⬜ Not started |
 | 7 | Move large media to storage bucket (Cloudflare R2) | ⬜ Not started |
 | Pre-launch | Verification, Cloudflare config, launch procedure | ⬜ Not started |
@@ -271,27 +271,27 @@ FastAPI backend with endpoints:
 - `GET /api/scenes?page=1`
 - `GET /api/scenes?tag=rainy`
 
-Can still read from JSON initially, then swap to PostgreSQL.
+Reads from PostgreSQL now (locally); JSON files are only used to seed the database, not read at request time.
 
-### Status (as of 2026-08-28)
+### Status (as of 2026-08-29)
 - `backend/main.py` — FastAPI app with CORS middleware, mounts `mixes` and `scenes` routers under `/api`
-- `backend/routers/mixes.py` / `scenes.py` — GET endpoints implemented with query params (`page`/`limit`/`episode`/`mood`), response models, status codes, and `Query(ge=1)` validation in place
-- `backend/data/{mixes,scenes}.json` — copies of the metadata JSON for the backend to read
-- `backend/models/enums.py` — shared `Mood` enum, used by both routers
-- Open: `/api/scenes?tag=` filtering not implemented; no `le=` upper bound on `limit`/`page`/`episode` in `mixes.py` (scenes.py's `limit` already has `le=50`); PostgreSQL swap (Phase 5) — see full detail in [CHANGELOG.md](../docs/CHANGELOG.md#phase-4--backend--api)
+- `backend/database.py` — shared `engine`/`get_db`/`create_db_and_tables`, one database for both routers (was two separate SQLite files per-router, consolidated)
+- `backend/models/mix.py`, `track.py`, `scene.py` — table + public response models (`MixBase`/`Mix`/`MixPublic`/`MixWithTracks`, same pattern for `Scene`/`Track`), split out of the routers; all fields renamed to snake_case (`release_date`, `audio_path`, `episode_number`, etc.) — JSON fixtures still use the frontend's camelCase, translated during seeding
+- `backend/seed.py` — loads `backend/data/{mixes,scenes}.json`, translates field names, and seeds the database; `backend/init_db.py` is the entry point that creates tables + seeds both
+- `backend/routers/mixes.py` — `GET /api/mixes`, `GET /api/mixes/latest` (`limit` capped `le=20`), `GET /api/mixes/popular` (sorted by views), `GET /api/mixes/slug/{slug}`, `GET /api/mixes/{mix_id}` (includes tracklist), `PATCH /api/mixes/{mix_id}/views`
+- `backend/routers/scenes.py` — `GET /api/scenes` (deterministic `order_by(episode_number, id)`, page/limit/episode/mood filters), `GET /api/scenes/{scene_id}`
+- Indexes added on `Mix.slug`, `Mix.mood`, `Scene.slug`, `Scene.mood`, `Scene.episode_number`
+- Open: `/api/scenes?tag=` filtering not implemented; no `le=` upper bound on `page`/`episode` in `scenes.py`; SQL `COUNT()` for scenes pagination total (currently `len(session.exec(statement).all())`) is an optimization, not urgent at 48 rows; frontend still fetches `mixes.json`/`scenes.json` directly, not yet wired to this API — see full detail in [CHANGELOG.md](../docs/CHANGELOG.md#phase-4--backend--api)
 
 ### Learning resources
 
-**In progress**: [SQL (Relational) Databases](https://fastapi.tiangolo.com/tutorial/sql-databases/) — not finished yet. The `Mix`/`Scene` SQLModel conversion already in the code is tutorial practice, not a sign the schema is finalized — not yet cleared to start building the real Phase 5 schema/models.
+**Learned and applied**: [SQL (Relational) Databases](https://fastapi.tiangolo.com/tutorial/sql-databases/) (SQLModel table/session/relationship patterns, now running against real Postgres) and Dependencies (`Depends`) — the `db: Session = Depends(get_db)` pattern is used throughout both routers now, not just planned for later.
 
 **Already learned**: First Steps, Path Parameters, Query Parameters, Request Body, [Handling Errors](https://fastapi.tiangolo.com/tutorial/handling-errors/), [Response Model](https://fastapi.tiangolo.com/tutorial/response-model/), [Path Operation Configuration](https://fastapi.tiangolo.com/tutorial/response-status-code/), [Path & Query Validation](https://fastapi.tiangolo.com/tutorial/query-params-str-validations/) — all applied in `backend/routers/mixes.py` and `scenes.py`.
 
 **Already effectively covered, skip the tutorial**:
 - CORS — already implemented in `backend/main.py`; skim the docs page to understand the existing code, don't treat as new material
 - Bigger Applications — already applied (`routers/mixes.py`, `routers/scenes.py` split via `APIRouter`)
-
-**Learn shortly after launch, first thing**:
-- Dependencies (`Depends`) — foundational once working with SQLAlchemy/Postgres (Phase 5), since the standard `db: Session = Depends(get_db)` pattern relies on it; not required to ship the read-only pre-launch API, but the next thing to pick up once live
 
 **Defer further** (only relevant once building the track submission backend, Phase 8 individual mix pages, or an admin/auth surface — none of which gate launch):
 - Body Fields, Multiple Body Parameters, Nested Models, Body Updates (PUT/PATCH) — no write endpoints exist yet; everything is `GET`
@@ -306,6 +306,13 @@ Can still read from JSON initially, then swap to PostgreSQL.
 ## Phase 5 — PostgreSQL
 
 JSON fields become table columns. DB stores metadata + file paths only (not files themselves).
+
+### Status (as of 2026-08-29)
+- Local PostgreSQL 16 installed via Homebrew (`brew install postgresql@16`, `brew services start postgresql@16`), `weebtrax` database created with `createdb`
+- Local connections use "trust" auth (Homebrew's default for this install) — no password needed for local dev
+- `backend/database.py` reads `DATABASE_URL` from the environment, falling back to `postgresql+psycopg://localhost:5432/weebtrax` for local dev; `psycopg[binary]` added as a dependency
+- Schema created via `SQLModel.metadata.create_all` (`backend/init_db.py`), seeded from the JSON fixtures via `backend/seed.py` — same models/routers from Phase 4, just pointed at Postgres instead of SQLite
+- Not yet done: Postgres on Railway (that's Phase 6's job, not this one) and wiring the frontend to read from the API instead of `mixes.json`/`scenes.json` directly — deliberately treated as a separate, larger step rather than folded into this swap
 
 **After this phase**: re-create/re-copy the 48 missing scene video clips (see [Known issue, Phase 1](#known-issue-2026-08-20)) — source footage needs to be re-copied from wherever the original episode clips live outside this repo.
 
