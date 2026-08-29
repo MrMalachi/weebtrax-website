@@ -1,0 +1,482 @@
+[
+  {
+    "path": "/Volumes/WeebTrax/lain-episodes/tools/scene-detect/episode-01/clips/clip_t0010s.mp4",
+    "status": "OK",
+    "declared": 7.51,
+    "actual": 7.47,
+    "gap": 0.04,
+    "decode_error": null,
+    "pix_fmt": "yuv420p",
+    "ten_bit": false
+  },
+  {
+    "path": "/Volumes/WeebTrax/lain-episodes/tools/scene-detect/episode-01/clips/clip_t0050s.mp4",
+    "status": "OK",
+    "declared": 4.88,
+    "actual": 4.8,
+    "gap": 0.08,
+    "decode_error": null,
+    "pix_fmt": "yuv420p",
+    "ten_bit": false
+  },
+  {
+    "path": "/Volumes/WeebTrax/lain-episodes/tools/scene-detect/episode-01/clips/clip_t0060s.mp4",
+    "status": "OK",
+    "declared": 10.0,
+    "actual": 9.68,
+    "gap": 0.32,
+    "decode_error": null,
+    "pix_fmt": "yuv420p",
+    "ten_bit": false
+  },
+  {
+    "path": "/Volumes/WeebTrax/lain-episodes/tools/scene-detect/episode-01/clips/clip_t0130s.mp4",
+    "status": "TEN_BIT_COMPAT_RISK",
+    "declared": 11.01,
+    "actual": 11.01,
+    "gap": -0.0,
+    "decode_error": null,
+    "pix_fmt": "yuv420p10le",
+    "ten_bit": true
+  },
+  {
+    "path": "/Volumes/WeebTrax/lain-episodes/tools/scene-detect/episode-01/clips/clip_t0150s.mp4",
+    "status": "OK",
+    "declared": 0.63,
+    "actual": 0.58,
+    "gap": 0.04,
+    "decode_error": null,
+    "pix_fmt": "yuv420p",
+    "ten_bit": false
+  },
+  {
+    "path": "/Volumes/WeebTrax/lain-episodes/tools/scene-detect/episode-01/clips/clip_t0180s.mp4",
+    "status": "OK",
+    "declared": 7.26,
+    "actual": 7.34,
+    "gap": -0.08,
+    "decode_error": null,
+    "pix_fmt": "yuv420p",
+    "ten_bit": false
+  },
+  {
+    "path": "/Volumes/WeebTrax/lain-episodes/tools/scene-detect/episode-01/clips/clip_t0200s.mp4",
+    "status": "OK",
+    "declared": 6.72,
+    "actual": 6.67,
+    "gap": 0.04,
+    "decode_error": null,
+    "pix_fmt": "yuv420p",
+    "ten_bit": false
+  },
+  {
+    "path": "/Volumes/WeebTrax/lain-episodes/tools/scene-detect/episode-01/clips/clip_t0530s.mp4",
+    "status": "OK",
+    "declared": 7.01,
+    "actual": 6.97,
+    "gap": 0.04,
+    "decode_error": null,
+    "pix_fmt": "yuv420p",
+    "ten_bit": false
+  },
+  {
+    "path": "/Volumes/WeebTrax/lain-episodes/tools/scene-detect/episode-01/clips/clip_t0540s.mp4",
+    "status": "OK",
+    "declared": 5.51,
+    "actual": 5.55,
+    "gap": -0.04,
+    "decode_error": null,
+    "pix_fmt": "yuv420p",
+    "ten_bit": false
+  },
+  {
+    "path": "/Volumes/WeebTrax/lain-episodes/tools/scene-detect/episode-01/clips/clip_t0680s.mp4",
+    "status": "OK",
+    "declared": 4.42,
+    "actual": 4.46,
+    "gap": -0.04,
+    "decode_error": null,
+    "pix_fmt": "yuv420p",
+    "ten_bit": false
+  },
+  {
+    "path": "/Volumes/WeebTrax/lain-episodes/tools/scene-detect/episode-01/clips/clip_t0720s.mp4",
+    "status": "OK",
+    "declared": 6.21,
+    "actual": 6.17,
+    "gap": 0.04,
+    "decode_error": null,
+    "pix_fmt": "yuv420p",
+    "ten_bit": false
+  },
+  {
+    "path": "/Volumes/WeebTrax/lain-episodes/tools/scene-detect/episode-01/clips/clip_t0760s.mp4",
+    "status": "TEN_BIT_COMPAT_RISK",
+    "declared": 11.34,
+    "actual": 11.39,
+    "gap": -0.04,
+    "decode_error": null,
+    "pix_fmt": "yuv420p10le",
+    "ten_bit": true
+  },
+  {
+    "path": "/Volumes/WeebTrax/lain-episodes/tools/scene-detect/episode-01/clips/clip_t0760sseg2.mp4",
+    "status": "TEN_BIT_COMPAT_RISK",
+    "declared": 3.34,
+    "actual": 3.38,
+    "gap": -0.04,
+    "decode_error": null,
+    "pix_fmt": "yuv420p10le",
+    "ten_bit": true
+  },
+  {
+    "path": "/Volumes/WeebTrax/lain-episodes/tools/scene-detect/episode-01/clips/clip_t0790s.mp4",
+    "status": "OK",
+    "declared": 4.88,
+    "actual": 4.84,
+    "gap": 0.04,
+    "decode_error": null,
+    "pix_fmt": "yuv420p",
+    "ten_bit": false
+  },
+  {
+    "path": "/Volumes/WeebTrax/lain-episodes/tools/scene-detect/episode-01/clips/clip_t0860s.mp4",
+    "status": "OK",
+    "declared": 2.5,
+    "actual": 2.42,
+    "gap": 0.08,
+    "decode_error": null,
+    "pix_fmt": "yuv420p",
+    "ten_bit": false
+  },
+  {
+    "path": "/Volumes/WeebTrax/lain-episodes/tools/scene-detect/episode-01/clips/clip_t0860sseg2.mp4",
+    "status": "OK",
+    "declared": 3.0,
+    "actual": 2.96,
+    "gap": 0.04,
+    "decode_error": null,
+    "pix_fmt": "yuv420p",
+    "ten_bit": false
+  },
+  {
+    "path": "/Volumes/WeebTrax/lain-episodes/tools/scene-detect/episode-01/clips/clip_t0880s.mp4",
+    "status": "OK",
+    "declared": 6.55,
+    "actual": 6.51,
+    "gap": 0.04,
+    "decode_error": null,
+    "pix_fmt": "yuv420p",
+    "ten_bit": false
+  },
+  {
+    "path": "/Volumes/WeebTrax/lain-episodes/tools/scene-detect/episode-01/clips/clip_t1150s.mp4",
+    "status": "OK",
+    "declared": 3.88,
+    "actual": 3.84,
+    "gap": 0.04,
+    "decode_error": null,
+    "pix_fmt": "yuv420p",
+    "ten_bit": false
+  },
+  {
+    "path": "/Volumes/WeebTrax/lain-episodes/tools/scene-detect/episode-02/clips/clip_t1010s.mp4",
+    "status": "OK",
+    "declared": 7.47,
+    "actual": 7.42,
+    "gap": 0.04,
+    "decode_error": null,
+    "pix_fmt": "yuv420p",
+    "ten_bit": false
+  },
+  {
+    "path": "/Volumes/WeebTrax/lain-episodes/tools/scene-detect/episode-02/clips/clip_t1050s.mp4",
+    "status": "OK",
+    "declared": 4.09,
+    "actual": 3.96,
+    "gap": 0.12,
+    "decode_error": null,
+    "pix_fmt": "yuv420p",
+    "ten_bit": false
+  },
+  {
+    "path": "/Volumes/WeebTrax/lain-episodes/tools/scene-detect/episode-02/clips/clip_t1050sseg2.mp4",
+    "status": "OK",
+    "declared": 5.91,
+    "actual": 5.84,
+    "gap": 0.07,
+    "decode_error": null,
+    "pix_fmt": "yuv420p",
+    "ten_bit": false
+  },
+  {
+    "path": "/Volumes/WeebTrax/lain-episodes/tools/scene-detect/episode-02/clips/clip_t1050sseg3.mp4",
+    "status": "OK",
+    "declared": 5.13,
+    "actual": 5.21,
+    "gap": -0.08,
+    "decode_error": null,
+    "pix_fmt": "yuv420p",
+    "ten_bit": false
+  },
+  {
+    "path": "/Volumes/WeebTrax/lain-episodes/tools/scene-detect/episode-02/clips/clip_t1060s.mp4",
+    "status": "OK",
+    "declared": 6.59,
+    "actual": 6.46,
+    "gap": 0.12,
+    "decode_error": null,
+    "pix_fmt": "yuv420p",
+    "ten_bit": false
+  },
+  {
+    "path": "/Volumes/WeebTrax/lain-episodes/tools/scene-detect/episode-02/clips/clip_t1060sseg2.mp4",
+    "status": "OK",
+    "declared": 1.71,
+    "actual": 1.67,
+    "gap": 0.04,
+    "decode_error": null,
+    "pix_fmt": "yuv420p",
+    "ten_bit": false
+  },
+  {
+    "path": "/Volumes/WeebTrax/lain-episodes/tools/scene-detect/episode-02/clips/clip_t1060sseg3.mp4",
+    "status": "OK",
+    "declared": 2.92,
+    "actual": 3.09,
+    "gap": -0.17,
+    "decode_error": null,
+    "pix_fmt": "yuv420p",
+    "ten_bit": false
+  },
+  {
+    "path": "/Volumes/WeebTrax/lain-episodes/tools/scene-detect/episode-03/clips/clip_t0810s.mp4",
+    "status": "OK",
+    "declared": 7.09,
+    "actual": 6.92,
+    "gap": 0.17,
+    "decode_error": null,
+    "pix_fmt": "yuv420p",
+    "ten_bit": false
+  },
+  {
+    "path": "/Volumes/WeebTrax/lain-episodes/tools/scene-detect/episode-03/clips/clip_t0810sseg2.mp4",
+    "status": "OK",
+    "declared": 8.51,
+    "actual": 8.51,
+    "gap": 0.0,
+    "decode_error": null,
+    "pix_fmt": "yuv420p",
+    "ten_bit": false
+  },
+  {
+    "path": "/Volumes/WeebTrax/lain-episodes/tools/scene-detect/episode-03/clips/clip_t0860s.mp4",
+    "status": "OK",
+    "declared": 7.63,
+    "actual": 7.51,
+    "gap": 0.12,
+    "decode_error": null,
+    "pix_fmt": "yuv420p",
+    "ten_bit": false
+  },
+  {
+    "path": "/Volumes/WeebTrax/lain-episodes/tools/scene-detect/episode-03/clips/clip_t0860sseg2.mp4",
+    "status": "OK",
+    "declared": 1.0,
+    "actual": 0.96,
+    "gap": 0.04,
+    "decode_error": null,
+    "pix_fmt": "yuv420p",
+    "ten_bit": false
+  },
+  {
+    "path": "/Volumes/WeebTrax/lain-episodes/tools/scene-detect/episode-03/clips/clip_t0860sseg3.mp4",
+    "status": "OK",
+    "declared": 9.01,
+    "actual": 9.01,
+    "gap": 0.0,
+    "decode_error": null,
+    "pix_fmt": "yuv420p",
+    "ten_bit": false
+  },
+  {
+    "path": "/Volumes/WeebTrax/lain-episodes/tools/scene-detect/episode-04/clips/clip_t0600s.mp4",
+    "status": "OK",
+    "declared": 1.0,
+    "actual": 0.96,
+    "gap": 0.04,
+    "decode_error": null,
+    "pix_fmt": "yuv420p",
+    "ten_bit": false
+  },
+  {
+    "path": "/Volumes/WeebTrax/lain-episodes/tools/scene-detect/episode-04/clips/clip_t0610s.mp4",
+    "status": "TEN_BIT_COMPAT_RISK",
+    "declared": 11.88,
+    "actual": 12.22,
+    "gap": -0.34,
+    "decode_error": null,
+    "pix_fmt": "yuv420p10le",
+    "ten_bit": true
+  },
+  {
+    "path": "/Volumes/WeebTrax/lain-episodes/tools/scene-detect/episode-04/clips/clip_t0680s.mp4",
+    "status": "TEN_BIT_COMPAT_RISK",
+    "declared": 14.47,
+    "actual": 14.64,
+    "gap": -0.17,
+    "decode_error": null,
+    "pix_fmt": "yuv420p10le",
+    "ten_bit": true
+  },
+  {
+    "path": "/Volumes/WeebTrax/lain-episodes/tools/scene-detect/episode-04/clips/clip_t0730s.mp4",
+    "status": "OK",
+    "declared": 3.88,
+    "actual": 3.84,
+    "gap": 0.04,
+    "decode_error": null,
+    "pix_fmt": "yuv420p",
+    "ten_bit": false
+  },
+  {
+    "path": "/Volumes/WeebTrax/lain-episodes/tools/scene-detect/episode-05/clips/clip_t0200s.mp4",
+    "status": "TEN_BIT_COMPAT_RISK",
+    "declared": 14.05,
+    "actual": 14.05,
+    "gap": -0.0,
+    "decode_error": null,
+    "pix_fmt": "yuv420p10le",
+    "ten_bit": true
+  },
+  {
+    "path": "/Volumes/WeebTrax/lain-episodes/tools/scene-detect/episode-05/clips/clip_t0660s.mp4",
+    "status": "OK",
+    "declared": 6.05,
+    "actual": 5.84,
+    "gap": 0.21,
+    "decode_error": null,
+    "pix_fmt": "yuv420p",
+    "ten_bit": false
+  },
+  {
+    "path": "/Volumes/WeebTrax/lain-episodes/tools/scene-detect/episode-05/clips/clip_t0670s.mp4",
+    "status": "OK",
+    "declared": 7.84,
+    "actual": 7.8,
+    "gap": 0.04,
+    "decode_error": null,
+    "pix_fmt": "yuv420p",
+    "ten_bit": false
+  },
+  {
+    "path": "/Volumes/WeebTrax/lain-episodes/tools/scene-detect/episode-06/clips/clip_t0610s.mp4",
+    "status": "OK",
+    "declared": 5.92,
+    "actual": 5.88,
+    "gap": 0.04,
+    "decode_error": null,
+    "pix_fmt": "yuv420p",
+    "ten_bit": false
+  },
+  {
+    "path": "/Volumes/WeebTrax/lain-episodes/tools/scene-detect/episode-06/clips/clip_t0800s.mp4",
+    "status": "TEN_BIT_COMPAT_RISK",
+    "declared": 11.76,
+    "actual": 11.76,
+    "gap": -0.0,
+    "decode_error": null,
+    "pix_fmt": "yuv420p10le",
+    "ten_bit": true
+  },
+  {
+    "path": "/Volumes/WeebTrax/lain-episodes/tools/scene-detect/episode-06/clips/clip_t0820s.mp4",
+    "status": "OK",
+    "declared": 4.88,
+    "actual": 4.84,
+    "gap": 0.04,
+    "decode_error": null,
+    "pix_fmt": "yuv420p",
+    "ten_bit": false
+  },
+  {
+    "path": "/Volumes/WeebTrax/lain-episodes/tools/scene-detect/episode-07/clips/clip_t0410s.mp4",
+    "status": "OK",
+    "declared": 13.35,
+    "actual": 13.3,
+    "gap": 0.04,
+    "decode_error": null,
+    "pix_fmt": "yuv420p",
+    "ten_bit": false
+  },
+  {
+    "path": "/Volumes/WeebTrax/lain-episodes/tools/scene-detect/episode-08/clips/clip_t0150s.mp4",
+    "status": "OK",
+    "declared": 0.63,
+    "actual": 0.58,
+    "gap": 0.04,
+    "decode_error": null,
+    "pix_fmt": "yuv420p",
+    "ten_bit": false
+  },
+  {
+    "path": "/Volumes/WeebTrax/lain-episodes/tools/scene-detect/episode-10/clips/clip_t0820s.mp4",
+    "status": "OK",
+    "declared": 8.17,
+    "actual": 8.13,
+    "gap": 0.04,
+    "decode_error": null,
+    "pix_fmt": "yuv420p",
+    "ten_bit": false
+  },
+  {
+    "path": "/Volumes/WeebTrax/lain-episodes/tools/scene-detect/episode-11/clips/clip_t1050s.mp4",
+    "status": "TEN_BIT_COMPAT_RISK",
+    "declared": 11.84,
+    "actual": 11.84,
+    "gap": -0.0,
+    "decode_error": null,
+    "pix_fmt": "yuv420p10le",
+    "ten_bit": true
+  },
+  {
+    "path": "/Volumes/WeebTrax/lain-episodes/tools/scene-detect/episode-11/clips/clip_t1160s.mp4",
+    "status": "OK",
+    "declared": 4.96,
+    "actual": 4.92,
+    "gap": 0.04,
+    "decode_error": null,
+    "pix_fmt": "yuv420p",
+    "ten_bit": false
+  },
+  {
+    "path": "/Volumes/WeebTrax/lain-episodes/tools/scene-detect/episode-12/clips/clip_t0670s.mp4",
+    "status": "OK",
+    "declared": 8.01,
+    "actual": 7.97,
+    "gap": 0.04,
+    "decode_error": null,
+    "pix_fmt": "yuv420p",
+    "ten_bit": false
+  },
+  {
+    "path": "/Volumes/WeebTrax/lain-episodes/tools/scene-detect/episode-13/clips/clip_t0660s.mp4",
+    "status": "TEN_BIT_COMPAT_RISK",
+    "declared": 14.1,
+    "actual": 14.05,
+    "gap": 0.04,
+    "decode_error": null,
+    "pix_fmt": "yuv420p10le",
+    "ten_bit": true
+  },
+  {
+    "path": "/Volumes/WeebTrax/lain-episodes/tools/scene-detect/episode-13/clips/clip_t0720s.mp4",
+    "status": "OK",
+    "declared": 10.0,
+    "actual": 9.3,
+    "gap": 0.7,
+    "decode_error": null,
+    "pix_fmt": "yuv420p",
+    "ten_bit": false
+  }
+]

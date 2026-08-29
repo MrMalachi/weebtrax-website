@@ -120,16 +120,6 @@
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-01_clip-12.jpg"
   },
   {
-    "name": "Lain's Bedroom",
-    "slug": "lain-s-bedroom",
-    "type": "BEDROOM STATIC",
-    "description": "Soft light pooling across an unmade bed, the room waiting in perfect silence.",
-    "episodeNumber": 1,
-    "mood": "chill",
-    "videoPath": "public/assets/scenes/videos/episode-01_clip-13.mp4",
-    "thumbnailPath": "public/assets/scenes/thumbnails/episode-01_clip-13.jpg"
-  },
-  {
     "name": "Overexposed",
     "slug": "overexposed",
     "type": "RED SIGNAL",
@@ -210,16 +200,6 @@
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-02_clip-03.jpg"
   },
   {
-    "name": "Hallway Exchange",
-    "slug": "hallway-exchange",
-    "type": "CORRIDOR SIGNAL",
-    "description": "Two figures in a school corridor, their conversation absorbed by ambient noise.",
-    "episodeNumber": 2,
-    "mood": "nostalgic",
-    "videoPath": "public/assets/scenes/videos/episode-02_clip-04.mp4",
-    "thumbnailPath": "public/assets/scenes/thumbnails/episode-02_clip-04.jpg"
-  },
-  {
     "name": "Neon Bleed",
     "slug": "neon-bleed",
     "type": "CITY STATIC",
@@ -228,16 +208,6 @@
     "mood": "dirty",
     "videoPath": "public/assets/scenes/videos/episode-02_clip-05.mp4",
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-02_clip-05.jpg"
-  },
-  {
-    "name": "Bubble Signal",
-    "slug": "bubble-signal",
-    "type": "SOFT FRAGMENT",
-    "description": "A face emerging from a field of soft blue orbs, barely resolved.",
-    "episodeNumber": 2,
-    "mood": "chill",
-    "videoPath": "public/assets/scenes/videos/episode-02_clip-06.mp4",
-    "thumbnailPath": "public/assets/scenes/thumbnails/episode-02_clip-06.jpg"
   },
   {
     "name": "Cyberia Sign",
@@ -428,16 +398,6 @@
     "mood": "dirty",
     "videoPath": "public/assets/scenes/videos/episode-10_clip-01.mp4",
     "thumbnailPath": "public/assets/scenes/thumbnails/episode-10_clip-01.jpg"
-  },
-  {
-    "name": "Doorway Watch",
-    "slug": "doorway-watch",
-    "type": "LIMINAL FEED",
-    "description": "A figure watching from behind a half-open door, the threshold between spaces uncertain.",
-    "episodeNumber": 11,
-    "mood": "nostalgic",
-    "videoPath": "public/assets/scenes/videos/episode-11_clip-01.mp4",
-    "thumbnailPath": "public/assets/scenes/thumbnails/episode-11_clip-01.jpg"
   },
   {
     "name": "Grey Signal",

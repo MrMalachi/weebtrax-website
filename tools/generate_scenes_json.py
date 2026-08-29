@@ -33,7 +33,6 @@ RENAME_MAP = {
     "episode-01_clip_t0680s": "episode-01_clip-10",
     "episode-01_clip_t0720s": "episode-01_clip-11",
     "episode-01_clip_t0760s": "episode-01_clip-12",
-    "episode-01_clip_t0760sseg2": "episode-01_clip-13",
     "episode-01_clip_t0790s": "episode-01_clip-14",
     "episode-01_clip_t0860s": "episode-01_clip-15",
     "episode-01_clip_t0860sseg2": "episode-01_clip-16",
@@ -42,9 +41,7 @@ RENAME_MAP = {
     "episode-02_clip_t1010s": "episode-02_clip-01",
     "episode-02_clip_t1050s": "episode-02_clip-02",
     "episode-02_clip_t1050sseg2": "episode-02_clip-03",
-    "episode-02_clip_t1050sseg3": "episode-02_clip-04",
     "episode-02_clip_t1060s": "episode-02_clip-05",
-    "episode-02_clip_t1060sseg2": "episode-02_clip-06",
     "episode-02_clip_t1060sseg3": "episode-02_clip-07",
     "episode-03_clip_t0810s": "episode-03_clip-01",
     "episode-03_clip_t0810sseg2": "episode-03_clip-02",
@@ -64,7 +61,6 @@ RENAME_MAP = {
     "episode-07_clip_t0410s": "episode-07_clip-01",
     "episode-08_clip_t0150s": "episode-08_clip-01",
     "episode-10_clip_t0820s": "episode-10_clip-01",
-    "episode-11_clip_t1050s": "episode-11_clip-01",
     "episode-11_clip_t1160s": "episode-11_clip-02",
     "episode-12_clip_t0670s": "episode-12_clip-01",
     "episode-13_clip_t0660s": "episode-13_clip-01",
@@ -146,12 +142,6 @@ SCENES = [
      "Eyes half-lit in shadow, watching from somewhere just outside the frame.",
      "deep"),
 
-    ("episode-01_clip_t0760sseg2",
-     "Lain's Bedroom",
-     "BEDROOM STATIC",
-     "Soft light pooling across an unmade bed, the room waiting in perfect silence.",
-     "chill"),
-
     ("episode-01_clip_t0790s",
      "Overexposed",
      "RED SIGNAL",
@@ -201,23 +191,11 @@ SCENES = [
      "Characters dissolve into watercolor noise, language collapsing into pattern.",
      "chill"),
 
-    ("episode-02_clip_t1050sseg3",
-     "Hallway Exchange",
-     "CORRIDOR SIGNAL",
-     "Two figures in a school corridor, their conversation absorbed by ambient noise.",
-     "nostalgic"),
-
     ("episode-02_clip_t1060s",
      "Neon Bleed",
      "CITY STATIC",
      "Signs bleed into each other in the rain, the city rendered as pure color and noise.",
      "dirty"),
-
-    ("episode-02_clip_t1060sseg2",
-     "Bubble Signal",
-     "SOFT FRAGMENT",
-     "A face emerging from a field of soft blue orbs, barely resolved.",
-     "chill"),
 
     ("episode-02_clip_t1060sseg3",
      "Cyberia Sign",
@@ -341,12 +319,6 @@ SCENES = [
      "dirty"),
 
     # Episode 11
-    ("episode-11_clip_t1050s",
-     "Doorway Watch",
-     "LIMINAL FEED",
-     "A figure watching from behind a half-open door, the threshold between spaces uncertain.",
-     "nostalgic"),
-
     ("episode-11_clip_t1160s",
      "Grey Signal",
      "COLD STATIC",

@@ -814,14 +814,17 @@ function SignalFeed({ scene, onClose, onPrev, onNext }) {
     function onLoadedMetadata() { setConnected(true); }
     function onPlay() { setPlaying(true); }
     function onPause() { setPlaying(false); }
+    function onEnded() { v.currentTime = 0; v.play().catch(function() {}); }
     v.addEventListener('loadedmetadata', onLoadedMetadata);
     v.addEventListener('play', onPlay);
     v.addEventListener('pause', onPause);
+    v.addEventListener('ended', onEnded);
     return () => {
       v.pause();
       v.removeEventListener('loadedmetadata', onLoadedMetadata);
       v.removeEventListener('play', onPlay);
       v.removeEventListener('pause', onPause);
+      v.removeEventListener('ended', onEnded);
     };
   }, []);
 
@@ -970,8 +973,8 @@ function SignalFeed({ scene, onClose, onPrev, onNext }) {
       onMouseLeave: function() { setHovVideo(false); }
     },
       /*#__PURE__*/React.createElement("video", {
-        ref: videoRef, src: scene.video + '?v=3', poster: scene.img,
-        muted: true, playsInline: true, loop: true, preload: "auto",
+        ref: videoRef, src: scene.video + '?v=8', poster: scene.img,
+        muted: true, playsInline: true, preload: "auto",
         style: { width: '100%', height: '100%', display: 'block', objectFit: 'cover', background: '#000' }
       }),
       // Heavy CRT scanlines
@@ -1280,7 +1283,7 @@ function SceneGrid() {
       name: s.name,
       tag: s.type,
       desc: s.description,
-      img: '/' + s.thumbnailPath,
+      img: '/' + s.thumbnailPath + '?v=2',
       video: '/' + s.videoPath,
       episode: s.episodeNumber,
     };
@@ -1295,8 +1298,9 @@ function SceneGrid() {
   const sel = filtered.find(s => s.id === selected);
   const selIdx = sel ? filtered.indexOf(sel) : -1;
   const playerRef = React.useRef(null);
+  const wasSelectedRef = React.useRef(false);
   React.useEffect(function() {
-    if (selected && playerRef.current) {
+    if (selected && playerRef.current && !wasSelectedRef.current) {
       var el = playerRef.current;
       if (window.matchMedia(MOBILE_MQ).matches) {
         var rect = el.getBoundingClientRect();
@@ -1306,6 +1310,7 @@ function SceneGrid() {
         el.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     }
+    wasSelectedRef.current = !!selected;
   }, [selected]);
   function navScene(nextScene) {
     const newIdx = filtered.indexOf(nextScene);
