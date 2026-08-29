@@ -627,6 +627,12 @@ function App() {
   }, [t.scan, t.grain, t.motion]);
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("audio", {
     ref: audioRef,
+    // Required, not optional: the audio is routed through the Web Audio graph
+    // via createMediaElementSource, and the files are cross-origin (R2). Without
+    // this the element is "tainted" and Web Audio outputs SILENCE -- playback
+    // appears to work (timer runs, waveform moves) but no sound comes out.
+    // media.weebtrax.com must also return Access-Control-Allow-Origin.
+    crossOrigin: 'anonymous',
     style: {
       display: 'none'
     }
