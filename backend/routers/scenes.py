@@ -29,10 +29,11 @@ class ScenePage(BaseModel):
     tags=["Scenes"],
 )
 def get_scenes(
-    page: int = Query(default=1, ge=1),
+    page: int = Query(default=1, ge=1, le=1000),
     limit: int = Query(default=4, ge=1, le=50),
-    episode: int | None = Query(default=None, ge=1),
+    episode: int | None = Query(default=None, ge=1, le=13),
     mood: Mood | None = Query(default=None),
+    tag: str | None = Query(default=None),
     session: Session = Depends(get_db),
 ):
     """Retrieve paginated Scene objects with pagination metadata."""
@@ -44,6 +45,9 @@ def get_scenes(
 
     if mood is not None:
         statement = statement.where(Scene.mood == mood)
+
+    if tag is not None:
+        statement = statement.where(Scene.type == tag)
 
     total = len(session.exec(statement).all())
 
