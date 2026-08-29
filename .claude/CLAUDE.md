@@ -13,8 +13,8 @@ loaded into every session automatically.
 | 3 | Website reads JSON | ✅ Complete |
 | 3.5 | Countdown page (pre-launch holding page) | ✅ Live |
 | 4 | Create backend / API (FastAPI) | 🟨 In progress — models/routers/seeding split into separate files, backed by a real database, frontend now wired to it |
-| 5 | Move JSON metadata into PostgreSQL | 🟨 In progress — local Postgres running, schema + seeding done, frontend wired to the API; not yet on Railway |
-| 6 | Deploy with Railway | ⬜ Not started |
+| 5 | Move JSON metadata into PostgreSQL | ✅ Complete — running on Railway Postgres, schema + seeding verified live |
+| 6 | Deploy with Railway | 🟨 In progress — backend + Postgres live on Railway and verified; `api.weebtrax.com` DNS still to point at it |
 | 7 | Move large media to storage bucket (Cloudflare R2) | ⬜ Not started — **hard launch blocker**, media is gitignored so Pages would ship a site with every mix/scene 404ing |
 | Pre-launch | Verification, Cloudflare config, launch procedure | ⬜ Not started |
 
@@ -325,6 +325,21 @@ JSON fields become table columns. DB stores metadata + file paths only (not file
 - Frontend → Cloudflare Pages
 - Backend/API → Railway
 - Database → PostgreSQL on Railway
+
+### Status (2026-08-29) — backend + Postgres are LIVE on Railway ✅
+- Project `shimmering-laughter`, service `weebtrax-website`, plus a `Postgres` service. Public URL: `https://weebtrax-website-production.up.railway.app`
+- Verified working: `/health` → ok, `/api/mixes` → 99 mixes with tracklists, `/api/scenes` → 44 scenes, CORS allows `weebtrax.com` and blocks other origins. Schema creation + seeding run automatically on boot.
+- **Still to do for Phase 6**: point `api.weebtrax.com` at this service (the frontend's `WT_API_BASE` already expects that hostname in production — until the DNS exists, a deployed frontend would call a host that doesn't resolve). Then Phase 7's media move, which is the real launch blocker.
+
+#### Deploy debugging — two stacked failures, both non-obvious
+Worth reading before touching deploy config again; each cost a full deploy cycle.
+
+1. **Nixpacks' runtime image had neither `python` nor `uv` on PATH.** The container crash-looped (`/bin/bash: line 1: python: command not found`, then the same for `uv`) while the Railway dashboard still showed **"Deployment successful / ACTIVE"** — the *build* succeeded, so only the deploy logs revealed the truth. Switching the start command to `uv run` just moved the error. Fixed for good with an explicit `Dockerfile` (`python:3.14-slim`, `uv sync --frozen --no-dev`, venv put first on PATH) plus a `.dockerignore` that keeps `production/`, `brand/` and media out of the build context. `railway.json` now sets `"builder": "DOCKERFILE"`.
+2. **Variables were staged in the UI but never applied.** The Railway canvas showed a pending *"Apply 2 changes / Deploy"* button; the code deployed without `DATABASE_URL` or `ALLOWED_ORIGINS`, so the app fell back to the local-dev `localhost:5432` and died with `connection refused`. **Adding a variable in the Railway UI does nothing until that pending Deploy is clicked.** Setting them with `railway variables --set` applies immediately and avoids the trap.
+
+**The Railway CLI is the fast path** (`brew install railway`, `railway login`, `railway link`). `railway logs --deployment` shows the real traceback, `railway status` shows Crashed-vs-Active honestly, and `railway variables` proves what the container can actually see. Screenshot round-trips hid all three root causes.
+
+Note: `railway.json` (config-as-code) is deprecated in favour of `.railway/railway.ts`; existing files keep working until 2026-12-01, so migration is not urgent but is worth doing before then.
 
 ### Prep done (2026-08-29), before any Railway account existed
 - `railway.json` — NIXPACKS builder, start command binds `$PORT` (`uvicorn backend.main:app --host 0.0.0.0 --port $PORT`), healthcheck on `/health`
