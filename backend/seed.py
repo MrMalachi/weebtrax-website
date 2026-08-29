@@ -3,13 +3,19 @@
 Both JSON files still use the frontend's camelCase field names (releaseDate,
 audioPath, episodeNumber, ...) -- this is the one place that translates them
 into the models' snake_case columns.
+
+Seeding only runs against empty tables. Without that guard, running this
+twice against the same database inserts a second copy of everything, which
+shows up as a silently doubled archive rather than an error. Use
+reset_data() to deliberately wipe and start over.
 """
 
 import json
 from datetime import date
 from pathlib import Path
 
-from sqlmodel import Session
+from sqlalchemy import text
+from sqlmodel import Session, select
 
 from backend.database import create_db_and_tables, engine
 from backend.models.mix import Mix
@@ -56,8 +62,33 @@ def _scene_fields(entry: dict) -> dict:
     }
 
 
+def _has_rows(session: Session, model) -> bool:
+    """Return True if the model's table already holds at least one row."""
+    return session.exec(select(model).limit(1)).first() is not None
+
+
+def reset_data():
+    """Delete every seeded row and restart the id counters at 1.
+
+    The id counters matter: the frontend turns a mix's id into its display
+    code (id 1 -> "mix-001"), so a re-seed that left the counters where they
+    were would shift every code on the site.
+    """
+    with Session(engine) as session:
+        session.execute(
+            text("TRUNCATE track, mix, scene RESTART IDENTITY CASCADE")
+        )
+        session.commit()
+
+    print("Cleared all mixes, tracks and scenes.")
+
+
 def add_sample_mixes():
     with Session(engine) as session:
+        if _has_rows(session, Mix):
+            print("Mixes already seeded -- skipping.")
+            return
+
         for entry in MIX_DATA:
             tracks = entry.get("tracklist", [])
 
@@ -73,13 +104,21 @@ def add_sample_mixes():
 
         session.commit()
 
+    print(f"Seeded {len(MIX_DATA)} mixes.")
+
 
 def add_sample_scenes():
     with Session(engine) as session:
+        if _has_rows(session, Scene):
+            print("Scenes already seeded -- skipping.")
+            return
+
         for entry in SCENE_DATA:
             session.add(Scene(**_scene_fields(entry)))
 
         session.commit()
+
+    print(f"Seeded {len(SCENE_DATA)} scenes.")
 
 
 def main():

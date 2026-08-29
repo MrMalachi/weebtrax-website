@@ -316,6 +316,7 @@ JSON fields become table columns. DB stores metadata + file paths only (not file
 - `backend/database.py` reads `DATABASE_URL` from the environment, falling back to `postgresql+psycopg://localhost:5432/weebtrax` for local dev; `psycopg[binary]` added as a dependency
 - Schema created via `SQLModel.metadata.create_all` (`backend/init_db.py`), seeded from the JSON fixtures via `backend/seed.py` — same models/routers from Phase 4, just pointed at Postgres instead of SQLite
 - Frontend now reads from the API instead of `mixes.json`/`scenes.json` directly (see Phase 4 status above) — that was the last piece of this phase treated as a separate step; not yet done: Postgres on Railway (Phase 6's job)
+- **Seeding is idempotent** (2026-08-29): `add_sample_mixes`/`add_sample_scenes` skip if their table already has rows, so re-running `python -m backend.init_db` is safe. Before this, a second run silently inserted a whole second copy (198 mixes, no error) — a real hazard for Phase 6, where a seed step wired into a Railway deploy would double the archive on every push. To deliberately re-seed after editing the JSON files, use `python -m backend.init_db --reset`, which truncates with `RESTART IDENTITY` first. **The identity restart is not optional**: the frontend derives display codes from the primary key (`id 1` → `mix-001`), so re-seeding without resetting the counters would shift every `TX-` code on the site.
 
 ---
 
