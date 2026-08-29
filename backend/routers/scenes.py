@@ -1,7 +1,7 @@
 import json
 import pathlib
 
-from fastapi import APIRouter, HTTPException, Query, status
+from fastapi import APIRouter, Depends, HTTPException, Query, status
 from pydantic import BaseModel
 from sqlmodel import Field, Session, SQLModel, create_engine, select
 
@@ -36,6 +36,9 @@ sqlite_url = "sqlite:///backend/data/scenes.db"
 connect_args = {"check_same_thread": False}
 engine = create_engine(sqlite_url, connect_args=connect_args)
 
+def get_db():
+    with Session(engine) as session:
+        yield session
 
 def create_tables_and_database():
     SQLModel.metadata.create_all(engine)
@@ -74,35 +77,34 @@ def get_scenes(
         page: int = Query(default=1, ge=1),
         limit: int = Query(default=4, ge=1, le=50),
         episode: int = Query(default=None, ge=1),
-        mood: Mood | None = Query(default=None)
+        mood: Mood | None = Query(default=None),
+        session: Session = Depends(get_db)
 ):
     """Retrieve paginated Scene objects with pagination metadata."""
 
-    with Session(engine) as session:
-        statement = select(Scene)
+    statement = select(Scene)
 
-        if episode is not None:
-            statement = statement.where(Scene.episodeNumber == episode)
+    if episode is not None:
+        statement = statement.where(Scene.episodeNumber == episode)
 
-        if mood is not None:
-            statement = statement.where(Scene.mood == mood)
+    if mood is not None:
+        statement = statement.where(Scene.mood == mood)
 
-        total = len(session.exec(statement).all())
+    total = len(session.exec(statement).all())
 
-        statement = statement.offset((page - 1) * limit).limit(limit)
+    statement = statement.offset((page - 1) * limit).limit(limit)
 
-        results = session.exec(statement).all()
+    results = session.exec(statement).all()
 
-        return {
-            "total": total,
-            "page": page,
-            "limit": limit,
-            "results": results
-        }
+    return {
+        "total": total,
+        "page": page,
+        "limit": limit,
+        "results": results
+    }
 
 @router.get("/scenes/{scene_id}", response_model=Scene)
-def get_scene(scene_id: int):
-    with Session(engine) as session:
+def get_scene(scene_id: int, session: Session = Depends(get_db)):
         scene = session.get(Scene, scene_id)
 
         if scene is None:
