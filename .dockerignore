@@ -1,0 +1,21 @@
+# The API only needs backend/, src/ and the lockfiles. Everything below is
+# frontend, brand or tooling weight that would just slow the build context.
+.git
+.venv
+__pycache__
+*.pyc
+.DS_Store
+
+production/
+countdown/
+brand/
+tools/
+docs/
+dist/
+.claude/
+
+# Media never belongs in the image - it is served from the storage bucket.
+*.mp3
+*.mp4
+*.mkv
+*.mov
