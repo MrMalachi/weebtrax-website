@@ -161,7 +161,7 @@ production/                 ← never deployed pre-launch, lives only in git
 - **Cloudflare Pages build output directory**: `countdown` — only files inside `countdown/` are deployed; `production/` is never uploaded to Cloudflare
 - **No `_redirects` needed**: `countdown/index.html` is the directory index, served automatically at `weebtrax.com/`
 - **Design**: matches the main site aesthetic — IBM Plex Mono, scan lines, `--void` background, green accent
-- **Launch target**: `2026-08-29T12:00:00` (local time) — hardcoded in `countdown/index.html` JS
+- **Launch target**: `2026-08-29T12:30:00-04:00` — 12:30 US Eastern, hardcoded in `countdown/index.html` JS (moved from 12:00 on 2026-08-29). The `-04:00` offset is deliberate and must be kept: without an offset the string is parsed in each **visitor's** timezone, so the countdown hit zero at a different real-world moment in every region. Note `-04:00` is Eastern *daylight* time (Mar–Nov); a target set in winter needs `-05:00`.
 
 ### Favicons
 - **Both sites now use the WeebTrax CD brand icon** (replaced the pylon SVG as of 2026-07-29)
