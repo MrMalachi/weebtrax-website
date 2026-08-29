@@ -105,15 +105,15 @@ def get_scenes(
 
 @router.get("/scenes/{scene_id}", response_model=Scene)
 def get_scene(scene_id: int, session: Session = Depends(get_db)):
-        scene = session.get(Scene, scene_id)
+    scene = session.get(Scene, scene_id)
 
-        if scene is None:
-            raise HTTPException(
-                status_code=404,
-                detail="Scene not found."
-            )
+    if scene is None:
+        raise HTTPException(
+            status_code=404,
+            detail="Scene not found."
+        )
 
-        return scene
+    return scene
 
 if __name__ == "__main__":
     main()
