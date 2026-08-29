@@ -20,7 +20,10 @@ class MixBase(SQLModel):
 
 class Mix(MixBase, table=True):
     id: int | None = Field(default=None, primary_key=True)
-    tracks: list["Track"] = Relationship(back_populates="mix")
+    tracks: list["Track"] = Relationship(
+        back_populates="mix",
+        sa_relationship_kwargs={"order_by": "Track.time_secs"},
+    )
 
 
 class MixPublic(MixBase):

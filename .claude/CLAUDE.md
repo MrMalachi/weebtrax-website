@@ -12,8 +12,8 @@ loaded into every session automatically.
 | 2 | JSON metadata | ✅ Complete |
 | 3 | Website reads JSON | ✅ Complete |
 | 3.5 | Countdown page (pre-launch holding page) | ✅ Live |
-| 4 | Create backend / API (FastAPI) | 🟨 In progress — models/routers/seeding split into separate files, backed by a real database |
-| 5 | Move JSON metadata into PostgreSQL | 🟨 In progress — local Postgres running, schema + seeding done; not yet on Railway, frontend not yet wired to it |
+| 4 | Create backend / API (FastAPI) | 🟨 In progress — models/routers/seeding split into separate files, backed by a real database, frontend now wired to it |
+| 5 | Move JSON metadata into PostgreSQL | 🟨 In progress — local Postgres running, schema + seeding done, frontend wired to the API; not yet on Railway |
 | 6 | Deploy with Railway | ⬜ Not started |
 | 7 | Move large media to storage bucket (Cloudflare R2) | ⬜ Not started |
 | Pre-launch | Verification, Cloudflare config, launch procedure | ⬜ Not started |
@@ -279,10 +279,12 @@ Reads from PostgreSQL now (locally); JSON files are only used to seed the databa
 - `backend/database.py` — shared `engine`/`get_db`/`create_db_and_tables`, one database for both routers (was two separate SQLite files per-router, consolidated)
 - `backend/models/mix.py`, `track.py`, `scene.py` — table + public response models (`MixBase`/`Mix`/`MixPublic`/`MixWithTracks`, same pattern for `Scene`/`Track`), split out of the routers; all fields renamed to snake_case (`release_date`, `audio_path`, `episode_number`, etc.) — JSON fixtures still use the frontend's camelCase, translated during seeding
 - `backend/seed.py` — loads `backend/data/{mixes,scenes}.json`, translates field names, and seeds the database; `backend/init_db.py` is the entry point that creates tables + seeds both
-- `backend/routers/mixes.py` — `GET /api/mixes`, `GET /api/mixes/latest` (`limit` capped `le=20`), `GET /api/mixes/popular` (sorted by views), `GET /api/mixes/slug/{slug}`, `GET /api/mixes/{mix_id}` (includes tracklist), `PATCH /api/mixes/{mix_id}/views`
+- `backend/routers/mixes.py` — `GET /api/mixes` (now `order_by(Mix.id)` + `selectinload(Mix.tracks)`, returns `MixWithTracks` so every mix carries its full tracklist — the frontend needs this for every row, not just the active one), `GET /api/mixes/latest` (`limit` capped `le=20`), `GET /api/mixes/popular` (sorted by views), `GET /api/mixes/slug/{slug}`, `GET /api/mixes/{mix_id}` (includes tracklist), `PATCH /api/mixes/{mix_id}/views`
 - `backend/routers/scenes.py` — `GET /api/scenes` (deterministic `order_by(episode_number, id)`, page/limit/episode/mood filters), `GET /api/scenes/{scene_id}`
+- `Mix.tracks` relationship now carries `order_by="Track.time_secs"` — without it, tracklist entries had no guaranteed order, which the frontend's "current track" lookup depends on
 - Indexes added on `Mix.slug`, `Mix.mood`, `Scene.slug`, `Scene.mood`, `Scene.episode_number`
-- Open: `/api/scenes?tag=` filtering not implemented; no `le=` upper bound on `page`/`episode` in `scenes.py`; SQL `COUNT()` for scenes pagination total (currently `len(session.exec(statement).all())`) is an optimization, not urgent at 48 rows; frontend still fetches `mixes.json`/`scenes.json` directly, not yet wired to this API — see full detail in [CHANGELOG.md](../docs/CHANGELOG.md#phase-4--backend--api)
+- **Frontend now wired to the API** (2026-08-29): `production/js/app.js` fetches `http://localhost:8000/api/mixes` and `/api/scenes?limit=50` instead of the static JSON files, then maps the snake_case API shape back to the camelCase shape the rest of the frontend already expects (`wtMapMix`/`wtMapScene`). Integer PKs are turned back into the `mix-001`/`scene-001` string IDs the UI displays (`TX-` codes, session restore) — safe because seeding order matches the original JSON order, so PK 1 is always `mix-001`. `WT_API_BASE` is hardcoded to localhost for now; will need to become the real URL once Phase 6 puts the backend on Railway. `mixes.json`/`scenes.json` are no longer read by the live site, only by `backend/seed.py`.
+- Open: SQL `COUNT()` for scenes pagination total (currently `len(session.exec(statement).all())`) is an optimization, not urgent at current scene counts; `/api/scenes` `limit` is capped `le=50`, which happens to cover all current scenes but will need raising (or real pagination on the frontend) once scene count passes 50 — see full detail in [CHANGELOG.md](../docs/CHANGELOG.md#phase-4--backend--api)
 
 ### Learning resources
 
@@ -313,9 +315,7 @@ JSON fields become table columns. DB stores metadata + file paths only (not file
 - Local connections use "trust" auth (Homebrew's default for this install) — no password needed for local dev
 - `backend/database.py` reads `DATABASE_URL` from the environment, falling back to `postgresql+psycopg://localhost:5432/weebtrax` for local dev; `psycopg[binary]` added as a dependency
 - Schema created via `SQLModel.metadata.create_all` (`backend/init_db.py`), seeded from the JSON fixtures via `backend/seed.py` — same models/routers from Phase 4, just pointed at Postgres instead of SQLite
-- Not yet done: Postgres on Railway (that's Phase 6's job, not this one) and wiring the frontend to read from the API instead of `mixes.json`/`scenes.json` directly — deliberately treated as a separate, larger step rather than folded into this swap
-
-**After this phase**: re-create/re-copy the 48 missing scene video clips (see [Known issue, Phase 1](#known-issue-2026-08-20)) — source footage needs to be re-copied from wherever the original episode clips live outside this repo.
+- Frontend now reads from the API instead of `mixes.json`/`scenes.json` directly (see Phase 4 status above) — that was the last piece of this phase treated as a separate step; not yet done: Postgres on Railway (Phase 6's job)
 
 ---
 

@@ -1,4 +1,5 @@
 from fastapi import APIRouter, Depends, HTTPException, Query, status
+from sqlalchemy.orm import selectinload
 from sqlmodel import Session, select
 
 from backend.database import get_db
@@ -12,13 +13,15 @@ router = APIRouter()
     "/mixes",
     summary="Get a list of all mixes.",
     status_code=status.HTTP_200_OK,
-    response_description="A list of Mix objects.",
-    response_model=list[MixPublic],
+    response_description="A list of Mix objects, each with its tracklist.",
+    response_model=list[MixWithTracks],
     tags=["Mixes"],
 )
 def get_mixes(session: Session = Depends(get_db)):
-    """Retrieve a list of all available mixes."""
-    mixes = session.exec(select(Mix)).all()
+    """Retrieve a list of all available mixes, including tracklists."""
+    mixes = session.exec(
+        select(Mix).options(selectinload(Mix.tracks)).order_by(Mix.id)
+    ).all()
 
     return mixes
 

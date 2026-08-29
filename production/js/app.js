@@ -699,12 +699,46 @@ function App() {
     onChange: v => setTweak('motion', v)
   })));
 }
+var WT_API_BASE = 'http://localhost:8000/api';
+
+function wtMapMix(m) {
+  return {
+    id: 'mix-' + String(m.id).padStart(3, '0'),
+    title: m.title,
+    slug: m.slug,
+    duration: m.duration,
+    releaseDate: m.release_date,
+    mood: m.mood,
+    views: m.views,
+    audioPath: m.audio_path,
+    youtubeUrl: m.youtube_url,
+    soundcloudUrl: m.soundcloud_url,
+    tracklist: (m.tracks || []).map(function(t) {
+      return { timeSecs: t.time_secs, artist: t.artist, title: t.title };
+    })
+  };
+}
+
+function wtMapScene(s) {
+  return {
+    id: 'scene-' + String(s.id).padStart(3, '0'),
+    name: s.name,
+    slug: s.slug,
+    type: s.type,
+    description: s.description,
+    episodeNumber: s.episode_number,
+    mood: s.mood,
+    videoPath: s.video_path,
+    thumbnailPath: s.thumbnail_path
+  };
+}
+
 Promise.all([
-  fetch('/public/assets/metadata/mixes.json').then(function(r) { return r.json(); }),
-  fetch('/public/assets/metadata/scenes.json').then(function(r) { return r.json(); })
+  fetch(WT_API_BASE + '/mixes').then(function(r) { return r.json(); }),
+  fetch(WT_API_BASE + '/scenes?limit=50').then(function(r) { return r.json(); })
 ]).then(function(results) {
-  window.__WT_MIXES = results[0];
-  window.__WT_SCENES = results[1];
+  window.__WT_MIXES = results[0].map(wtMapMix);
+  window.__WT_SCENES = results[1].results.map(wtMapScene);
   ReactDOM.createRoot(document.getElementById('root')).render(/*#__PURE__*/React.createElement(ErrorBoundary, null, /*#__PURE__*/React.createElement(App, null)));
 }).catch(function(err) {
   console.error('[WeebTrax] Failed to load metadata:', err);
