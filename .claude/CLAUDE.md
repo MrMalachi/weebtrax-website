@@ -123,7 +123,11 @@ Landscape phones always get the desktop layout at their actual width — never o
 
 ### Open items
 - [ ] Previous track button — auto-advance only goes forward
-- [ ] Shuffle mode
+- [ ] **Player controls: shuffle + autoplay toggle** (idea logged 2026-09-03) — two YouTube-style buttons on the player:
+  - **Shuffle** — when on, the next track is picked at random instead of the next row. Should avoid repeating a mix until the pool is exhausted (keep a shuffled play order or a "already played" set), not just call `Math.random()` each time, or short archives repeat immediately.
+  - **Autoplay on/off** — when off, playback stops at the end of the current mix instead of advancing at all. Auto-advance is currently unconditional in `onEnded` (`production/js/app.js:414`), which walks `getMixes()` to the next index and falls back to `setPlaying(false)` at the end of the list. Both toggles change what that one handler does, so build them as a single "what plays next?" decision rather than two separate patches.
+  - Persist both toggle states in `localStorage` alongside the existing session restore, and decide whether shuffle draws from the full archive or only the currently filtered/mood-chipped view (YouTube uses the visible queue — the filtered view is probably the less surprising choice).
+  - Pairs naturally with the previous-track button above: with shuffle on, "previous" has to mean *history*, not index − 1, so keep a played-track stack that both features share.
 - [ ] Scene cards have no keyboard navigation (Tab/Enter to select)
 - [ ] No visible focus styles on interactive elements
 - [ ] About section has placeholder branding text — needs short bio, release schedule, social links
