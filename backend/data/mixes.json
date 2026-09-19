@@ -7449,5 +7449,73 @@
         "title": "Haag"
       }
     ]
+  },
+  {
+    "title": "Lo-Fi House Mix | Please Don’t Let Go",
+    "slug": "lo-fi-house-mix-please-dont-let-go",
+    "duration": "00:46:28",
+    "releaseDate": "2026-09-19",
+    "mood": "nostalgic",
+    "views": 28,
+    "audioPath": "mixes/audio/lo-fi-house-mix-please-dont-let-go.mp3",
+    "youtubeUrl": "https://www.youtube.com/watch?v=6BBdiqS8NMU",
+    "soundcloudUrl": "https://soundcloud.com/weebtrax/lo-fi-house-mix-please-dont",
+    "tracklist": [
+      {
+        "timeSecs": 0,
+        "artist": "Pépe",
+        "title": "Lemon Fanta"
+      },
+      {
+        "timeSecs": 422,
+        "artist": "Kaikobad",
+        "title": "Seeing Everything"
+      },
+      {
+        "timeSecs": 582,
+        "artist": "Kaikobad",
+        "title": "Afterimage"
+      },
+      {
+        "timeSecs": 655,
+        "artist": "dj something",
+        "title": "I Feel Like DJ Something"
+      },
+      {
+        "timeSecs": 800,
+        "artist": "Rimbaudian",
+        "title": "Drop It on Em"
+      },
+      {
+        "timeSecs": 1166,
+        "artist": "Target Demographic",
+        "title": "All Night Long"
+      },
+      {
+        "timeSecs": 1375,
+        "artist": "Slamb",
+        "title": "Hard 2B"
+      },
+      {
+        "timeSecs": 1623,
+        "artist": "Kanyalang",
+        "title": "Ode To Shinichi (Instrumental)"
+      },
+      {
+        "timeSecs": 2030,
+        "artist": "Skin On Skin",
+        "title": "Way Ur Touchin Me"
+      },
+      {
+        "timeSecs": 2277,
+        "artist": "Mall Grab",
+        "title": "Love Reigns"
+      },
+      {
+        "timeSecs": 2539,
+        "artist": "Pacific Coliseum & Teen Daze",
+        "title": "Music2001"
+      }
+    ]
   }
 ]
